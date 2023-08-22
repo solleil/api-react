@@ -1,9 +1,9 @@
 import './index.scss';
 
-export default function Pagamento() {
+export default function paginaConsultar() {
   return (
     <div className="">
-      <h1>Pagamento</h1>
+      <h1></h1>
     </div>
   );
 }

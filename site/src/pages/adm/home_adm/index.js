@@ -1,6 +1,6 @@
 import './index.scss';
 
-export default function App() {
+export default function paginaInicial() {
   return (
     <div className="">
       <h1></h1>
