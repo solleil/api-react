@@ -1,9 +1,9 @@
 import './index.scss';
 
-export default function paginaConsultar() {
+export default function Consultar() {
   return (
-    <div className="">
-      <h1></h1>
+    <div className="pag-consultar">
+      <h1> oi</h1>
     </div>
   );
 }

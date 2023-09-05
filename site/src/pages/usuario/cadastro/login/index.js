@@ -2,7 +2,7 @@ import './index.scss';
 
 export default function Login() {
   return (
-    <div className="">
+    <div className="pag-login">
       <h1>Login</h1>
     </div>
   );

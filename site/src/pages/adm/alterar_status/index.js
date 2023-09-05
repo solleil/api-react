@@ -1,9 +1,9 @@
 import './index.scss';
 
-export default function paginaAlterarProduto() {
+export default function AlterarProduto() {
   return (
-    <div className="">
-      <h1></h1>
+    <div className="pag-alt-produto">
+      <h1>oi</h1>
     </div>
   );
 }
