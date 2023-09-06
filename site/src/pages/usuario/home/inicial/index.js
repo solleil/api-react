@@ -1,18 +1,22 @@
 
 
 import './index.scss';
-import CCabecalho from '../../../../components/cabecalho'
-import CRodape from '../../../../components/rodape';
+import Cabecalho from '../../../../components/cabecalho'
+import Rodape from '../../../../components/rodape';
 
 export default function Inicial() {
   return (
     <div className="pag-inicial">
 
-        <CCabecalho/>
+        <Cabecalho/>
 
+
+        <div className="s1">
+          
+        </div>
 
         
-      <CRodape/>
+      <Rodape/>
 
 
 
