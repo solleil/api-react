@@ -3,6 +3,61 @@
 
 
 
+
+  .s1{
+    display: flex;
+    flex-direction: row;
+    width: 98vw;
+    background-color: #edcc9ce1;
+  }
+  .s1-1{
+    display: flex;
+    flex-direction: row;
+  }
+  .s1-1 img{
+    
+    width: 20vw;
+  }
+
+  .linha{
+    background-color: #CEA564;
+    color:#CEA564;
+  }
+
+  .s1-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+  }
+
+  .s1-2 p{
+    margin-left : 150px;
+    width: 25vw;
+    font-size: 22px;
+  }
+
+
+
+
+
+
+
+
+
+
+    .s2{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .s2-1 img{
+        background-color: #ffcc7aea;
+    }
+
+
 }
 
 

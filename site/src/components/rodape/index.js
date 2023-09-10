@@ -7,7 +7,7 @@ export default function Rodape(){
 
             <div className="info">  
 
-                <div className="s1">
+                <div className="r1">
                     <h2>Ajuda & Suporte</h2>
                     <p>Central de ajuda</p>
                     <p>Politica de entrega</p>
@@ -16,7 +16,7 @@ export default function Rodape(){
                     <p>Trocas e devoluções</p>
                 </div>
 
-                <div className="s2">
+                <div className="r2">
                     <h2>Minha Conta</h2>
                     <p>Dados pessoais</p>
                     <p>Meus endereços</p>
@@ -25,14 +25,14 @@ export default function Rodape(){
                     <p>Meus favoritos</p>
                 </div>
 
-                <div className="s3">
+                <div className="r3">
                     <h2>Institucional</h2>
                     <p>Revenda</p>
                     <p>Parcerias</p>
                 </div>
 
 
-                <div className="s4">
+                <div className="r4">
                     <h1> Solleil</h1>
                     <div className="a"> 
                     <a >  <img alt="" src="/assets/images/geral/insta.png" />  </a>
