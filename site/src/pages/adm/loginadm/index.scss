@@ -1,0 +1,68 @@
+.pag-login-adm {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sol{
+    margin-top: 15%;
+
+  }
+  
+  .modeloadm {
+    .md-adm{
+        width: 40vw;
+        height: 100vh;
+    }
+    
+  }
+
+  .lg-tudo{
+    gap: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFE898;
+    width: 100vw;
+
+    .usuario{
+        display: flex;
+        flex-direction: column;
+
+        input{
+            width: 20vw;
+            height: 5vh;
+            border-radius: 5px;
+        }
+    }
+
+    .senha{
+        display: flex;
+        flex-direction: column;
+
+        input{
+            width: 20vw;
+            height: 5vh;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+
+       
+    }
+  }
+  
+   .bt-entrar{
+            border: none;
+            justify-content: center;
+            background-color: black;
+            color: white;
+            width: 12vw;
+            height: 7vh;
+            border-radius: 10px;
+            margin-top: 10px;
+
+        }
+
+        .anonimo{
+           margin-top: 3%;
+           margin-left: 90%;
+        }

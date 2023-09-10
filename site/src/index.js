@@ -32,7 +32,7 @@ import AlterarProduto from './pages/adm/alterar_status';
 import Consultar from './pages/adm/consulta_geral';
 import ConsultaProduto from './pages/adm/consulta_produto';
 import Inicialadm from './pages/adm/home_adm';
-import Loginadm from './pages/adm/login_adm';
+import Loginadm from './pages/adm/loginadm';
 import Graficos from './pages/adm/pagina_graficos';
 
 
