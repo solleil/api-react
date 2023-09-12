@@ -1,0 +1,114 @@
+.pag-produto{
+
+text-align: center;
+
+
+.s1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100vw;
+    background-color: #6796dc46;
+    padding: 15px;
+}
+.s1 img{
+    height: 55vh;
+}
+.s1-1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+}
+.s1-1 p{
+    font-size: 20px;
+    width: 60vw;
+}
+.s1-1 button{
+
+    background-color: #6796dc6c;
+    border: none;
+    border-radius: 25px;
+    padding: 15px;
+    letter-spacing: 1px;
+}
+.s1-1 button:hover{
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 2px;
+}
+
+
+
+.s2{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 60vw;
+    padding: 15px;
+}
+.s2 p{
+    font-size: 18px;
+    margin: 3px;
+}
+.linha{
+    height: 1vh;
+    width: 50vw;
+    background-color: #FFE898;
+}
+.s2-1{
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap ;
+    flex-direction: column;
+   gap: 15px;   
+    width: 50vw !important;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+.s2-1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+  }
+  .s6-1-p{
+    border: 4px solid #fabc59ab;
+    border-radius: 15px;
+    padding: 8px;
+  }
+  .s6-1-p:hover{
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 12px;
+  }
+  .s6-1-p img{
+    height: 30vh;
+  }
+  .s6-1-p img:hover{
+    height: 32vh;
+    transition: 0.3s;
+  }
+  .s6-1-p p{
+    font-size: 14px;
+  }
+  .s6-1-p b{
+    font-size: 18px;
+  }
+
+
+}

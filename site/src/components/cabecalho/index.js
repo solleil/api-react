@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './index.scss'
 
 export default function Cabecalho() {
-      const[menu, setMenu] = useState(false)
+      const[menu, setMenu] = useState(true)
 
       function Mudar(){
         setMenu(!menu)

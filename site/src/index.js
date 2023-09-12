@@ -21,6 +21,7 @@ import Login from './pages/usuario/cadastro/login';
 
 import Carrinho from './pages/usuario/produtos/carrinho';
 import Info from './pages/usuario/produtos/info';
+import IniProdutos from './pages/usuario/produtos/iniprodutos';
 import Produtos from './pages/usuario/produtos/produtos';
 
 
@@ -52,6 +53,7 @@ root.render(
 
                 <Route path='/produtos' element={<Produtos/>} />
                 <Route path='/carrinho' element={<Carrinho/>} />
+                <Route path='/iniproduto' element={<IniProdutos/>} />
                 <Route path='/info' element={<Info/>} />
 
 
