@@ -1,0 +1,61 @@
+.index_login_usuario {
+    .fundo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .sec_1 {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .sec1_div_img {
+        width: 300px;
+        border: 4px #000 solid;
+        background-image: '/assets/images/usuario/login/tccsoleil2s2login_img.png';
+    }
+
+    .sec1_login {
+        width: 300px;
+        background-color: #ffce83e6;
+    }
+
+    .sec1_login > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .login_1 > input {
+        border-radius: 20px;
+        border: none;
+        margin-bottom: 10px;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+    .login_1 > button {
+        border: none;
+        border-radius: 20px;
+        height: 35px;
+        width: 90px;
+        background-color: #CC9E56;
+        color: #fff
+    }
+
+    .login_3 > button {
+        border: none;
+        border-radius: 20px;
+        height: 35px;
+        margin-bottom: 15px;
+        width: 173px;
+    }
+
+    .botao_face {
+        background-color: #1977F3;
+        color: #fff;
+    }
+}
