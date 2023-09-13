@@ -19,7 +19,7 @@ export default function Cabecalho() {
         {menu === true &&
         <>
         <img src='/assets/images/usuario/cabecalho/logo_preta.png' alt=''/>
-              <h1> Solleil</h1>
+              <p> Solleil</p>
           </>
               }
 
@@ -29,10 +29,10 @@ export default function Cabecalho() {
         <>
         <div className='filtros'>
         <img src='/assets/images/usuario/cabecalho/logo_preta.png' alt=''/>
-              <b>Categorias</b>
-              <b>Tipo de pele </b>
-              <b>Necessidades</b>
-              <b>Marcas</b>
+              <p>Categorias</p>
+              <p>Tipo de pele </p>
+              <p>Necessidades</p>
+              <p>Marcas</p>
         </div>
         
           </>
