@@ -1,4 +1,5 @@
 .index_login_usuario {
+    
     .fundo {
         display: flex;
         flex-direction: column;
@@ -15,8 +16,11 @@
 
     .sec1_div_img {
         width: 300px;
-        border: 4px #000 solid;
-        background-image: '/assets/images/usuario/login/tccsoleil2s2login_img.png';
+    }
+
+    .sec1_div_img > img {
+        height: 100%;
+        width: 100%;
     }
 
     .sec1_login {

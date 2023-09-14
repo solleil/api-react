@@ -5,7 +5,9 @@ export default function Login() {
     <div className="index_login_usuario">
       <div className='fundo'>
         <div className='sec_1'>
-          <div className='sec1_div_img'></div>
+          <div className='sec1_div_img'>
+            <img src='/assets/images/usuario/login/tccsoleil2s2login_img.png' alt=''></img>
+          </div>
           <div className='sec1_login'>
             <div className='login_1'>
               <h2>Solleil</h2>

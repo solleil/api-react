@@ -31,7 +31,7 @@ import Produtos from './pages/usuario/produtos/produtos';
 
 import AddProduto from './pages/adm/add_produto';
 import AlterarProduto from './pages/adm/alterar_status';
-import Consultar from './pages/adm/consulta_geral';
+import EditarProduto from './pages/adm/editar_produto';
 import ConsultaProduto from './pages/adm/consulta_produto';
 import Inicialadm from './pages/adm/home_adm';
 import Loginadm from './pages/adm/loginadm';
@@ -62,7 +62,7 @@ root.render(
 
                 <Route path='/addproduto' element={<AddProduto/>} />
                 <Route path='/alterarstatus' element={<AlterarProduto/>} />
-                <Route path='/consultar' element={<Consultar/>} />
+                <Route path='/editarproduto' element={<EditarProduto/>} />
                 <Route path='/consultaproduto' element={<ConsultaProduto/>} />
                 <Route path='/inicialadm' element={<Inicialadm/>} />
                 <Route path='/loginadm' element={<Loginadm/>} />
