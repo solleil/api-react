@@ -35,10 +35,10 @@ export default function Rodape(){
                 <div className="r4">
                     <h1> Solleil</h1>
                     <div className="a"> 
-                    <a >  <img alt="" src="/assets/images/geral/insta.png" />  </a>
-                    <a >  <img alt="" src="/assets/images/geral/twitter.png" />  </a>
-                    <a >  <img alt="" src="/assets/images/geral/wpp.png" />  </a>
-                    <a >  <img alt="" src="/assets/images/geral/youtube.png" />  </a>
+                    <a href="fadf" >  <img alt="" src="/assets/images/geral/insta.png" />  </a>
+                    <a href="fadf" >  <img alt="" src="/assets/images/geral/twitter.png" />  </a>
+                    <a href="fadf" >  <img alt="" src="/assets/images/geral/wpp.png" />  </a>
+                    <a href="fadf">  <img alt="" src="/assets/images/geral/youtube.png" />  </a>
                     </div>
                     
 

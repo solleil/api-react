@@ -1,4 +1,4 @@
-import Cabecalho from '../../../../components/cabecalho';
+
 import './index.scss';
 
 export default function Cadastro() {
@@ -10,7 +10,7 @@ export default function Cadastro() {
       <img className='sollei' src='/assets/images/usuario/cabecalho/logo_preta.png' alt=''/>
               <h1> Solleil</h1>
       <div>
-          <img src='/assets/images/geral/fe.png'/>
+          <img src='/assets/images/geral/fe.png'  alt='' />
         </div>
     
       </div>

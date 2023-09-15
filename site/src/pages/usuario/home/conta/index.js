@@ -18,30 +18,30 @@ export default function Conta() {
 
         <div className='s1-2'>
 
-            <div>
+            <a href='aaa'>
               <img src='/assets/images/usuario/conta/carteira.png' alt=''/>
               <p>não pagos</p>
-            </div>
+            </a>
 
-            <div>
+            <a href='aaa'>
               <img src='/assets/images/usuario/conta/caixa.png' alt=''/>
               <p>processando</p>
-            </div>
+            </a>
 
-            <div>
+            <a href='aaa'>
               <img src='/assets/images/usuario/conta/caminhao.png' alt=''/>
               <p>a caminho</p>
-            </div>
+            </a>
 
-            <div>
+            <a href='aaa'>
               <img src='/assets/images/usuario/conta/comentario.png' alt=''/>
               <p>comentados</p>
-            </div>
+            </a>
 
-            <div>
+            <a href='aaa'>
               <img src='/assets/images/usuario/conta/caixa2.png' alt=''/>
               <p>devolução</p>
-            </div>
+            </a>
 
 
 
@@ -51,10 +51,54 @@ export default function Conta() {
       </div>
 
 
-
+      <div className='linha'>.</div>
 
       <div className='s2'>
 
+          <div className='s2-1'>
+            <p>dados pessoais:</p>
+            <a href='a'>editar <img  src='/assets/images/usuario/conta/editar.png' alt=''/></a>
+          </div>
+
+          <div className='s2-2'>
+                <div className='s2-2-info'>
+                  <p>nome:</p>
+                  <p>***</p>
+                </div>
+
+                <div className='s2-2-info'>
+                  <p>sobrenome:</p>
+                  <p>***</p>
+                </div>
+
+                <div className='s2-2-info'>
+                  <p>tipo de pele:</p>
+                  <select>
+                    <option>normal</option>
+                    <option>sensível</option>
+                    <option>mista</option>
+                    <option>oleosa</option>
+                    <option>seca</option>
+                  </select>
+                </div>
+
+                <div className='s2-2-info'>
+                  <p>email:</p>
+                  <p>***</p>
+                </div>
+
+                <div className='s2-2-info'>
+                  <p>cpf:</p>
+                  <p>***</p>
+                </div>
+
+                <div className='s2-2-info'>
+                  <p>telefone:</p>
+                  <p>***</p>
+                </div>
+                
+
+          </div>
         
       </div>
 

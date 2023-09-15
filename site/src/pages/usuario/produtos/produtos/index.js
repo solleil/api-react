@@ -13,7 +13,7 @@ export default function Produtos() {
         <h1 className='tt'>LIMPEZA</h1>
         <div className='produtos-container'>
           <div className='produtos'>
-          <a>
+          <a href='asd' >
               <img src='/assets/images/geral/limpador.png' alt='' />
               <div className='linha'>.</div>
               <p className='titulo'> LIMPADOR FACIL</p>
@@ -30,7 +30,7 @@ export default function Produtos() {
           </div>
 
           <div className='produtos'>
-          <a>
+          <a href='asd'>
               <img src='/assets/images/geral/limpador.png' alt='' />
               <div className='linha'>.</div>
               <p className='titulo'> LIMPADOR FACIL</p>
@@ -47,7 +47,7 @@ export default function Produtos() {
           </div>
 
           <div className='produtos'>
-          <a>
+          <a href='asd'>
               <img src='/assets/images/geral/limpador.png' alt='' />
               <div className='linha'>.</div>
               <p className='titulo'> LIMPADOR FACIL</p>
@@ -68,7 +68,7 @@ export default function Produtos() {
           <h1 className='tt'>HIDRATAÇÂO</h1>
 
           <div className='produtos'>
-          <a>
+          <a href='asd'>
               <img src='/assets/images/geral/limpador.png' alt='' />
               <div className='linha'>.</div>
               <p className='titulo'> LIMPADOR FACIL</p>
@@ -85,7 +85,7 @@ export default function Produtos() {
           </div>
 
           <div className='produtos'>
-          <a>
+          <a href='asd'>
               <img src='/assets/images/geral/limpador.png' alt='' />
               <div className='linha'>.</div>
               <p className='titulo'> LIMPADOR FACIL</p>
@@ -102,7 +102,7 @@ export default function Produtos() {
           </div>
 
           <div className='produtos'>
-          <a>
+          <a href='asd'>
               <img src='/assets/images/geral/limpador.png' alt='' />
               <div className='linha'>.</div>
               <p className='titulo'> LIMPADOR FACIL</p>
@@ -122,7 +122,7 @@ export default function Produtos() {
           <h1 className='tt'>MÁSCARAS</h1>
 
           <div className='produtos'>
-          <a>
+          <a href='asd'>
               <img src='/assets/images/geral/limpador.png' alt='' />
               <div className='linha'>.</div>
               <p className='titulo'> LIMPADOR FACIL</p>
@@ -141,7 +141,7 @@ export default function Produtos() {
 
 
           <div className='produtos'>
-          <a>
+          <a href='asd'>
               <img src='/assets/images/geral/limpador.png' alt='' />
               <div className='linha'>.</div>
               <p className='titulo'> LIMPADOR FACIL</p>
@@ -159,7 +159,7 @@ export default function Produtos() {
 
 
           <div className='produtos'>
-          <a>
+          <a href='asd'>
               <img src='/assets/images/geral/limpador.png' alt='' />
               <div className='linha'>.</div>
               <p className='titulo'> LIMPADOR FACIL</p>
@@ -179,7 +179,7 @@ export default function Produtos() {
           <h1 className='tt'>ESFOLIANTES</h1>
 
           <div className='produtos'>
-          <a>
+          <a href='asd'>
               <img src='/assets/images/geral/limpador.png' alt='' />
               <div className='linha'>.</div>
               <p className='titulo'> LIMPADOR FACIL</p>
@@ -196,7 +196,7 @@ export default function Produtos() {
           </div>
 
           <div className='produtos'>
-          <a>
+          <a href='asd'>
               <img src='/assets/images/geral/limpador.png' alt='' />
               <div className='linha'>.</div>
               <p className='titulo'> LIMPADOR FACIL</p>
@@ -213,7 +213,7 @@ export default function Produtos() {
           </div>
 
           <div className='produtos'>
-          <a>
+          <a href='asd'>
               <img src='/assets/images/geral/limpador.png' alt='' />
               <div className='linha'>.</div>
               <p className='titulo'> LIMPADOR FACIL</p>
@@ -233,7 +233,7 @@ export default function Produtos() {
           <h1 className='tt'>CORPO</h1>
 
           <div className='produtos'>
-          <a>
+          <a href='asd'>
               <img src='/assets/images/geral/limpador.png' alt='' />
               <div className='linha'>.</div>
               <p className='titulo'> LIMPADOR FACIL</p>
@@ -250,7 +250,7 @@ export default function Produtos() {
           </div>
 
           <div className='produtos'>
-          <a>
+          <a href='asd'>
               <img src='/assets/images/geral/limpador.png' alt='' />
               <div className='linha'>.</div>
               <p className='titulo'> LIMPADOR FACIL</p>
@@ -267,7 +267,7 @@ export default function Produtos() {
           </div>
 
           <div className='produtos'>
-          <a>
+          <a href='asd'>
               <img src='/assets/images/geral/limpador.png' alt='' />
               <div className='linha'>.</div>
               <p className='titulo'> LIMPADOR FACIL</p>

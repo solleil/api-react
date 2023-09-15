@@ -1,5 +1,9 @@
 .pag-conta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    gap:15px;
    
 
 
@@ -16,7 +20,11 @@
         align-items: center;
         justify-content: space-between;
         
-        width: 100vw;
+        width: 90vw;
+    }
+    .s1-1 a{
+        color: black;
+        text-decoration: none;
     }
     .s1-1 img{
         height: 2vh;
@@ -26,13 +34,89 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        width: 100vw;
+        width: 90vw;
         justify-content: space-evenly;
     }
     .s1-2 img{
         height: 8vh;
     }
+    a{
+        color: black;
+        text-decoration: none;
+            
+    }
+    a:hover{
+        font-size: 17px;
+        transition: 0.4s;
+    }
 
+
+
+
+    .linha{
+        background-color: #fabc59a4;
+        color: #fabc59a4;
+        height: 5px;
+        width: 90vw;
+    
+    }
+
+
+
+
+
+
+    .s2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+    }
+    .s2-1{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 80vw;
+    }
+    .s2-1 img{
+        height: 2vh;
+    }
+
+
+
+    .s2-2{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        width: 80vw;
+        gap: 15px
+    }
+    .s2-2-info{
+        
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 20vw;
+        height: 15vh;
+        gap: 0px;
+
+    
+    }
+
+    select{
+        border: none;
+        border-radius: 15px;
+    }
+    option{
+        border: none;
+    }
 
 
 }
