@@ -30,7 +30,7 @@
     }
 
     .i-1 input{
-        height: 3vh;
+        height: 4vh;
         width: 30vw;
         border: 1px solid #FABB59 ;
     }
@@ -47,6 +47,7 @@
         align-items: center;
         padding-right: 25vh;    
         height: 25vh;
+        text-align: end;
     }
 
     .s-2{
@@ -62,6 +63,11 @@
         border: 1px solid #FABB59 ;
     }
 
+  .i-2 p{
+        text-align: start;
+        padding-right: 42vh;
+    }
+
     .a-1{
         display: flex;
         flex-direction: column ;
@@ -70,11 +76,52 @@
         padding-left: 20px;
         margin-left: 20px;
         gap: 0px;
+        position: absolute;      
     }
-
     .a-1 input{
-        height: 45vh;
+        height: 56vh;
         width: 30vw;
         border: 1px solid #FABB59 ; 
+        
     }
+    .cima {
+        height: 16vh;
+        width: 46vh;
+        margin: 15px;
+
+    }
+
+    .b-1{
+        border: 1px solid #FABB59;
+        width: 32vw;
+        height: 35vh;
+        gap: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .b-2{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        height: 1px;
+        width: 41vh;
+    }
+    .c-1-1{
+        display: flex;
+    
+        .tipodepele{
+          border: 1px solid #FABB59;  
+          width: 20vw;
+          height: 20vh;
+
+        }
+    }
+
+
+
 }
+
+

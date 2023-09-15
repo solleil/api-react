@@ -31,18 +31,54 @@ export default function AddProduto() {
 
 
       <div className='s-3'>
+
         <div className='a-1'>
           <p>Adicionar imagem:</p>
-          <input type='text'></input>
+          <div className='b-1'>
+            <img className='cima' src='./assets/images/geral/salvar.svg'/>
+            <div className='b-2'>
+              <img className='embaixo' src='./assets/images/geral/export.svg'/>
+            </div>  
+          </div>
         </div>
+
+
+        <textarea></textarea>
         <div className='c-1-1'>
+           <label className='tipodepele'>Tipo de pele</label>
+           <select>
+            <option>Selecionar</option>
+            </select>
+
+            <label className='tamanho'>Tamanhos</label>
+           <select>
+            <option>Selecionar</option>
+            </select>
+
+            <label className='marca'>Marca</label>
+           <select>
+            <option>Selecionar</option>
+            </select>
+
+            <label className='quantidade'>Quantidade</label>
+           <select>
+            <option>Selecionar</option>
+            </select>
+
+            <label className='necessidade'>Necessidade</label>
+           <select>
+            <option>Selecionar</option>
+            </select>
+          </div>
 
         </div>
+
         <div className='c-2'>
 
+            
         </div>
       </div>
 
-    </div>
+  
   );
 }

@@ -52,7 +52,7 @@ export default function EditarProduto() {
               <label>Descrição</label>
               <textarea></textarea>
             </div>
-            <div className='container2_c2'>
+          <div className='container2_c2'>
               <div className='container2c2_coluna-1'>
                 <label>Tipo de pele</label>
                 <select className='tipopele'>

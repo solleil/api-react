@@ -18,6 +18,7 @@ export default function Loginadm() {
       <div className='usuario'>
         Usuário
         <input type='text' value={nmUsuario} onChange={e=> setUsuario(e.target.value)} />  
+        <img src='' alt='' />
       </div>
 
       <div className='senha'>
