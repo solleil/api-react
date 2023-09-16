@@ -36,6 +36,7 @@ import ConsultaProduto from './pages/adm/consulta_produto';
 import Inicialadm from './pages/adm/home_adm';
 import Loginadm from './pages/adm/loginadm';
 import Graficos from './pages/adm/pagina_graficos';
+import Cadastrocartao from './pages/usuario/cadastro/cadastrocartao';
 
 
 
@@ -67,6 +68,7 @@ root.render(
                 <Route path='/inicialadm' element={<Inicialadm/>} />
                 <Route path='/loginadm' element={<Loginadm/>} />
                 <Route path='/graficos' element={<Graficos/>} />
+                <Route path='/cadastrocartao' element={<Cadastrocartao/>} />
     </Routes>
     </BrowserRouter>
 
