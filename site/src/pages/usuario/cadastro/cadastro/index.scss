@@ -1,4 +1,4 @@
-.c-1{
+.tude{
     background-color: rgba(250, 187, 89, 0.3);
     height: 100%;
     width: 100%;
@@ -7,11 +7,51 @@
     align-items: center ;
 
 }
-.c-2{
+.c-0{
+    display: flex;
     width: 50vw;
     height: 100vh;
     background-position-x: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
 
-    img{
-        height: 680px   }
+    .fundo img{
+        height: 700px;
+        width: 950px;
+    }
+
+    .c-1{
+        display: flex;
+        background-color: rgba(255, 255, 255, 0.808);
+        width: 35vw;
+        height: 80vh;
+        position: absolute;
+        background-position-x: center;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .c-2{
+        display: flex;
+        height: 60vh;
+        width: 30vw;
+        
+        
+       
+    }
+    .c-3{
+        display: flex;
+        margin-bottom: 10px;
+        height: 29px;
+      
+    }
+    .c-4{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        height: 50vh;
+    }
 }

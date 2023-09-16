@@ -3,6 +3,11 @@ import Cabecalho from '../../../components/cabecalho';
 
 
 export default function AddProduto() {
+  
+  
+  
+  
+  
   return (
     <div className="s-1">
       <div className='c-1'>
@@ -17,15 +22,22 @@ export default function AddProduto() {
 
 
       <div className='s-2'>
+
         <div className='i-1'>
+
           <p>Nome</p>
             <input type='text'></input>
+
           <p>Preço</p>  
             <input type='text'></input>
+
         </div>
+
         <div className='i-2'>
+
           <p>Descrição</p>
           <input type='text'></input>
+
         </div>
       </div>
 
@@ -45,6 +57,9 @@ export default function AddProduto() {
 
         
         <div className='c-1-1'>
+
+          <div className='c-1-outro'>
+
            <label >Tipo de pele</label>
            <select className='tipodepele'>
             <option>Selecionar</option>
@@ -59,6 +74,9 @@ export default function AddProduto() {
            <select className='marca'>
             <option>Selecionar</option>
             </select>
+          </div>  
+
+        <div className='c-1-lado'>
 
             <label >Quantidade</label>
            <select className='quantidade'>
@@ -69,16 +87,39 @@ export default function AddProduto() {
            <select className='necessidade'>
             <option>Selecionar</option>
             </select>
+        </div>
+          
           </div>
+
 
         </div>
 
-        <div className='c-2'>
 
-            
+        <div className='c-2-2'> 
+
+          <div className='c-2-lado'>
+              <p>Ingrediente</p>
+              <input className='ingrediente'></input>
+          </div>
+          <div className='c-2-outro'>
+              <p>Ingredientes ativos</p>
+              <input className='Ingredientes ativos'></input>
+
+              <p>Indicações</p>
+              <input className='Indicações'></input>
+          </div>
+          </div>  
+
+        <div className='botaos'>
+        <div>
+          <button id='botao'>Excluir dados</button>
+        </div>
+        <div>
+          <button id='botao'>Confirmar cadastro</button>
+        </div>
+
         </div>
       </div>
 
-  
   );
 }
