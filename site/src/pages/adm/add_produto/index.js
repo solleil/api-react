@@ -78,7 +78,7 @@ export default function AddProduto() {
 
         <div className='c-1-lado'>
 
-            <label >Quantidade</label>
+            <label >Quantidade oiiii</label>
            <select className='quantidade'>
             <option>Selecionar</option>
             </select>
