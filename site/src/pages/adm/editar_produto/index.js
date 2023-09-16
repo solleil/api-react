@@ -50,7 +50,9 @@ export default function EditarProduto() {
           <div className='sec2_container-2'>
             <div className='container2_c1'>
               <label>Descrição</label>
+
               <textarea></textarea>
+              
             </div>
           <div className='container2_c2'>
               <div className='container2c2_coluna-1'>

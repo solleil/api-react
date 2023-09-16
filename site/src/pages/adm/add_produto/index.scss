@@ -111,12 +111,35 @@
     }
     .c-1-1{
         display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: end;
     
         .tipodepele{
           border: 1px solid #FABB59;  
           width: 20vw;
           height: 20vh;
 
+        }
+        .tamanho{
+            border: 1px solid #FABB59;  
+            width: 20vw;
+            height: 20vh;
+        }
+        .marca{
+            border: 1px solid #FABB59;  
+            width: 20vw;
+            height: 20vh;
+        }
+        .quantidade{
+            border: 1px solid #FABB59;  
+            width: 20vw;
+            height: 20vh;
+        }
+        .necessidade{
+            border: 1px solid #FABB59;  
+            width: 20vw;
+            height: 20vh;
         }
     }
 

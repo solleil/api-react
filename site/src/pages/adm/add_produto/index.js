@@ -43,30 +43,30 @@ export default function AddProduto() {
         </div>
 
 
-        <textarea></textarea>
+        
         <div className='c-1-1'>
-           <label className='tipodepele'>Tipo de pele</label>
-           <select>
+           <label >Tipo de pele</label>
+           <select className='tipodepele'>
             <option>Selecionar</option>
             </select>
 
-            <label className='tamanho'>Tamanhos</label>
-           <select>
+            <label >Tamanhos</label>
+           <select className='tamanho'>
             <option>Selecionar</option>
             </select>
 
-            <label className='marca'>Marca</label>
-           <select>
+            <label >Marca</label>
+           <select className='marca'>
             <option>Selecionar</option>
             </select>
 
-            <label className='quantidade'>Quantidade</label>
-           <select>
+            <label >Quantidade</label>
+           <select className='quantidade'>
             <option>Selecionar</option>
             </select>
 
-            <label className='necessidade'>Necessidade</label>
-           <select>
+            <label >Necessidade</label>
+           <select className='necessidade'>
             <option>Selecionar</option>
             </select>
           </div>
