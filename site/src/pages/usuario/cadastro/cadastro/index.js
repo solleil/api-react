@@ -1,6 +1,5 @@
 
 import './index.scss';
-import { useState } from 'react';
 
 export default function Cadastro() {
 
@@ -17,7 +16,7 @@ export default function Cadastro() {
 
     <div className='c-1'>
       <div className='c-2'>
-        <a>Cadastro</a>
+        <a href='0'>Cadastro</a>
 
         <div className='c-3'>
           <input type='text'></input>
