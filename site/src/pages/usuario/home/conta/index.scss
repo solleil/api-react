@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap:15px;
+    gap:18px;
    
 
 
@@ -79,6 +79,7 @@
         align-items: center;
         justify-content: space-between;
         width: 80vw;
+        font-size: 18px;
     }
     .s2-1 img{
         height: 2vh;
@@ -95,6 +96,11 @@
 
         width: 80vw;
         gap: 15px
+    }
+    .p:hover{
+        cursor: pointer;
+        font-size: 18px;
+        transition: 0.4s;
     }
     .s2-2-info{
         
@@ -114,9 +120,182 @@
         border: none;
         border-radius: 15px;
     }
+    select:hover{
+        cursor: pointer;
+        transition: 0.4s;
+        border:1px solid black
+    }
     option{
         border: none;
+        background-color: none;
     }
+
+
+
+
+
+
+
+
+    .s3{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 80vw;
+    }
+    .s3-1{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 80vw;
+        font-size: 18px;
+    }
+    .s3-1 img{
+        height: 2vh;
+    }
+
+    .s3-2{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        width: 10vw;
+        height: 20vw !important;
+ 
+        gap:1px
+
+    }
+
+    .s3-lado{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 80vw;
+    }
+
+
+    .s3-3{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 30vw;
+        gap: 15px;
+    }
+    .s3-3 input{
+        border: 3px solid #fabc5988;
+        border-radius: 25px;
+        padding: 0px 10px 0px 10px;
+        height: 5vh;
+    }
+    textarea:focus, input:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }
+    .rua{
+        width: 15vw;
+    }
+    .numero{
+        width: 5vw;
+    }
+    .bairro{
+        width: 15vw;
+    }
+    .cidade{
+        width: 15vh;
+    }
+    .cep{
+        width: 30vw;
+    }
+
+    .s3-3 button{
+        background-color: #fabc5988;
+        border: none;
+        border-radius: 30px;
+        width: 8vw;
+    }
+    .s3-3 button:hover{
+        transition: 0.5s;
+        cursor: pointer;
+        background-color: #fabc59c9;
+    }
+
+
+
+
+
+
+    .s4{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 80vw;
+    }
+    .s4-1{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80vw;
+    }
+    .s4-1 img{
+        height: 2vh;
+    }
+
+    .s4-2{
+        width: 80vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .seta{
+        height: 5vh;
+    }
+    .seta:hover{
+        cursor: pointer;
+        transition: 0.5s;
+        height: 6vh;
+    }
+
+
+
+
+
+
+
+
+
+
+    
+  .s6-1-p{
+    border: 4px solid #fabc59ab;
+    border-radius: 15px;
+    padding: 8px;
+  }
+  .s6-1-p:hover{
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 9px;
+  }
+  .s6-1-p img{
+    height: 30vh;
+  }
+  .s6-1-p img:hover{
+    height: 31vh;
+    transition: 0.3s;
+  }
+  .s6-1-p p{
+    font-size: 14px;
+  }
+  .s6-1-p b{
+    font-size: 18px;
+  }
+
+
 
 
 }

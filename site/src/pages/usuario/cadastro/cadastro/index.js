@@ -1,7 +1,7 @@
 
-import Cabecalho from '../../../../components/cabecalho';
+//import Cabecalho from '../../../../components/cabecalho';
 import './index.scss';
-import { useState } from 'react';
+//import { useState } from 'react';
 
 export default function Cadastro() {
 

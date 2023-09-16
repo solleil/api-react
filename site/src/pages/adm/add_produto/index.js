@@ -35,9 +35,9 @@ export default function AddProduto() {
         <div className='a-1'>
           <p>Adicionar imagem:</p>
           <div className='b-1'>
-            <img className='cima' src='./assets/images/geral/salvar.svg'/>
+            <img className='cima' src='./assets/images/geral/salvar.svg' alt=''/>
             <div className='b-2'>
-              <img className='embaixo' src='./assets/images/geral/export.svg'/>
+              <img className='embaixo' src='./assets/images/geral/export.svg' alt=''/>
             </div>  
           </div>
         </div>

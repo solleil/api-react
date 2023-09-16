@@ -1,8 +1,22 @@
+import { useState } from 'react';
 import Cabecalho from '../../../../components/cabecalho';
+import Rodape from '../../../../components/rodape';
 import './index.scss';
 
 export default function Conta() {
+    const[mostrar,setMostrar]= useState(false)
+
+    function Mudar(){
+        setMostrar(!mostrar)
+    }
+
+
+
   return (
+
+
+
+
     <div className="pag-conta">
       <Cabecalho/>
 
@@ -57,7 +71,7 @@ export default function Conta() {
 
           <div className='s2-1'>
             <p>dados pessoais:</p>
-            <a href='a'>editar <img  src='/assets/images/usuario/conta/editar.png' alt=''/></a>
+            <p className='p' >editar <img  src='/assets/images/usuario/conta/editar.png' alt=''/></p>
           </div>
 
           <div className='s2-2'>
@@ -103,16 +117,100 @@ export default function Conta() {
       </div>
 
 
+      <div className='linha'>.</div>
+
+      <div className='s3'>
+
+        <div className='s3-1'>
+          <p>endereços</p>
+          <p className='p' onClick={Mudar}>adicionar ou editar <img  src='/assets/images/usuario/conta/editar.png' alt=''/></p>
+        </div>
+
+        <div className='s3-lado'>
+        <div className='s3-2'>
+          <p>Rua: ***</p> <p>Nº ***</p> <p>Bairro:***</p> <p>Cidade:***</p>
+          <p>Cel:***</p> <p>Cep:***</p>
+        </div>
+
+        {mostrar === false &&
+        <>
+        </>}
+
+        {mostrar === true &&
+        <>
+        <div className='s3-3'>
+          <input type='text' placeholder='rua' className='rua'/>
+          <input type='text' placeholder='nº' className='numero'/>
+          <input type='text' placeholder='bairro' className='bairro'/>
+          <input type='text' placeholder='cidade' className='cidade'/>
+          <input type='text' placeholder='cep' className='cep'/>
+      
+          <button> <img src='/assets/images/usuario/conta/salvar.png' alt=''/>  </button>
+          <button> <img src='/assets/images/usuario/conta/editar.png' alt=''/>  </button>
+          <button> <img src='/assets/images/usuario/conta/excluir.png' alt=''/>  </button>
+        </div>
+        </>}
+
+        
+        </div>
+
+        
+
+
+        
+
+
+      </div>
+
+
+
+      <div className='linha'>.</div>
+
+      <div className='s4'>
+          <div className='s4-1'>
+            <p>favoritos <img alt='' src='/assets/images/usuario/conta/fav.png'/> </p>
+           
+          </div>
+
+          <div className='s4-2'>
+
+          <div className='s6-1-p'>
+          
+          <img src='/assets/images/usuario/iniprodutos/s2-2.png' alt=''/>
+            <p>  WATER SLEEPING MASK </p>  <p> 
+            <b> R$28,90 </b> ou 3x R$10,28 </p>
+        </div>
+        <div className='s6-1-p'>
+      
+          <img src='/assets/images/usuario/iniprodutos/s2-1.png' alt=''/>
+            <p>  LIMPADOR ANTIACNE </p>  <p> 
+            <b> R$54,90 </b> ou 5x R$10,28 </p>
+        </div>
+        <div className='s6-1-p'>
+      
+          <img src='/assets/images/usuario/iniprodutos/s2-2.png' alt=''/>
+            <p>  WATER SLEEPING MASK </p>  <p> 
+            <b> R$28,90 </b> ou 3x R$10,28 </p>
+        </div>
+        <div className='s6-1-p'>
+      
+          <img src='/assets/images/usuario/iniprodutos/s2-1.png' alt=''/>
+            <p>  LIMPADOR ANTIACNE </p>  <p> 
+            <b> R$54,90 </b> ou 5x R$10,28 </p>
+        </div>
+
+        <img src='/assets/images/usuario/conta/seta.png'  alt='' className='seta'/>
+
+          </div>
+
+      </div>
 
 
 
 
 
 
-
-
-
-
+      <Rodape/>
 
 
     </div>

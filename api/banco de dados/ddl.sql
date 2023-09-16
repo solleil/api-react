@@ -2,6 +2,7 @@ create database solleil;
 use solleil;
 
 
+
 create table tb_admin(
 id_admin   int primary key auto_increment,
 nm_admin   varchar(100),
@@ -32,11 +33,11 @@ ds_endereco		varchar(100),
 nr_endereco		varchar(100),
 ds_cidade		varchar(100)
 );
-drop table tb_endereco;
+
 
 
 create table tb_cartao(
-id_cartao	varchar(100),
+id_cartao	int primary key auto_increment,
 nm_cartao	varchar(100),
 ds_cvc		varchar(100),
 ds_numero	varchar(100),
@@ -45,26 +46,30 @@ ds_validade varchar(100)
 
 
 
+
+
 create table tb_pedido(
 id_pedido			int primary key auto_increment,
 id_cliente			int,
-foreign key (id_cliente) references tb_cliente(id_cliente),
 id_endereco			int,
-foreign key (id_endereco) references tb_endereco(id_endereco),
 id_cartao			int,
-foreign key (id_cartao) references tb_cartao(id_cartao),
 ds_nota_fiscal		varchar(100),
 qtd_parcelas		int,
 dt_pedido			datetime,
-ds_situacao			varchar(100)
+ds_situacao			varchar(100),
+
+
+foreign key (id_cliente) references tb_cliente(id_cliente),
+foreign key (id_endereco) references tb_endereco(id_endereco),
+foreign key (id_cartao) references tb_cartao(id_cartao)
 );
 
-drop table tb_pedido;
+
 
 
 
 create table tb_ingr_atv(
-id_ingrediente		varchar(100),
+id_ingrediente		int primary key auto_increment,
 nm_ingrediente		varchar(100),
 ds_ingrediente		varchar(1000)
 );
@@ -87,7 +92,7 @@ nm_marca		varchar(100)
 );
 
 create table tb_categoria(
-id_categoria	int,
+id_categoria	int primary key auto_increment,
 nm_categoria	varchar(100)
 );
 
@@ -106,7 +111,7 @@ foreign key (id_marca) references tb_marca(id_marca),
 id_necessidade	int,
 foreign key (id_necessidade) references tb_necessidade(id_necessidade),
 id_tipo_pele	int,
-foreign key (id_tipo_pele) references tb_tipo_pele(id_pele),
+foreign key (id_tipo_pele) references tb_tipo_pele(id_tipo),
 vl_preco		decimal(15,9),
 vl_preco_promo	decimal(15,9),
 bt_disponivel	boolean,
@@ -121,5 +126,5 @@ create table tb_imagem(
 id_imagem		int primary key auto_increment,
 ds_imagem 		varchar(100),
 id_produto		int,
-foreign key (id_produto) references to tb_produto(id_produto)
+foreign key (id_produto) references tb_produto(id_produto)
 );
