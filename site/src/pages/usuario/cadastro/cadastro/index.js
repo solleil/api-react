@@ -16,7 +16,7 @@ export default function Cadastro() {
 
     <div className='c-1'>
       <div className='c-2'>
-        <a href='0'>Cadastro</a>
+        <p>Cadastro</p>
 
         <div className='c-3'>
           <input type='text'></input>
@@ -28,6 +28,16 @@ export default function Cadastro() {
         <input type='text'></input>
         <input type='text'></input>
         </div>
+        <div className='c-5'>
+          <input type='text'></input>
+        </div>
+        <div className='c-6'>
+        <select className='tipodepele'>
+            <option>Tipodepele</option>
+            </select>
+        </div>
+
+        <button id='botao'>CADASTRAR</button>
       </div>
       
       

@@ -9,7 +9,7 @@
 }
 .c-0{
     display: flex;
-    width: 50vw;
+    width: 55vw;
     height: 100vh;
     background-position-x: center;
     justify-content: center;
@@ -31,27 +31,90 @@
         background-position-x: center;
         justify-content: center;
         align-items: center;
-
     }
     .c-2{
         display: flex;
-        height: 60vh;
-        width: 30vw;
-        
-        
-       
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
     .c-3{
         display: flex;
-        margin-bottom: 10px;
-        height: 29px;
-      
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        height: 7vh;
+        width: 50vw;
+        
+    }
+    .c-3 input{
+        display: flex;
+        margin: 0 15px;
+        border: 1px solid #FABB59 ; 
+        width: 200px;
+        height: 25px;
+        border-radius: 50px;
+
     }
     .c-4{
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
-        height: 50vh;
     }
+    .c-4 input{
+        display: flex;
+        margin: 15px;
+        border: 1px solid #FABB59 ; 
+        width: 440px;
+        height: 25px;
+        border-radius: 50px;
+    }
+    .c-5{
+        display: flex ;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        width: 170px;
+        margin: 10px;
+    }
+    .c-5 input{
+        display: flex;
+        margin: 1px;
+        border: 1px solid #FABB59 ; 
+        width: 200px;
+        height: 25px;
+        border-radius: 50px;
+    }
+    .c-6{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 200px;
+        height: 30px;
+        margin: 10px;
+    }
+    .c-6 select{
+        display: flex;
+        margin: 1px;
+        border: 1px solid #FABB59 ; 
+        width: 200px;
+        height: 32px;
+        border-radius: 50px;
+    }
+    #botao {
+        background-color: #FABB59;
+        color: #fff;
+        border: none;
+        height: 5vh;
+        width: 10vw;
+        margin: 20px;
+        border-radius: 50px;
+    }
+    #botao:hover {
+        cursor: pointer;
+        background-color: #e4a033bd;
+        transition: 0.2s;
+}
 }
