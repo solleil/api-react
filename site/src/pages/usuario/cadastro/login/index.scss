@@ -6,12 +6,14 @@
         align-items: center;
         justify-content: center;
         height: 100vh;
-        width: 100vw;
+        background-color: #f5bc68f8;
     }
 
     .sec_1 {
         display: flex;
         flex-direction: row;
+        border-radius: 20px;
+        box-shadow: 0px 0px 20px #00000080;
     }
 
     .sec1_div_img {
@@ -21,11 +23,13 @@
     .sec1_div_img > img {
         height: 100%;
         width: 100%;
+        border-radius: 20px 0px 0px 20px;
     }
 
     .sec1_login {
         width: 300px;
         background-color: #ffce83e6;
+        border-radius: 0px 20px 20px 0px;
     }
 
     .sec1_login > div {
@@ -34,32 +38,77 @@
         align-items: center;
     }
 
-    .login_1 > input {
+    .log1_inputs, .log1_titulos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .log1_inputs {
+        margin-bottom: 15px;
+    }
+
+    #solleil {
+        margin: 10px 0px 5px 0px;
+    }
+
+    #login {
+        margin: 5px 0px 10px 0px;
+        font-size: 20px;
+    }
+
+    #input_log1 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #input_log1 > input {
         border-radius: 20px;
         border: none;
-        margin-bottom: 10px;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        margin: 5px 0px 10px 0px;
+        box-shadow: 0px 4px 4px 0px #00000040;
+        height: 20px;
+        width: 200px;
+    }
+
+    #reset_log1 {
+        margin: 10px 0px 10px 0px;
+        font-weight: bold;
     }
 
     .login_1 > button {
         border: none;
         border-radius: 20px;
         height: 35px;
-        width: 90px;
+        width: 130px;
         background-color: #CC9E56;
         color: #fff
+    }
+
+    .login_2 > h4 {
+        margin: 10px 0px 10px 0px;
     }
 
     .login_3 > button {
         border: none;
         border-radius: 20px;
         height: 35px;
-        margin-bottom: 15px;
+        margin: 10px 0px 15px 0px;
         width: 173px;
     }
 
-    .botao_face {
+    #botao_face {
         background-color: #1977F3;
         color: #fff;
     }
+
+    #pag_cadastro {
+        text-decoration: none;
+        color: #000;
+    }
+
+    #pag_cadastro:hover {
+        color: #5302eb;
+    }
+
 }

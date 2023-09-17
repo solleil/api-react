@@ -1,6 +1,12 @@
 import './index.scss';
+import { useState } from 'react';
+import { Link } from 'react-router-dom'
 
 export default function Login() {
+  const [email, setEmail] = useState('')
+  const [senha, setSenha] = useState('')
+
+
   return (
     <div className="index_login_usuario">
       <div className='fundo'>
@@ -10,22 +16,30 @@ export default function Login() {
           </div>
           <div className='sec1_login'>
             <div className='login_1'>
-              <h2>Solleil</h2>
-              <h2>Faça seu Login</h2>
-              <input className='input_email'></input>
-              <input className='input_senha'></input>
+              <div className='log1_titulos'>
+                <h2 id='solleil'>Solleil</h2>
+                <h2 id='login'>Faça seu Login</h2>
+              </div>
+              <div className='log1_inputs'>
+                <div id='input_log1'>
+                  <label>Email</label>
+                  <input type='text' className='input_email' value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                </div>
+                <div id='input_log1'>
+                <label>Senha</label>
+                <input type='password' className='input_senha' value={senha} onChange={(e) => setSenha(e.target.value)}></input>
+                </div>
+              </div>
               <button>Continuar</button>
-              <h6>Esqueceu sua Senha?</h6>
+              <h6 id='reset_log1'>Esqueceu sua Senha?</h6>
             </div>
             <div className='login_2'>
-              <div></div>
               <h4>ou</h4>
-              <div></div>
             </div>
             <div className='login_3'>
-              <button className='botao_face'>Continuar com Facebook</button>
+              <button id='botao_face'>Continuar com Facebook</button>
               <button>Continuar com Google</button>
-              <h6>Não tem uma conta? Realize seu login.</h6>
+              <h6><Link to={'/cadastro'} id='pag_cadastro'>Não tem uma conta? Realize seu Cadastro.</Link></h6>
             </div>
           </div>
         </div>    
