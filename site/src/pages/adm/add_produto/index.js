@@ -1,12 +1,9 @@
 import './index.scss';
 import Cabecalho from '../../../components/cabecalho';
+import { useState } from 'react';
 
 
 export default function AddProduto() {
-  
-  
-  
-  
   
   return (
     <div className="s-1">
