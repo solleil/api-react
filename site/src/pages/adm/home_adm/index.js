@@ -1,11 +1,11 @@
 import './index.scss';
-import Cabecalho from '../../../components/cabecalho/index.js'
+import CabecalhoAdm from '../../../components/cabecalhoAdm/index.js'
 import { Link } from 'react-router-dom';
 
 export default function Inicialadm() {
   return (
     <div className="index_inicial_adm">
-      <Cabecalho/>
+      <CabecalhoAdm/>
       <div className='fundo' >
         <section className='menu_navegacao'>
           <div className='menunav_container-1'>

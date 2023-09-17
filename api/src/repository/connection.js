@@ -1,10 +1,11 @@
-import msql from "mysql/promise"
+import mysql2 from 'mysql2/promise';
 
-const connection = await msql.createConnection({
-    host: process.env.MSQL_HOST,
-    user: process.env.MSQL_USER,
-    password: process.env.MSQL_PWD,
-    database: process.env.MSQL_DB
+let connection = await mysql2.createConnection({
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PWD,
+    database: process.env.MYSQL_DB
 })
 
-export {connection}
+console.log('banco de dados conectado')
+export default connection

@@ -68,6 +68,8 @@ root.render(
                 <Route path='/inicialadm' element={<Inicialadm/>} />
                 <Route path='/loginadm' element={<Loginadm/>} />
                 <Route path='/graficos' element={<Graficos/>} />
+
+                
                 <Route path='/cadastrocartao' element={<Cadastrocartao/>} />
     </Routes>
     </BrowserRouter>

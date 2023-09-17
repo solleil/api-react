@@ -5,7 +5,7 @@
     }
 
     .s-1-1 p{
-        text-align: start;
+        text-align: flex-start;
         padding-left: 20px;
         font-size: 2vw;
     }
@@ -48,7 +48,7 @@
         padding-right: 25vh;    
         height: 25vh;
         width: 1600vw;
-        text-align: end;
+        text-align: flex-end;
     }
 
     .s-2{
@@ -65,7 +65,7 @@
     }
 
   .i-2 p{
-        text-align: start;
+        text-align: flex-start;
         padding-right: 42vh;
     }
 
@@ -113,8 +113,8 @@
     .c-1-1{
         display: flex;
         flex-direction: row;
-        justify-content: end;
-        align-items: end;
+        justify-content: flex-end;
+        align-items: flex-end;
         margin: 10px 0px 30px;
         padding-left: 30px;
         margin-left: 29px;
@@ -124,7 +124,7 @@
             height: 30vh;
             width: 30vw;
             display: flex;
-            justify-content: end;
+            justify-content: flex-end;
             flex-direction: column;
     
         }
