@@ -1,134 +1,87 @@
-
 import { useState } from 'react';
 import './index.scss';
 import Cabecalho from '../../../../components/cabecalho'
 import Rodape from '../../../../components/rodape';
 
 export default function Inicial() {
-    const[mostrar, setMostrar] = useState(false)
+  const [mostrar, setMostrar] = useState(false)
 
-  function M(){
+  function M() {
     setMostrar(!mostrar)
   }
 
-
-
   return (
     <div className="pag-inicial">
-      <Cabecalho/>
-
-
+      <Cabecalho />
       <div className="s1">
-        <div className='s1-1'>           <img  src='/assets/images/usuario/inicial/s1.png' alt='' />
-        <div className='linha'>.</div></div>
-
-
+        <div className='s1-1'>           <img src='/assets/images/usuario/inicial/s1.png' alt='' />
+          <div className='linha'>.</div></div>
         <div className='s1-2'><p>A importância do <b>SkinCare</b> reside no fato de que nossa pele merece <b>cuidados especiais.</b><br></br>
-        É o maior órgão do nosso corpo e enfrenta diariamente agressões ambientais. Ao adotar uma rotina de cuidado da pele, você <b> fortalece sua barreira natural, previne danos e obtém uma pele mais saudável e radiante.</b>
+          É o maior órgão do nosso corpo e enfrenta diariamente agressões ambientais. Ao adotar uma rotina de cuidado da pele, você <b> fortalece sua barreira natural, previne danos e obtém uma pele mais saudável e radiante.</b>
         </p></div>
       </div>
-
-
-
-      
-    <div className='s2'>
-
-    <div className='s2-1' onClick={M}> 
-    {mostrar ? '' : ''}
-    <img src='/assets/images/usuario/inicial/s2-1.png' alt=''/> <p>sobre nós</p> 
-
-   
-
-
-      
-    </div>
-    
-    <div className='s2-2'> <a href='/iniproduto'> <img src='/assets/images/usuario/inicial/s2-2.png' alt=''/> <p> nossos produtos </p>  </a> </div>
-    <div className='s2-3'> <img src='/assets/images/usuario/inicial/s2-3.png' alt=''/> <p> ajuda </p>  </div>
-
-    </div>
-
-
-
-    <div className='s3'>
-    {mostrar === true &&
-       <>
-       <div className='mostrar'>
-          <img src='/assets/images/usuario/inicial/s2-1.png' alt=''  className='mostrar-img'/>
-          <div className='m-1'>
-            <h3>Bem-vindo a Solleil!</h3>
-            <p>Na nossa empresa, estamos comprometidos em trazer a você os melhores produtos de skincare, para que você possa cuidar da sua pele de maneira eficaz e transformar sua rotina de cuidados em um verdadeiro ritual de bem-estar. <br></br>Nossa missão é oferecer os melhores produtos para todos os tipos de pele, atendendo às necessidades individuais de cada pessoa. Com uma ampla variedade de produtos, desde limpadores faciais suaves até máscaras revitalizantes, estamos aqui para te ajudar a alcançar uma pele saudável, brilhante e radiante.<br></br>Acreditamos que a beleza vai além de uma aparência superficial. Ela está intrinsecamente ligada à saúde e ao bem-estar. Por isso, nossos produtos são cuidadosamente formulados para nutrir e proteger sua pele, promovendo uma sensação de equilíbrio e vitalidade.<br></br>Então, junte-se a Solleil e descubra a beleza que existe em você. Navegue em nossa loja virtual, explore nossa linha de produtos e comece sua jornada para uma pele radiante e saudável. Estamos aqui para ajudar você a alcançar a melhor versão de si mesmo!</p>
+      <div className='s2'>
+        <div className='s2-1' onClick={M}>
+          {mostrar ? '' : ''}
+          <img src='/assets/images/usuario/inicial/s2-1.png' alt='' /> <p>sobre nós</p>
+        </div>
+        <div className='s2-2'> <a href='/iniproduto'> <img src='/assets/images/usuario/inicial/s2-2.png' alt='' /> <p> nossos produtos </p>  </a> </div>
+        <div className='s2-3'> <img src='/assets/images/usuario/inicial/s2-3.png' alt='' /> <p> ajuda </p>  </div>
+      </div>
+      <div className='s3'>
+        {mostrar === true &&
+          <>
+            <div className='mostrar'>
+              <img src='/assets/images/usuario/inicial/s2-1.png' alt='' className='mostrar-img' />
+              <div className='m-1'>
+                <h3>Bem-vindo a Solleil!</h3>
+                <p>Na nossa empresa, estamos comprometidos em trazer a você os melhores produtos de skincare, para que você possa cuidar da sua pele de maneira eficaz e transformar sua rotina de cuidados em um verdadeiro ritual de bem-estar. <br></br>Nossa missão é oferecer os melhores produtos para todos os tipos de pele, atendendo às necessidades individuais de cada pessoa. Com uma ampla variedade de produtos, desde limpadores faciais suaves até máscaras revitalizantes, estamos aqui para te ajudar a alcançar uma pele saudável, brilhante e radiante.<br></br>Acreditamos que a beleza vai além de uma aparência superficial. Ela está intrinsecamente ligada à saúde e ao bem-estar. Por isso, nossos produtos são cuidadosamente formulados para nutrir e proteger sua pele, promovendo uma sensação de equilíbrio e vitalidade.<br></br>Então, junte-se a Solleil e descubra a beleza que existe em você. Navegue em nossa loja virtual, explore nossa linha de produtos e comece sua jornada para uma pele radiante e saudável. Estamos aqui para ajudar você a alcançar a melhor versão de si mesmo!</p>
+              </div>
+            </div>
+          </>}
+      </div>
+      <div className='s4'>
+        <img src='/assets/images/usuario/inicial/s4.png' alt='' />
+        <p>
+          Investir em Skin Care é investir em si mesmo.<br />
+          Com o passar do tempo, a <b> pele envelhece</b> e surgem sinais visíveis.<br />
+          O Skin Care ajuda a <b>retardar esse processo</b>, reduzindo rugas, linhas finas e manchas. Com uma rotina consistente, você pode ter uma <b>aparência mais jovem</b>  e radiante.
+        </p>
+      </div>
+      <div className='s5'>
+        <p>Parcerias</p>
+        <div className='s5-1'>
+          <img src='/assets/images/usuario/inicial/sallve.png' alt='' />
+          <img src='/assets/images/usuario/inicial/biossance.png' alt='' />
+          <img src='/assets/images/usuario/inicial/creamy.png' alt='' />
+          <img src='/assets/images/usuario/inicial/simple.png' alt='' />
+          <img src='/assets/images/usuario/inicial/cerave.png' alt='' />
+          <img src='/assets/images/usuario/inicial/laroche.png' alt='' />
+        </div>
+      </div>
+      <div className='s6'>
+        <p>Produtos recomendados</p>
+        <div className='s6-1'>
+          <div className='s6-1-p'><img src='/assets/images/usuario/inicial/produto.png' alt='' />
+            <p>Limpador Facial</p>  <p>
+              <b> R$ 39,90</b> ou 3x R$ 13,30</p>
           </div>
-       </div>
-       </>}
-    </div>
-
-
-
-
-    <div className='s4'>
-      <img   src='/assets/images/usuario/inicial/s4.png'alt=''/>
-      <p>
-      Investir em Skin Care é investir em si mesmo.<br/>
-      Com o passar do tempo, a <b> pele envelhece</b> e surgem sinais visíveis.<br/>
-      O Skin Care ajuda a <b>retardar esse processo</b>, reduzindo rugas, linhas finas e manchas. Com uma rotina consistente, você pode ter uma <b>aparência mais jovem</b>  e radiante.
-      </p>
-    </div>
-
-
-    <div className='s5'>
-      <p>Parcerias</p>
-      <div className='s5-1'>
-        <img src='/assets/images/usuario/inicial/sallve.png' alt=''/>
-        <img src='/assets/images/usuario/inicial/biossance.png' alt=''/>
-        <img src='/assets/images/usuario/inicial/creamy.png' alt=''/>
-        <img src='/assets/images/usuario/inicial/simple.png' alt=''/>
-        <img src='/assets/images/usuario/inicial/cerave.png' alt=''/>
-        <img src='/assets/images/usuario/inicial/laroche.png' alt=''/>
-
+          <div className='s6-1-p'><img src='/assets/images/usuario/inicial/produto.png' alt='' />
+            <p>Limpador Facial</p>  <p>
+              <b> R$ 39,90</b> ou 3x R$ 13,30</p>
+          </div>
+          <div className='s6-1-p'><img src='/assets/images/usuario/inicial/produto.png' alt='' />
+            <p>Limpador Facial</p>  <p>
+              <b> R$ 39,90</b> ou 3x R$ 13,30</p>
+          </div>
+          <div className='s6-1-p'><img src='/assets/images/usuario/inicial/produto.png' alt='' />
+            <p>Limpador Facial</p>  <p>
+              <b> R$ 39,90</b> ou 3x R$ 13,30</p>
+          </div>
+          <img src='/assets/images/usuario/inicial/seta.png' alt='' className='seta' />
+        </div>
       </div>
-    </div>
-
-
-
-
-    <div className='s6'>
-      <p>Produtos recomendados</p>
-
-      <div className='s6-1'>
-
-            <div className='s6-1-p'><img src='/assets/images/usuario/inicial/produto.png' alt=''/> 
-                <p>Limpador Facial</p>  <p> 
-                <b> R$ 39,90</b> ou 3x R$ 13,30</p>
-            </div>
-
-            <div className='s6-1-p'><img src='/assets/images/usuario/inicial/produto.png' alt=''/> 
-                <p>Limpador Facial</p>  <p> 
-                <b> R$ 39,90</b> ou 3x R$ 13,30</p>
-            </div>
-
-            <div className='s6-1-p'><img src='/assets/images/usuario/inicial/produto.png'  alt=''/> 
-                <p>Limpador Facial</p>  <p> 
-                <b> R$ 39,90</b> ou 3x R$ 13,30</p>
-            </div>
-
-            <div className='s6-1-p'><img src='/assets/images/usuario/inicial/produto.png'  alt=''/> 
-                <p>Limpador Facial</p>  <p> 
-                <b> R$ 39,90</b> ou 3x R$ 13,30</p>
-            </div>
-
-
-            <img src='/assets/images/usuario/inicial/seta.png' alt='' className='seta' />
-
-      </div>
-
-    </div>
-
-        
-      <Rodape/>
-
-
-
+      <Rodape />
     </div>
   );
 }

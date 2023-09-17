@@ -1,64 +1,68 @@
-.cabecalho{
- display: flex;
- align-items: flex-start;
- justify-content: flex-start;
+.cabecalho {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
 
-        .teste{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: flex-start;
-            width: 78vw !important;
-            height: 20vh;
-            
-          
-            position:relative;
-          
-        }
-        .menuAberto{
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            position:absolute;
-            background-color: #EDCD9C;
-            padding: 15px 15px 25px 0px;
-            gap: 20px;
-            border-radius: 0px 10px 10px 0px;
-        }
-        .menu{
-            background-color: white;
-            border-radius: 0px 15px 15px 0px;
-            width: 15vw;
-            padding: 5px 5px 5px 15px;
-        }
-        .menuAberto a {
-            color: black;
-            text-decoration: none;
-            background-color: white;
-            border-radius: 0px 15px 15px 0px;
-            width: 12vw;
-            padding: 5px 5px 5px 15px;
-        }
+    .teste {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 78vw !important;
+        height: 20vh;
 
-        .perfilAberto{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position:absolute;
-            width: 18vw;
-            background-color: #EDCD9C;
-            padding: 15px 15px 25px 0px;
-           
-            border-radius: 15px 15px 15px 15px;
-            text-align: center;
-        }
-        .perfilAberto img{
-            height: 25vh;
-            border: 5px solid #daac68;
-            border-radius: 100%;
-        }
+
+        position: relative;
+
+    }
+
+    .menuAberto {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: absolute;
+        background-color: #EDCD9C;
+        padding: 15px 15px 25px 0px;
+        gap: 20px;
+        border-radius: 0px 10px 10px 0px;
+    }
+
+    .menu {
+        background-color: white;
+        border-radius: 0px 15px 15px 0px;
+        width: 15vw;
+        padding: 5px 5px 5px 15px;
+    }
+
+    .menuAberto a {
+        color: black;
+        text-decoration: none;
+        background-color: white;
+        border-radius: 0px 15px 15px 0px;
+        width: 12vw;
+        padding: 5px 5px 5px 15px;
+    }
+
+    .perfilAberto {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 18vw;
+        background-color: #EDCD9C;
+        padding: 15px 15px 25px 0px;
+
+        border-radius: 15px 15px 15px 15px;
+        text-align: center;
+    }
+
+    .perfilAberto img {
+        height: 25vh;
+        border: 5px solid #daac68;
+        border-radius: 100%;
+    }
 
 
 }

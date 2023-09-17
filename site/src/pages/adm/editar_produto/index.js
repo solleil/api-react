@@ -1,7 +1,36 @@
 import './index.scss';
-import Cabecalho from '../../../components/cabecalho'
+import Cabecalho from '../../../components/cabecalho/index.js'
+import { useState } from 'react';
 
 export default function EditarProduto() {
+  const [nomeProduto, setNomeProduto] = useState('');
+  const [precoProduto, setPrecoProduto] = useState(0);
+  const [ingrediente, setIngrediente] = useState('');
+  const [descri, setDescri] = useState('');
+  const [tipopele, setTipopele] = useState('');
+  const [estoque, setEstoque] = useState('');
+  const [tamanho, setTamanho] = useState('');
+  const [qtd, setQtd] = useState(0);
+  const [marca, setMarca] = useState('');
+  const [necess, setNecess] = useState('');
+  const [ingre_atv, setIngre_atv] = useState('');
+  const [indica, setIndica] = useState('');
+
+  const removerdados = () => {
+    setNomeProduto('')
+    setPrecoProduto(0);
+    setIngrediente('');
+    setDescri('');
+    setTipopele('');
+    setEstoque('');
+    setTamanho('');
+    setQtd(0);
+    setMarca('');
+    setNecess('');
+    setIndica('');
+  }
+
+
   return (
     <div className="index_editarProduto">
       <Cabecalho className='cabecalho'/>
@@ -30,9 +59,9 @@ export default function EditarProduto() {
           <div className='sec2_container-1'>
             <div className='container1_c1'>
               <label>Nome Produto</label>
-              <input type='text'></input>
+              <input type='text' value={nomeProduto} onChange={(e) => setNomeProduto(e.target.value)}></input>
               <label>Preço</label>
-              <input type='text'></input>
+              <input type='text' value={precoProduto} onChange={(e) => setPrecoProduto(Number(e.target.value))}></input>
             </div>
             <div className='container1_c2'>
               <h2>Alterar Imagem</h2>
@@ -43,43 +72,41 @@ export default function EditarProduto() {
             </div>
             <div className='container1_c3'>
               <label>Ingredientes</label>
-              <input type='text'></input>
+              <input type='text' value={ingrediente} onChange={(e => setIngrediente(e.target.value))}></input>
             </div>
-            <button id='botao'>Excluir Dados</button>
+            <button id='botao' onClick={removerdados}>Excluir Dados</button>
           </div>
           <div className='sec2_container-2'>
             <div className='container2_c1'>
               <label>Descrição</label>
-
-              <textarea></textarea>
-              
+              <textarea value={descri} onChange={(e) => setDescri(e.target.value)}></textarea>
             </div>
           <div className='container2_c2'>
               <div className='container2c2_coluna-1'>
                 <label>Tipo de pele</label>
-                <select className='tipopele'>
+                <select className='tipopele' value={tipopele} onChange={(e) => setTipopele(e.target.value)}>
                   <option>selecionar</option>
                 </select>
                 <label>Tamanhos</label>
-                <select className='tamanhos'>
+                <select className='tamanhos' value={tamanho} onChange={(e) => setTamanho(e.target.value)}>
                   <option>selecionar</option>
                 </select>
                 <label>Marca</label>
-                <select>
+                <select value={marca} onChange={(e) => setMarca(e.target.value)}>
                   <option>selecionar</option>
                 </select>
               </div>
               <div className='container2c2_coluna-2'>
                   <label>Estoque</label>
-                  <select className='tipopele'>
+                  <select className='tipopele' value={estoque} onChange={(e) => setEstoque(e.target.value)}>
                     <option>selecionar</option>
                   </select>
                   <label>Quantidade</label>
-                  <select className='tamanhos'>
+                  <select className='tamanhos' value={qtd} onChange={(e) => setQtd(Number(e.target.value))}>
                     <option>selecionar</option>
                   </select>
                   <label>Necessidades</label>
-                  <select>
+                  <select value={necess} onChange={(e) => setNecess(e.target.value)}>
                     <option>selecionar</option>
                   </select>
               </div>
@@ -87,7 +114,7 @@ export default function EditarProduto() {
             <div className='container2_c3'>
               <div className='container2c3_bloco-1'>
                 <label>Ingredientes Ativos</label>
-                <select>
+                <select value={ingre_atv} onChange={(e) => setIngre_atv(e.target.value)}>
                   <option>
                     selecionar
                   </option>
@@ -101,7 +128,7 @@ export default function EditarProduto() {
               </div>
               <div className='container2c3_bloco-2'>
                 <label>Indicações</label>
-                  <textarea></textarea>
+                  <textarea value={indica} onChange={(e) => setIndica(e.target.value)}></textarea>
               </div>
             </div>
             <button id='botao'>Confirmar Alteração</button>

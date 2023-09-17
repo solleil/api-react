@@ -2,15 +2,12 @@ create database solleil;
 use solleil;
 
 
-
 create table tb_admin(
 id_admin   int primary key auto_increment,
 nm_admin   varchar(100),
 ds_email   varchar(100),
 ds_senha   varchar(10)
 );
-
-
 
 create table tb_cliente(
 id_cliente		int primary key auto_increment,
@@ -21,10 +18,7 @@ ds_email		varchar(100),
 ds_cpf			varchar(100),
 dt_nasc			varchar(100),
 ds_senha		varchar(100)
-
 );
-
-
 
 create table tb_endereco(
 id_endereco		int primary key auto_increment,
@@ -34,8 +28,6 @@ nr_endereco		varchar(100),
 ds_cidade		varchar(100)
 );
 
-
-
 create table tb_cartao(
 id_cartao	int primary key auto_increment,
 nm_cartao	varchar(100),
@@ -43,10 +35,6 @@ ds_cvc		varchar(100),
 ds_numero	varchar(100),
 ds_validade varchar(100)
 );
-
-
-
-
 
 create table tb_pedido(
 id_pedido			int primary key auto_increment,
@@ -64,10 +52,6 @@ foreign key (id_endereco) references tb_endereco(id_endereco),
 foreign key (id_cartao) references tb_cartao(id_cartao)
 );
 
-
-
-
-
 create table tb_ingr_atv(
 id_ingrediente		int primary key auto_increment,
 nm_ingrediente		varchar(100),
@@ -79,7 +63,6 @@ create table tb_tipo_pele(
 id_tipo		int primary key auto_increment,
 nm_tipo_pele	varchar(100)
 );
-
 
 create table tb_necessidade(
 id_necessidade		int primary key auto_increment,
@@ -96,30 +79,35 @@ id_categoria	int primary key auto_increment,
 nm_categoria	varchar(100)
 );
 
-
-
-
 create table tb_produto(
 id_produto 		int primary key auto_increment,
 nm_produto		varchar(1000),
 ds_produto		varchar(10000),
 ds_tamanho		varchar(100),
+
 id_categoria 	int,
 foreign key (id_categoria) references tb_categoria (id_categoria),
+
 id_marca		int,
 foreign key (id_marca) references tb_marca(id_marca),
+
 id_necessidade	int,
 foreign key (id_necessidade) references tb_necessidade(id_necessidade),
+
 id_tipo_pele	int,
 foreign key (id_tipo_pele) references tb_tipo_pele(id_tipo),
+
 vl_preco		decimal(15,9),
 vl_preco_promo	decimal(15,9),
 bt_disponivel	boolean,
 qtd_estoque		int,
+
 id_ingr_atv		int,
 foreign key(id_ingr_atv) references tb_ingr_atv(id_ingrediente),
+
 ds_detalhes		varchar(1000),
 ds_avaliacao	varchar(5)
+
 );
 
 create table tb_imagem(

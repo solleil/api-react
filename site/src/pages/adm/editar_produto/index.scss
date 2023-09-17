@@ -1,5 +1,6 @@
 .index_editarProduto {
     height: 200vh;
+    overflow: hidden;
     
     .cabecalho {
         overflow: hidden;
@@ -35,6 +36,16 @@
         display: flex;
         justify-content: center;
     }
+
+    textarea:focus, select:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }   
+
+    textarea:focus, input:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }   
 
 
     .c1_tela {
