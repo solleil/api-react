@@ -1,0 +1,124 @@
+.tud{
+    display: flex;
+    background-color: rgb(245, 243, 243);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    padding: 5px;
+    
+
+    .consulta{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: baseline;
+        padding: 10px;
+        height: 100vh;
+        width: 100vw;
+        margin: 10px 0 10px;
+        .pa{
+            display: flex;
+            padding: 10px;
+            font-size: 40px;
+        }
+        .linha{
+        height: 1vh;
+        width: 100%;
+        background-color: #FFE898;
+        color: #FFE898;
+        }
+    }
+    .c{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        height: 20vh;
+        width: 100vw;
+
+        
+        
+
+        .f-1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            height: 40px;
+        }
+        .f-1 input{
+            height: 30px;
+            width: 400px;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+            margin: 20px;
+            border: 2px solid #E2BC81;
+            border-radius: 15px;
+        }
+        .f-2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            height: 40px;
+           
+        }
+        .f-2 input{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #E2BC81;
+            border-radius: 15px;
+            height: 30px;
+            width: 300px;
+            margin: 20px;
+        }
+        .f-2 select{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #E2BC81;
+            border-radius: 15px;
+            height: 30px;
+            width: 300px;
+            margin: 20px;
+        }
+        .meio{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            height: 40px;
+            margin:  15px;
+            padding: 5px;
+        }
+        .meio input{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #E2BC81;
+            border-radius: 15px;
+            height: 30px;
+            width: 300px;
+            margin: 25px;
+        }
+        .f-3{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            height: 40px;
+            
+        }
+        
+    }
+
+
+}
