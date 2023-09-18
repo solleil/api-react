@@ -1,124 +1,172 @@
-.tud{
-    display: flex;
-    background-color: rgb(245, 243, 243);
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-    padding: 5px;
-    
-
-    .consulta{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: baseline;
-        padding: 10px;
-        height: 100vh;
-        width: 100vw;
-        margin: 10px 0 10px;
-        .pa{
-            display: flex;
-            padding: 10px;
-            font-size: 40px;
-        }
-        .linha{
-        height: 1vh;
-        width: 100%;
-        background-color: #FFE898;
-        color: #FFE898;
-        }
+.pag-consu{
+    box-sizing: border-box;
+    height: 200vh;
+    overflow: hidden;
+    .cabeca{
+        height: 15vh;
     }
-    .c{
+    
+   .r-1{
+        text-align: flex-start;
+        font-size: 35px;
+    }
+
+    .r-1 p{
+        padding: 5px;
+        height: 5vh;
+    }
+
+    .linh{
+        border: 1px solid #FABB59;
+        width: 100%;
+    }
+
+    
+    .r-2{
         display: flex;
         justify-content: center;
-        flex-direction: column;
         align-items: center;
-        height: 20vh;
-        width: 100vw;
+        padding: 0 10px;
+        
+    }
+    .r-2-2{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        margin: 10PX 15px;
+        gap: 10px;
+        
+    }
+    .sim{
+        width: 380px;
+    }
+    .sim > input{
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 30px;
+        border-radius: 5px;
+        border: 2px solid #FFCE70;
+       
+    }
+    .sim-1{
+        width:  550px;
+    }
+    .sim-1 > input{
+        justify-content: center;
+        align-items: center;
+        width: 540px;
+        height: 30px;
+        border-radius: 5px;
+        border: 2px solid #FFCE70;
+    }
 
+    
+    .recal{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10px;
+        margin-top: 10px;
+        gap: 10px;
+
+    }
+
+    .r-3 input{
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        border: 2px solid #FFCE70;
+    }
+    .r-4 input{
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        border: 2px solid #FFCE70;
+        
+    }
+    .r-5 input{
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        border: 2px solid #FFCE70;
+    }
+    .anot{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        width: 85vw;
+        height: 35vh;
+        gap: 50px;
         
         
-
-        .f-1{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: row;
-            height: 40px;
-        }
-        .f-1 input{
-            height: 30px;
-            width: 400px;
-            display: flex;
-            justify-content: center;
-            flex-direction: row;
-            align-items: center;
-            margin: 20px;
-            border: 2px solid #E2BC81;
-            border-radius: 15px;
-        }
-        .f-2{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: row;
-            height: 40px;
-           
-        }
-        .f-2 input{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: 2px solid #E2BC81;
-            border-radius: 15px;
-            height: 30px;
-            width: 300px;
-            margin: 20px;
-        }
-        .f-2 select{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: 2px solid #E2BC81;
-            border-radius: 15px;
-            height: 30px;
-            width: 300px;
-            margin: 20px;
-        }
-        .meio{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: row;
-            height: 40px;
-            margin:  15px;
+        .anot-1 input{
+            border: 2px solid #FFCE70;  
+            height: 25vh;
+            width: 40vw;
             padding: 5px;
-        }
-        .meio input{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: 2px solid #E2BC81;
-            border-radius: 15px;
-            height: 30px;
-            width: 300px;
-            margin: 25px;
-        }
-        .f-3{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: row;
-            height: 40px;
             
         }
-        
+        .anot-2{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: end;
+        }
+        #bot {
+            border: 2px solid #FFCE70;  
+            border-radius: 10px;
+            width: 160px;
+            height: 35px;
+            margin: 10px;
+            
+        }
+        #bot:hover {
+            cursor: pointer;
+            background-color: #ecb968;
+            transition: 0.4s;
+        }
+
     }
+    .result{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
 
+        .li{
+            text-align: flex-start;
+            width: 100%;
+            height: 20px;
+            margin-top: 50px;
+        }
+        .li-1{
+            border: 1px solid #EDCD9C;
+            width: 100%;
+        }
+        .raa{
+            font-size: 20px;
+            margin: 15px;
+             
+        }
+        .nomes{
+           margin: 50px;
+           padding: 10px;
 
+        }
+        .ba-1{
+            background-color: rgb(255, 255, 255);
+            height: 15px;
+            width: 1346px;
+        }
+        .resu{
+            width: 1346px;
+            height: 30px;
+            border-radius: 5px;
+            border: 2px solid #FFCE70;
+        }
+    }
+    
 }

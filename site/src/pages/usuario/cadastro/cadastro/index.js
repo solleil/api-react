@@ -43,7 +43,7 @@ export default function Cadastro() {
             </div>
             <div className='c-5'>
               <label>DATA NASCIMENTO</label>
-              <input type='text' value={dtNascimento} onChange={(e) => setDtNascimen(Number(e.target.value))}></input>
+              <input type='date' value={dtNascimento} onChange={(e) => setDtNascimen(Number(e.target.value))}></input>
             </div>
             <div className='c-6'>
               <select className='tipodepele' value={tipoPele} onChange={(e) => setTipoPele(e.target.value)}>
