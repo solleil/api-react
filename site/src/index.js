@@ -21,6 +21,9 @@ import EditarProduto from './pages/adm/editar_produto';
 import Inicialadm from './pages/adm/home_adm';
 import Loginadm from './pages/adm/loginadm';
 import Graficos from './pages/adm/pagina_graficos';
+import Consulta from './pages/adm/consulta_produto';
+
+
 import Cadastrocartao from './pages/usuario/cadastro/cadastrocartao';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -45,6 +48,7 @@ root.render(
         <Route path='/inicialadm' element={<Inicialadm />} />
         <Route path='/loginadm' element={<Loginadm />} />
         <Route path='/graficos' element={<Graficos />} />
+        <Route path='/consultaproduto' element={<Consulta />} />
 
         <Route path='/cadastrocartao' element={<Cadastrocartao />} />
       </Routes>
