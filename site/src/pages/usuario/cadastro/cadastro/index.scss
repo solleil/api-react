@@ -24,13 +24,19 @@
 
     .c-1{
         display: flex;
-        background-color: rgba(255, 255, 255, 0.808);
+        background-color: rgba(255, 255, 255, 0.596);
         width: 35vw;
         height: 80vh;
         position: absolute;
         background-position-x: center;
         justify-content: center;
         align-items: center;
+    }
+    .c-2 p{
+        font-size: 30px;
+        font-family: 'Playfair Display', serif;
+        color: #3A3838;
+
     }
     .c-2{
         display: flex;
@@ -50,7 +56,8 @@
     .c-3 input{
         display: flex;
         margin: 0 15px;
-        border: 1px solid #FABB59 ; 
+        background-color: #FFFCFC; 
+        border: 1px solid #FFFCFC ;
         width: 200px;
         height: 25px;
         border-radius: 50px;
@@ -65,7 +72,8 @@
     .c-4 input{
         display: flex;
         margin: 15px;
-        border: 1px solid #FABB59 ; 
+        background-color: #FFFCFC; 
+        border: 1px solid #FFFCFC ;
         width: 440px;
         height: 25px;
         border-radius: 50px;
@@ -82,7 +90,8 @@
     .c-5 input{
         display: flex;
         margin: 1px;
-        border: 1px solid #FABB59 ; 
+        background-color: #FFFCFC; 
+        border: 1px solid #FFFCFC ;
         width: 200px;
         height: 25px;
         border-radius: 50px;
@@ -98,10 +107,12 @@
     .c-6 select{
         display: flex;
         margin: 1px;
-        border: 1px solid #FABB59 ; 
+        background-color: #FFFCFC; 
+        border: 1px solid #FFFCFC ;
         width: 200px;
         height: 32px;
         border-radius: 50px;
+        
     }
     #botao {
         background-color: #FABB59;
@@ -116,5 +127,8 @@
         cursor: pointer;
         background-color: #e4a033bd;
         transition: 0.2s;
+    .c-3 label{
+        font-size: 3px;
+    }
 }
 }
