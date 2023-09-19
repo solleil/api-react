@@ -1,0 +1,55 @@
+.pag-info{
+       
+
+
+
+    .exemplo{
+       height: 70vh;
+    }
+
+    .td-info{
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+       
+       
+    }
+
+    .info{
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .vl-desconto{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .estrela{
+        height: 4vh;
+       
+    }
+
+    .tamanhos-info{
+        display: flex;
+        flex-direction: row;
+        align-items: center !important;
+        justify-content:flex-start ;
+       
+        font-size: 16px;
+    }
+
+    .disponivel{
+        height: 3vh;
+    }
+
+    .coracao-info{
+       
+        height: 3vh;
+    }
+
+ 
+    
+}
