@@ -1,150 +1,131 @@
 import './index.scss';
-import Cabecalho from '../../../components/cabecalho';
+
 import { useState } from 'react';
 
+import Cabecalho from '../../../components/cabecalho';
 
 export default function AddProduto() {
-  
-  const [np, setNp] = useState('')
-  const [cp, setCp] = useState('')
-  const [desc, setDesc] = useState('')
-  const [tp, setTp] = useState('')
-  const [tam, setTam] = useState('')
-  const [marc, setMarc] = useState('')
-  const [quant, setQuant] = useState('')
-  const [nece, setNece] = useState('')
-  const [ingree, setIngree] = useState('')
-  const [ingrea, setIngrea] = useState('')
-  const [indi, setIndi] = useState('')
+  const [nomeProduto, setNomeProduto] = useState('');
+  const [precoProduto, setPrecoProduto] = useState(0);
+  const [ingrediente, setIngrediente] = useState('');
+  const [descri, setDescri] = useState('');
+  const [tipopele, setTipopele] = useState('');
+  const [estoque, setEstoque] = useState('');
+  const [tamanho, setTamanho] = useState('');
+  const [qtd, setQtd] = useState(0);
+  const [marca, setMarca] = useState('');
+  const [necess, setNecess] = useState('');
+  const [ingre_atv, setIngre_atv] = useState('');
+  const [indica, setIndica] = useState('');
 
-  const removerdado = () => {
-    setNp('')
-    setCp(0);
-    setDesc('');
-    setTp('');
-    setTam('');
-    setQuant(0);
-    setMarc('');
-    setNece('');
-    setIndi('');
-    setIngree('');
-    setIngrea('');
+  const removerdados = () => {
+    setNomeProduto('')
+    setPrecoProduto(0);
+    setIngrediente('');
+    setDescri('');
+    setTipopele('');
+    setEstoque('');
+    setTamanho('');
+    setQtd(0);
+    setMarca('');
+    setNecess('');
+    setIndica('');
   }
 
 
-
   return (
-    <div className="s-1">
-      <div className='c-1'>
-        <Cabecalho/>
+    <div className="index_AddProduto">
+      <Cabecalho className='cabecalho'/>
+      <div className='titulo'>
+        <p>Adicionar novo produto</p>
+     
       </div>
-
-
-      <div className='s-1-1'>
-        <p>Adicionar Produto</p>
-        <div className='l-1'></div>
+      <div id='linha'></div>
+      <div className='fundo_pagina'>
+        <section className='sec_1'>
+          <div className='sec1_tela-Editar-Remover'>
+          </div>
+        </section>
+        <section className='sec_2'>
+          <div className='sec2_container-1'>
+            <div className='container1_c1'>
+              <label>Nome Produto</label>
+              <input type='text' value={nomeProduto} onChange={(e) => setNomeProduto(e.target.value)}></input>
+              <label>Preço</label>
+              <input type='text' value={precoProduto} onChange={(e) => setPrecoProduto(Number(e.target.value))}></input>
+            </div>
+            <div className='container1_c2'>
+              <h2>Alterar Imagem</h2>
+              <div className='tela_alterar_img'>
+                <h5>Insira o produto</h5>
+                <div className='tela_por_img'></div>
+              </div>
+            </div>
+            <div className='container1_c3'>
+              <label>Ingredientes</label>
+              <input type='text' value={ingrediente} onChange={(e => setIngrediente(e.target.value))}></input>
+            </div>
+            <button id='botao' onClick={removerdados}>Excluir Dados</button>
+          </div>
+          <div className='sec2_container-2'>
+            <div className='container2_c1'>
+              <label>Descrição</label>
+              <textarea value={descri} onChange={(e) => setDescri(e.target.value)}></textarea>
+            </div>
+          <div className='container2_c2'>
+              <div className='container2c2_coluna-1'>
+                <label>Tipo de pele</label>
+                <select className='tipopele' value={tipopele} onChange={(e) => setTipopele(e.target.value)}>
+                  <option>selecionar</option>
+                </select>
+                <label>Tamanhos</label>
+                <select className='tamanhos' value={tamanho} onChange={(e) => setTamanho(e.target.value)}>
+                  <option>selecionar</option>
+                </select>
+                <label>Marca</label>
+                <select value={marca} onChange={(e) => setMarca(e.target.value)}>
+                  <option>selecionar</option>
+                </select>
+              </div>
+              <div className='container2c2_coluna-2'>
+                  <label>Estoque</label>
+                  <select className='tipopele' value={estoque} onChange={(e) => setEstoque(e.target.value)}>
+                    <option>selecionar</option>
+                  </select>
+                  <label>Quantidade</label>
+                  <select className='tamanhos' value={qtd} onChange={(e) => setQtd(Number(e.target.value))}>
+                    <option>selecionar</option>
+                  </select>
+                  <label>Necessidades</label>
+                  <select value={necess} onChange={(e) => setNecess(e.target.value)}>
+                    <option>selecionar</option>
+                  </select>
+              </div>
+            </div>
+            <div className='container2_c3'>
+              <div className='container2c3_bloco-1'>
+                <label>Ingredientes Ativos</label>
+                <select value={ingre_atv} onChange={(e) => setIngre_atv(e.target.value)}>
+                  <option>
+                    selecionar
+                  </option>
+                  <optgroup label='grupo-1'>
+                    <option>opção 1</option>
+                  </optgroup>
+                  <optgroup label='grupo-2'>
+                    <option>opção 2</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div className='container2c3_bloco-2'>
+                <label>Indicações</label>
+                  <textarea value={indica} onChange={(e) => setIndica(e.target.value)}></textarea>
+              </div>
+            </div>
+            <button id='botao'>Confirmar Alteração</button>
+          </div>
+        </section>
       </div>
-
-
-      <div className='s-2'>
-
-        <div className='i-1'>
-
-          <p>Nome</p>
-            <input type='text' value={np} onChange={(e) => setNp (e.target.value)}></input>
-
-          <p>Preço</p>  
-            <input type='text' value={cp} onChange={(e) => setCp (e.target.value)}></input>
-
-        </div>
-
-        <div className='i-2'>
-
-          <p>Descrição</p>
-          <input type='text' value={desc} onChange={(e) => (e.target.value)}></input>
-
-        </div>
-      </div>
-
-
-      <div className='s-3'>
-
-        <div className='a-1'>
-          <p>Adicionar imagem:</p>
-          <div className='b-1'>
-            <img className='cima' src='./assets/images/geral/salvar.svg' alt=''/>
-            <div className='b-2'>
-              <img className='embaixo' src='./assets/images/geral/export.svg' alt=''/>
-            </div>  
-          </div>
-        </div>
-
-
-        
-        <div className='c-1-1'>
-
-          <div className='c-1-outro'>
-
-           <label >Tipo de pele</label>
-           <select className='tipodepele' value={tp} onChange={(e) => setTp (e.target.value)}>
-            <option>Selecionar</option>
-            </select>
-
-            <label >Tamanhos</label>
-           <select className='tamanho' value={tam} onChange={(e) => setTam (e.target.value)}> 
-            <option>Selecionar</option>
-            </select>
-
-            <label >Marca</label>
-           <select className='marca' value={marc} onChange={(e) => setMarc (e.target.value)}>
-            <option>Selecionar</option>
-            </select>
-          </div>  
-
-        <div className='c-1-lado'>
-
-            <label >Quantidade</label>
-           <select className='quantidade' value={quant} onChange={(e) => setQuant (e.target.value)}>
-            <option>Selecionar</option>
-            </select>
-
-            <label >Necessidade</label>
-           <select className='necessidade' value={nece} onChange={(e) => setNece (e.target.value)}>
-            <option>Selecionar</option>
-            </select>
-        </div>
-          
-          </div>
-
-
-        </div>
-
-
-        <div className='c-2-2'> 
-
-          <div className='c-2-lado'>
-              <p>Ingrediente</p>
-              <input className='ingrediente' value={ingree} onChange={(e) => setIngree (e.target.value)}></input>
-          </div>
-          <div className='c-2-outro'>
-              <p>Ingredientes ativos</p>
-              <input className='Ingredientes ativos' value={ingrea} onChange={(e) => setIngrea (e.target.value)}></input>
-
-              <p>Indicações</p>
-              <input className='Indicações' value={indi} onChange={(e) => setIndi (e.target.value)}></input>
-          </div>
-          </div>  
-
-        <div className='botaos'>
-        <div>
-          <button id='botao' onClick={removerdado}>Excluir dados</button>
-        </div>
-        <div>
-          <button id='botao'>Confirmar cadastro</button>
-        </div>
-
-        </div>
-      </div>
-
+    </div>
   );
 }

@@ -2,7 +2,7 @@ import Cabecalho from '../../../components/cabecalho';
 import './index.scss';
 import { useState } from 'react';
 
-export default function AlterarProduto() {
+export default function Consulta() {
   const [codig, setCodig] = useState('')
   const [nmProduto, setNmProduto] = useState('')
   const [categoria, setCategoria] = useState('')

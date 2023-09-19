@@ -18,8 +18,8 @@ server.post(('/produto'), async (req, resp) => {
     let x = req.body;
     let dados = await inserir(x)
     resp.send(dados)
-  } catch (error) {
-    resp.status(404).send({ erro: err.message })
+  } catch (err) {
+    resp.status(404).send({ err: err.message })
   }
 
 })

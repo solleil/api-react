@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { listarTodos, inserir, deletar, alterar } from '../repository/usuarioRepository';
+import { listarTodos, inserir, deletar, alterar } from '../repository/usuarioRepository.js';
 const server = Router()
 
 server.get(('/clientes'), async (req, resp) => {

@@ -1,170 +1,59 @@
-.s-1{
-    box-sizing: border-box;
-    .c-1{
-        height: 15vh;
+.index_AddProduto {
+    height: 150vh;
+    overflow: hidden;
+    
+    .cabecalho {
+        overflow: hidden;
     }
 
-    .s-1-1 p{
-        text-align: flex-start;
-        padding-left: 20px;
-        font-size: 2vw;
-    }
-
-    .s-1-1{
+    .titulo{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
         height: 10vh;
+        align-items: flex-start;
+        padding-left: 4%;
     }
 
-    .l-1{
-        border: 1px solid #FABB59;
-    }
-
-    .i-1{
-        display: flex;
-        flex-direction: column ;
-        justify-content: space-around;
+    #linha{
+        background-color: #FABB59;
         width: 100vw;
-        height: 20vh;
-        padding-left: 30px;
-        margin-left: 20px;
-        gap: 5px;
+        height: 3px;
     }
 
-    .i-1 input{
-        height: 20px;
-        width: 30vw;
-        border: 1px solid #FABB59 ;
+    .titulo p {
+        font-size: 25px;
+    }
+    
+    .fundo_pagina {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        padding: 0px 50px 0px 50px;
     }
 
-    textarea:focus, input:focus {
-        box-shadow: 0 0 0 0;
-        outline: 0;
-    }   
+    .info_produto {
+        border: 5px solid #E2BC81;
+        display: flex;
+        flex-direction: row;
+        width: 1000px;
+        height: 240px;
+        padding: 10px;
+    }
 
-    .i-2{
+    .info_exemplo_temporario {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-right: 25vh;    
-        height: 25vh;
-        width: 1600vw;
-        text-align: flex-end;
+        border: #000 solid 2px;
+        width: 100%;
+        height: 100%;
     }
 
-    .s-2{
+    .sec1_tela-Editar-Remover {
         display: flex;
-        flex-direction: row;
         justify-content: center;
-        align-items: center;
-    }
-
-    .i-2 input{
-        height: 20vh;
-        width: 35vw;
-        border: 1px solid #FABB59 ;
-    }
-
-  .i-2 p{
-        text-align: flex-start;
-        padding-right: 42vh;
-    }
-
-    .a-1{
-        display: flex;
-        flex-direction: column ;
-        justify-content: space-around;
-        height: 45vh;
-        padding-left: 30px;
-        margin-left: 20px;
-        gap: 0px;
-        position: absolute;      
-    }
-    .a-1 input{
-        height: 56vh;
-        width: 30vw;
-        border: 1px solid #FABB59 ; 
-        
-    }
-    .cima {
-        height: 16vh;
-        width: 46vh;
-        margin: 15px;
-
-    }
-
-    .b-1{
-        border: 1px solid #FABB59;
-        width: 32vw;
-        height: 35vh;
-        gap: 0px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .b-2{
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        height: 1px;
-        width: 41vh;
-    }
-    .c-1-1{
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        align-items: flex-end;
-        margin: 10px 0px 30px;
-        padding-left: 30px;
-        margin-left: 29px;
-        
-    
-        .c-1-outro{
-            height: 30vh;
-            width: 30vw;
-            display: flex;
-            justify-content: flex-end;
-            flex-direction: column;
-    
-        }
-        
-        .c-1-lado{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            height: 20vh;
-            width: 26vw;
-        }
-
-
-
-        .tipodepele{
-          border: 1px solid #FABB59;  
-          width: 20vw;
-          height: 5vh;
-
-        }
-        .tamanho{
-            border: 1px solid #FABB59;  
-            width: 20vw;
-            height: 5vh;
-        }
-        .marca{
-            border: 1px solid #FABB59;  
-            width: 20vw;
-            height: 5vh;
-        }
-        .quantidade{
-            border: 1px solid #FABB59;  
-            width: 20vw;
-            height: 5vh;
-        }
-        .necessidade{
-            border: 1px solid #FABB59;  
-            width: 20vw;
-            height: 5vh;
-        }
     }
 
     textarea:focus, select:focus {
@@ -177,56 +66,148 @@
         outline: 0;
     }   
 
-    .c-2-2{
+
+    .c1_tela {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 73vw;
-        height: 55vh;
-        
-        
-        .c-2-lado{
-            margin: 130px;
-            
-        }
-        .c-2-outro{
-            margin: 2px;
-          
-        }
-
-        .c-2-lado input{
-            border: 1px solid #FABB59;  
-            height: 25vh;
-            width: 30vw;
-        }
-        .c-2-outro input{
-            border: 1px solid #FABB59;  
-            height: 4vh;
-            width: 35vw;
-        }
+        justify-content: space-evenly;
+        height: 100%;
+        width: 100%;
     }
-    .botaos{
+
+    .c2_tela {
         display: flex;
-        justify-content: center;
         flex-direction: row;
-        align-items: center;
-
-        #botao {
-            background-color: #FABB59;
-            color: #fff;
-            border: none;
-            height: 7vh;
-            width: 13vw;
-            margin: 20px;
-            border-radius: 50px;
-        }
-        #botao:hover {
-            cursor: pointer;
-            background-color: #e4a033bd;
-            transition: 0.2s;
-        }
+        justify-content: center;
+        width: 100%;
     }
-    
-    
+
+    .c2_tela > button {
+        border: none;
+        background-color: #fff;
+        margin-inline: 40px;
+    }
+
+    .sec_2 {
+        display: flex; 
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 40px;
+    }
+
+    .sec2_container-1 {
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+    }
+
+    .container1_c1 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container1_c1 > input {
+        margin: 10px 0px 10px 0px;
+        width: 400px;
+        border: 1px solid #E2BC81;
+    }
+
+    .tela_alterar_img {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #E2BC81;
+        height: 260px;
+        margin-bottom: 30px;
+    }
+
+    .container1_c3 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container1_c3 > input {
+        margin: 10px 0px 20px 0px;
+        width: 400px;
+        border: 1px solid #E2BC81;
+    }
+
+    .sec2_container-2 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container2_c1 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container2_c1 > textarea {
+        width: 350px; 
+        height: 160px;
+        margin-top: 10px;
+        border: 1px solid #E2BC81;
+        resize: none;
+    }
+
+    .container2_c2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .container2c2_coluna-1, .container2c2_coluna-2  {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .container2c2_coluna-1 > select , .container2c2_coluna-2 > select {
+        margin: 10px 0px 10px;
+        height: 21px;
+        width: 170px;
+        border: 1px solid #E2BC81;
+    }
+
+    .container2c3_bloco-1 , .container2c3_bloco-2  {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container2c3_bloco-1 {
+        margin-top: 10px;
+    }
+
+    .container2c3_bloco-1 > select {
+        margin: 12px 0px 10px;
+        height: 21px;
+        border: 1px solid #E2BC81;
+    }
+
+    .container2c3_bloco-2 > textarea {
+        margin: 10px 0px 10px 0px;
+        height: 35px;
+        resize: none;
+        border: 1px solid #E2BC81;
+    }
+
+    #botao {
+        background-color: #fabc59;
+        color: #fff;
+        border: none;
+        height: 50px;
+        border-radius: 50px;
+    }
+
+    #botao:hover {
+        cursor: pointer;
+        background-color: #d89d3d;
+        transition: 0.3s;
+    }
+
+
+
 }

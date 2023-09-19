@@ -21,10 +21,11 @@ import EditarProduto from './pages/adm/editar_produto';
 import Inicialadm from './pages/adm/home_adm';
 import Loginadm from './pages/adm/loginadm';
 import Graficos from './pages/adm/pagina_graficos';
+
+
 import Consulta from './pages/adm/consulta_produto';
+import Escolherpagamento from './pages/usuario/pagamento';
 
-
-import Cadastrocartao from './pages/usuario/cadastro/cadastrocartao';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -49,8 +50,9 @@ root.render(
         <Route path='/loginadm' element={<Loginadm />} />
         <Route path='/graficos' element={<Graficos />} />
         <Route path='/consultaproduto' element={<Consulta />} />
+        <Route path='/pagamento' element={<Escolherpagamento/>} />
 
-        <Route path='/cadastrocartao' element={<Cadastrocartao />} />
+
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
