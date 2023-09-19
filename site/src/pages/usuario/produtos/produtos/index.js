@@ -13,52 +13,52 @@ export default function Produtos() {
         <h1 className='tt'>LIMPEZA</h1>
         <div className='produtos-container'>
           <div className='produtos'>
-          <a href='asd' >
-              <img src='/assets/images/geral/limpador.png' alt='' />
-              <div className='linha'>.</div>
-              <p className='titulo'> LIMPADOR FACIL</p>
-              <p className='textinho'>gel-espuma com niacinamida e extrato de moringa</p>
+           <a href='asd' >
+           <img className='produto-img' src='/assets/images/geral/limpador.png' alt='' />
+            
+              <div className='linha'></div>
+              <p className='titulo'> <b>LIMPADOR FACIL</b></p>
+              <p className='textinho'>gel-espuma com niacinamida  e extrato de moringa</p>
               <div className='lado'>
-                <p class='preco-normal'> R$39,90 </p>
-              </div>
-              <div>
-                <p className='parcelas'>ou x de </p>
-                <p className='negrito'> R$24,90 </p>
-                <p className='parcelas'> sem juros</p>
+                <p class='preco-normal'> <b>R$39,90</b> </p>
+                <p className='parcelas'>ou x de R$24,90 sem juros</p>
+                 
+                
+             
               </div>
             </a>
           </div>
 
           <div className='produtos'>
-          <a href='asd'>
-              <img src='/assets/images/geral/limpador.png' alt='' />
-              <div className='linha'>.</div>
-              <p className='titulo'> LIMPADOR FACIL</p>
-              <p className='textinho'>gel-espuma com niacinamida e extrato de moringa</p>
+           <a href='asd' >
+           <img className='produto-img' src='/assets/images/geral/limpador.png' alt='' />
+            
+              <div className='linha'></div>
+              <p className='titulo'> <b>LIMPADOR FACIL</b></p>
+              <p className='textinho'>gel-espuma com niacinamida  e extrato de moringa</p>
               <div className='lado'>
-                <p class='preco-normal'> R$39,90 </p>
-              </div>
-              <div>
-                <p className='parcelas'>ou x de </p>
-                <p className='negrito'> R$24,90 </p>
-                <p className='parcelas'> sem juros</p>
+                <p class='preco-normal'> <b>R$39,90</b> </p>
+                <p className='parcelas'>ou x de R$24,90 sem juros</p>
+                 
+                
+             
               </div>
             </a>
           </div>
 
           <div className='produtos'>
-          <a href='asd'>
-              <img src='/assets/images/geral/limpador.png' alt='' />
-              <div className='linha'>.</div>
-              <p className='titulo'> LIMPADOR FACIL</p>
-              <p className='textinho'>gel-espuma com niacinamida e extrato de moringa</p>
+           <a href='asd' >
+           <img className='produto-img' src='/assets/images/geral/limpador.png' alt='' />
+            
+              <div className='linha'></div>
+              <p className='titulo'> <b>LIMPADOR FACIL</b></p>
+              <p className='textinho'>gel-espuma com niacinamida  e extrato de moringa</p>
               <div className='lado'>
-                <p class='preco-normal'> R$39,90 </p>
-              </div>
-              <div>
-                <p className='parcelas'>ou x de </p>
-                <p className='negrito'> R$24,90 </p>
-                <p className='parcelas'> sem juros</p>
+                <p class='preco-normal'> <b>R$39,90</b> </p>
+                <p className='parcelas'>ou x de R$24,90 sem juros</p>
+                 
+                
+             
               </div>
             </a>
           </div>
@@ -68,52 +68,52 @@ export default function Produtos() {
           <h1 className='tt'>HIDRATAÇÂO</h1>
 
           <div className='produtos'>
-          <a href='asd'>
-              <img src='/assets/images/geral/limpador.png' alt='' />
-              <div className='linha'>.</div>
-              <p className='titulo'> LIMPADOR FACIL</p>
-              <p className='textinho'>gel-espuma com niacinamida e extrato de moringa</p>
+           <a href='asd' >
+           <img className='produto-img' src='/assets/images/geral/limpador.png' alt='' />
+            
+              <div className='linha'></div>
+              <p className='titulo'> <b>LIMPADOR FACIL</b></p>
+              <p className='textinho'>gel-espuma com niacinamida  e extrato de moringa</p>
               <div className='lado'>
-                <p class='preco-normal'> R$39,90 </p>
-              </div>
-              <div>
-                <p className='parcelas'>ou x de </p>
-                <p className='negrito'> R$24,90 </p>
-                <p className='parcelas'> sem juros</p>
+                <p class='preco-normal'> <b>R$39,90</b> </p>
+                <p className='parcelas'>ou x de R$24,90 sem juros</p>
+                 
+                
+             
               </div>
             </a>
           </div>
 
           <div className='produtos'>
-          <a href='asd'>
-              <img src='/assets/images/geral/limpador.png' alt='' />
-              <div className='linha'>.</div>
-              <p className='titulo'> LIMPADOR FACIL</p>
-              <p className='textinho'>gel-espuma com niacinamida e extrato de moringa</p>
+           <a href='asd' >
+           <img className='produto-img' src='/assets/images/geral/limpador.png' alt='' />
+            
+              <div className='linha'></div>
+              <p className='titulo'> <b>LIMPADOR FACIL</b></p>
+              <p className='textinho'>gel-espuma com niacinamida  e extrato de moringa</p>
               <div className='lado'>
-                <p class='preco-normal'> R$39,90 </p>
-              </div>
-              <div>
-                <p className='parcelas'>ou x de </p>
-                <p className='negrito'> R$24,90 </p>
-                <p className='parcelas'> sem juros</p>
+                <p class='preco-normal'> <b>R$39,90</b> </p>
+                <p className='parcelas'>ou x de R$24,90 sem juros</p>
+                 
+                
+             
               </div>
             </a>
           </div>
 
           <div className='produtos'>
-          <a href='asd'>
-              <img src='/assets/images/geral/limpador.png' alt='' />
-              <div className='linha'>.</div>
-              <p className='titulo'> LIMPADOR FACIL</p>
-              <p className='textinho'>gel-espuma com niacinamida e extrato de moringa</p>
+           <a href='asd' >
+           <img className='produto-img' src='/assets/images/geral/limpador.png' alt='' />
+            
+              <div className='linha'></div>
+              <p className='titulo'> <b>LIMPADOR FACIL</b></p>
+              <p className='textinho'>gel-espuma com niacinamida  e extrato de moringa</p>
               <div className='lado'>
-                <p class='preco-normal'> R$39,90 </p>
-              </div>
-              <div>
-                <p className='parcelas'>ou x de </p>
-                <p className='negrito'> R$24,90 </p>
-                <p className='parcelas'> sem juros</p>
+                <p class='preco-normal'> <b>R$39,90</b> </p>
+                <p className='parcelas'>ou x de R$24,90 sem juros</p>
+                 
+                
+             
               </div>
             </a>
           </div>
@@ -122,18 +122,18 @@ export default function Produtos() {
           <h1 className='tt'>MÁSCARAS</h1>
 
           <div className='produtos'>
-          <a href='asd'>
-              <img src='/assets/images/geral/limpador.png' alt='' />
-              <div className='linha'>.</div>
-              <p className='titulo'> LIMPADOR FACIL</p>
-              <p className='textinho'>gel-espuma com niacinamida e extrato de moringa</p>
+           <a href='asd' >
+           <img className='produto-img' src='/assets/images/geral/limpador.png' alt='' />
+            
+              <div className='linha'></div>
+              <p className='titulo'> <b>LIMPADOR FACIL</b></p>
+              <p className='textinho'>gel-espuma com niacinamida  e extrato de moringa</p>
               <div className='lado'>
-                <p class='preco-normal'> R$39,90 </p>
-              </div>
-              <div>
-                <p className='parcelas'>ou x de </p>
-                <p className='negrito'> R$24,90 </p>
-                <p className='parcelas'> sem juros</p>
+                <p class='preco-normal'> <b>R$39,90</b> </p>
+                <p className='parcelas'>ou x de R$24,90 sem juros</p>
+                 
+                
+             
               </div>
             </a>
           </div>
@@ -141,36 +141,36 @@ export default function Produtos() {
 
 
           <div className='produtos'>
-          <a href='asd'>
-              <img src='/assets/images/geral/limpador.png' alt='' />
-              <div className='linha'>.</div>
-              <p className='titulo'> LIMPADOR FACIL</p>
-              <p className='textinho'>gel-espuma com niacinamida e extrato de moringa</p>
+           <a href='asd' >
+           <img className='produto-img' src='/assets/images/geral/limpador.png' alt='' />
+            
+              <div className='linha'></div>
+              <p className='titulo'> <b>LIMPADOR FACIL</b></p>
+              <p className='textinho'>gel-espuma com niacinamida  e extrato de moringa</p>
               <div className='lado'>
-                <p class='preco-normal'> R$39,90 </p>
-              </div>
-              <div>
-                <p className='parcelas'>ou x de </p>
-                <p className='negrito'> R$24,90 </p>
-                <p className='parcelas'> sem juros</p>
+                <p class='preco-normal'> <b>R$39,90</b> </p>
+                <p className='parcelas'>ou x de R$24,90 sem juros</p>
+                 
+                
+             
               </div>
             </a>
           </div>
 
 
           <div className='produtos'>
-          <a href='asd'>
-              <img src='/assets/images/geral/limpador.png' alt='' />
-              <div className='linha'>.</div>
-              <p className='titulo'> LIMPADOR FACIL</p>
-              <p className='textinho'>gel-espuma com niacinamida e extrato de moringa</p>
+           <a href='asd' >
+           <img className='produto-img' src='/assets/images/geral/limpador.png' alt='' />
+            
+              <div className='linha'></div>
+              <p className='titulo'> <b>LIMPADOR FACIL</b></p>
+              <p className='textinho'>gel-espuma com niacinamida  e extrato de moringa</p>
               <div className='lado'>
-                <p class='preco-normal'> R$39,90 </p>
-              </div>
-              <div>
-                <p className='parcelas'>ou x de </p>
-                <p className='negrito'> R$24,90 </p>
-                <p className='parcelas'> sem juros</p>
+                <p class='preco-normal'> <b>R$39,90</b> </p>
+                <p className='parcelas'>ou x de R$24,90 sem juros</p>
+                 
+                
+             
               </div>
             </a>
           </div>
@@ -179,52 +179,52 @@ export default function Produtos() {
           <h1 className='tt'>ESFOLIANTES</h1>
 
           <div className='produtos'>
-          <a href='asd'>
-              <img src='/assets/images/geral/limpador.png' alt='' />
-              <div className='linha'>.</div>
-              <p className='titulo'> LIMPADOR FACIL</p>
-              <p className='textinho'>gel-espuma com niacinamida e extrato de moringa</p>
+           <a href='asd' >
+           <img className='produto-img' src='/assets/images/geral/limpador.png' alt='' />
+            
+              <div className='linha'></div>
+              <p className='titulo'> <b>LIMPADOR FACIL</b></p>
+              <p className='textinho'>gel-espuma com niacinamida  e extrato de moringa</p>
               <div className='lado'>
-                <p class='preco-normal'> R$39,90 </p>
-              </div>
-              <div>
-                <p className='parcelas'>ou x de </p>
-                <p className='negrito'> R$24,90 </p>
-                <p className='parcelas'> sem juros</p>
+                <p class='preco-normal'> <b>R$39,90</b> </p>
+                <p className='parcelas'>ou x de R$24,90 sem juros</p>
+                 
+                
+             
               </div>
             </a>
           </div>
 
           <div className='produtos'>
-          <a href='asd'>
-              <img src='/assets/images/geral/limpador.png' alt='' />
-              <div className='linha'>.</div>
-              <p className='titulo'> LIMPADOR FACIL</p>
-              <p className='textinho'>gel-espuma com niacinamida e extrato de moringa</p>
+           <a href='asd' >
+           <img className='produto-img' src='/assets/images/geral/limpador.png' alt='' />
+            
+              <div className='linha'></div>
+              <p className='titulo'> <b>LIMPADOR FACIL</b></p>
+              <p className='textinho'>gel-espuma com niacinamida  e extrato de moringa</p>
               <div className='lado'>
-                <p class='preco-normal'> R$39,90 </p>
-              </div>
-              <div>
-                <p className='parcelas'>ou x de </p>
-                <p className='negrito'> R$24,90 </p>
-                <p className='parcelas'> sem juros</p>
+                <p class='preco-normal'> <b>R$39,90</b> </p>
+                <p className='parcelas'>ou x de R$24,90 sem juros</p>
+                 
+                
+             
               </div>
             </a>
           </div>
 
           <div className='produtos'>
-          <a href='asd'>
-              <img src='/assets/images/geral/limpador.png' alt='' />
-              <div className='linha'>.</div>
-              <p className='titulo'> LIMPADOR FACIL</p>
-              <p className='textinho'>gel-espuma com niacinamida e extrato de moringa</p>
+           <a href='asd' >
+           <img className='produto-img' src='/assets/images/geral/limpador.png' alt='' />
+            
+              <div className='linha'></div>
+              <p className='titulo'> <b>LIMPADOR FACIL</b></p>
+              <p className='textinho'>gel-espuma com niacinamida  e extrato de moringa</p>
               <div className='lado'>
-                <p class='preco-normal'> R$39,90 </p>
-              </div>
-              <div>
-                <p className='parcelas'>ou x de </p>
-                <p className='negrito'> R$24,90 </p>
-                <p className='parcelas'> sem juros</p>
+                <p class='preco-normal'> <b>R$39,90</b> </p>
+                <p className='parcelas'>ou x de R$24,90 sem juros</p>
+                 
+                
+             
               </div>
             </a>
           </div>
@@ -233,52 +233,52 @@ export default function Produtos() {
           <h1 className='tt'>CORPO</h1>
 
           <div className='produtos'>
-          <a href='asd'>
-              <img src='/assets/images/geral/limpador.png' alt='' />
-              <div className='linha'>.</div>
-              <p className='titulo'> LIMPADOR FACIL</p>
-              <p className='textinho'>gel-espuma com niacinamida e extrato de moringa</p>
+           <a href='asd' >
+           <img className='produto-img' src='/assets/images/geral/limpador.png' alt='' />
+            
+              <div className='linha'></div>
+              <p className='titulo'> <b>LIMPADOR FACIL</b></p>
+              <p className='textinho'>gel-espuma com niacinamida  e extrato de moringa</p>
               <div className='lado'>
-                <p class='preco-normal'> R$39,90 </p>
-              </div>
-              <div>
-                <p className='parcelas'>ou x de </p>
-                <p className='negrito'> R$24,90 </p>
-                <p className='parcelas'> sem juros</p>
+                <p class='preco-normal'> <b>R$39,90</b> </p>
+                <p className='parcelas'>ou x de R$24,90 sem juros</p>
+                 
+                
+             
               </div>
             </a>
           </div>
 
           <div className='produtos'>
-          <a href='asd'>
-              <img src='/assets/images/geral/limpador.png' alt='' />
-              <div className='linha'>.</div>
-              <p className='titulo'> LIMPADOR FACIL</p>
-              <p className='textinho'>gel-espuma com niacinamida e extrato de moringa</p>
+           <a href='asd' >
+           <img className='produto-img' src='/assets/images/geral/limpador.png' alt='' />
+            
+              <div className='linha'></div>
+              <p className='titulo'> <b>LIMPADOR FACIL</b></p>
+              <p className='textinho'>gel-espuma com niacinamida  e extrato de moringa</p>
               <div className='lado'>
-                <p class='preco-normal'> R$39,90 </p>
-              </div>
-              <div>
-                <p className='parcelas'>ou x de </p>
-                <p className='negrito'> R$24,90 </p>
-                <p className='parcelas'> sem juros</p>
+                <p class='preco-normal'> <b>R$39,90</b> </p>
+                <p className='parcelas'>ou x de R$24,90 sem juros</p>
+                 
+                
+             
               </div>
             </a>
           </div>
 
           <div className='produtos'>
-          <a href='asd'>
-              <img src='/assets/images/geral/limpador.png' alt='' />
-              <div className='linha'>.</div>
-              <p className='titulo'> LIMPADOR FACIL</p>
-              <p className='textinho'>gel-espuma com niacinamida e extrato de moringa</p>
+           <a href='asd' >
+           <img className='produto-img' src='/assets/images/geral/limpador.png' alt='' />
+            
+              <div className='linha'></div>
+              <p className='titulo'> <b>LIMPADOR FACIL</b></p>
+              <p className='textinho'>gel-espuma com niacinamida  e extrato de moringa</p>
               <div className='lado'>
-                <p class='preco-normal'> R$39,90 </p>
-              </div>
-              <div>
-                <p className='parcelas'>ou x de </p>
-                <p className='negrito'> R$24,90 </p>
-                <p className='parcelas'> sem juros</p>
+                <p class='preco-normal'> <b>R$39,90</b> </p>
+                <p className='parcelas'>ou x de R$24,90 sem juros</p>
+                 
+                
+             
               </div>
             </a>
           </div>

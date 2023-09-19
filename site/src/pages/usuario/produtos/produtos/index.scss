@@ -8,8 +8,7 @@
 .produtos-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; 
-    align-items: flex-start; 
+    justify-content: space-around;
     gap: 35px;
   }
   
@@ -28,8 +27,12 @@
   .produtos a:hover {
     width: 100%; 
     font-size: 22px;
-    background-color: rgba(228, 228, 228, 0.795);
+    border:5px solid #FABB59;
   }
+
+  
+
+  
   
   .produtos a {
     flex: 0 1 calc(25% - 35px); 
@@ -38,47 +41,53 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: rgba(236, 236, 236, 0.308);
+    text-decoration: none;
+    color: #000;
+    
     border-radius: 30px;
   }
+
+  
+
+
+   .produto-img{
+    
+    margin-top: 10px;
+   }
+
+
 
   .todos-produtos{
     .tt{
         margin-left: 5%;
         width: 90vw;
         text-align: center;
-        background-color: yellow;
+        background-color: #FEDF70;
         color: white;
     }
   }
   
   .titulo {
-    font-family: 'x1';
+    
     font-size: 14px;
-    text-align: center;
+    margin-right: 47%;
+  }
+  .textinho{
+    margin-left: 15px;
   }
   
   .lado {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end; 
+    
   }
   
   .preco-normal {
-    font-family: 'x2';
-    font-size: 16px;
     margin: 5px;
+    margin-top: 17px;
   }
   
-  .negrito {
-    font-family: 'x1';
-    font-size: 14px;
-  }
-  
-  .parcelas {
-    font-family: 'x2';
-    font-size: 14px;
-  }
+   
   
 .botao{
     display: flex;
