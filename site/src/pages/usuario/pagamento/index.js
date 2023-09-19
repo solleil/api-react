@@ -1,7 +1,7 @@
 import './index.scss'
 import Cabecalho from '../../../components/cabecalho'
 
-export default function Escolherpagamaneto(){
+export default function Escolherpagamento(){
 
 
     return(

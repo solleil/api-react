@@ -57,7 +57,7 @@ export default function CabecalhoAdm() {
                 <a href='http://localhost:3000/graficos'>Gráficos</a>
                 <a href='http://localhost:3000/consultapedido'>Consulta de pedidos</a>
                 <a href='http://localhost:3000/alterarstatus'>Editar pedido</a>
-                <a href='http://localhost:3000/consultaprodutos'>Consulta de produtos</a>
+                <a href='http://localhost:3000/consultaproduto'>Consulta de produtos</a>
 
               </div>
             </>
