@@ -19,7 +19,7 @@ export default function Cabecalho() {
         {menu === true &&
         <>
         <img src='/assets/images/usuario/cabecalho/logo_preta.png' alt=''/>
-              <p> Solleil</p>
+              <div className='sollei'> Solleil</div>
           </>
               }
 
@@ -37,16 +37,10 @@ export default function Cabecalho() {
         
           </>
               }
-       
-
-
+      
 
         </div>
-
-
-
-        
-             
+ 
               <div className="c-linha">  </div>
 
               <div className="c2">

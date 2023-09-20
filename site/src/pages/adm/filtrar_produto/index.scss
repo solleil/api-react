@@ -1,0 +1,167 @@
+.ka{
+    background-color: white;
+    
+    .cla{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        
+
+    }
+    .clara{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        border: 1px solid #E2BC81;
+        border-radius: 20px;
+        position: relative; 
+    }
+    .clara input{
+        width: 25vw;
+        height: 5vh;
+        border: none;
+        border-radius: 20px;
+        
+    }
+    
+    .clan button{
+        display: flex;
+        justify-content: center;
+        align-items: center
+        ;
+        width: 9vw;
+        height: 6vh;
+        border: 1px solid #E2BC81;
+        background-color: white;
+        border-radius: 20px;
+        font-weight: bold
+
+    }
+    .clara img{
+        width: 16px;
+    
+    }
+    .filtra{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    
+       
+    }
+    .table{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 60px;
+        border: 2px solid #E2BC81;  
+        width: 60vw;
+        height: 30vh;
+        border-radius: 20px;
+       
+
+
+    }
+    .fi-1{
+        margin: 15px;
+    }
+    .pedid{
+        border: 2px solid #E2BC81; 
+        width: 10vw;
+        height: 5vh;
+        border-radius: 16px;
+        
+    }
+    .fi-2 button{
+        background-color: #E2BC81 ;
+        border-color: #E2BC81;
+        width: 5vw;
+        height: 5vh;
+        border-radius: 5px;
+        color: white;
+        border-radius: 10px;
+
+    }
+    .fil-pedid{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        width: 100vw;
+        gap: 40px;
+    }
+    .fil-1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        margin: 10px;
+        gap: 10px;
+    }
+    .filsa{
+        display: flex;
+        background-color: #D9D9D9;
+        width: 5vw;
+        height: 4vh;
+        border-radius: 25px;
+        justify-content: center;
+        align-items: center;
+    }
+    .filsa img{
+        width: 20px;
+        height: 25px;
+    }
+    .fil-2{
+        background-color: #D9D9D9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    
+        border-radius: 25px;
+        width: 26vw;
+        height: 5vh;
+    }
+    .filso{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        font-weight: bold
+    }
+    .fil-2 img{
+        width: 20px;
+        height: 25px;
+    }
+    .filtro-tot{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .fil-total{
+        border-radius: 20px;
+        border: 2px solid #E2BC81; 
+        width: 90vw;
+        height: 50vh;
+        margin: 10px;
+    }
+    .to-1{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        gap: 100px;
+        margin: 15px;
+        font-size: 17px;
+        font-weight: bold
+    }
+    .bola{
+        background-color: #D9D9D9;
+        width: 2vw;
+        border-radius: 50px;
+        height: 4vh;
+    }
+}
