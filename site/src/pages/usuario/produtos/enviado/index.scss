@@ -138,18 +138,17 @@
         color: #FFA800;
         border-radius: 5px;
         font-size: 10px;
-        margin: 150px 1px;
+        margin: 150px 10px;
     }
     
     .linh-3{
-        margin: 10px;
         height: 1px;
         width: 100vw;
         background-color: #AFAFAF;
         color: #AFAFAF;
     }
     .linh-4{
-        margin: 0 10px;
+       
         height: 1px;
         width: 100vw;
         background-color: #AFAFAF;
@@ -159,7 +158,6 @@
         display: flex;
         justify-content: end;
         align-items: end;
-        flex-direction: column;
         height: 100px;
       
     }
@@ -175,7 +173,9 @@
         margin: 0 150px;
        
     }
-    
+    .prod-2{
+        margin: 20px;
+    }
 }
 
 
