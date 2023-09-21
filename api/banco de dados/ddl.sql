@@ -3,10 +3,15 @@ use solleil;
 
 
 create table tb_admin(
-id_admin   int primary key auto_increment,
-nm_admin   varchar(100),
-ds_email   varchar(100),
-ds_senha   varchar(10)
+id_admin        int primary key auto_increment,
+nm_admin		varchar(100),
+ds_sobrenome	varchar(100),
+ds_cargo        varchar(100),
+ds_telefone		varchar(100),
+ds_email		varchar(100),
+ds_cpf			varchar(100),
+dt_nasc			varchar(100),
+ds_senha		varchar(100)
 );
 
 create table tb_cliente(

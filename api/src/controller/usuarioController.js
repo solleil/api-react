@@ -1,60 +1,95 @@
 import { Router } from 'express';
-import { listarTodos, inserir, deletar, alterar } from '../repository/usuarioRepository.js';
+import { listarTodosUsuario, inserirUsuario, deletarUsuario, alterarUsuario } from '../repository/usuarioRepository.js';
+
 const server = Router()
 
-server.get(('/clientes'), async (req, resp) => {
-    try {
-        const resposta = await listarTodos();
-        resp.send(resposta);
+server.get(('/cliente'), async (req, resp) => {
 
-    } catch (err) {
+    try {
+
+        const respo = await listarTodosUsuario();
+        resp.send(respo);
+
+    } 
+    
+    catch (err) {
+
         resp.status(404).send({ erro: err.message })
+
     }
 })
 
 
 server.post(('/cliente'), async (req, resp) => {
+
     try {
-        let x = req.body;
-        let dados = await inserir(x)
+
+        let respo = req.body;
+        let dados = await inserirUsuario(respo)
         resp.send(dados)
-    } catch (error) {
+
+    } 
+
+    catch (err) {
+
         resp.status(404).send({ erro: err.message })
+
     }
 
 })
 
 server.post(('/cliente/login'), async (req, resp) => {
+
     try {
-        let x = req.body;
-        let dados = await inserir(x)
+
+        const respo = req.body;
+        const dados = await inserirUsuario(respo)
         resp.send(dados)
-    } catch (error) {
+
+    } 
+    
+    catch (err) {
+        
         resp.status(404).send({ erro: err.message })
+
     }
 
 });
 
-server.put('/alterar', async (req,resp) =>{
+server.put('/alterar/cliente', async (req,resp) =>{
     
     try {
-        const usuarioAlterado = req.body;
-        const {respo} = await alterar(usuarioAlterado);
-        resp.send(respo);
-    } catch (err) {
-        resp.status(500).send({erro:err.message});
+
+        const respo = req.body;
+        const {dados} = await alterarUsuario(respo);
+        resp.send(dados);
+
+    } 
+    
+    catch (err) {
+
+        resp.status(404).send({erro: err.message});
+
     }
+
 })
 
 server.delete(('/cliente/:id'), async (req, resp) => {
-    try {
-        let id = req.params.id;
-        let x = await deletar(id);
-        resp.send()
 
-    } catch (err) {
+    try {
+
+        const id = req.params.id;
+        const {dados} = await deletarUsuario(id);
+        resp.send(dados)
+
+    } 
+    
+    catch (err) {
+
         resp.status(404).send({ erro: err.message })
+
     }
+
 })
 
 export default server;

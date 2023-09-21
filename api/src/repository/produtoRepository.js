@@ -1,7 +1,7 @@
 import connection from "./connection.js";
 
 
-export async function listarTodos() {
+export async function listarTodosProduto() {
     let comando= `
         select * from tb_produto
     `
@@ -10,7 +10,7 @@ export async function listarTodos() {
 }
 
 
-export async function inserir(produto){
+export async function inserirProduto(produto){
     let comando = `
         insert into tb_produto (nm_produto, ds_produto, ds_tamanho, id_categoria, id_marca, id_necessidade, id_tipo_pele, vl_preco, vl_preco_promo, bt_disponivel, qtd_estoque,id_ingr_atv, ds_detalhes, ds_avaliacao)
         values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -38,7 +38,7 @@ export async function inserir(produto){
 }
 
 
-export async function alterar(produto) {
+export async function alterarProduto(produto) {
     const comando = `
         update tb_cliente
         set 
@@ -79,7 +79,7 @@ export async function alterar(produto) {
     return result;
 }
 
-export async function deletar(id){
+export async function deletarProduto(id){
     let comando = `
     delete from tb_produto where id_produto = ?
     `
