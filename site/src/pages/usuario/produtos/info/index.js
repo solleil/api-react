@@ -43,6 +43,7 @@ export default function Info() {
             <div>
           <img  className='coracao-info' src='/assets/images/usuario/info/image 22.png' alt='' />
           </div>
+          <div></div>
           </div>
           
           </div> 
