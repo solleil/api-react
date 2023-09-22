@@ -22,13 +22,29 @@ export default function Info() {
           <div><h5>disponivel no estoque</h5></div>
           <div>
             <div className='tamanhos-info'> <img className='disponivel' src='/assets/images/usuario/info/direito 1.png' alt='' /> <h4>outros tamanhos disponíveis:</h4></div> 
-            <button> 300ml </button> <button> 160ml </button> <button> 60ml </button>
+            <div className='ml-1' > 
+            <button className='ml'> 300ml  </button> 
+            <button className='ml' > 160ml </button> 
+            <button className='ml' > 60ml </button>
+            </div>
+           
           </div>
-          <div className='qtd-info'></div>
-          <div className='compre-info'></div>
-          <div className='add-info'><button> adicionar a sacola</button>
+          <div className='qtd-info'>
+          
+
+          </div>
+
+          <div className='compre-info'>
+            <button>compre agora</button>
+          </div>
+
+          <div className='add-info'>
+            <button> adicionar a sacola</button>
+            <div>
           <img  className='coracao-info' src='/assets/images/usuario/info/image 22.png' alt='' />
           </div>
+          </div>
+          
           </div> 
         </div>
       
