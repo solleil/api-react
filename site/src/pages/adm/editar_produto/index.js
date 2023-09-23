@@ -1,5 +1,5 @@
 import './index.scss';
-import Cabecalho from '../../../components/cabecalho/index.js'
+import CabecalhoAdm from '../../../components/cabecalhoAdm/index.js'
 import { useState } from 'react';
 
 export default function EditarProduto() {
@@ -33,7 +33,7 @@ export default function EditarProduto() {
 
   return (
     <div className="index_editarProduto">
-      <Cabecalho className='cabecalho'/>
+      <CabecalhoAdm className='cabecalho'/>
       <div className='fundo_pagina'>
         <section className='sec_1'>
           <header className='sec1_header_Id'>

@@ -2,8 +2,8 @@ import { useState } from 'react';
 import './index.scss'
 
 export default function CabecalhoAdm() {
-  const [menu, setMenu] = useState(true)
-  const [perfil, setPerfil] = useState(true)
+  const [menu, setMenu] = useState(false)
+  const [perfil, setPerfil] = useState(false)
 
   function Mudar() {
     setMenu(!menu)

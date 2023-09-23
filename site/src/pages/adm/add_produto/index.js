@@ -9,7 +9,7 @@ import axios from 'axios';
 
 
 export default function AddProduto() {
-  const [setadicionarproduto, setAdicionarproduto] = useState('')
+  const [adicionarproduto, setAdicionarproduto] = useState('')
 
 
   const [nomeProduto, setNomeProduto] = useState('');

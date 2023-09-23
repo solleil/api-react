@@ -9,10 +9,10 @@
         justify-content: space-between;
         align-items: flex-start;
         width: 78vw !important;
-        height: 20vh;
+        padding: 0px 10px 0px 10px;
 
 
-        position: relative;
+        position: static;
 
     }
 
@@ -25,7 +25,7 @@
         background-color: #EDCD9C;
         padding: 15px 15px 25px 0px;
         gap: 20px;
-        border-radius: 0px 10px 10px 0px;
+        border-radius: 10px 10px 10px 10px;
     }
 
     .menu {
