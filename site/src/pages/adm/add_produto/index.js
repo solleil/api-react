@@ -2,7 +2,7 @@ import './index.scss';
 
 import { useState, useEffect } from 'react';
 
-import Cabecalho from '../../../components/cabecalho';
+import CabecalhoAdm from '../../../components/cabecalhoAdm';
 
 import axios from 'axios';
 
@@ -55,7 +55,7 @@ export default function AddProduto() {
 
   return (
     <div className="index_AddProduto">
-      <Cabecalho className='cabecalho'/>
+      <CabecalhoAdm className='cabecalho'/>
       <div className='titulo'>
         <p>Adicionar novo produto</p>
      
@@ -142,7 +142,7 @@ export default function AddProduto() {
                   <textarea value={indica} onChange={(e) => setIndica(e.target.value)}></textarea>
               </div>
             </div>
-            <button id='botao'>Confirmar Alteração</button>
+            <button id='botao' onClick={adicionarproduto}>Confirmar Cadastro</button>
           </div>
         </section>
       </div>
