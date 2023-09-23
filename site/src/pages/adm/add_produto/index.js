@@ -42,7 +42,7 @@ export default function AddProduto() {
 
   async function conexao() {
     let url = 'http://localhost:5000/produto'
-    let resp = await axios.get(url);
+    let resp = await axios.put(url);
     setAdicionarproduto(resp.data)
   }
 

@@ -17,7 +17,7 @@ server.post(('/cliente'), async (req, resp) => {
         let x = req.body;
         let dados = await inserir(x)
         resp.send(dados)
-    } catch (error) {
+    } catch (err) {
         resp.status(404).send({ erro: err.message })
     }
 
@@ -28,7 +28,7 @@ server.post(('/cliente/login'), async (req, resp) => {
         let x = req.body;
         let dados = await inserir(x)
         resp.send(dados)
-    } catch (error) {
+    } catch (err) {
         resp.status(404).send({ erro: err.message })
     }
 

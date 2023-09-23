@@ -24,7 +24,7 @@ export default function CabecalhoAdm() {
         <p> Solleil</p>
       </div>
 
-      <div className="c-linha">  </div>
+      <div className="c-linha-adm">  </div>
 
       <div className="c2">
         <div className="c2-1">
@@ -40,8 +40,8 @@ export default function CabecalhoAdm() {
 
 
         <div className="c2-3">
-          <a href='http://localhost:3000/editarproduto'> <img src='/assets/images/adm/cabecalho/editar.png' alt='' /></a>
-          <a href='http://localhost:3000/addproduto'> <img src='/assets/images/adm/cabecalho/add.png' alt='' /></a>
+          <a href='http://localhost:3000/editarproduto' className='editarAdm'> <img src='/assets/images/adm/cabecalho/editar.png' alt='' /></a>
+          <a href='http://localhost:3000/addproduto' className='addAdm'> <img src='/assets/images/adm/cabecalho/add.png' alt='' /></a>
           <button onClick={MudarP}> <img src="/assets/images/geral/perfil.png" alt="" /></button></div>
 
       </div>
