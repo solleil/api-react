@@ -1,6 +1,6 @@
 import './index.scss';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Cabecalho from '../../../components/cabecalho';
 
@@ -10,6 +10,8 @@ import axios from 'axios';
 
 export default function AddProduto() {
   const [setadicionarproduto, setAdicionarproduto] = useState('')
+
+
   const [nomeProduto, setNomeProduto] = useState('');
   const [precoProduto, setPrecoProduto] = useState(0);
   const [ingrediente, setIngrediente] = useState('');

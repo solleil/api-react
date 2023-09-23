@@ -1,6 +1,6 @@
-import Cabecalho from '../../../../components/cabecalho';
+
 import './index.scss';
-import { useState } from 'react';
+
 
 export default function Enviado(){
         
