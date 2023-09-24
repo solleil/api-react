@@ -37,6 +37,8 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
+
+        
         <Route path='/' element={<Inicial />} />
         <Route path='/conta' element={<Conta />} />
 

@@ -1,4 +1,4 @@
-import connection from './connection.js';
+import { connection } from './connection.js';
 
 //GET DOS USUARIOS
 export async function listarTodosUsuario() {
