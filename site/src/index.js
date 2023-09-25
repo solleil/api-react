@@ -29,7 +29,9 @@ import FiltrarProduto from './pages/adm/filtrar_produto';
 
 
 import Consulta from './pages/adm/consulta_produto';
-import Escolherpagamento from './pages/usuario/pagamento';
+import Escolherpagamento from './pages/usuario/pagamento/pagamentocartao';
+import Pagaprovado from './pages/usuario/pagamento/aprovado';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -59,7 +61,8 @@ root.render(
         <Route path='/loginadm' element={<Loginadm />} />
         <Route path='/graficos' element={<Graficos />} />
         <Route path='/consultaproduto' element={<Consulta />} />
-        <Route path='/pagamento' element={<Escolherpagamento/>} />
+        <Route path='/pagamentocartao' element={<Escolherpagamento/>} />
+        <Route path='/aprovado'  element={<Pagaprovado/>} />
 
 
       </Routes>
