@@ -5,17 +5,19 @@ import { useState, useEffect } from 'react';
 import CabecalhoAdm from '../../../components/cabecalhoAdm';
 
 import axios from 'axios';
+import { salvarInfos } from '../../../api/salvarinfos.js';
 
 
 
 export default function AddProduto() {
   const [adicionarproduto, setAdicionarproduto] = useState('')
+  const [erro, setErro] = useState('')
 
 
   const [nomeProduto, setNomeProduto] = useState('');
-  const [precoProduto, setPrecoProduto] = useState(0);
   const [ingrediente, setIngrediente] = useState('');
   const [descri, setDescri] = useState('');
+  const [precoProduto, setPreco] = useState(0)
   const [tipopele, setTipopele] = useState('');
   const [estoque, setEstoque] = useState('');
   const [tamanho, setTamanho] = useState('');
@@ -27,7 +29,7 @@ export default function AddProduto() {
 
   const removerdados = () => {
     setNomeProduto('')
-    setPrecoProduto(0);
+    setPreco(0);
     setIngrediente('');
     setDescri('');
     setTipopele('');
@@ -40,16 +42,31 @@ export default function AddProduto() {
   }
 
 
-  async function conexao() {
-    let url = 'http://localhost:5000/produto'
-    let resp = await axios.put(url);
-    setAdicionarproduto(resp.data)
+  async function Salvarinfo() {
+    try {
+      const r = await salvarInfos(nomeProduto, descri, tipopele, precoProduto , estoque, tamanho, marca, necess, ingre_atv);
+      alert('Informações salvas')
+        
+      }
+
+
+
+      
+
+      
+
+      
+     
+    
+    catch (err) {
+      alert(err.message)
+    }
+
+
+    
   }
 
-  useEffect(() => {
 
-    conexao();
-  }, [])
 
 
 
@@ -72,7 +89,7 @@ export default function AddProduto() {
               <label>Nome Produto</label>
               <input type='text' value={nomeProduto} onChange={(e) => setNomeProduto(e.target.value)}></input>
               <label>Preço</label>
-              <input type='text' value={precoProduto} onChange={(e) => setPrecoProduto(Number(e.target.value))}></input>
+              <input type='text' value={precoProduto} onChange={(e) => setPreco(Number(e.target.value))}></input>
             </div>
             <div className='container1_c2'>
               <h2>Alterar Imagem</h2>
@@ -83,41 +100,41 @@ export default function AddProduto() {
             </div>
             <div className='container1_c3'>
               <label>Ingredientes</label>
-              <input type='text' value={ingrediente} onChange={(e => setIngrediente(e.target.value))}></input>
+              <input type='text' value={ingrediente} onChange={e => setIngrediente(e.target.value)}></input>
             </div>
             <button id='botao' onClick={removerdados}>Excluir Dados</button>
           </div>
           <div className='sec2_container-2'>
             <div className='container2_c1'>
               <label>Descrição</label>
-              <textarea value={descri} onChange={(e) => setDescri(e.target.value)}></textarea>
+              <textarea value={descri} onChange={e => setDescri(e.target.value)}></textarea>
             </div>
           <div className='container2_c2'>
               <div className='container2c2_coluna-1'>
                 <label>Tipo de pele</label>
-                <select className='tipopele' value={tipopele} onChange={(e) => setTipopele(e.target.value)}>
+                <select className='tipopele' value={tipopele} onChange={e => setTipopele(e.target.value)}>
                   <option>selecionar</option>
                 </select>
                 <label>Tamanhos</label>
-                <select className='tamanhos' value={tamanho} onChange={(e) => setTamanho(e.target.value)}>
+                <select className='tamanhos' value={tamanho} onChange={e => setTamanho(e.target.value)}>
                   <option>selecionar</option>
                 </select>
                 <label>Marca</label>
-                <select value={marca} onChange={(e) => setMarca(e.target.value)}>
+                <select value={marca} onChange={e => setMarca(e.target.value)}>
                   <option>selecionar</option>
                 </select>
               </div>
               <div className='container2c2_coluna-2'>
                   <label>Estoque</label>
-                  <select className='tipopele' value={estoque} onChange={(e) => setEstoque(e.target.value)}>
+                  <select className='tipopele' value={estoque} onChange={e => setEstoque(e.target.value)}>
                     <option>selecionar</option>
                   </select>
                   <label>Quantidade</label>
-                  <select className='tamanhos' value={qtd} onChange={(e) => setQtd(Number(e.target.value))}>
+                  <select className='tamanhos' value={qtd} onChange={e => setQtd(Number(e.target.value))}>
                     <option>selecionar</option>
                   </select>
                   <label>Necessidades</label>
-                  <select value={necess} onChange={(e) => setNecess(e.target.value)}>
+                  <select value={necess} onChange={e => setNecess(e.target.value)}>
                     <option>selecionar</option>
                   </select>
               </div>
@@ -125,7 +142,7 @@ export default function AddProduto() {
             <div className='container2_c3'>
               <div className='container2c3_bloco-1'>
                 <label>Ingredientes Ativos</label>
-                <select value={ingre_atv} onChange={(e) => setIngre_atv(e.target.value)}>
+                <select value={ingre_atv} onChange={e => setIngre_atv(e.target.value)}>
                   <option>
                     selecionar
                   </option>
@@ -139,10 +156,10 @@ export default function AddProduto() {
               </div>
               <div className='container2c3_bloco-2'>
                 <label>Indicações</label>
-                  <textarea value={indica} onChange={(e) => setIndica(e.target.value)}></textarea>
+                  <textarea value={indica} onChange={e => setIndica(e.target.value)}></textarea>
               </div>
             </div>
-            <button id='botao' onClick={adicionarproduto}>Confirmar Cadastro</button>
+            <button id='botao' onClick={Salvarinfo}>Confirmar Cadastro</button>
           </div>
         </section>
       </div>

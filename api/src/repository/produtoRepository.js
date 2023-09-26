@@ -5,8 +5,8 @@ export async function listarTodosProduto() {
     let comando= `
         select * from tb_produto
     `
-    let [ dados ] = await connection.query(comando)
-    return dados;
+    let [ resposta ] = await connection.query(comando)
+    return resposta;
 }
 
 

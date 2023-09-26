@@ -6,9 +6,8 @@ const server = Router()
 server.get(('/produto'), async (req, resp) => {
 
   try {
-
-    const respo = await listarTodosProduto();
-    resp.send(respo);
+    const resposta = await listarTodosProduto();
+    resp.send(resposta);
 
   }
 
@@ -19,6 +18,9 @@ server.get(('/produto'), async (req, resp) => {
   }
 
 })
+
+
+
 
 
 server.post(('/produto'), async (req, resp) => {
@@ -61,7 +63,7 @@ server.delete(('/produto/:id'), async (req, resp) => {
   try {
 
     const id = req.params.id;
-    const { dados } = await deletarProduto(id);
+    const dados = await deletarProduto(id);
     resp.send(dados)
 
   } 
