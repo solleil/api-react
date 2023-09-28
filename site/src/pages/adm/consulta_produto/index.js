@@ -13,7 +13,7 @@ export default function Consulta() {
   const [filtpreco, setFiltrPreco] = useState('')
   const [anotaprodut, setAnotProduto] = useState('')
 
-const removerdado = () => {
+const removerdad = () => {
     setCodig(0)
     setNmProduto('');
     setCategoria('');
@@ -94,7 +94,7 @@ const removerdado = () => {
             <button id='bot'>Procurar</button>
             </div>
             <div>
-            <button id='bot' onClick={removerdado}>Excluir produto</button>
+            <button id='bot' onClick={removerdad}>Excluir produto</button>
             </div>
           </div>
       </div>

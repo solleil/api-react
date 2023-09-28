@@ -1,5 +1,5 @@
 .tude {
-    background-color: rgba(250, 187, 89, 0.3);
+    background-color: #fabb594d;
     height: 100%;
     width: 100%;
     display: flex;
@@ -20,121 +20,98 @@
     }
 
     .fundo img {
-        height: 700px;
-        width: 950px;
+        height: 100vh;
+        width: 55vw;
     }
 
     .c-1 {
         display: flex;
         background-color: rgba(255, 255, 255, 0.596);
-        width: 35vw;
-        height: 65vh;
+        width: 39vw;
+        height: 85vh;
         position: absolute;
         background-position-x: center;
         justify-content: center;
         align-items: center;
+        box-shadow: 0px 2px 4px 0px #0000005a;
+        border-radius: 20px;
     }
-
-    .c-2 p {
+    .c-2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .cadastro{
         font-size: 30px;
         font-family: 'Playfair Display', serif;
         color: #3A3838;
-
     }
-
-    .c-2 {
+    .c-3{
         display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .c-3 {
-        display: flex;
-        justify-content: center;
         flex-direction: row;
         align-items: center;
-        height: 7vh;
-        width: 50vw;
-
-    }
-
-    .c-3 input {
-        display: flex;
-        margin: 0 15px;
-        background-color: #FFFCFC;
-        border: 1px solid #FFFCFC;
-        width: 120px;
-        height: 25px;
-        border-radius: 50px;
-
-    }
-
-    .c-4 {
-        display: flex;
         justify-content: center;
+
+
+        input {
+            padding: 7px 1px;
+            border-radius: 40px;
+            border: none;
+            
+        }
+
+    }
+    .c-4{
+        display: flex;
         flex-direction: column;
         align-items: center;
-    }
+        justify-content: center;
+      
 
-    .c-4 input {
-        display: flex;
-        margin: 15px;
-        background-color: #FFFCFC;
-        border: 1px solid #FFFCFC;
-        width: 440px;
-        height: 25px;
-        border-radius: 50px;
+        input{
+            padding: 2px;
+            width: 23vw;
+            height: 4vh;
+            border-radius: 40px;
+            border: none;
+            flex-direction: column;
+            align-items: center;
+        }
+        
     }
-
-    .c-5 {
+    
+    .c-5{
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        height: 70px;
-        width: 170px;
-        margin: 10px;
-    }
 
-    .c-5 input {
-        display: flex;
-        margin: 1px;
-        background-color: #FFFCFC;
-        border: 1px solid #FFFCFC;
-        width: 200px;
-        height: 25px;
-        border-radius: 50px;
+        input{
+            padding: 5px 9px;
+            border-radius: 40px;
+            border: none;
+        }
     }
-
-    .c-6 {
+    .c-6{
         display: flex;
-        justify-content: center;
         flex-direction: column;
-        width: 200px;
-        height: 30px;
-        margin: 10px;
+        align-items: center;
+
+        select{
+            padding: 5px 9px;
+            border-radius: 40px;
+            border: none;
+            margin-top: 10px;
+        }
     }
-
-    .c-6 select {
-        display: flex;
-        margin: 1px;
-        background-color: #FFFCFC;
-        border: 1px solid #FFFCFC;
-        width: 200px;
-        height: 32px;
-        border-radius: 50px;
-
-    }
-
     #botao {
-        background-color: #FABB59;
+        background-color: #fabc59c2;
         color: #fff;
         border: none;
-        height: 5vh;
-        width: 10vw;
+        height: 4vh;
+        width: 15vw;
         margin: 20px;
-        border-radius: 50px;
+        border-radius: 40px;
     }
 
     #botao:hover {
@@ -147,4 +124,7 @@
         }
     }
 
+    .no-1{
+      margin: 15px;
+    }
 }
