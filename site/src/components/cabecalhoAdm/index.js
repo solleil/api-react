@@ -34,14 +34,21 @@ export default function CabecalhoAdm() {
 
         <div className="c2-2">
           <div className="input">
-            <input type="text" /> <button> <img src="/assets/images/geral/pesquisa.png" alt="" /></button>
+            <input type="text" /> <button> 
+              <img src="/assets/images/geral/pesquisa.png" alt="" /></button>
           </div>
         </div>
 
 
         <div className="c2-3">
-          <a href='http://localhost:3000/editarproduto' className='editarAdm'> <img src='/assets/images/adm/cabecalho/editar.png' alt='' /></a>
-          <a href='http://localhost:3000/addproduto' className='addAdm'> <img src='/assets/images/adm/cabecalho/add.png' alt='' /></a>
+          <a href='http://localhost:3000/editarproduto' className='editarAdm'> 
+
+          <img src='/assets/images/adm/cabecalho/editar.png' alt='' /></a>
+
+          <a href='http://localhost:3000/addproduto' className='addAdm'> 
+          <img src='/assets/images/adm/cabecalho/add.png' alt='' />
+          </a>
+
           <button onClick={MudarP}> <img src="/assets/images/geral/perfil.png" alt="" /></button></div>
 
       </div>
