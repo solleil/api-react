@@ -1,15 +1,13 @@
 import { Router } from 'express';
-import { listarTodosUsuario, inserirUsuario, deletarUsuario, alterarUsuario } from '../repository/usuarioRepository.js';
+import { listarTodosUsuario, inserirUsuario, deletarUsuario, alterarUsuario, loginUsuario } from '../repository/usuarioRepository.js';
 
 const server = Router()
 
 server.get(('/cliente'), async (req, resp) => {
 
     try {
-
         const respo = await listarTodosUsuario();
         resp.send(respo);
-
     } 
     
     catch (err) {
@@ -43,7 +41,7 @@ server.post(('/cliente/login'), async (req, resp) => {
     try {
 
         const respo = req.body;
-        const dados = await inserirUsuario(respo)
+        const dados = await loginUsuario(respo);
         resp.send(dados)
 
     } 

@@ -1,17 +1,13 @@
 import './index.scss';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import CabecalhoAdm from '../../../components/cabecalhoAdm';
 
-import axios from 'axios';
-import { salvarInfos } from '../../../api/salvarinfos.js';
 
 
 
 export default function AddProduto() {
-  const [adicionarproduto, setAdicionarproduto] = useState('')
-  const [erro, setErro] = useState('')
 
 
   const [nomeProduto, setNomeProduto] = useState('');
@@ -39,31 +35,6 @@ export default function AddProduto() {
     setMarca('');
     setNecess('');
     setIndica('');
-  }
-
-
-  async function Salvarinfo() {
-    try {
-      const r = await salvarInfos(nomeProduto, descri, tipopele, precoProduto , estoque, tamanho, marca, necess, ingre_atv);
-      alert('Informações salvas')
-        
-      }
-
-
-
-      
-
-      
-
-      
-     
-    
-    catch (err) {
-      alert(err.message)
-    }
-
-
-    
   }
 
 
@@ -159,7 +130,7 @@ export default function AddProduto() {
                   <textarea value={indica} onChange={e => setIndica(e.target.value)}></textarea>
               </div>
             </div>
-            <button id='botao' onClick={Salvarinfo}>Confirmar Cadastro</button>
+            <button id='botao'>Confirmar Cadastro</button>
           </div>
         </section>
       </div>

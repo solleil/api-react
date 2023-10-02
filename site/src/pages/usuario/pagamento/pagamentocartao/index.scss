@@ -1,5 +1,6 @@
 .s1 {
-
+    
+    
     .s-2{
         height: 10vh;
         background-color: #ffffff;
@@ -8,6 +9,7 @@
         justify-content: center;
         align-items:center;
         width: 100vw;
+        padding-bottom: 45px;
      
 
     }
@@ -56,12 +58,127 @@
 
         #lo{
             padding-left: 17px;
-        }
-
-        
-       
+        }               
     }
 
 
+
+
+
+
+
+
+
+
+
+    .s-3{
+        display: flex;
+        flex-direction: column;
+     justify-content: space-evenly;
+        align-items: flex-start;
+        
+        margin-left: 55px;
+        background-color: #EEEEEE;
+        height: 5vh;
+        gap: 0px;
+        width: 50vw;
+        padding-left: 15px;
+        p{
+            margin: 2px;
+        }
+    }
+
+    .s-3 img{
+        
+        height: 2vh;
+   
+    }
+
+    .s-1-2-3{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        margin: 0px;
+       
+    }
+
+    .s-1-2-3 p{
+        font-size: 18px;
+    }
+
+
+
+
+
+
+    .s-4{
+        margin-left: 55px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 30px;
+    }
+
+    #t-2{
+        font-size: 19px;
+    }
+
+
+    .s-4-2 img{ 
+        width: 2vw;
+        height: 3vh;
+    }
+
+    #t-3{
+        font-size: 20px;
+    }
+
+    .s-4-3{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+        width: 15vw;
+        height: 5vh;
+        padding: 0px 0px 0px 5px;
+    font-size: 18px;
+    }
+
+    .s-4-3 img{
+   
+        height: 3vh;
+    }
+
+    
+
+    .s-4-3:hover{
+        transition: 0.4s;
+        font-size: 20px;
+        box-shadow: 0px 3px 5px #a0a0a0;
+        border-radius: 5px;
+        font-size: 18px;
+        width: 18vw;
+        img{
+            height: 4vh;
+        }
+    }
+
+    .l-c{
+        height: 6vh;
+        background-color: aqua;
+        width: 75vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .kewry{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
 
 }

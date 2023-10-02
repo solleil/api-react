@@ -32,29 +32,30 @@ export default function Escolherpagamento(){
                 
                 
                 <div className='s-3'>
-                    <div className='s-1-3'>
-                        <p><strong>Entrega</strong></p>
-                        <img src='/assets/images/pagamento/verificar.png' alt=''/>
-                        <div className='s-2-3'> <p>Av. Coronel Octaviano de Freitas Costa, 463 - Socorro, São Paulo - SP, CEP: 04773-000</p></div>
-                    </div>
                     
+                       <div className='s-1-2-3'>                        
+                            <p><strong>Entrega</strong></p>
+                            <img src='/assets/images/usuario/pagamento/verificar.png' alt=''/>
+                        </div> 
+
+                       <p id='texto'>Av. Coronel Octaviano de Freitas Costa, 463 - Socorro, São Paulo - SP, CEP: 04773-000</p>
+                                 
                 </div>
                 
                 
                 <div className='s-4'>
-                    <p><strong>MÉTODO DE PAGAMENTO</strong></p>
-                    <div>
-                        <img src='/assets/images/pagamento/cartao-de-credito.png' alt=''/> <p>Cartão de crédito</p>
-                    
+                    <p id='t-2'><strong>MÉTODO DE PAGAMENTO</strong></p>
+                    <div className='s-4-3'>
+                        <p >Cartão de crédito</p>
+                        <img src='/assets/images/usuario/pagamento/cartao-de-credito.png' alt=''/> 
                     </div>
-                    <div>
-                        <img src='/assets/images/pagamento/boleto2.png' alt=''/>
-                    </div>
-                    <div>
-                        <img src='/assets/images/pagamento/cartao-de-debito.png' alt='' /> <p>Cartão de débito</p>
+                    <div className='s-4-3'>
+                        <p >Cartão de débito</p>
+                        <img src='/assets/images/usuario/pagamento/cartao-de-debito.png' alt='' /> 
                     </div>
                 </div>
-
+                <div className='kewry'> <div className='l-c'></div> </div>
+                
         </div>
     )
 

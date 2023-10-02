@@ -60,7 +60,7 @@ export async function loginUsuario(usuario) {
     `;
 
     const [result] = await connection.query(comando, [usuario.email, usuario.senha]);
-    return result;
+    return;
     
 }
 
