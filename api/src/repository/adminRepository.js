@@ -1,13 +1,29 @@
 import { connection } from './connection.js';
 
+export async function listarAdmin() {
+    const comando = `
+    select
+    nm_admin            as nome,
+    ds_sobrenome        as sobrenome,
+    ds_cargo            as cargo,
+    ds_telefone         as telefone,
+    ds_email            as email,
+    ds_cpf              as cpf,
+    dt_nasc             as nascimento
+    from tb_admin;
+    `;
 
-export async function inserir(admin) {
+    const [resp] = await connection.query(comando)
+    return resp;
+}
+
+export async function inserirAdmin(admin) {
     let comando = `
         insert into tb_cliente (nm_cliente, ds_sobrenome, ds_telefone, ds_email, ds_cpf, dt_nasc, ds_senha)
         values (?, ?, ?, ?, ?, ?, ?)
     `;
 
-    const info = await connection.query(comando, [
+    const [info] = await connection.query(comando, [
         admin.nome,
         admin.sobrenome,
         admin.cargo,
@@ -22,7 +38,7 @@ export async function inserir(admin) {
     return info
 }
 
-export async function login(usuario) {
+export async function loginAdmin(usuario) {
     const comando = `
     select * from tb_cliente where 
     ds_email = ? and
@@ -32,7 +48,7 @@ export async function login(usuario) {
     return result;
 }
 
-export async function alterar(usuario) {
+export async function alterarAdmin(usuario) {
     const comando = `
         update tb_cliente
         set 
@@ -61,12 +77,11 @@ export async function alterar(usuario) {
 }
 
 
-export async function deletar(id) {
+export async function deletarAdmin(id) {
     let comando = `
     delete from tb_cliente where id_cliente = ?
     `;
-
-
+    
     const info = await connection.query(comando, [id])
     const infoar = info.AffectedRows
     return infoar

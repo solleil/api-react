@@ -1,9 +1,10 @@
 import { Router } from 'express';
+import { alterarAdmin, deletarAdmin, inserirAdmin, listarAdmin, loginAdmin } from '../repository/adminRepository.js';
 const server = Router()
 
-server.get(('/clientes'), async (req, resp) => {
+server.get(('/admin'), async (req, resp) => {
     try {
-        const resposta = await listarTodos();
+        const resposta = await listarAdmin();
         resp.send(resposta);
 
     } catch (err) {
@@ -12,10 +13,10 @@ server.get(('/clientes'), async (req, resp) => {
 })
 
 
-server.post(('/cliente'), async (req, resp) => {
+server.post(('/admin'), async (req, resp) => {
     try {
         let x = req.body;
-        let dados = await inserir(x)
+        let dados = await loginAdmin(x)
         resp.send(dados)
     } catch (err) {
         resp.status(404).send({ erro: err.message })
@@ -23,10 +24,10 @@ server.post(('/cliente'), async (req, resp) => {
 
 })
 
-server.post(('/cliente/login'), async (req, resp) => {
+server.post(('/admin/login'), async (req, resp) => {
     try {
         let x = req.body;
-        let dados = await inserir(x)
+        let dados = await inserirAdmin(x)
         resp.send(dados)
     } catch (err) {
         resp.status(404).send({ erro: err.message })
@@ -34,21 +35,21 @@ server.post(('/cliente/login'), async (req, resp) => {
 
 });
 
-server.put('/alterar', async (req,resp) =>{
+server.put('/admin/alterar', async (req,resp) =>{
     
     try {
         const usuarioAlterado = req.body;
-        const {respo} = await alterar(usuarioAlterado);
+        const {respo} = await alterarAdmin(usuarioAlterado);
         resp.send(respo);
     } catch (err) {
         resp.status(500).send({erro:err.message});
     }
 })
 
-server.delete(('/cliente/:id'), async (req, resp) => {
+server.delete(('/admin/:id'), async (req, resp) => {
     try {
         let id = req.params.id;
-        let x = await deletar(id);
+        let x = await deletarAdmin(id);
         resp.send()
 
     } catch (err) {

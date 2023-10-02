@@ -1,10 +1,15 @@
 import './index.scss';
 import { useState } from 'react';
-import { Link } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom';
+const navigate = useNavigate();
 export default function Login() {
-  const [email, setEmail] = useState('')
-  const [senha, setSenha] = useState('')
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
+  const loginUsuario = async () => {
+    const url = 'http://localhost:5000/cliente/login';
+    const respo = await axios.post(url, {email, senha});
+ }
 
 
   return (
@@ -30,7 +35,7 @@ export default function Login() {
                 <input type='password' className='input_senha' value={senha} onChange={(e) => setSenha(e.target.value)}></input>
                 </div>
               </div>
-              <button>Continuar</button>
+              <button onClick={loginUsuario}>Continuar</button>
               <h6 id='reset_log1'>Esqueceu sua Senha?</h6>
             </div>
             <div className='login_2'>

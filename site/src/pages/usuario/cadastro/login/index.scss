@@ -1,4 +1,8 @@
 .index_login_usuario {
+    input:focus{
+        box-shadow: 0px 0px 0px 0px;    
+        outline: 0;
+    }
     
     .fundo {
         display: flex;
@@ -6,7 +10,7 @@
         align-items: center;
         justify-content: center;
         height: 100vh;
-        background-color: #f5bc68f8;
+        background-color: #f5bd68b6;
     }
 
     .sec_1 {
@@ -69,6 +73,7 @@
         box-shadow: 0px 4px 4px 0px #00000040;
         height: 20px;
         width: 200px;
+        padding: 0px 0px 0px 15px;
     }
 
     #reset_log1 {
