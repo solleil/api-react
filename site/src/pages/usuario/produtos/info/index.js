@@ -1,3 +1,5 @@
+
+
 import { useState } from 'react';
 import Cabecalho from '../../../../components/cabecalho';
 import './index.scss';
@@ -13,6 +15,16 @@ export default function Info() {
   function mudarI(){
     setIndic(!indic)
   }
+  function mudarC(){
+    setComprov(!comprov)
+  }
+  function mudarA(){
+    setAvalia(!avalia)
+  }
+  function mudarIng(){
+    setIngrentesatv(!ingredientesatv)
+  }
+ 
 
   return (
     <div className="pag-info">
@@ -37,7 +49,7 @@ export default function Info() {
             <button className='ml' > 60ml </button>
             </div>
            
-          </div>
+         </div>
           <div className='qtd-info'>
           
 
@@ -45,30 +57,37 @@ export default function Info() {
 
           <div className='compre-info'>
             <button>compre agora</button>
-          </div>
+           </div>
 
-          <div className='add-info'>
+           <div className='add-info'>
             <button> adicionar a sacola</button>
             <div>
-          <img  className='coracao-info' src='/assets/images/usuario/info/image 22.png' alt='' />
-          </div>
-          <div></div>
-          </div>
+           <img  className='coracao-info' src='/assets/images/usuario/info/image 22.png' alt='' />
+           </div>
+         
+           </div>
 
           
 
           </div>
           
-          </div> 
+         </div> 
 
 
           <div className='opc-info'>
 
+            <div>
+                <p onClick={mudarI}>indicações</p>
+                <p onClick={mudarC}>comprovações</p>
+                <p onClick={mudarA}>avaliações</p>
+                <p onClick={mudarIng}>ingredientes ativos</p>
+
+            </div>
 
 
-            <div> 
-              <p onClick={mudarI}>indicações</p>
-              {indic === true &&
+            <div>
+          
+            {indic === true &&
               <>
               <div>
                 <img src='/assets/images/usuario/info/indica.png' alt='' />
@@ -82,17 +101,18 @@ export default function Info() {
                 </div>
 
                 </div>
-               </>}
-               <div>
-                
-               </div>
-              
+               </>} 
+               
             </div>
 
 
+
+            
+
+
             <div> 
-              <p onClick={mudarI}>comprovações</p>
-              {indic === false &&
+            
+              {comprov === false &&
               <>
               <div>
                 
@@ -110,12 +130,53 @@ export default function Info() {
 
 
             
+            <div> 
+           
+          
+              {avalia === false &&
+              <>
+              <div>
+                 <div>
+                 <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' />
+                  
+                 </div>
 
+               
+                
+             
+                </div>
+               </>}
+              
             </div>
 
 
+             
+            <div> 
+         
+              {ingredientesatv === false &&
+              <>
+              <div>
+                 <div>
+               
+                  
+                 </div>
 
-        </div>
+               
+                
+             
+                </div>
+               </>}
+              
+            </div>
+
+
+            
+
+       </div>
+
+
+
+     </div>
       
 
       
