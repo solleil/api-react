@@ -1,40 +1,28 @@
 import './index.scss';
 import CabecalhoAdm from '../../../components/cabecalhoAdm/index.js'
-import { Link } from 'react-router-dom';
+
 
 export default function Inicialadm() {
   return (
     <div className="index_inicial_adm">
       <CabecalhoAdm/>
       <div className='fundo' >
+
+
         <section className='menu_navegacao'>
-          <div className='menunav_container-1'>
-            <div id='link_menu'>
-              <Link to={'0'}>Menu</Link>
-            </div>
-            <div id='link_menu'>
-              <Link to={'0'}>Projetos</Link>
-            </div>
-            <div id='link_menu'>
-              <Link to={'0'}>Calendário</Link>
-            </div>
-            <div id='link_menu'>
-              <Link to={'0'}>Gráficos</Link>
-            </div>
-          </div>
-          <div className='menunav_container-2'>
-            <h1>Produtos</h1>
-            <div id='link_menu'>
-              <Link to={'/addproduto'}>Adicionar Produtos</Link>
-            </div>
-            <div id='link_menu'>
-              <Link to={'0'}>Pedidos Concluídos</Link>
-            </div>
-            <div id='link_menu'>
-              <Link to={'/editarproduto'}>AlterarProduto</Link>
-            </div>
+          <div className='s1'>
+            <p>Parcerias</p>
+
+            <a href='a'><img alt='' src='/assets/images/usuario/inicial/biossance.png' /></a>
+            <a href='a'><img alt='' src='/assets/images/usuario/inicial/cerave.png' /></a>
+            <a href='a'><img alt='' src='/assets/images/usuario/inicial/creamy.png' /></a>
+            <a href='a'><img alt='' src='/assets/images/usuario/inicial/laroche.png' /></a>
+            <a href='a'><img alt='' src='/assets/images/usuario/inicial/sallve.png' /></a>
+            <a href='a'><img alt='' src='/assets/images/usuario/inicial/simple.png' /></a>
           </div>
         </section>
+
+
         <section className='conteudo_meio'>
           <div className='contmeio_container-1'>
             <div className='contmeioc1_subcontainer-1'>
@@ -58,19 +46,20 @@ export default function Inicialadm() {
             </div>
           </div>
         </section>
+
+
         <section className='menu_admins'>
-          <div className='container-1_perfil_admim'>
-            <div className='imagem_perfil'>
-              <img src='/assets/images/geral/perfil.png' alt=''/>
-            </div>
-            <div className='info_admim'>
-              <h2>User</h2>
-              <h3>Developer</h3>
-              <h3>São Paulo, São Paulo</h3>
-            </div>
-          </div>
-          <div className='container-2_outros_admim'>
-            <h3>Ninguem On-Line</h3>
+          <div className='s2'>
+              <p>Melhores avaliações</p>
+
+              <div className='s2-1'>
+                <p>1º</p>
+                <div className='s6-1-p'><img src='/assets/images/usuario/inicial/produto.png' alt='' />
+                  <p>Limpador Facial</p>  
+              
+                </div>
+                <b>avaliação</b>
+              </div>
           </div>
         </section>
       </div>
