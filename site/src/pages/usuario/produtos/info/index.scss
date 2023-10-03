@@ -4,7 +4,7 @@
 
 
     .exemplo{
-       height: 50vh;
+       height: 80vh;
     }
 
     .td-info{
@@ -20,6 +20,7 @@
         display: flex;
         flex-direction: column;
         margin: 10px;
+       margin-bottom: 50px;
     }
 
     .vl-desconto{
@@ -41,7 +42,16 @@
         font-size: 16px;
     }
 
+     .disp{
+        display: flex;
+        flex-direction: row;
+       
+        
+     }
+     
     .disponivel{
+        margin: 5px;
+        margin-top: 8%;
         height: 3vh;
     }
 
@@ -75,6 +85,8 @@
     .compre-info button{
         border-color: #FFE898;
         background-color: white;
+        padding: 8px;
+        border-radius: 15px;
     }
     
     .add-info button{
@@ -95,6 +107,13 @@
 
     .opc-info{
         display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        
+    }
+
+    .opc-1{
+        display: flex;
         flex-direction: row;
         justify-content: space-around;
         
@@ -106,6 +125,75 @@
         flex-direction: row;
     }
 
+    .indica{
+        display: flex;
+        flex-direction: row;
+        background-color: #FFE898;
+        width: 20vw;
+        height: 10vh;
+        border-radius: 30px;
+        margin-left: 5%;
+
+
+        .indica-s1{
+            background-color: white;
+            border-radius: 30px;
+            height: 6vh;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+      
+    }
+
+    
+    .indica-s2{
+        display: flex;
+        flex-direction: column;
+
+
+      .indica-png{
+        height: 4vh;
+        margin-top: 15px;
+      
+      
+       margin-left: 5%;
+    }
+
+
+    .indica-s3{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .indc-s1{
+        display: flex;
+        flex-direction: row;
+    }
+
+
+    .indc-s2{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .indc-s3{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .indc-s4{
+        display: flex;
+        flex-direction: row;
+    }
+
+
+
+      
+
+    }
+
+   
 
 
 

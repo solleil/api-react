@@ -12,7 +12,7 @@ export async function listarAdmin() {
     dt_nasc             as nascimento
     from tb_admin;
     `;
-
+        
     const [resp] = await connection.query(comando)
     return resp;
 }

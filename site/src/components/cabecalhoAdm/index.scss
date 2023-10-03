@@ -3,6 +3,12 @@
     align-items: flex-start;
     justify-content: flex-start;
 
+    .c2-3{
+        display: flex;
+        align-items: flex-start;
+        gap:15px;
+    }
+
     .teste {
         display: flex;
         flex-direction: row;
