@@ -1,5 +1,5 @@
 import './index.scss';
-
+import axios from 'axios';
 import { useState } from 'react';
 
 import CabecalhoAdm from '../../../components/cabecalhoAdm';
@@ -8,7 +8,6 @@ import CabecalhoAdm from '../../../components/cabecalhoAdm';
 
 
 export default function AddProduto() {
-
 
   const [nomeProduto, setNomeProduto] = useState('');
   const [ingrediente, setIngrediente] = useState('');
@@ -37,7 +36,17 @@ export default function AddProduto() {
     setIndica('');
   }
 
+  const AddProduto = async () => {
+    try {
+      
+    } catch (err) {
+      
+    }
+    const url = '/produto';
+    const respo = await axios.post(url, {
 
+    });
+  }
 
 
 

@@ -1,68 +1,67 @@
 .pag-login-adm {
-    display: flex;
-    justify-content: space-between;
-  }
+  display: flex;
+  justify-content: space-between;
 
-  .sol{
+  .sol {
     margin-top: 15%;
 
   }
-  
+
   .modeloadm {
-    .md-adm{
-        width: 40vw;
-        height: 100vh;
+    .md-adm {
+      width: 40vw;
+      height: 100vh;
     }
-    
+
   }
 
-  .lg-tudo{
-    gap: 50px;
+  .lg-tudo {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #FFE898;
-    width: 97vw;
+    width: 100%;
 
-    .usuario{
-        display: flex;
-        flex-direction: column;
+    .usuario {
+      display: flex;
+      flex-direction: column;
 
-        input{
-            width: 20vw;
-            height: 5vh;
-            border-radius: 5px;
-        }
+      input {
+        width: 20vw;
+        height: 5vh;
+        border-radius: 5px;
+      }
     }
 
-    .senha{
-        display: flex;
-        flex-direction: column;
+    .senha {
+      display: flex;
+      flex-direction: column;
 
-        input{
-            width: 20vw;
-            height: 5vh;
-            border-radius: 5px;
-            font-size: 20px;
-        }
+      input {
+        width: 20vw;
+        height: 5vh;
+        border-radius: 5px;
+        font-size: 20px;
+      }
 
-       
+
     }
   }
-  
-   .bt-entrar{
-            border: none;
-            justify-content: center;
-            background-color: black;
-            color: white;
-            width: 12vw;
-            height: 7vh;
-            border-radius: 10px;
-            margin-top: 10px;
 
-        }
+  .bt-entrar {
+    border: none;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    width: 12vw;
+    height: 7vh;
+    border-radius: 10px;
+    margin-top: 10px;
 
-        .anonimo{
-           margin-top: 32%;
-           margin-left: 90%;
-        }
+  }
+
+  .anonimo {
+    margin-top: 32%;
+    margin-left: 90%;
+  }
+}

@@ -16,7 +16,7 @@ server.get(('/admin'), async (req, resp) => {
 server.post(('/admin'), async (req, resp) => {
     try {
         let x = req.body;
-        let dados = await loginAdmin(x)
+        let dados = await inserirAdmin(x)
         resp.send(dados)
     } catch (err) {
         resp.status(404).send({ erro: err.message })
@@ -27,7 +27,7 @@ server.post(('/admin'), async (req, resp) => {
 server.post(('/admin/login'), async (req, resp) => {
     try {
         let x = req.body;
-        let dados = await inserirAdmin(x)
+        let dados = await loginAdmin(x)
         resp.send(dados)
     } catch (err) {
         resp.status(404).send({ erro: err.message })

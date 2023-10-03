@@ -36,14 +36,13 @@ server.post(('/cliente'), async (req, resp) => {
 
 })
 
-server.post(('/cliente/login'), async (req, resp) => {
+server.post(('/login'), async (req, resp) => {
 
     try {
-
+        
         const respo = req.body;
         const dados = await loginUsuario(respo);
         resp.send(dados)
-
     } 
     
     catch (err) {

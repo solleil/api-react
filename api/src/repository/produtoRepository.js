@@ -9,11 +9,34 @@ export async function listarTodosProduto() {
     return resposta;
 }
 
+export async function pesquisarProduto() {
+    const comando = `
+    select 
+    nm_produto          as nome, 
+    from tb_produto where
+    nm_produto like % ? %
+    `;
+
+    const [respo] = await connection.query(comando);
+    return respo
+}
+
 
 export async function inserirProduto(produto){
     let comando = `
-        insert into tb_produto (nm_produto, ds_produto, ds_tamanho, id_categoria, id_marca, id_necessidade, id_tipo_pele, vl_preco, vl_preco_promo, bt_disponivel, qtd_estoque,id_ingr_atv, ds_detalhes, ds_avaliacao)
-        values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        insert into tb_produto (
+            nm_produto, 
+            ds_produto, 
+            ds_tamanho, 
+            id_categoria, 
+            id_marca, 
+            id_necessidade, 
+            id_tipo_pele,
+            vl_preco, 
+            qtd_estoque,
+            id_ingr_atv, 
+            ds_indicacoes, 
+        values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `
 
     const info = await connection.query(comando, [
@@ -25,12 +48,9 @@ export async function inserirProduto(produto){
         produto.necessidade,
         produto.tipodepele,
         produto.preco,
-        produto.promo,
-        produto.disponivel,
         produto.estoque,
         produto.ingrativo,
-        produto.detalhes,
-        produto.avaliacao
+        produto.indicacoes
     ]);
 
     produto.id = info.insertId
@@ -50,12 +70,10 @@ export async function alterarProduto(produto) {
         id_necessidade = ?, 
         id_tipo_pele = ?, 
         vl_preco = ?, 
-        vl_preco_promo = ?, 
         bt_disponivel = ?, 
         qtd_estoque = ?,
         id_ingr_atv = ?, 
-        ds_detalhes = ?, 
-        ds_avaliacao
+        ds_indicacoes = ?, 
         where id_produto = ?
     `;
 
@@ -68,12 +86,9 @@ export async function alterarProduto(produto) {
         produto.necessidade,
         produto.tipodepele,
         produto.preco,
-        produto.promo,
-        produto.disponivel,
         produto.estoque,
         produto.ingrativo,
-        produto.detalhes,
-        produto.avaliacao,
+        produto.indicacoes,
         produto.id
     ]);
     return result;
@@ -82,9 +97,7 @@ export async function alterarProduto(produto) {
 export async function deletarProduto(id){
     let comando = `
     delete from tb_produto where id_produto = ?
-    `
-    
-
+    `;
     const info= await connection.query(comando, [id])
     const infoar= info.AffectedRows
     return infoar

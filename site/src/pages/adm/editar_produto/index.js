@@ -16,6 +16,7 @@ export default function EditarProduto() {
   const [necess, setNecess] = useState('');
   const [ingre_atv, setIngre_atv] = useState('');
   const [indica, setIndica] = useState('');
+  const [categoria, setCategotia] = useState('');
   const [alerta, setAlerta] = useState('')
 
   const removerdados = () => {
@@ -39,15 +40,17 @@ export default function EditarProduto() {
         nome: nomeProduto,
         desc: descri,
         tamanho: tamanho,
+        categoria: categoria,
         marca: marca,
         necessidade: necess,
         tipodepele: tipopele,
         preco: precoProduto,
         estoque: estoque,
-        ingrativo: ingre_atv
+        ingrativo: ingre_atv,
+        indicacoes: indica
       })
 
-      if (respo === 200) {
+      if (respo.status === 200) {
         setAlerta(alerta)
       }
     } catch (err) {
@@ -99,43 +102,50 @@ export default function EditarProduto() {
             </div>
             <div className='container1_c3'>
               <label>Ingredientes</label>
-              <input type='text' value={ingrediente} onChange={(e => setIngrediente(e.target.value))}></input>
+              <textarea id='ingredientes' type='text' value={ingrediente} onChange={(e => setIngrediente(e.target.value))}></textarea>
             </div>
-            <button id='botao' onClick={removerdados}>Excluir Dados</button>
           </div>
           <div className='sec2_container-2'>
             <div className='container2_c1'>
               <label>Descrição</label>
               <textarea value={descri} onChange={(e) => setDescri(e.target.value)}></textarea>
             </div>
-          <div className='container2_c2'>
-              <div className='container2c2_coluna-1'>
-                <label>Tipo de pele</label>
-                <select className='tipopele' value={tipopele} onChange={(e) => setTipopele(e.target.value)}>
-                  <option>selecionar</option>
-                </select>
-                <label>Tamanhos</label>
-                <select className='tamanhos' value={tamanho} onChange={(e) => setTamanho(e.target.value)}>
-                  <option>selecionar</option>
-                </select>
-                <label>Marca</label>
-                <select value={marca} onChange={(e) => setMarca(e.target.value)}>
-                  <option>selecionar</option>
+            <div className='container2_c2'>
+              <div className='container2c2_categoria'>
+                <label>Categoria</label>
+                <select>
+                  <option>Selecionar</option>
                 </select>
               </div>
-              <div className='container2c2_coluna-2'>
-                  <label>Estoque</label>
-                  <select className='tipopele' value={estoque} onChange={(e) => setEstoque(e.target.value)}>
+              <div className='div_selects'>
+                <div className='container2c2_coluna-1'>
+                  <label>Tipo de pele</label>
+                  <select className='tipopele' value={tipopele} onChange={(e) => setTipopele(e.target.value)}>
                     <option>selecionar</option>
                   </select>
-                  <label>Quantidade</label>
-                  <select className='tamanhos' value={qtd} onChange={(e) => setQtd(Number(e.target.value))}>
+                  <label>Tamanhos</label>
+                  <select className='tamanhos' value={tamanho} onChange={(e) => setTamanho(e.target.value)}>
                     <option>selecionar</option>
                   </select>
-                  <label>Necessidades</label>
-                  <select value={necess} onChange={(e) => setNecess(e.target.value)}>
+                  <label>Marca</label>
+                  <select value={marca} onChange={(e) => setMarca(e.target.value)}>
                     <option>selecionar</option>
                   </select>
+                </div>
+                <div className='container2c2_coluna-2'>
+                    <label>Estoque</label>
+                    <select className='tipopele' value={estoque} onChange={(e) => setEstoque(e.target.value)}>
+                      <option>selecionar</option>
+                    </select>
+                    <label>Quantidade</label>
+                    <select className='tamanhos' value={qtd} onChange={(e) => setQtd(Number(e.target.value))}>
+                      <option>selecionar</option>
+                    </select>
+                    <label>Necessidades</label>
+                    <select value={necess} onChange={(e) => setNecess(e.target.value)}>
+                      <option>selecionar</option>
+                    </select>
+                </div>
               </div>
             </div>
             <div className='container2_c3'>
@@ -158,9 +168,12 @@ export default function EditarProduto() {
                   <textarea value={indica} onChange={(e) => setIndica(e.target.value)}></textarea>
               </div>
             </div>
-            <button id='botao' onClick={AlterarProduto}>Confirmar Alteração</button>
           </div>
         </section>
+        <div className='div_botoes'>
+        <button id='botao' onClick={removerdados}>Excluir Dados</button>
+        <button id='botao' onClick={AlterarProduto}>Confirmar Alteração</button>
+        </div>
       </div>
     </div>
   );

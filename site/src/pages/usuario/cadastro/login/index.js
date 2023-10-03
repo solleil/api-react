@@ -12,15 +12,14 @@ export default function Login() {
 
   const loginUsuario = async () => {
     try { 
-    const url = 'http://localhost:5000/cliente/login';
+    const url = 'http://localhost:5000/login';
     const respo = await axios.post(url, {email: email, senha: senha});
     
-    if (respo === 200) {
-      navigate('/');
-    }
+    navigate('/');
+
     
     } catch (err) {
-      if (err.response.status === 404) {
+      if (err === 404) {
         setErro(err.response.data.erro)
       }
     }
@@ -59,9 +58,6 @@ export default function Login() {
               <button id='botao_face'>Continuar com Facebook</button>
               <button>Continuar com Google</button>
               <h6><Link to={'/cadastro'} id='pag_cadastro'>Não tem uma conta? Realize seu Cadastro.</Link></h6>
-            </div>
-            <div id='teste-erro'>
-              {erro}
             </div>
           </div>
         </div>    

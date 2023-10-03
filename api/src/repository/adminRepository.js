@@ -44,8 +44,8 @@ export async function loginAdmin(usuario) {
     ds_email = ? and
     ds_senha = ?`;
 
-    const result = await connection.query(comando, [usuario.email, usuario.senha]);
-    return result;
+    const [result] = await connection.query(comando, [usuario.email, usuario.senha]);
+    return;
 }
 
 export async function alterarAdmin(usuario) {
@@ -62,7 +62,7 @@ export async function alterarAdmin(usuario) {
         where id_cliente = ?
     `;
 
-    const result = await connection.query( comando, [
+    const [result] = await connection.query( comando, [
         usuario.nome,
         usuario.sobrenome,
         usuario.telefone,
