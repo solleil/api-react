@@ -1,0 +1,51 @@
+
+.pg-aprovado{
+
+
+    .cabecalho{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .sol-apv{
+        height: 30px;
+        margin-top: 30px;
+    }
+
+    .s1-apv{
+        display: flex;
+        flex-direction: column;
+       
+        background-color: black;
+        height: 30vh;
+
+        h1{
+            text-align: center;
+            color: #19B400;
+        }
+
+        h5{
+            text-align: center;
+            color: white;
+        }
+
+
+       .correto{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+       
+        width: 100vw;
+        
+
+       }
+
+        .verifica{
+           width: 15vw; 
+           
+           
+            
+        }
+    }
+}

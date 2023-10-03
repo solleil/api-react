@@ -3,26 +3,46 @@
 import { useState } from 'react';
 import Cabecalho from '../../../../components/cabecalho';
 import './index.scss';
+import Rodape from '../../../../components/rodape';
 
 export default function Info() {
 
 
-  const [indic, setIndic] = useState(true);
-  const [comprov, setComprov] = useState(true);
-  const [avalia, setAvalia] = useState(true);
-  const [ingredientesatv, setIngrentesatv] = useState(true);
+  const [indic, setIndic] = useState(false);
+  const [comprov, setComprov] = useState(false);
+  const [avalia, setAvalia] = useState(false);
+  const [ingredientesatv, setIngrentesatv] = useState(false);
 
   function mudarI(){
     setIndic(!indic)
+  if(indic === true){
+    setComprov(false)
+    setAvalia(false)
+    setIngrentesatv(false)
+  }
+     
   }
   function mudarC(){
     setComprov(!comprov)
+    if(comprov === true){
+      setIndic(false)
+      setAvalia(false)
+      setIngrentesatv(false)
+    }
+  
   }
   function mudarA(){
     setAvalia(!avalia)
+    if(avalia === true){
+      setComprov(false)
+      setIndic(false)
+      setIngrentesatv(false)
+    }
+    
   }
   function mudarIng(){
     setIngrentesatv(!ingredientesatv)
+  
   }
  
 
@@ -39,10 +59,22 @@ export default function Info() {
           <div ><h3>R$ 79,90</h3></div>
           <div ><h4>ou 3x de R$26,63</h4></div>
           </div>
-          <div className='estrelas'> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' />  </div>
-          <div><h5>disponivel no estoque</h5></div>
+         <div className='estrelas'>
+          <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' />
+          <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' />
+          <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' />
+          <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> 
+          <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> 
+           </div>
+
+          <div className='disp'>
+             <img className='disponivel' src='/assets/images/usuario/info/direito 1.png' alt='' />
+             <h5>disponivel no estoque</h5>
+           </div>
+
+
           <div>
-            <div className='tamanhos-info'> <img className='disponivel' src='/assets/images/usuario/info/direito 1.png' alt='' /> <h4>outros tamanhos disponíveis:</h4></div> 
+            <div className='tamanhos-info'>  <h4>outros tamanhos disponíveis:</h4></div> 
             <div className='ml-1' > 
             <button className='ml'> 300ml  </button> 
             <button className='ml' > 160ml </button> 
@@ -76,11 +108,12 @@ export default function Info() {
 
           <div className='opc-info'>
 
-            <div>
+            <div className='opc-1'>
+              
                 <p onClick={mudarI}>indicações</p>
                 <p onClick={mudarC}>comprovações</p>
                 <p onClick={mudarA}>avaliações</p>
-                <p onClick={mudarIng}>ingredientes ativos</p>
+                <p onClick={mudarIng}>ingredientes ativos </p>
 
             </div>
 
@@ -89,18 +122,39 @@ export default function Info() {
           
             {indic === true &&
               <>
-              <div>
-                <img src='/assets/images/usuario/info/indica.png' alt='' />
-                <p>Todos os tipos de pele</p>
+              <div className='indica'>
                 
-                <div>
-                  <p>Melhora o aspecto da pele</p>
-                  <p>Reduz a oleosidade</p>
-                  <p>Promove a maciez da pele</p>
-                  <p>Antipoluição</p>
-                </div>
+                <img className='indica-s1' src='/assets/images/usuario/info/indica.png' alt='' />
+                <h3>Todos os tipos de pele</h3>
 
                 </div>
+                
+                <div className='indica-s2'>
+
+                  <div className='indc-s1'>
+                  <img className='indica-png' src='/assets/images/usuario/info/opcoes.png' alt='' /> 
+                  <p>Melhora o aspecto da pele</p>
+                  </div>
+
+                 <div className='indc-s2'>
+                  <img className='indica-png' src='/assets/images/usuario/info/opcoes.png' alt='' />
+                  <p>Reduz a oleosidade</p> 
+                  </div>
+
+                 <div className='indc-s3'>
+                  <img className='indica-png' src='/assets/images/usuario/info/opcoes.png' alt='' />
+                  <p>Promove a maciez da pele</p>
+                  </div>
+
+                <div className='indc-s4'> 
+                  <img className='indica-png' src='/assets/images/usuario/info/opcoes.png' alt='' />
+                   <p>Antipoluição</p>
+                   </div>
+                  
+                
+                </div>
+
+
                </>} 
                
             </div>
@@ -112,15 +166,11 @@ export default function Info() {
 
             <div> 
             
-              {comprov === false &&
+              {comprov === true && 
               <>
-              <div>
-                
-                <p>o Limpador Facial passou por uma série de estudos clínicos que garantem a segurança do produto:
-                   Dermatologicamente testado em pele sensível - produto seguro para ser aplicado sobre a pele;
-                   Oftalmologicamente testado - produto seguro para ser aplicado, com os olhos fechados;
-                  Não-fototóxico e não-sensibilizante - o produto não causa irritação/sensibilização na pele;Não-comedogênico - o produto não promoveu aumento em comedões abertos e fechados, nem em pápulas e pústulas;
-                  Hipoalergênico - o produto não induziu processo de irritação e sensibilização cutânea em nenhum voluntário durante o período de estudo.</p>
+              <div className='comprova'>
+
+                <h2>PALOMA PALOMA PALOMKA </h2>
                 
              
                 </div>
@@ -133,16 +183,11 @@ export default function Info() {
             <div> 
            
           
-              {avalia === false &&
+              {avalia === true &&
               <>
-              <div>
-                 <div>
-                 <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' /> <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                  
-                 </div>
-
-               
+              <div className='avaliac'>
                 
+              <h2>clara</h2>
              
                 </div>
                </>}
@@ -153,16 +198,12 @@ export default function Info() {
              
             <div> 
          
-              {ingredientesatv === false &&
+              {ingredientesatv === true &&
               <>
-              <div>
-                 <div>
+              <div className='ingred'>
+                 
                
-                  
-                 </div>
-
-               
-                
+          
              
                 </div>
                </>}
@@ -174,9 +215,12 @@ export default function Info() {
 
        </div>
 
-
-
+      
+ 
      </div>
+   
+
+    
       
 
       
