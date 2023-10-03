@@ -1,6 +1,7 @@
 import './index.scss';
 import CabecalhoAdm from '../../../components/cabecalhoAdm/index.js'
 import { useState } from 'react';
+import axios from 'axios';
 
 export default function EditarProduto() {
   const [nomeProduto, setNomeProduto] = useState('');
@@ -15,6 +16,7 @@ export default function EditarProduto() {
   const [necess, setNecess] = useState('');
   const [ingre_atv, setIngre_atv] = useState('');
   const [indica, setIndica] = useState('');
+  const [alerta, setAlerta] = useState('')
 
   const removerdados = () => {
     setNomeProduto('')
@@ -28,7 +30,32 @@ export default function EditarProduto() {
     setMarca('');
     setNecess('');
     setIndica('');
-  }
+  };
+
+  const AlterarProduto = async () => {
+    try {
+      const url = '/alterar/produto';
+      const respo = await axios.put(url, {
+        nome: nomeProduto,
+        desc: descri,
+        tamanho: tamanho,
+        marca: marca,
+        necessidade: necess,
+        tipodepele: tipopele,
+        preco: precoProduto,
+        estoque: estoque,
+        ingrativo: ingre_atv
+      })
+
+      if (respo === 200) {
+        setAlerta(alerta)
+      }
+    } catch (err) {
+      if (err.response.data.erro) {
+        setAlerta(err)
+      }
+    }
+  };
 
 
   return (
@@ -131,7 +158,7 @@ export default function EditarProduto() {
                   <textarea value={indica} onChange={(e) => setIndica(e.target.value)}></textarea>
               </div>
             </div>
-            <button id='botao'>Confirmar Alteração</button>
+            <button id='botao' onClick={AlterarProduto}>Confirmar Alteração</button>
           </div>
         </section>
       </div>
