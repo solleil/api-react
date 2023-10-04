@@ -166,19 +166,23 @@
     }
 
     .l-c{
-        height: 6vh;
-        background-color: aqua;
-        width: 75vw;
+        height: 5px;
+        background-color: #EEEEEE;
+        width: 95vw;
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
     }
-    .kewry{
+    .k{
         display: flex;
         justify-content: center;
         align-items: center;
         
+    }
+
+    #t-3{
+        padding: 0px 0px 0px 15px;
     }
 
 }

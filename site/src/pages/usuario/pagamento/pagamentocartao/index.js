@@ -54,7 +54,11 @@ export default function Escolherpagamento(){
                         <img src='/assets/images/usuario/pagamento/cartao-de-debito.png' alt='' /> 
                     </div>
                 </div>
-                <div className='kewry'> <div className='l-c'></div> </div>
+                
+                
+                <div className='k'> <div className='l-c'></div> </div>
+                <p id='t-3'>Aplicar cupom</p>
+
                 
         </div>
     )
