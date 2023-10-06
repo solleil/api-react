@@ -1,6 +1,5 @@
 .tude {
     background-color: #fabb594d;
-    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -10,7 +9,7 @@
     .c-0 {
         display: flex;
         width: 55vw;
-        height: 100vh;
+        height: 100%;
         background-position-x: center;
         justify-content: center;
         align-items: center;
@@ -21,7 +20,7 @@
 
     .fundo img {
         height: 100vh;
-        width: 65vw;
+        width: 75vw;
     }
 
     .c-1 {

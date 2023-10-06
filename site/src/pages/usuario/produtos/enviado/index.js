@@ -18,7 +18,7 @@ export default function Enviado(){
             <div className='linh-1'></div>
 
             <div className='envia'>
-                <p>Enviado</p>
+                <p>Enviados</p>
                 <div className='linh-2'></div>
             </div>
 
@@ -104,6 +104,10 @@ export default function Enviado(){
 
                 <div className='ver'>
                     <button id='kq'>VER TODOS OS PRODUTOS</button>
+                </div>
+
+                <div>
+                    
                 </div>
 
                 

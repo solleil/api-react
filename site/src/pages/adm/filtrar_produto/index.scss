@@ -26,23 +26,56 @@
         
     }
     
-    .clan button{
-        display: flex;
-        justify-content: center;
-        align-items: center
-        ;
-        width: 9vw;
-        height: 6vh;
-        border: 1px solid #E2BC81;
-        background-color: white;
+    
+    .clan button {
+        padding: 16px 42px;
         border-radius: 20px;
-        font-weight: bold
+        line-height: 1.25;
+        background-color: white;
+        text-decoration: none;
 
+        color: rgb(0, 0, 0);
+        font-size: 14px;
+
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        position: relative;
+        transition: background-color .6s ease;
+        overflow: hidden;
+        border: none;
+
+
+        &:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: 50%;
+            left: 50%;
+            top: var(--mouse-y);
+            left: var(--mouse-x);
+            transform-style: flat;
+            transform: translate3d(-50%,-50%,0);
+            background: rgba(white,.1);
+            border-radius: 100%;
+            transition: width .3s ease, height .3s ease;
+        }
+        &:focus,
+        &:hover {
+            background: darken(#E2BC81,7%);
+        }
+        &:active {
+            &:after {
+                width: 300px;
+                height: 300px;
+            }
+        }
     }
     .clara img{
         width: 16px;
     
     }
+
     .filtra{
         display: flex;
         justify-content: center;
@@ -55,6 +88,7 @@
     .table{
         display: flex;
         align-items: center;
+        flex-direction: row;
         justify-content: center;
         margin: 60px;
         border: 2px solid #E2BC81;  
@@ -75,12 +109,16 @@
         border-radius: 16px;
         
     }
+    .fi-2{
+        display: flex;
+        height: 35px;
+        margin: 10px;
+    }
     .fi-2 button{
         background-color: #E2BC81 ;
         border-color: #E2BC81;
-        width: 5vw;
+        width: 6vw;
         height: 5vh;
-        border-radius: 5px;
         color: white;
         border-radius: 10px;
 
@@ -161,7 +199,7 @@
     }
     .bola{
         background-color: #D9D9D9;
-        width: 3vw;
+        width: 2vw;
         border-radius: 100%;
         height: 3vh;
         margin: 10px;
