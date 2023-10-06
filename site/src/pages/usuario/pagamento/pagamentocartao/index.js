@@ -57,7 +57,34 @@ export default function Escolherpagamento(){
                 
                 
                 <div className='k'> <div className='l-c'></div> </div>
-                <p id='t-3'>Aplicar cupom</p>
+
+                <div className='s-5'>
+                    <div className='s-5-1'>                    
+                        <p><strong>Valor total:</strong></p>
+                        <p className='t-4'>R$50,00</p>
+                    </div>
+                    <div className='s-5-1'>                    
+                        <b>Taxa de envio:</b>
+                        <p className='t-4'>R$5,00</p>
+                    </div>
+                    <div className='s-5-1'>                    
+                        <b>Subtotal:</b>
+                        <p className='t-4'>R$55,00</p>
+                    </div>
+                </div>
+                
+                <div className='k'> <div className='l-c'></div> </div>
+
+                <div className='r-1'>
+                    <div className='s-5-1'>                    
+                            <p><strong>Valor total:</strong></p>
+                            <p className='t-4'>R$55,00</p>
+                    </div>
+              
+                    <button><b>FINALIZAR PAGAMENTO</b></button>
+
+                </div>
+
 
                 
         </div>

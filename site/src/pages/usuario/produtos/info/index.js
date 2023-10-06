@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Cabecalho from '../../../../components/cabecalho';
 import './index.scss';
-import Rodape from '../../../../components/rodape';
+
 
 export default function Info() {
 
@@ -15,33 +15,35 @@ export default function Info() {
 
   function mudarI(){
     setIndic(!indic)
-  if(indic === true){
+
     setComprov(false)
     setAvalia(false)
     setIngrentesatv(false)
   }
-     
-  }
   function mudarC(){
     setComprov(!comprov)
-    if(comprov === true){
+    
       setIndic(false)
       setAvalia(false)
       setIngrentesatv(false)
-    }
+    
   
   }
   function mudarA(){
     setAvalia(!avalia)
-    if(avalia === true){
+    
       setComprov(false)
       setIndic(false)
       setIngrentesatv(false)
-    }
+    
     
   }
   function mudarIng(){
     setIngrentesatv(!ingredientesatv)
+
+    setComprov(false)
+    setIndic(false)
+    setAvalia(false)
   
   }
  

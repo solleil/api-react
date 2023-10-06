@@ -60,7 +60,7 @@ export default function Cabecalho() {
           {categoria === true &&
           <>
           <div className='position'>
-            <a href='a'>Máscaras</a>
+            <a href='a'> Máscaras</a>
             <a href='a'> Limpadores   </a>
             <a href='a'>Séruns</a>
             <a href='a'>Proteção solar</a>
