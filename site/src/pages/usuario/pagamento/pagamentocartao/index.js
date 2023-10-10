@@ -1,7 +1,14 @@
 import './index.scss'
 import Cabecalho from '../../../../components/cabecalho'
+import { useState } from 'react'
 
 export default function Escolherpagamento(){
+
+    const[cartao, setCartao] = useState(true);
+
+    function MudarCartao(){
+        setCartao(!cartao)
+    }
 
 
     return(
@@ -45,14 +52,81 @@ export default function Escolherpagamento(){
                 
                 <div className='s-4'>
                     <p id='t-2'><strong>MÉTODO DE PAGAMENTO</strong></p>
-                    <div className='s-4-3'>
-                        <p >Cartão de crédito</p>
-                        <img src='/assets/images/usuario/pagamento/cartao-de-credito.png' alt=''/> 
-                    </div>
-                    <div className='s-4-3'>
-                        <p >Cartão de débito</p>
-                        <img src='/assets/images/usuario/pagamento/cartao-de-debito.png' alt='' /> 
-                    </div>
+                            <div className='s-4-3' onClick={MudarCartao}>
+                                <p >Cartão de crédito</p>
+                                <img src='/assets/images/usuario/pagamento/cartao-de-credito.png' alt=''/>  
+                            </div>
+                              {cartao === true &&
+                              <>
+                                    <div className='cadastrarcartao'>
+                                        <p>cadastre seu cartão</p>
+                                        <div className='linha'></div>
+
+                                        <div className='info'>
+                                            <input type='text' placeholder='número do cartão' className='i'></input>
+                                           
+                                           
+                                            <div className='info-1'>
+                                                 <p>validade:</p>
+                                               
+                                               
+                                                <div className='info-2'>
+                                                    <select>
+                                                        <option disabled selected>mês</option>
+                                                        <option>janeiro</option>
+                                                        <option>fevereiro</option>
+                                                        <option>março</option>
+                                                        <option>abril</option>
+                                                        <option>maio</option>
+                                                        <option>junho</option>
+                                                        <option>julho</option>
+                                                        <option>agosto</option>
+                                                        <option>setembro</option>
+                                                        <option>outubro</option>
+                                                        <option>novembro</option>
+                                                        <option>dezembro</option>
+                                                    </select>
+
+                                                    <select>
+                                                        <option disabled selected>ano</option>
+                                                        <option>2024</option>
+                                                        <option>2025</option>
+                                                        <option>2026</option>
+                                                        <option>2027</option>
+                                                        <option>2028</option>
+                                                        <option>2029</option>
+                                                        <option>2030</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <p>parcelamento:</p>
+                                                    <select>
+                                                        <option disabled selected>escolha a quantidade</option>
+                                                        <option>02</option>
+                                                        <option>03</option>
+                                                        <option>04</option>
+                                                        <option>05</option>
+                                                    </select>
+                                            
+                                            
+
+
+                                        </div>
+
+
+
+
+                                    </div>
+                              </>
+                              }
+
+
+                    
+                            <div className='s-4-3'>
+                                <p >Cartão de débito</p>
+                                <img src='/assets/images/usuario/pagamento/cartao-de-debito.png' alt='' /> 
+                            </div>
                 </div>
                 
                 
