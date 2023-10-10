@@ -3,25 +3,26 @@ import CabecalhoAdm from '../../../components/cabecalhoAdm/index.js'
 
 
 export default function Inicialadm() {
+
   return (
+
     <div className="index_inicial_adm">
-      <CabecalhoAdm/>
+      <CabecalhoAdm />
       <div className='fundo' >
 
-
-        <section className='menu_navegacao'>
-          <div className='s1'>
-            <p>Parcerias</p>
-
-            <a href='a'><img alt='' src='/assets/images/usuario/inicial/biossance.png' /></a>
-            <a href='a'><img alt='' src='/assets/images/usuario/inicial/cerave.png' /></a>
-            <a href='a'><img alt='' src='/assets/images/usuario/inicial/creamy.png' /></a>
-            <a href='a'><img alt='' src='/assets/images/usuario/inicial/laroche.png' /></a>
-            <a href='a'><img alt='' src='/assets/images/usuario/inicial/sallve.png' /></a>
-            <a href='a'><img alt='' src='/assets/images/usuario/inicial/simple.png' /></a>
-          </div>
+        <section className='rank_marcas'>
+            <div className='titulo_marcas'>
+              <p>Parcerias</p>
+            </div>
+            <div className=''>
+              <a href='a'><img alt='' src='/assets/images/usuario/inicial/biossance.png' /></a>
+              <a href='a'><img alt='' src='/assets/images/usuario/inicial/cerave.png' /></a>
+              <a href='a'><img alt='' src='/assets/images/usuario/inicial/creamy.png' /></a>
+              <a href='a'><img alt='' src='/assets/images/usuario/inicial/laroche.png' /></a>
+              <a href='a'><img alt='' src='/assets/images/usuario/inicial/sallve.png' /></a>
+              <a href='a'><img alt='' src='/assets/images/usuario/inicial/simple.png' /></a>
+            </div>
         </section>
-
 
         <section className='conteudo_meio'>
           <div className='contmeio_container-1'>
@@ -31,36 +32,31 @@ export default function Inicialadm() {
                 <h3>SOLUÇÃO NIACINAMIDA</h3>
                 <h6>Simple organic</h6>
               </div>
-              <img src='/assets/images/adm/inicial_adm/produto_mais_vendido.png' alt=''/>
+              <img src='/assets/images/adm/inicial_adm/produto_mais_vendido.png' alt='' />
             </div>
             <div className='contmeioc1_subcontainer-2'>
-              <img src='/assets/images/adm/inicial_adm/grafico_produto.png' alt=''/>
+              <img src='/assets/images/adm/inicial_adm/grafico_produto.png' alt='' />
             </div>
           </div>
           <div className='contmeio_container-2'>
-            <header>
-              <h2>Avaliações</h2>
+            <header className='titulo_avaliacoes'>
+              <h2> <img src='assets/images/geral/estrela.svg' alt='oi'/> Avaliações </h2>
             </header>
-            <div className='avaliacoes'>
+            <div className='tela_avaliacao'>
               <h3>Sem avaliações</h3>
             </div>
           </div>
         </section>
-
-
-        <section className='menu_admins'>
-          <div className='s2'>
-              <p>Melhores avaliações</p>
-
-              <div className='s2-1'>
-                <p>1º</p>
-                <div className='s6-1-p'><img src='/assets/images/usuario/inicial/produto.png' alt='' />
-                  <p>Limpador Facial</p>  
-              
-                </div>
-                <b>avaliação</b>
-              </div>
+        <section className='rank_produtos'>
+        <h2>Melhores Avaliações!</h2>
+         <div className='rankP'>
+          <h6>1º</h6>
+          <div className='rp_produto'>
+            <img src='assets/images/usuario/inicial/produto.png' alt='0'/>
+            <h3>Limpador Facial </h3>
           </div>
+          <h5> <img src='assets/images/geral/estrela.svg' /> 5.0</h5>
+         </div>
         </section>
       </div>
     </div>
