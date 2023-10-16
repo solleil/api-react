@@ -7,7 +7,9 @@ import './index.scss';
 
 export default function Info() {
 
-
+  const [n1, setNum1] = useState(0)
+  const [n2, setNum2] = useState(0)
+  const [result, setResult] = useState(0)
   const [indic, setIndic] = useState(false);
   const [comprov, setComprov] = useState(false);
   const [avalia, setAvalia] = useState(false);
@@ -46,7 +48,15 @@ export default function Info() {
     setAvalia(false)
   
   }
- 
+
+  function mais(){
+    let x= result + 1
+    setResult(x)
+  }
+  function menos(){
+    let x= result - 1
+    setResult(x)
+  }
 
   return (
     <div className="pag-info">
@@ -84,13 +94,22 @@ export default function Info() {
             </div>
            
          </div>
-          <div className='qtd-info'>
+          
+          <div className='qtd'>
+              <div className='qtd-info'>
+            
+              
+                 <button type='number' value={n1} onChange={(e) => setNum1(Number(e.target.value))} onClick={menos}> <img src='/assets/images/geral/-.png'/></button>
+                 <p value={result} onChange={(e) => setResult(Number(e.target.value))}> {result}</p>
+                 <button type='number' value={n2} onChange={(e) => setNum2(Number(e.target.value))} onClick={mais}> <img src='/assets/images/geral/+.png' alt=''/></button>
+         
           
 
-          </div>
+              </div>
 
-          <div className='compre-info'>
-            <button>compre agora</button>
+             <div className='compre-info'>
+               <button>compre agora</button>
+              </div>
            </div>
 
            <div className='add-info'>
