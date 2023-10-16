@@ -1,7 +1,7 @@
 import {connection} from './connection.js'
 
 
-export async function listarEndereco(){
+export async function listarEndereco() {
     const comando= `
     select 
     ds_cep   as cep,

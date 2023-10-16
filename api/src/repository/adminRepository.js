@@ -33,9 +33,7 @@ export async function inserirAdmin(admin) {
         admin.nascimento,
         admin.senha
     ]);
-
-    produto.id = info.insertId
-    return info
+    
 }
 
 export async function loginAdmin(usuario) {
@@ -79,7 +77,7 @@ export async function alterarAdmin(usuario) {
 
 export async function deletarAdmin(id) {
     let comando = `
-    delete from tb_cliente where id_cliente = ?
+    delete from tb_admin where id_admin = ?
     `;
     
     const info = await connection.query(comando, [id])

@@ -72,10 +72,14 @@
         display: flex;
         width: 42vw;
         align-items: center;
-        border: 1px solid black;
+        border: 2px solid rgb(133, 133, 133);
         border-radius: 35px;
         padding-left: 15px;
         padding-right: 15px;
+        height: 4vh;
+        img{
+            height: 3vh;
+        }
       
     }
     input{

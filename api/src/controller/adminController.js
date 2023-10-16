@@ -50,6 +50,7 @@ server.delete(('/admin/:id'), async (req, resp) => {
     try {
         let id = req.params.id;
         let x = await deletarAdmin(id);
+        
         resp.send()
 
     } catch (err) {

@@ -16,5 +16,9 @@ servidor.use(usuarioController);
 import adminController from './controller/adminController.js';
 servidor.use(adminController);
 
+import cartaoController from './controller/cartaoController.js';
+servidor.use(cartaoController);
+
+
 
 servidor.listen(process.env.PORT, () => console.log(`API online na porta ${process.env.PORT}`));
