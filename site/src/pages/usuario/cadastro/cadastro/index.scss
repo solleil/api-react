@@ -126,6 +126,16 @@
     .no-1{
       margin: 15px;
     }
+
+    textarea:focus, input:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }   
+
+    textarea:focus, select:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }   
 }
 
 
