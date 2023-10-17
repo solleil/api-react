@@ -20,17 +20,8 @@ export default function Inicial() {
           É o maior órgão do nosso corpo e enfrenta diariamente agressões ambientais. Ao adotar uma rotina de cuidado da pele, você <b> fortalece sua barreira natural, previne danos e obtém uma pele mais saudável e radiante.</b>
         </p></div>
       </div>
-
-
-
-
-
-
-
-
       <div className='s2'>
         <div className='s2-1' onClick={M}>
-
           <img src='/assets/images/usuario/inicial/s2-1.png' alt='' /> <p>sobre nós</p>
         </div>
         <div className='s2-2'> <a href='/iniproduto'> <img src='/assets/images/usuario/inicial/s2-2.png' alt='' /> <p> nossos produtos </p>  </a> </div>
@@ -48,14 +39,6 @@ export default function Inicial() {
             </div>
           </>}
       </div>
-
-
-
-
-
-
-
-      
       <div className='s4'>
         <img src='/assets/images/usuario/inicial/s4.png' alt='' />
         <p>
@@ -64,11 +47,6 @@ export default function Inicial() {
           O Skin Care ajuda a <b>retardar esse processo</b>, reduzindo rugas, linhas finas e manchas. Com uma rotina consistente, você pode ter uma <b>aparência mais jovem</b>  e radiante.
         </p>
       </div>
-
-
-
-
-
       <div className='s5'>
         <p>Parcerias</p>
         <div className='s5-1'>
@@ -81,12 +59,9 @@ export default function Inicial() {
         </div>
       </div>
       <div className='s6'>
-
-
-
-
         <p>Produtos recomendados</p>
         <div className='s6-1'>
+        <img src='/assets/images/usuario/inicial/seta.png' alt='' className='seta' id='seta' />
           <div className='s6-1-p'><img src='/assets/images/usuario/inicial/produto.png' alt='' />
             <p>Limpador Facial</p>  <p>
               <b> R$ 39,90</b> ou 3x R$ 13,30</p>
