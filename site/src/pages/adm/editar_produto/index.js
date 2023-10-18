@@ -35,7 +35,7 @@ export default function EditarProduto() {
 
   const AlterarProduto = async () => {
     try {
-      const url = '/alterar/produto';
+      const url = 'http://localhost:5000/alterar/produto';
       const respo = await axios.put(url, {
         nome: nomeProduto,
         desc: descri,
