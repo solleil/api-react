@@ -132,11 +132,23 @@ export default function Escolherpagamento() {
                                         <input className='codigo2' type='text' placeholder='CPF do titular'></input>
                                     </div>
                                     <div className='infoo2'>
-                                        <input className='ch' type='checkbox'></input>
-                                        <label id='gua'>guardar para próxima compra</label>
+                                        
+
+
+                                        <input className='ch' type='checkbox'/>
+                                        <label className='cont'>guardar para próxima compra</label>
+                                        <input className='ch' type='checkbox'/>
+                                        <label className='gua'> definir como padrão</label>
                                     </div>
                                 </div>
                             </div>
+                            <div className='botao'>
+                               
+                                    <button>trtrtwert</button>
+                             
+                            </div>
+
+
 
 
 

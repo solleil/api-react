@@ -38,11 +38,12 @@ export default function AddProduto() {
 
   const AddProduto = async () => {
     try {
+
       
     } catch (err) {
       
     }
-    const url = '/produto';
+    const url = 'http://localhost:5000/produto';
     const respo = await axios.post(url, {
 
     });
