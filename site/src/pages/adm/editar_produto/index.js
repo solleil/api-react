@@ -16,7 +16,7 @@ export default function EditarProduto() {
   const [necess, setNecess] = useState('');
   const [ingre_atv, setIngre_atv] = useState('');
   const [indica, setIndica] = useState('');
-  const [categoria, setCategotia] = useState('');
+  const [categoria, setCategoria] = useState('');
   const [alerta, setAlerta] = useState('')
 
   const removerdados = () => {
