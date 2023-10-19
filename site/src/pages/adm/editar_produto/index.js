@@ -31,6 +31,7 @@ export default function EditarProduto() {
     setMarca('');
     setNecess('');
     setIndica('');
+    setCategoria('');
   };
 
   const AlterarProduto = async () => {

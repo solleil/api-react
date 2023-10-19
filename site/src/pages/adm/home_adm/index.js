@@ -15,12 +15,12 @@ export default function Inicialadm() {
               <p>Parcerias</p>
             </div>
             <div className=''>
-              <a href='a'><img alt='' src='/assets/images/usuario/inicial/biossance.png' /></a>
-              <a href='a'><img alt='' src='/assets/images/usuario/inicial/cerave.png' /></a>
-              <a href='a'><img alt='' src='/assets/images/usuario/inicial/creamy.png' /></a>
-              <a href='a'><img alt='' src='/assets/images/usuario/inicial/laroche.png' /></a>
-              <a href='a'><img alt='' src='/assets/images/usuario/inicial/sallve.png' /></a>
-              <a href='a'><img alt='' src='/assets/images/usuario/inicial/simple.png' /></a>
+              <a href='a'><img alt='a' src='/assets/images/usuario/inicial/biossance.png' /></a>
+              <a href='a'><img alt='a' src='/assets/images/usuario/inicial/cerave.png' /></a>
+              <a href='a'><img alt='a' src='/assets/images/usuario/inicial/creamy.png' /></a>
+              <a href='a'><img alt='a' src='/assets/images/usuario/inicial/laroche.png' /></a>
+              <a href='a'><img alt='a' src='/assets/images/usuario/inicial/sallve.png' /></a>
+              <a href='a'><img alt='a' src='/assets/images/usuario/inicial/simple.png' /></a>
             </div>
         </section>
 
@@ -56,7 +56,7 @@ export default function Inicialadm() {
               <img src='assets/images/usuario/inicial/produto.png' alt='0'/>
               <h3>Limpador Facial </h3>
             </div>
-            <h5><img src='assets/images/geral/estrela.svg' /> 5.0</h5>
+            <h5><img src='assets/images/geral/estrela.svg' alt='a' /> 5.0</h5>
           </div>
           <div id='ranqueado'>
             <h6>2º</h6>
@@ -64,7 +64,7 @@ export default function Inicialadm() {
               <img src='assets/images/usuario/inicial/produto.png' alt='0'/>
               <h3>Limpador Facial </h3>
             </div>
-              <h5><img src='assets/images/geral/estrela.svg' /> 5.0</h5>
+              <h5><img src='assets/images/geral/estrela.svg' alt='a' /> 5.0</h5>
           </div>
           <div id='ranqueado'>
             <h6>3º</h6>
@@ -72,7 +72,7 @@ export default function Inicialadm() {
               <img src='assets/images/usuario/inicial/produto.png' alt='0'/>
               <h3>Limpador Facial </h3>
             </div>
-            <h5>  <img src='assets/images/geral/estrela.svg' /> 5.0</h5>
+            <h5>  <img src='assets/images/geral/estrela.svg' alt='a' /> 5.0</h5>
           </div>
          </div>
         </section>

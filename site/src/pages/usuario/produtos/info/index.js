@@ -99,7 +99,7 @@ export default function Info() {
               <div className='qtd-info'>
             
               
-                 <button type='number' value={n1} onChange={(e) => setNum1(Number(e.target.value))} onClick={menos}> <img src='/assets/images/geral/-.png'/></button>
+                 <button type='number' value={n1} onChange={(e) => setNum1(Number(e.target.value))} onClick={menos}> <img src='/assets/images/geral/-.png' alt='a'/></button>
                  <p value={result} onChange={(e) => setResult(Number(e.target.value))}> {result}</p>
                  <button type='number' value={n2} onChange={(e) => setNum2(Number(e.target.value))} onClick={mais}> <img src='/assets/images/geral/+.png' alt=''/></button>
          

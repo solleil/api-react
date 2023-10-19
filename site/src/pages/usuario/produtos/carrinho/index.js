@@ -12,7 +12,8 @@ export default function Carrinho() {
   function mais() {
     const x = result + 1;
     setResult(x);
-    Nvalor(x)
+    Nvalor(x);
+    setPreco();
   };
   
   function menos() {
