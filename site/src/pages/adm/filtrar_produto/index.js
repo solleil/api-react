@@ -1,9 +1,17 @@
 import Cabecalho from '../../../components/cabecalho';
 import './index.scss';
+import { useState } from 'react';
 
 
 export default function FiltrarPedido(){
-        
+    const[stts, setStts] = useState('');
+    const[intervadata, setIntervdata] = useState('');
+    const[meiodeenvio, setMeiodeenvio] = useState('');
+    const[canaldevenda, setCanalvenda] = useState('');
+    
+   
+    
+
 
 return(
     <div className='filtr-pedido'>
@@ -35,7 +43,7 @@ return(
             <div className='fi-1'>
 
             <label>Status do pedido</label>
-            <select className='pedid' >
+            <select className='pedid' value={stts} onChange={(e) => setStts (e.target.value)} >
             <option>Todos exceto arqu.</option>
             </select>
 
@@ -45,7 +53,7 @@ return(
             <div className='fi-1'>
 
             <label>Intervalo de data</label>
-            <select className='pedid' >
+            <select className='pedid' value={intervadata} onChange={(e) => setIntervdata (e.target.value)} >
             <option>Todas as datas</option>
             </select>
 
@@ -55,7 +63,7 @@ return(
             <div className='fi-1'>
 
             <label>Meio de envio</label>
-            <select className='pedid' >
+            <select className='pedid' value={meiodeenvio} onChange={(e) => setMeiodeenvio (e.target.value)}>
             <option>Todos</option>
             </select>
 
@@ -66,14 +74,14 @@ return(
 
 
             <label>Canal de venda</label>
-            <select className='pedid' >
+            <select className='pedid' value={canaldevenda} onChange={(e) => setCanalvenda (e.target.value)}>
             <option>Todos </option>
             </select>
 
 
             </div>
             <div className='fi-2'>
-                <button>Filtrar</button>
+                <button  onClick={filtrar}>Filtrar</button>
             </div>
             </div>
         </div>
@@ -86,7 +94,7 @@ return(
 
             <div className='fil-1'>
 
-                <p>4 pedidos encontrados filtrando por:</p>
+                <p>pedidos encontrados filtrando por:</p>
                 <div className='filsa'>
                     <img src='/assets/images/geral/certo.svg' alt=''/>
                 </div>
@@ -117,9 +125,8 @@ return(
                 <div>Ação recomendada</div>
 
             </div>
-            <div className='to-2'></div>
-            <div className='to-3'></div>
-            <div className='to-4'></div>
+         
+
 
         </div>
         </div>
