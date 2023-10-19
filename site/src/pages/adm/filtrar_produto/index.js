@@ -81,7 +81,7 @@ return(
 
             </div>
             <div className='fi-2'>
-                <button  onClick={filtrar}>Filtrar</button>
+                <button >Filtrar</button>
             </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import CabecalhoAdm from '../../../components/cabecalhoAdm/index.js'
 import './index.scss';
-import { useState } from 'react';
+
 
 export default function Consulta() {
   return (
