@@ -14,7 +14,6 @@ export default function Login() {
     try { 
     const url = 'http://localhost:5000/login';
     const respo = await axios.post(url, {email: email, senha: senha});
-    
     navigate('/');
 
     

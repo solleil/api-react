@@ -13,8 +13,8 @@ import Carrinho from './pages/usuario/produtos/carrinho';
 import Info from './pages/usuario/produtos/info';
 import IniProdutos from './pages/usuario/produtos/iniprodutos';
 import Produtos from './pages/usuario/produtos/produtos';
+import Status from './pages/usuario/produtos/status';
 import Enviado from './pages/usuario/produtos/enviado';
-
 
 import AddProduto from './pages/adm/add_produto';
 import AlterarStatus from './pages/adm/alterar_status';
@@ -23,9 +23,6 @@ import Inicialadm from './pages/adm/home_adm';
 import Loginadm from './pages/adm/loginadm';
 import Graficos from './pages/adm/pagina_graficos';
 import FiltrarProduto from './pages/adm/filtrar_produto';
-
-
-
 
 import Consulta from './pages/adm/consulta_produto';
 import Escolherpagamento from './pages/usuario/pagamento/pagamentocartao';
@@ -47,6 +44,7 @@ root.render(
         <Route path='/login' element={<Login />} />
 
         <Route path='/produtos' element={<Produtos />} />
+        <Route path='/status' element={<Status/>} />
         <Route path='/carrinho' element={<Carrinho />} />
         <Route path='/iniproduto' element={<IniProdutos />} />
         <Route path='/info' element={<Info />} />
