@@ -131,14 +131,16 @@ export default function Info() {
 
             <div className='opc-1'>
               
-                <p onClick={mudarI}>indicações</p>
+
+                {indic ? ( <b onClick={mudarI}  className='bold'>indicações <div className='bold-linhas'></div>  </b>) : (<p onClick={mudarI} className='n-bold'>indicações </p>)}
+
                 <p onClick={mudarC}>comprovações</p>
                 <p onClick={mudarA}>avaliações</p>
                 <p onClick={mudarIng}>ingredientes ativos </p>
 
             </div>
 
-
+  <div className='linhas'></div>
             <div>
           
             {indic === true &&
@@ -191,7 +193,12 @@ export default function Info() {
               <>
               <div className='comprova'>
 
-                <h2>PALOMA PALOMA PALOMKA </h2>
+                <p>o Limpador Facial passou por uma série de estudos clínicos que garantem a<br/> segurança do produto:<br/>
+                   <b>Dermatologicamente testado em pele sensível -</b> produto seguro para ser<br/> aplicado sobre a pele;<br/>
+                   <b>Oftalmologicamente testado -</b>  produto seguro para ser aplicado, com os<br/> olhos fechados;<br/>
+                   <b>Não-fototóxico e não-sensibilizante -</b>  o produto não causa irritação/<br/>sensibilização na pele;Não-comedogênico - o produto não promoveu aumento em<br/> comedões abertos e fechados, nem em pápulas e pústulas;<br/>
+                   <b>Hipoalergênico -</b>  o produto não induziu processo de irritação e sensibilização<br/> cutânea em nenhum voluntário durante o período de estudo.
+                   </p>
                 
              
                 </div>
@@ -207,10 +214,76 @@ export default function Info() {
               {avalia === true &&
               <>
               <div className='avaliac'>
+
                 
-              <h2>clara</h2>
+                <div className='av-s1'>
+                  <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' /> 
+                  <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' /> 
+                  <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' /> 
+                  <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' /> 
+                  <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' /> 
+                  <p>52</p>
+                 </div>
+
+                 <div className='av-s2'>
+                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' /> 
+                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' /> 
+                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' /> 
+                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' /> 
+                  <p>20</p>
+                 </div>
+
+                 <div className='av-s3'>
+                 <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' /> 
+                 <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' /> 
+                 <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' /> 
+                 <p>4</p>
+                 </div>
+
+                 <div className='av-s4'>
+                 <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' /> 
+                 <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' /> 
+                <p>2</p>
+                 </div>
+
+                 <div className='av-s5'>
+                 <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' /> 
+                 <p>1</p>
+                 </div>
+
+                 <div className='avc'>
+                  <div className='avc-s1'>
+                    <img className='avcp' src='/assets/images/geral/estrelap.png' alt='' />
+                   <h2>Avaliações</h2>
+                  </div>
+
+                  <div className='avc-s2'>
+                    <img className='avcpf' src='/assets/images/geral/perfil.png' alt='' />
+                    <p>Produto incrivel, entrega totalmente rapida nota 10</p>
+                    <img  id='final' className='avcimg' src='/assets/images/geral/estrelat.png' alt='' />
+                    <p id='final'>5.0</p>
+                  </div>
+
+                  <div className='avc-s2'>                 
+                    <img className='avcpf' src='/assets/images/geral/perfil.png' alt='' />
+                    <p>Eu ameiiiiiii, produto maravilhoso entrega rapida! super<br/> recomendo comprem.</p>
+                    <img id='final' className='avcimg' src='/assets/images/geral/estrelat.png' alt='' />
+                    <p id='final' >5.0</p>
+                  </div>
+
+                  <div className='avc-s2'>
+                  <img className='avcpf' src='/assets/images/geral/perfil.png' alt='' />
+                    <p>Não sabia que esse produto era tão bom, simplesmente<br/> comprem.</p>
+                    <img id='final' className='avcimg' src='/assets/images/geral/estrelat.png' alt='' />
+                    <p id='final'>5.0</p>
+
+                  </div>
+                  
+ 
+                 </div>
              
-                </div>
+               
+                </div> 
                </>}
               
             </div>

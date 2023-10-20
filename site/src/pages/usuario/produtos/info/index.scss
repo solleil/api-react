@@ -4,7 +4,7 @@
 
 
     .exemplo{
-       height: 80vh;
+       height: 55vh;
     }
 
     .td-info{
@@ -139,15 +139,18 @@
     .opc-info{
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        
+        justify-content: center;
+       align-items: center;
+      
     }
 
     .opc-1{
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
-        
+        justify-content: space-between;
+        width: 80vw;
+        gap: 0px;
+        margin: 0px;
     }
 
     .s1{
@@ -161,17 +164,19 @@
         flex-direction: row;
         background-color: #FFE898;
         width: 20vw;
-        height: 10vh;
+        height: 5vh;
         border-radius: 30px;
         margin-left: 5%;
 
 
         .indica-s1{
+            margin-left: 5%;
+            margin-top: 2%;
+            align-items: center;
             background-color: white;
             border-radius: 30px;
-            height: 6vh;
-            margin-top: 10px;
-            margin-left: 10px;
+            height: 4vh;
+            
         }
 
       
@@ -181,14 +186,13 @@
     .indica-s2{
         display: flex;
         flex-direction: column;
+        
 
 
       .indica-png{
-        height: 4vh;
-        margin-top: 15px;
-      
-      
+        height: 3vh;
        margin-left: 5%;
+       margin-top: 10px;
     }
 
 
@@ -219,14 +223,145 @@
     }
 
 
+    }
+
+    .comprova {
+    margin-left: 10%;
+       font-size: 20px;
+    }
+
+
+
+    .avaliac{
+           display: flex;
+           flex-direction: column;
+           height: 25vh;
+           width: 30vw;
+           border: 5px solid #FABB59;
+           border-radius: 10px;
+           margin-left: 10%;
+
+
+           .estrelaa{
+            height: 3vh;
+            margin: 2px;
+            margin-left: 5%;
+            margin-top: 2%;
+           }
+
+
+
+        .av-s1{
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .av-s2{
+            display: flex;
+            flex-direction: row;
+
+        }
+        .av-s3{
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .av-s4{
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .av-s5{
+            display: flex;
+            flex-direction: row;
+
+        } 
+        
+        
+
+
+
+
+      .avc{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10%;
+        width: 50vw;
+        
+     
+
+
+     .avcimg{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        height: 2vh;
+        margin-top: 12px;
+     }
+
+     .avcpf{
+        height: 4vh;
+        margin-top: 10px;
+        margin-left: 10px;
+     
+     }
 
       
 
-    }
+     
+        .avc-s1{
+            display: flex;
+            flex-direction: row;
+          
+         .avcp{
+            margin-top: 16px;
+            height: 3vh;
 
+         }
+
+        }
+
+        .avc-s2{
+            display: flex;
+            flex-direction: row;
+            
+            gap: 5px;
+            background-color: #D9D9D9;
+            height: 8vh;
+            margin: 10px;
+
+        }
+
+      
+
+      }
+
+
+
+
+        
+    }
    
 
+   
+.linhas{
+    background-color: gray;
+    width: 90vw;
+    height: 1px;
+    margin: 0px;
+}
 
+.n-bold{
+    margin: 0px;
+}
+.bold-linhas{
+    width: 6vw;
+    height: 8px;
+    background-color: #fabc59f1;
+}
 
 
 
