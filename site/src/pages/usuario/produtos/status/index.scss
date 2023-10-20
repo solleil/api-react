@@ -1,0 +1,80 @@
+.index_Status {
+    overflow: hidden;
+
+    hr {
+        border-style: none;
+        height: 2px;
+        background-color: #000;
+    }
+
+    .fundo {
+        height: 100%;
+        padding: 25px 25px;  
+    }
+
+    .cabecalho {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cbc_info-2 {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .cbc_info-2, .cbcinfo2-cx1, .cbcinfo2-cx2 {
+        width: 100%;        
+    }
+
+    .cbcinfo2-img {
+            margin-right: 15px;
+    }
+
+    .cbcinfo2-img > img {
+        width: 10em;
+        height: 10em;
+    }
+
+    .sec_1 {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .sec1-cx1 > p {
+        width: 485px;
+    }
+
+    .sec1-cx2 {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: end;
+        justify-content:right;
+        width: 100%;
+        padding: 15px 50px;
+        gap: 15px;
+    }
+
+    .sec1-cx2 > h3 {
+        margin: 0;
+    }
+
+    .sec_2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 18em;
+
+        * > h4 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: #D9D9D9CC;
+            width: 270px;
+            height: 75px;
+        }   
+    }   
+
+}
