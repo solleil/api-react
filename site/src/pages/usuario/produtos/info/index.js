@@ -7,8 +7,8 @@ import './index.scss';
 
 export default function Info() {
 
-  const [n1, setNum1] = useState(0)
-  const [n2, setNum2] = useState(0)
+  const [n1, setN1] = useState(0)
+  const [n2, setN2] = useState(0)
   const [result, setResult] = useState(0)
   const [indic, setIndic] = useState(false);
   const [comprov, setComprov] = useState(false);
@@ -54,8 +54,11 @@ export default function Info() {
     setResult(x)
   }
   function menos(){
-    let x= result - 1
-    setResult(x)
+    if(result > 0){
+      let x= result - 1
+      setResult(x)
+    }
+
   }
 
   return (
@@ -99,9 +102,9 @@ export default function Info() {
               <div className='qtd-info'>
             
               
-                 <button type='number' value={n1} onChange={(e) => setNum1(Number(e.target.value))} onClick={menos}> <img src='/assets/images/geral/-.png' alt='a'/></button>
+                 <button type='number' value={n1} onChange={(e) => setN1(Number(e.target.value))} onClick={menos}> <img src='/assets/images/geral/-.png' alt='a'/></button>
                  <p value={result} onChange={(e) => setResult(Number(e.target.value))}> {result}</p>
-                 <button type='number' value={n2} onChange={(e) => setNum2(Number(e.target.value))} onClick={mais}> <img src='/assets/images/geral/+.png' alt=''/></button>
+                 <button type='number' value={n2} onChange={(e) => setN2(Number(e.target.value))} onClick={mais}> <img src='/assets/images/geral/+.png' alt=''/></button>
          
           
 
