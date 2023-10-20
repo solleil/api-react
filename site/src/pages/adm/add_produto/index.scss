@@ -124,7 +124,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: 1px solid #E2BC81;
+        border:1px solid #E2BC81;
         height: 260px;
         margin-bottom: 30px;
     }
@@ -164,13 +164,8 @@
         justify-content: space-around;
     }
 
-    .container2c2_coluna-1, .container2c2_coluna-2  {
-        display: flex;
-        flex-direction: column;
-        margin-top: 20px;
-    }
-
-    .container2c2_coluna-1 > select , .container2c2_coluna-2 > select {
+    
+    .container2c2_coluna-1 > select , .container2c2_coluna-2 > select, .qtd-info {
         margin: 10px 0px 10px;
         height: 21px;
         width: 170px;
@@ -212,6 +207,62 @@
         background-color: #d89d3d;
         transition: 0.3s;
     }
+
+
+    .input-imagem {
+        padding: 10px;
+        background-color: #ffffff;
+        color: #333;
+        border-radius: 5px;
+        height: 5vh;
+    
+
+
+      }
+
+
+      .qtd-info{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+         border: 1px solid #E2BC81;
+         border-radius: 0px;
+         width: 170px;
+         height: 2vh;
+         display:flex ;
+        flex-direction: row;
+      } 
+
+
+      .contador{
+        height: 1vh;
+        background-color: #fff;
+        display: flex;
+        align-items: center;
+        border: none;
+      }
+
+     
+
+      .tipopele{
+        margin-bottom: 5px;
+      }
+
+
+
+      .container2c2_coluna-1 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        gap: 5px;
+    }
+     .container2c2_coluna-2 {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        gap: 5px;
+     }
 
 
 
