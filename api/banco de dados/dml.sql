@@ -12,7 +12,7 @@ insert into tb_necessidade(nm_necessidade)
 select * from tb_necessidade;
 
 insert into tb_marca(nm_marca)
-	values('Sallve'), ('Principia'), ('La Roche'), ('Cerave'), ('Laneige'), ('Creamy'), ('Hidratantes');
+	values('Sallve'), ('Principia'), ('La Roche'), ('Cerave'), ('Laneige'), ('Creamy');
 select * from tb_marca;
 
 insert into tb_ingr_atv(nm_ingrediente, ds_ingrediente)

@@ -1,62 +1,124 @@
 import './index.scss';
-import axios from 'axios';
-import { useState } from 'react';
+
+import { useState, useEffect } from 'react';
+
 
 import CabecalhoAdm from '../../../components/cabecalhoAdm';
 
-
+import { salvarInfos, listarMarcas, listarNecessidades,listarTiposdePele,listarIngredientes} from '../../../api/salvarinfo.js';
 
 
 export default function AddProduto() {
+    const [adicionarproduto, setAdicionarproduto] = useState('')
+    const [categoriaMarca, setCategoriaMarca] = useState([]);
+    const [categoriaNecessidade, setCategoriaNecessidade] = useState([]);
+    const [categoriaTiposDePele, setCategoriaTiposDePele] = useState([]);
+    const [nomeIngrediente, setNomeIngrediente] = useState([]);
+  
+  
+  
+    const [nomeProduto, setNomeProduto] = useState('');
+    const [ingrediente, setIngrediente] = useState('');
+    const [descri, setDescri] = useState('');
+    const [precoProduto, setPreco] = useState(0)
+    const [tipopele, setTipopele] = useState('');
+    const [estoque, setEstoque] = useState('');
+    const [tamanho, setTamanho] = useState('');
+    const [qtd, setQtd] = useState(0);
+    const [idMarca, setIdMarca] = useState();
+    const [necess, setNecess] = useState();
+    const [ingre_atv, setIngre_atv] = useState('');
+    const [indica, setIndica] = useState('');
 
-  const [nomeProduto, setNomeProduto] = useState('');
-  const [ingrediente, setIngrediente] = useState('');
-  const [descri, setDescri] = useState('');
-  const [precoProduto, setPreco] = useState(0)
-  const [tipopele, setTipopele] = useState('');
-  const [estoque, setEstoque] = useState('');
-  const [tamanho, setTamanho] = useState('');
-  const [qtd, setQtd] = useState(0);
-  const [marca, setMarca] = useState('');
-  const [necess, setNecess] = useState('');
-  const [ingre_atv, setIngre_atv] = useState('');
-  const [indica, setIndica] = useState('');
 
-  const removerdados = () => {
-    setNomeProduto('')
-    setPreco(0);
-    setIngrediente('');
-    setDescri('');
-    setTipopele('');
-    setEstoque('');
-    setTamanho('');
-    setQtd(0);
-    setMarca('');
-    setNecess('');
-    setIndica('');
-  }
 
-  const AddProduto = async () => {
-    try {
+    const [imagem, setImagem] = useState(null);
 
+    const ImagemA = (event) => {
+      const arquivoSelecionado = event.target.files[0];
+      setImagem(URL.createObjectURL(arquivoSelecionado));
+    };
+  
+
+
+    const [n1, setN1] = useState(0)
+    const [n2, setN2] = useState(0)
+    const [result, setResult] = useState(1);
+
+
+  function mais() {
+    const x = qtd + 1;
+    setQtd(x);
+  };
+
+  function menos() {
+    if (qtd > 0) {
+      const x = qtd - 1;
+      setQtd(x);
+    };
+  };
+
+    const removerdados = () => {
+      setNomeProduto('')
+      setPreco(0);
+      setIngrediente('');
+      setDescri('');
+      setTipopele('');
+      setEstoque('');
+      setTamanho('');
+      setQtd(0);
+      setIdMarca('');
+      setNecess('');
+      setIndica('');
+    }
+  
+  
+    async function Salvarinfo() {
+      try {
+        const r = await salvarInfos(nomeProduto, descri, tipopele, precoProduto , estoque, tamanho, idMarca, necess, ingre_atv);
+        alert('Informações salvas')
+          
+        }
       
-    } catch (err) {
+      catch (err) {
+        alert(err.response.data.erro)
+      }
       
     }
-    const url = 'http://localhost:5000/produto';
-    const respo = await axios.post(url, {
-
-    });
+  
+    async function carregarMarcas() {
+      const r = await listarMarcas();
+      setCategoriaMarca(r);
   }
-
+  
+  async function carregarNecessidades() {
+    const r = await listarNecessidades();
+    setCategoriaNecessidade(r);
+  }
+  async function carregarTiposPele() {
+    const r = await listarTiposdePele();
+    setCategoriaTiposDePele(r);
+  }
+  
+  async function carregarIngredientes() {
+    const r = await listarIngredientes();
+    setNomeIngrediente(r);
+  }
+  
+  useEffect(() => {
+    carregarIngredientes();
+    carregarTiposPele();
+    carregarNecessidades();
+    carregarMarcas();
+  },[])
 
 
   return (
     <div className="index_AddProduto">
-      <CabecalhoAdm className='cabecalho'/>
+      <CabecalhoAdm className='cabecalho' />
       <div className='titulo'>
         <p>Adicionar novo produto</p>
-     
+
       </div>
       <div id='linha'></div>
       <div className='fundo_pagina'>
@@ -74,8 +136,10 @@ export default function AddProduto() {
             </div>
             <div className='container1_c2'>
               <h2>Alterar Imagem</h2>
+
               <div className='tela_alterar_img'>
-                <h5>Insira o produto</h5>
+                <input type="file" accept="image/*" className='input-imagem' onChange={ImagemA} />
+
                 <div className='tela_por_img'></div>
               </div>
             </div>
@@ -90,34 +154,77 @@ export default function AddProduto() {
               <label>Descrição</label>
               <textarea value={descri} onChange={e => setDescri(e.target.value)}></textarea>
             </div>
-          <div className='container2_c2'>
+            <div className='container2_c2'>
               <div className='container2c2_coluna-1'>
                 <label>Tipo de pele</label>
                 <select className='tipopele' value={tipopele} onChange={e => setTipopele(e.target.value)}>
-                  <option>selecionar</option>
+                  <option >selecionar</option>
+                  <option>Pele mista</option>
+                  <option>Pele normal</option>
+                  <option>Pele oleosa</option>
+                  <option>Pele seca</option>
+                  <option>Pele sensível</option>
                 </select>
                 <label>Tamanhos</label>
                 <select className='tamanhos' value={tamanho} onChange={e => setTamanho(e.target.value)}>
-                  <option>selecionar</option>
-                </select>
+                  <option >selecionar</option>
+                  <option>300ml</option>
+                  <option>400ml</option>
+                  <option>500ml</option>
+                  <option>600ml</option>
+                  <option>700ml</option>
+                  <option>800ml</option>
+                  <option>900ml</option>
+                </select> 
                 <label>Marca</label>
-                <select value={marca} onChange={e => setMarca(e.target.value)}>
+                <select value={idMarca} onChange={e => setIdMarca(e.target.value)}>
                   <option>selecionar</option>
+                  <option>CeraVe</option>
+                  <option>Creamy</option>
+                  <option>Laneige</option>
+                  <option>La Roche</option>
+                  <option>Principia</option>
+                  <option>Sallve</option>
                 </select>
               </div>
               <div className='container2c2_coluna-2'>
-                  <label>Estoque</label>
-                  <select className='tipopele' value={estoque} onChange={e => setEstoque(e.target.value)}>
-                    <option>selecionar</option>
-                  </select>
-                  <label>Quantidade</label>
-                  <select className='tamanhos' value={qtd} onChange={e => setQtd(Number(e.target.value))}>
-                    <option>selecionar</option>
-                  </select>
-                  <label>Necessidades</label>
-                  <select value={necess} onChange={e => setNecess(e.target.value)}>
-                    <option>selecionar</option>
-                  </select>
+                <label>Estoque</label>
+                <select className='tipopele' value={estoque} onChange={e => setEstoque(e.target.value)}>
+
+                  <option >disponível</option>
+                  <option>Sim</option>
+                  <option>Não</option>
+
+                </select>
+
+
+
+                <label>Quantidade</label>
+
+
+                <div className='qtd-info'>
+
+
+                  <button className='contador' type='number' value={n1} onChange={(e) => setN1(Number(e.target.value))} onClick={menos}> <img src='/assets/images/geral/-.png' alt='a' /></button>
+                  <p value={qtd} onChange={(e) => setResult(Number(e.target.value))}> {qtd}</p>
+                  <button className='contador' type='number' value={n2} onChange={(e) => setN2(Number(e.target.value))} onClick={mais}> <img src='/assets/images/geral/+.png' alt='' /></button>
+
+
+
+                </div>
+
+
+                <label>Necessidades</label>
+                <select value={necess} onChange={e => setNecess(e.target.value)}>
+                  <option>selecionar</option>
+                  <option>Acne</option>
+                  <option>Antipoluição</option>
+                  <option>Cicatrizes/textura</option>
+                  <option>Cravo</option>
+                  <option>Hiperpigmentação</option>
+                  <option>Oleosidade</option>
+                  <option>Olheira</option>
+                </select>
               </div>
             </div>
             <div className='container2_c3'>
@@ -127,20 +234,20 @@ export default function AddProduto() {
                   <option>
                     selecionar
                   </option>
-                  <optgroup label='grupo-1'>
-                    <option>opção 1</option>
-                  </optgroup>
-                  <optgroup label='grupo-2'>
-                    <option>opção 2</option>
-                  </optgroup>
+          
+                    <option>extrato de moringa</option>
+           
+                    <option>niacinamida</option>
+                    <option>pantenol</option>
+                    <option>phytoesqualano</option>
                 </select>
               </div>
               <div className='container2c3_bloco-2'>
                 <label>Indicações</label>
-                  <textarea value={indica} onChange={e => setIndica(e.target.value)}></textarea>
+                <textarea value={indica} onChange={e => setIndica(e.target.value)}></textarea>
               </div>
             </div>
-            <button id='botao'>Confirmar Cadastro</button>
+            <button id='botao' onClick={adicionarproduto} >Confirmar Cadastro</button>
           </div>
         </section>
       </div>
