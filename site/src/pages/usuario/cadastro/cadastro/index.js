@@ -1,5 +1,6 @@
 import './index.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios'
 
 export default function Cadastro() {
   const [nome, setNome] = useState('');
@@ -9,7 +10,16 @@ export default function Cadastro() {
   const [senha, setSenha] = useState('');
   const [confirmaSenha, setConfirmaSenha] = useState('');
   const [dtNascimento, setDtNascimen] = useState(0);
-  const [tipoPele, setTipoPele] = useState('');
+
+  const [tipoPele, setTipoPele] = useState(0);
+  const [tipoPeleSelecionado, setPeleSelecionado] = useState([]);
+
+  async function listarTiposdePele() {
+      
+      const r = await axios.get('http://localhost:5000/tipopele')
+      setPeleSelecionado(r.data)
+
+  }
 
   const cadastrar = () => {
     setNome('')
@@ -17,12 +27,17 @@ export default function Cadastro() {
     setCpf('');
     setEmail('');
     setEmail('');
-    setSenha('');
-    setConfirmaSenha('');
+    setSenha(0);
+    setConfirmaSenha(0);
     setDtNascimen(0);
-    setTipoPele('');
+    setTipoPele(0);
    
   }
+
+  useEffect(() =>{
+
+    listarTiposdePele()
+  }, [])
 
   return (
     <div className='tude'>
@@ -66,31 +81,38 @@ export default function Cadastro() {
               </div>
               <div className='no-1'>
               
-              <input type='text'  placeholder="SENHA" value={senha} onChange={(e) => setSenha(Number(e.target.value))}></input>
+              <input type='password'  placeholder="SENHA" value={senha} onChange={(e) => setSenha(Number(e.target.value))}></input>
               </div>
               <div className='no-1'>
               
-              <input type='text'  placeholder= "CONFIRMAÇÃO DE SENHA" value={confirmaSenha} onChange={(e) => setConfirmaSenha(Number(e.target.value))}></input>
+              <input type='password'  placeholder= "CONFIRMAÇÃO DE SENHA" value={confirmaSenha} onChange={(e) => setConfirmaSenha(Number(e.target.value))}></input>
               </div>
             </div>
 
 
             <div className='c-5'>
               
-              <label>DATA NASCIMENTO</label>
+              <label>Data Nascimento</label>
               <input type='date' value={dtNascimento} onChange={(e) => setDtNascimen(Number(e.target.value))}></input>
               
             </div>
 
             <div className='c-6'>
               <div className='no-1'>
-              <select className='tipodepele' value={tipoPele} onChange={(e) => setTipoPele(e.target.value)}>
-                <option>Tipo de Pele</option>
+              <select className='tipodepele' value={tipoPele} onChange={e => setTipoPele(e.target.value)}>
+                <option id='tipopele' value={0}> Tipo Pele </option>
+                {
+                  tipoPeleSelecionado.map(item =>
+
+                    <option value={item.id}> {item.nome} </option>
+                  )
+
+                }
               </select>
               </div>
             </div>
 
-            <button id='botao'  onclick={cadastrar}>CADASTRAR</button>
+            <button id='botao'  onclick={cadastrar}>Cadastrar</button>
           </div>
 
 

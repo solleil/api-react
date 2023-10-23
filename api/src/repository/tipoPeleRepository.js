@@ -3,6 +3,7 @@ import {connection} from './connection.js'
 export async function listarTipoPele(){
     const comando=`
     select 
+    id_tipo      as id,
     nm_tipo_pele as nome
     from tb_tipo_pele
     `

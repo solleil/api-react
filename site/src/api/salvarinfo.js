@@ -32,7 +32,7 @@ export async function listarNecessidades() {
 }
 
 export async function listarTiposdePele() {
-    const r = await api.get('/produto/tiposdepele');
+    const r = await api.get('/tipopele');
     return r.data;
 }
 

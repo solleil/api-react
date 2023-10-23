@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 
+
 const servidor= express();
 servidor.use(cors());
 servidor.use(express.json());
@@ -18,6 +19,11 @@ servidor.use(adminController);
 
 import cartaoController from './controller/cartaoController.js';
 servidor.use(cartaoController);
+
+import tipoPeleController from './controller/tipoPeleController.js'
+servidor.use(tipoPeleController);
+
+
 
 
 
