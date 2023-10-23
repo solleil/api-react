@@ -45,7 +45,9 @@
     .qtd{
        display:flex ;
        flex-direction: row;
+       
        gap: 10px;
+      
      
 
        .qtd-info{
@@ -59,6 +61,7 @@
         height: 5vh;
         display:flex ;
        flex-direction: row;
+
 
 
        button{
@@ -113,12 +116,6 @@
 
 
 
-    .compre-info button{
-        border-color: #FFE898;
-        background-color: white;
-        padding: 8px;
-        border-radius: 15px;
-    }
     
     .add-info button{
         border: none;
@@ -139,18 +136,18 @@
     .opc-info{
         display: flex;
         flex-direction: column;
-        justify-content: center;
-       align-items: center;
-      
+        justify-content: flex-start;
+       align-items: flex-start;
+      width: 80vw;
+      padding: 10px;
     }
 
     .opc-1{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 80vw;
-        gap: 0px;
-        margin: 0px;
+        width: 70vw;
+      
     }
 
     .s1{
@@ -159,6 +156,8 @@
         flex-direction: row;
     }
 
+
+ 
     .indica{
         display: flex;
         flex-direction: row;
@@ -172,7 +171,6 @@
         .indica-s1{
             margin-left: 5%;
             margin-top: 2%;
-            align-items: center;
             background-color: white;
             border-radius: 30px;
             height: 4vh;
@@ -235,11 +233,18 @@
     .avaliac{
            display: flex;
            flex-direction: column;
-           height: 25vh;
+           height: 70vh;
            width: 30vw;
-           border: 5px solid #FABB59;
-           border-radius: 10px;
-           margin-left: 10%;
+
+
+           .star{
+            border: 5px solid #FABB59;
+            border-radius: 10px;
+            margin-left: 10%;
+            height: 25vh;
+            width: 30vw;
+           }
+         
 
 
            .estrelaa{
@@ -357,10 +362,60 @@
 .n-bold{
     margin: 0px;
 }
-.bold-linhas{
+.bold-linhas1{
     width: 6vw;
     height: 8px;
     background-color: #fabc59f1;
+}
+
+.bold-linhas2{
+    width: 8vw;
+    height: 8px;
+    background-color: #fabc59f1;
+}
+
+.bold-linhas3{
+    width: 6vw;
+    height: 8px;
+    background-color: #fabc59f1;
+}
+
+.bold-linhas4{
+    width: 10vw;
+    height: 8px;
+    background-color: #fabc59f1;
+}
+
+.s6{
+    display:  flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+
+.ingred{
+    display: flex;
+    flex-direction: column;
+
+   .igd{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    justify-content: flex-start;
+    width: 20vw;
+    background-color: rgba(221, 221, 221, 0.712);
+  
+    
+
+   
+   }
+
+   
+
+      
 }
 
 
