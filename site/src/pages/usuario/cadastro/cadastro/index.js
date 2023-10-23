@@ -23,9 +23,8 @@ export default function Cadastro() {
 
   const cadastrar = () => {
     setNome('')
-    setSobrenome(0);
-    setCpf('');
-    setEmail('');
+    setSobrenome('');
+    setCpf(0);
     setEmail('');
     setSenha(0);
     setConfirmaSenha(0);
