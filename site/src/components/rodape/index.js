@@ -5,7 +5,7 @@ export default function Rodape() {
     return (
         <div className="rodape">
 
-            <div className="info">
+            <div className="info-R">
                 <div className="r1">
                     <h2>Ajuda & Suporte</h2>
                     <p>Central de ajuda</p>
