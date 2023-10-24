@@ -16,8 +16,6 @@ server.get(('/cliente'), async (req, resp) => {
 
     }
 })
-
-
 server.post(('/cliente'), async (req, resp) => {
 
     try {
