@@ -3,7 +3,7 @@ const api = axios.create({
     baseURL: 'http://localhost:5000'
 });
 
-export async function salvarInfos(nomeProduto, descri, tipopele, precoProduto , estoque, tamanho, idMarca, necess, ingre_atv){
+export async function salvarInfos(nomeProduto, descri, tamanho, idMarca, necess, tipopele, precoProduto, estoque, ingre_atv){
     const resposta = await api.post('/produto', {
 
     nome: nomeProduto,
@@ -32,7 +32,7 @@ export async function listarNecessidades() {
 }
 
 export async function listarTiposdePele() {
-    const r = await api.get('/produto/tiposdepele');
+    const r = await api.get('/tipopele');
     return r.data;
 }
 

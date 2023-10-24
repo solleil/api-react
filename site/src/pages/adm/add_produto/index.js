@@ -149,7 +149,15 @@ export default function AddProduto() {
                   {categoriaTiposDePele.map(item =>
 
                     <option value={item.id}>{item.categoriaTiposDePele}</option>
+
                   )};
+
+                  <option>selecionar</option>
+                  <option>Pele mista</option>
+                  <option>Pele normal</option>
+                  <option>Pele oleosa</option>
+                  <option>Pele seca</option>
+                  <option>Pele sensível</option>
 
                 </select>
                 <label>Tamanhos</label>
@@ -162,6 +170,13 @@ export default function AddProduto() {
                     <option value={item.id}>{item.categoriaMarca}</option>
 
                   )};
+                  <option>selecionar</option>
+                  <option>Cerave</option>
+                  <option>Creamy</option>
+                  <option>Laneige</option>
+                  <option>La Roche</option>
+                  <option>Principia</option>
+                  <option>Sallve</option>
 
                 </select>
               </div>
