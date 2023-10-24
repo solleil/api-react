@@ -3,6 +3,7 @@ import {connection} from './connection.js'
 export async function listarIngredientesAtivos(){
     const comando= `
     select 
+    id_ingrediente as id,
     nm_ingrediente  as nome,
     ds_ingrediente  as descricao
     from tb_ingr_atv

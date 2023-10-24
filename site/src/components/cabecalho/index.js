@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import './index.scss'
+import './index.scss';
+
 
 export default function Cabecalho() {
       const[menu, setMenu] = useState(true)
@@ -44,7 +45,7 @@ export default function Cabecalho() {
         <>
         <a href='/' className='c1-1'>
         <img src='/assets/images/usuario/cabecalho/logo_preta.png' alt=''/>
-              <p> Solleil</p>
+              <p> SOLLEIL</p>
         </a>
         
           </>
@@ -151,7 +152,8 @@ export default function Cabecalho() {
 
                 <div className="c2-2"> 
                           <div className="input">
-                             <input type="text" /> <button> <img src="/assets/images/geral/pesquisa.png" alt=""/></button>
+                             <input className='inp' type="text" /> 
+                             <button> <img src="/assets/images/geral/pesquisa.png" alt=""/></button>
                           </div> 
                  </div>
                   

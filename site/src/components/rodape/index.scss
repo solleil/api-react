@@ -1,9 +1,22 @@
+
+@font-face {
+    font-family: 'hanoble';
+    src: url('../../../public/assets/fonts/Hanoble.otf');    
+}
+@font-face {
+    font-family: 'castle';
+    src: url('../../../public/assets/fonts/Castle\ Begale.woff');    
+}
+
+
+
+
 .rodape{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     background-color: #E2BC81;
     border-radius: 15px;
     
@@ -13,17 +26,10 @@
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        font-family: 'font1';
         text-align: left;
-        width: 100vw;
+        width: 100%;
+        
 
-    }
-
-    h2{
-        font-size: 18px;
-    }
-    p{
-        font-size: 16px;
     }
 
     .r4{
@@ -31,15 +37,27 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
+        font: 17px 'castle';
+        color: white;
     }
 
     .a{
         display: flex;
         flex-direction: row;
-        gap: 5px
+        
     }
     a img{
-        height: 5vh;
+        height: 3vh;
+        padding: 10px;
+    }
+
+    h2{
+        font:29px 'hanoble';
+        color: white;
+    }
+    p{
+        font: 15px 'hanoble';
+        color: white;
     }
 
 }

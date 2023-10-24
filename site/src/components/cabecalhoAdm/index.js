@@ -21,7 +21,7 @@ export default function CabecalhoAdm() {
 
 
         <img src='/assets/images/usuario/cabecalho/logo_preta.png' alt='' />
-        <p> Solleil</p>
+        <p> SOLLEIL</p>
       </div>
 
       <div className="c-linha-adm">  </div>

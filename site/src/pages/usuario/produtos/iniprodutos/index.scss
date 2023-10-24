@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
 .pag-produto{
 
 text-align: center;
+overflow: hidden;
 
 
 .s1{
@@ -21,18 +24,23 @@ text-align: center;
     justify-content: center;
     align-items: center;
     width: 70vw;
+   
 }
 .s1-1 p{
     font-size: 20px;
-    width: 60vw;
+    width: 47vw;
+    font-family: 'Quicksand', sans-serif;
+    
 }
 .s1-1 button{
-
+    width: 25vw;
+    height: 5vh;
     background-color: #6796dc6c;
     border: none;
     border-radius: 25px;
-    padding: 15px;
     letter-spacing: 1px;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 15px;
 }
 .s1-1 button:hover{
     cursor: pointer;

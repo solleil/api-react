@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 import CabecalhoAdm from '../../../components/cabecalhoAdm';
 
-import axios from 'axios';
+
 import { salvarInfos, listarMarcas, listarNecessidades, listarTiposdePele, listarIngredientes } from '../../../api/salvarinfo.js';
 
 
@@ -19,23 +19,26 @@ export default function AddProduto() {
 
 
   const [nomeProduto, setNomeProduto] = useState('');
-  const [ingrediente, setIngrediente] = useState('');
+  const [ingrediente, setIngrediente] = useState(0);
   const [descri, setDescri] = useState('');
   const [precoProduto, setPreco] = useState(0)
-  const [tipopele, setTipopele] = useState('');
-  const [estoque, setEstoque] = useState('');
+  const [tipopele, setTipopele] = useState(0);
+  const [estoque, setEstoque] = useState();
   const [tamanho, setTamanho] = useState('');
   const [qtd, setQtd] = useState(0);
-  const [idMarca, setIdMarca] = useState();
-  const [necess, setNecess] = useState();
-  const [ingre_atv, setIngre_atv] = useState('');
+  const [idMarca, setIdMarca] = useState(0);
+  const [necess, setNecess] = useState(0);
+  const [ingre_atv, setIngre_atv] = useState(0);
   const [indica, setIndica] = useState('');
 
 
   const [n1, setN1] = useState(0)
-    const [n2, setN2] = useState(0)
-    const [result, setResult] = useState(1);
+  const [n2, setN2] = useState(0)
+  const [result, setResult] = useState(1);
 
+
+
+  const [imagem, setImagem] = useState('')
 
   function mais() {
     const x = qtd + 1;
@@ -82,10 +85,7 @@ export default function AddProduto() {
     setCategoriaMarca(r);
   }
 
-  async function carregarNecessidades() {
-    const r = await listarNecessidades();
-    setCategoriaNecessidade(r);
-  }
+
   async function carregarTiposPele() {
     const r = await listarTiposdePele();
     setCategoriaTiposDePele(r);
@@ -96,12 +96,57 @@ export default function AddProduto() {
     setNomeIngrediente(r);
   }
 
+  async function carregarNecessidades() {
+    const r = await listarNecessidades();
+    setCategoriaNecessidade(r);
+
+  }
+
   useEffect(() => {
-    carregarIngredientes();
-    carregarTiposPele();
-    carregarNecessidades();
-    carregarMarcas();
+
+    carregarNecessidades()
+
   }, [])
+
+  useEffect(() => {
+
+    carregarTiposPele();
+
+  }, [])
+
+  useEffect(() => {
+
+    carregarMarcas();
+
+  }, [])
+
+  useEffect(() => {
+
+    carregarIngredientes();
+
+  }, [])
+
+
+
+
+
+  const ImagemA = (event) => {
+    const arquivoSelecionado = event.target.files[0];
+    setImagem(URL.createObjectURL(arquivoSelecionado));
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div className="index_AddProduto">
@@ -127,7 +172,10 @@ export default function AddProduto() {
             <div className='container1_c2'>
               <h2>Alterar Imagem</h2>
               <div className='tela_alterar_img'>
-                <h5>Insira o produto</h5>
+                <input type="file" accept="image/*" className='input-imagem' onChange={ImagemA} />
+                <img
+                  src={imagem} alt="Imagem" className="imagem-preview" />
+
                 <div className='tela_por_img'></div>
               </div>
             </div>
@@ -147,36 +195,26 @@ export default function AddProduto() {
                 <label>Tipo de pele</label>
                 <select className='tipopele' value={tipopele} onChange={(e) => setTipopele(e.target.value)}>
                   {categoriaTiposDePele.map(item =>
+                    <>
+                      <option value={item.id}>{item.nome}</option>
 
-                    <option value={item.id}>{item.categoriaTiposDePele}</option>
-
+                    </>
                   )};
 
-                  <option>selecionar</option>
-                  <option>Pele mista</option>
-                  <option>Pele normal</option>
-                  <option>Pele oleosa</option>
-                  <option>Pele seca</option>
-                  <option>Pele sensível</option>
+
 
                 </select>
                 <label>Tamanhos</label>
-                <input type='text' value={tamanho} onChange={(e) => setTamanho(e.target.value)} />
+                <input type='number' value={tamanho} onChange={(e) => setTamanho(e.target.value)} className='oi' />
 
                 <label>Marca</label>
                 <select value={idMarca} onChange={(e) => setIdMarca(e.target.value)}>
                   {categoriaMarca.map(item =>
 
-                    <option value={item.id}>{item.categoriaMarca}</option>
+                    <option value={item.id}>{item.nome}</option>
 
                   )};
-                  <option>selecionar</option>
-                  <option>Cerave</option>
-                  <option>Creamy</option>
-                  <option>Laneige</option>
-                  <option>La Roche</option>
-                  <option>Principia</option>
-                  <option>Sallve</option>
+
 
                 </select>
               </div>
@@ -209,18 +247,12 @@ export default function AddProduto() {
 
                 <label>Necessidades</label>
                 <select value={necess} onChange={(e) => setNecess(e.target.value)}>
+                  <option value={0}> selecione </option>
                   {categoriaNecessidade.map(item =>
 
-                    <option value={item.id}>{item.categoriaNecessidade}</option>
+                    <option value={item.id}>{item.nome}</option>
                   )};
-                  <option>selecionar</option>
-                  <option>Acne</option>
-                  <option>Antipoluição</option>
-                  <option>Cicatrizes/textura</option>
-                  <option>Cravo</option>
-                  <option>Hiperpigmentação</option>
-                  <option>Oleosidade</option>
-                  <option>Olheira</option>
+
                 </select>
               </div>
             </div>
@@ -230,15 +262,9 @@ export default function AddProduto() {
                 <select value={ingre_atv} onChange={(e) => setIngre_atv(e.target.value)}>
                   <option>
                   </option>
-                  <optgroup label='grupo-1'>
-                    {nomeIngrediente.map(item =>
-                      <option value={item.id}>{item.nomeIngrediente}</option>
+                  {nomeIngrediente.map(item =>
+                      <option value={item.id}>{item.nome}</option>
                     )};
-
-                  </optgroup>
-                  <optgroup label='grupo-2'>
-                    <option>opção 2</option>
-                  </optgroup>
                 </select>
               </div>
               <div className='container2c3_bloco-2'>

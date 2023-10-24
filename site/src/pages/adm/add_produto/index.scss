@@ -165,9 +165,15 @@
     }
 
     
-    .container2c2_coluna-1 > select , .container2c2_coluna-2 > select, .qtd-info {
+    .container2c2_coluna-1 > select , .container2c2_coluna-2 > select{
         margin: 10px 0px 10px;
         height: 21px;
+        width: 170px;
+        border: 1px solid #E2BC81;
+    }
+
+    .oi {
+        height: 15px;
         width: 170px;
         border: 1px solid #E2BC81;
     }
@@ -219,6 +225,9 @@
 
 
       }
+      input[type=number]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
 
 
       .qtd-info{
@@ -263,6 +272,29 @@
         margin-top: 20px;
         gap: 5px;
      }
+
+
+     .input-imagem {
+        padding: 10px;
+        background-color: #ffffff;
+        color: #333;
+        border-radius: 5px;
+        height: 5vh;
+      }
+  
+      .input-imagem:focus {
+        outline: none;
+        border: 1px solid #3c96f5;
+        background-color: #fff;
+      }
+  
+      .imagem-preview {
+        width: 25vh;
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ccc;
+        border-radius: 5px; 
+      }
 
 
 
