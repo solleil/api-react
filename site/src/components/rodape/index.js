@@ -28,7 +28,7 @@ export default function Rodape() {
                     <p>Parcerias</p>
                 </div>
                 <div className="r4">
-                    <h1> Solleil</h1>
+                    <h1> SOLLEIL</h1>
                     <div className="a">
                         <a href="fadf"><img alt="" src="/assets/images/geral/insta.png" /></a>
                         <a href="fadf"><img alt="" src="/assets/images/geral/twitter.png"/></a>
