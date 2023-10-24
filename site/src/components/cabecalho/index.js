@@ -33,8 +33,13 @@ export default function Cabecalho() {
     return (
       
       <div className="cabecalho">
+         <div className="pisca">
+           <h1>
+             <span className="pisca-s1"><p id='frete'>FRETE GRÁTIS</p> <p>ACIMA DE R$120</p></span>
+            </h1>
+         </div>
         <div className="c1">
-
+        
         {menu === true &&
         <>
         <a href='/' className='c1-1'>

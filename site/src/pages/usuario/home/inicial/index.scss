@@ -7,15 +7,43 @@
 
   .s1 {
     display: flex;
-    flex-direction: row;
-    width: 99vw;
-    background-color: #edcc9ce1;
+    flex-direction: column;
+    width: 100vw;
+    height: 60vh;
+    background-color: #E5C28C;
     justify-content: space-between;
+
+
+
+  
+    .s1-1-teste{
+      display: flex;
+      flex-direction: row;
+    }
   }
+
+ 
 
   .s1-1 {
     display: flex;
     flex-direction: row;
+    
+      width: 50vw;
+      height: 60vh;
+      margin-left: 3%;
+
+
+
+    .video-mh{
+      background-color: rgba(0, 0, 0, 0.13);
+      margin-top: 10%;
+      width: 50vw;
+      height: 50vh;
+      border: none;
+      border-radius: 10px;    
+    }
+
+
   }
 
   .s1-1 img {
@@ -37,10 +65,12 @@
     height: auto;
   }
 
+   
   .s1-2 p {
-  
-    width: 25vw;
-    font-size: 22px;
+    width: 45vw;
+    font-size: 18px;
+    margin-right: 7%;
+    
   }
 
   .s2 {
