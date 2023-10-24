@@ -60,12 +60,12 @@ export default function Cadastro() {
                 
                 <div className='no-1'>
                     
-                    <input type='Nome'  placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)}></input>
+                    <input type='Nome'  placeholder="NOME" value={nome} onChange={(e) => setNome(e.target.value)}></input>
                 </div>
               
                 <div className='no-1'>
                   
-                  <input type='text'  placeholder="Sobrenome" value={sobrenome} onChange={(e) => setSobrenome(e.target.value)}></input>
+                  <input type='text'  placeholder="SOBRENOME" value={sobrenome} onChange={(e) => setSobrenome(e.target.value)}></input>
                 </div>
              </div>
 
@@ -89,9 +89,9 @@ export default function Cadastro() {
             </div>
 
 
-            <div className='c-5'>
+            <div className='no-1'>
               
-              <label>Data Nascimento</label>
+              <label>DATA DE NASCIMENTO</label>
               <input type='date' value={dtNascimento} onChange={(e) => setDtNascimen(Number(e.target.value))}></input>
               
             </div>

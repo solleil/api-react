@@ -23,6 +23,8 @@ export default function Consulta() {
     setDesc('');
   };
 
+
+  
   return (
     <section className='index_consulta_produto'>
       <CabecalhoAdm />
