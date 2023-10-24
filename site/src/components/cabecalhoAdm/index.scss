@@ -1,8 +1,26 @@
+@font-face {
+    font-family: 'castle';
+    src: url('../../../public/assets/fonts/Castle\ Begale.woff');    
+}
+
+
 .cabecalho {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
 
+    .c1{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;  
+    
+       
+        p{
+            font: 35px 'castle';
+        }
+    }
+    
     .c2-3{
         display: flex;
         align-items: flex-start;
@@ -76,7 +94,6 @@
         width: 100%;
         background-color: #fabc59b0;
         color: #FFE898;
-    }
-
-    
+    }    
 }
+
