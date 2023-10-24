@@ -3,6 +3,7 @@ import {connection} from './connection.js'
 export async function listarMarcas(){
     const comando= `
     select 
+    id_marca as id, 
     nm_marca as nome
     from tb_marca
     `
