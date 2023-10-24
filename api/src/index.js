@@ -23,6 +23,15 @@ servidor.use(cartaoController);
 import tipoPeleController from './controller/tipoPeleController.js'
 servidor.use(tipoPeleController);
 
+import marcaController from './controller/marcaController.js'
+servidor.use(marcaController)
+
+import nessecidadeController from './controller/necessidadeController.js'
+servidor.use(nessecidadeController);
+
+import ingrAtvController from './controller/ingrAtvController.js'
+servidor.use(ingrAtvController)
+
 
 
 

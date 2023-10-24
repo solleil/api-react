@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 const api = axios.create({
     baseURL: 'http://localhost:5000'
 });
@@ -22,13 +22,15 @@ export async function salvarInfos(nomeProduto, descri, tamanho, idMarca, necess,
 }
 
 export async function listarMarcas() {
-    const r = await api.get('/produto/marcas');
+    const r = await api.get('/marca');
     return r.data;
+    console.log(r.response.data);
 }
 
 export async function listarNecessidades() {
-    const r = await api.get('/produto/necessidades');
+    const r = await api.get('/necessidades');
     return r.data;
+    console.log(r.response.data);
 }
 
 export async function listarTiposdePele() {
@@ -37,6 +39,6 @@ export async function listarTiposdePele() {
 }
 
 export async function listarIngredientes() {
-    const r = await api.get('/produto/ingredientes');
+    const r = await api.get('/ingredienteAtivo');
     return r.data;
 }
