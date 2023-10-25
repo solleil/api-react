@@ -111,7 +111,8 @@ id_ingr_atv		int,
 foreign key(id_ingr_atv) references tb_ingr_atv(id_ingrediente),
 
 ds_detalhes		varchar(1000),
-ds_avaliacao	varchar(5)
+ds_avaliacao	varchar(5),
+ds_indicacao    varchar(200)
 
 );
 

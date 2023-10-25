@@ -10,35 +10,30 @@ import { salvarInfos, listarMarcas, listarNecessidades, listarTiposdePele, lista
 
 
 export default function AddProduto() {
+
   const [adicionarproduto, setAdicionarproduto] = useState('')
   const [categoriaMarca, setCategoriaMarca] = useState([]);
   const [categoriaNecessidade, setCategoriaNecessidade] = useState([]);
   const [categoriaTiposDePele, setCategoriaTiposDePele] = useState([]);
   const [nomeIngrediente, setNomeIngrediente] = useState([]);
 
-
-
   const [nomeProduto, setNomeProduto] = useState('');
-  const [ingrediente, setIngrediente] = useState(0);
+  const [ingrediente, setIngrediente] = useState('');
   const [descri, setDescri] = useState('');
   const [precoProduto, setPreco] = useState(0)
   const [tipopele, setTipopele] = useState(0);
-  const [estoque, setEstoque] = useState();
+  const [estoque, setEstoque] = useState(1);
   const [tamanho, setTamanho] = useState('');
   const [qtd, setQtd] = useState(0);
   const [idMarca, setIdMarca] = useState(0);
   const [necess, setNecess] = useState(0);
   const [ingre_atv, setIngre_atv] = useState(0);
   const [indica, setIndica] = useState('');
-
-
   const [n1, setN1] = useState(0)
   const [n2, setN2] = useState(0)
   const [result, setResult] = useState(1);
-
-
-
   const [imagem, setImagem] = useState('')
+
 
   function mais() {
     const x = qtd + 1;
@@ -51,6 +46,10 @@ export default function AddProduto() {
       setQtd(x);
     };
   };
+
+  function dispEstoque() {
+    setEstoque(0);
+  }
 
   const removerdados = () => {
     setNomeProduto('')
@@ -69,7 +68,16 @@ export default function AddProduto() {
 
   async function Salvarinfo() {
     try {
-      const r = await salvarInfos(nomeProduto, descri, tipopele, precoProduto, estoque, tamanho, idMarca, necess, ingre_atv);
+      const r = await salvarInfos(nomeProduto,
+        descri,
+        tipopele,
+        precoProduto,
+        estoque,
+        tamanho,
+        idMarca,
+        necess,
+        ingre_atv,
+        indica);
       alert('Informações salvas')
 
     }
@@ -81,24 +89,24 @@ export default function AddProduto() {
   }
 
   async function carregarMarcas() {
-    const r = await listarMarcas();
-    setCategoriaMarca(r);
+    const resp = await listarMarcas();
+    setCategoriaMarca(resp);
   }
 
 
   async function carregarTiposPele() {
-    const r = await listarTiposdePele();
-    setCategoriaTiposDePele(r);
+    const resp = await listarTiposdePele();
+    setCategoriaTiposDePele(resp);
   }
 
   async function carregarIngredientes() {
-    const r = await listarIngredientes();
-    setNomeIngrediente(r);
+    const resp = await listarIngredientes();
+    setNomeIngrediente(resp);
   }
 
   async function carregarNecessidades() {
-    const r = await listarNecessidades();
-    setCategoriaNecessidade(r);
+    const resp = await listarNecessidades();
+    setCategoriaNecessidade(resp);
 
   }
 
@@ -135,19 +143,6 @@ export default function AddProduto() {
     setImagem(URL.createObjectURL(arquivoSelecionado));
   };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   return (
     <div className="index_AddProduto">
       <CabecalhoAdm className='cabecalho' />
@@ -175,7 +170,6 @@ export default function AddProduto() {
                 <input type="file" accept="image/*" className='input-imagem' onChange={ImagemA} />
                 <img
                   src={imagem} alt="Imagem" className="imagem-preview" />
-
                 <div className='tela_por_img'></div>
               </div>
             </div>
@@ -197,12 +191,8 @@ export default function AddProduto() {
                   {categoriaTiposDePele.map(item =>
                     <>
                       <option value={item.id}>{item.nome}</option>
-
                     </>
                   )};
-
-
-
                 </select>
                 <label>Tamanhos</label>
                 <input type='number' value={tamanho} onChange={(e) => setTamanho(e.target.value)} className='oi' />
@@ -214,18 +204,14 @@ export default function AddProduto() {
                     <option value={item.id}>{item.nome}</option>
 
                   )};
-
-
                 </select>
               </div>
               <div className='container2c2_coluna-2'>
                 <label>Estoque</label>
                 <select className='tipopele' value={estoque} onChange={e => setEstoque(e.target.value)}>
-
-                  <option >disponível</option>
-                  <option>Sim</option>
-                  <option>Não</option>
-
+                  <option>disponível</option>
+                  <option value={estoque}>Sim</option>
+                  <option onClick={dispEstoque}>Não</option>
                 </select>
 
 
@@ -234,14 +220,9 @@ export default function AddProduto() {
 
 
                 <div className='qtd-info'>
-
-
                   <button className='contador' type='number' value={n1} onChange={(e) => setN1(Number(e.target.value))} onClick={menos}> <img src='/assets/images/geral/-.png' alt='a' /></button>
                   <p value={qtd} onChange={(e) => setResult(Number(e.target.value))}> {qtd}</p>
                   <button className='contador' type='number' value={n2} onChange={(e) => setN2(Number(e.target.value))} onClick={mais}> <img src='/assets/images/geral/+.png' alt='' /></button>
-
-
-
                 </div>
 
 
@@ -251,6 +232,7 @@ export default function AddProduto() {
                   {categoriaNecessidade.map(item =>
 
                     <option value={item.id}>{item.nome}</option>
+                    
                   )};
 
                 </select>
@@ -263,13 +245,13 @@ export default function AddProduto() {
                   <option>
                   </option>
                   {nomeIngrediente.map(item =>
-                      <option value={item.id}>{item.nome}</option>
-                    )};
+                    <option value={item.id}>{item.nome}</option>
+                  )};
                 </select>
               </div>
               <div className='container2c3_bloco-2'>
                 <label>Indicações</label>
-                <textarea></textarea>
+                <textarea value={indica} onChange={(e) => setIndica(e.target.value)} />
               </div>
             </div>
             <button id='botao' onClick={Salvarinfo}>Confirmar Cadastro</button>
