@@ -14,13 +14,15 @@
         justify-content: center;
         align-items: center;
         flex-direction: row;
-        border: 1px solid #E2BC81;
+        border: 2px solid #E2BC81;
         border-radius: 20px;
         position: relative; 
+        width: 50vw;
+        height: 4vh;
     }
     .clara input{
-        width: 25vw;
-        height: 5vh;
+        width: 35vw;
+        height: 3vh;
         border: none;
         border-radius: 20px;
         
@@ -28,14 +30,15 @@
     
     
     .clan button {
-        padding: 16px 42px;
+        padding: 11px 55px;
         border-radius: 20px;
         line-height: 1.25;
         background-color: white;
         text-decoration: none;
+        gap: 10px;
 
         color: rgb(0, 0, 0);
-        font-size: 14px;
+        font-size: 10px;
 
         letter-spacing: .08em;
         text-transform: uppercase;
@@ -72,7 +75,9 @@
         }
     }
     .clara img{
-        width: 16px;
+        
+      width: 10px;
+      
     
     }
 
@@ -91,28 +96,29 @@
         flex-direction: row;
         justify-content: center;
         margin: 60px;
-        border: 2px solid #E2BC81;  
-        width: 60vw;
+        border: 3px solid #E2BC81;  
+        width: 75vw;
         height: 30vh;
         border-radius: 20px;
        
 
 
     }
-    .fi-1{
-        margin: 15px;
-    }
+   .fi-1{
+    margin: 25px;
+   }
     .pedid{
         border: 2px solid #E2BC81; 
-        width: 10vw;
+        width: 13vw;
         height: 5vh;
         border-radius: 16px;
+        padding: 10px;
         
     }
     .fi-2{
         display: flex;
         height: 35px;
-        margin: 10px;
+        margin: 15px;
     }
     .fi-2 button{
         background-color: #E2BC81 ;
@@ -205,3 +211,19 @@
         margin: 10px;
     }
 }
+
+@media (max-width: 660px) {
+    .ka{
+        input{
+            
+            height: 5vh;
+        }
+        
+        button{
+            width: 30vw;
+            height: 6vh;
+        }
+
+    }
+}
+

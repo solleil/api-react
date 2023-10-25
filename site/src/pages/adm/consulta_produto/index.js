@@ -26,6 +26,8 @@ export default function Consulta() {
 
   
   return (
+
+    
     <section className='index_consulta_produto'>
       <CabecalhoAdm />
       <header>

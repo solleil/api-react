@@ -1,8 +1,11 @@
+@font-face {
+    font-family:'reno';
+    src: url('../../../../../public/assets/fonts/Renogare-Regular.otf');
+}
+
 .pag-info{
-       
-
-
-
+    overflow: hidden;
+    
     .exemplo{
        height: 55vh;
     }
@@ -20,8 +23,17 @@
         display: flex;
         flex-direction: column;
         margin: 10px;
-       margin-bottom: 50px;
+        margin-bottom: 50px;
+        
+        h3{
+            font: 15px "reno";
+        }
+        h2{
+            font: 25px "reno";
+        }
+
     }
+    
 
     .vl-desconto{
         display: flex;
@@ -343,10 +355,6 @@
       
 
       }
-
-
-
-
         
     }
    
