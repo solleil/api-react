@@ -13,7 +13,8 @@
         animation: pisca 1s infinite;
          display: flex;
         flex-direction: row;
-       gap: 5px;
+       gap: 5px; 
+      
             
 
     
@@ -37,12 +38,13 @@
       .pisca h1{
             display: flex;
             flex-direction: row;
+            align-items: center;
             justify-content: center;
             background-color: #FFE898;
-            font-size: 15px;
-            height: 5vh;
+            font-size: 12px;
+            height: 3vh;
             width: 100vw;
-            text-align: center;
+           
 
              #frete{
                 color: rgb(139, 117, 17);
@@ -79,16 +81,24 @@
         p {
             text-decoration: none;
             color: black;
-            font-size: 30px;
+            
+            
+            
+           
+        }
+
+        #logo{
+            font-size: 80px;
         }
     }
 
     img {
-        height: 10vh;
+       
+        height: 3vh;
     }
 
     .c-linha {
-        height: 1vh;
+        height: 3px;
         width: 100%;
         background-color: #FFE898;
         color: #FFE898;
@@ -118,7 +128,7 @@
     }
 
     .c2 img {
-        height: 4vh;
+        height: 3vh;
     }
 
     .input {

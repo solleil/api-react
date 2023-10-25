@@ -1,3 +1,8 @@
+*{
+  margin: 0px;
+  box-sizing: border-box;
+}
+
 .pag-inicial {
   text-align: center;
   display: flex;
@@ -11,33 +16,37 @@
     width: 100vw;
     height: 60vh;
     background-color: #E5C28C;
-    justify-content: space-between;
+    
+    
 
 
 
   
     .s1-1-teste{
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+    
     }
   }
 
  
 
   .s1-1 {
+  
     display: flex;
-    flex-direction: row;
-    
-      width: 50vw;
-      height: 60vh;
-      margin-left: 3%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    height: 40vh;
+
+     
+      
 
 
 
     .video-mh{
-      background-color: rgba(0, 0, 0, 0.13);
       margin-top: 10%;
-      width: 50vw;
+      width: 55vw;
       height: 50vh;
       border: none;
       border-radius: 10px;    
@@ -51,25 +60,18 @@
     width: 28vw;
   }
 
-  .s1-linha{
-    background-color:#E2BC81;
-    width: 6px;
-  }
-
 
   .s1-2 {
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 60vw;
     height: auto;
   }
 
    
   .s1-2 p {
-    width: 45vw;
-    font-size: 18px;
-    margin-right: 7%;
+    margin-top: 60px;
+    font-size: 20px;
+    color: black;
     
   }
 
@@ -97,21 +99,21 @@
   }
 
   .s2-1 img {
-    height: 10vh;
+    height: 20vh;
     background-color: #ffcc7ae7;
     padding: 40px;
     border-radius: 100%;
   }
 
   .s2-2 img {
-    height: 10vh;
+    height: 20vh;
     background-color: #ffe482ef;
     padding: 40px;
     border-radius: 100%;
   }
 
   .s2-3 img {
-    height: 10vh;
+    height: 20vh;
     background-color: #ffcc7ae7;
     padding: 40px;
     border-radius: 100%;

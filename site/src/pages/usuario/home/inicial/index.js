@@ -17,21 +17,20 @@ export default function Inicial() {
 
         <div className='s1-1-teste'>
           <div className='s1-1'>
-           
+
             <video className='video-mh' controls loop >
-              
+
               <source src="/assets/videos/modelomh.mp4" type="video/mp4" />
 
             </video>
 
 
           </div>
-          <div className='s1-2'><p>A importância do <b>SkinCare</b> reside no fato de que nossa pele merece cuidados especiais.<br/> Afinal, ela é o maior órgão do nosso corpo, desempenhando um papel vital não apenas em nossa <b>saúde física</b>, mas também na nossa autoestima e bem-estar emocional.<br/> Nossa pele atua como uma barreira protetora contra as agressões do ambiente, como <b>poluição, radiação UV, bactérias</b> e outros elementos prejudiciais.
-
-Diariamente, nossa pele enfrenta desafios, e essas agressões ambientais podem ter um impacto significativo em sua,
-saúde e aparência.<br/> É por isso que adotar uma rotina de cuidado da pele se torna fundamental. Essa prática não é apenas uma questão de estética, mas também um ato de <b>amor próprio</b> e <b>autocuidado.</b>
-
-<br/>Ao seguir uma rotina de SkinCare, você fortalece a barreira natural da sua pele, que é composta por água, lipídios e proteínas, ajudando-a a manter a hidratação e resistir aos danos. Além disso, os cuidados com a pele não se limitam a um rosto radiante, mas também abrangem a prevenção de problemas de pele, como <b> acne, rugas, manchas e muito mais.</b></p></div>
+          <div className='s1-2'>
+            <p>A importância do SkinCare reside no fato de que nossa pele merece cuidados especiais.
+              É o maior órgão do nosso corpo e enfrenta diariamente agressões ambientais. Ao adotar uma rotina de cuidado da pele, você fortalece sua barreira natural, previne danos e obtém uma pele mais saudável e radiante.
+            </p>
+          </div>
 
         </div>
 
@@ -42,8 +41,12 @@ saúde e aparência.<br/> É por isso que adotar uma rotina de cuidado da pele s
         <div className='s2-1' onClick={M}>
           <img src='/assets/images/usuario/inicial/s2-1.png' alt='' /> <p>sobre nós</p>
         </div>
-        <div className='s2-2'> <a href='/iniproduto'> <img src='/assets/images/usuario/inicial/s2-2.png' alt='' /> <p> nossos produtos </p>  </a> </div>
-        <div className='s2-3'> <img src='/assets/images/usuario/inicial/s2-3.png' alt='' /> <p> ajuda </p>  </div>
+        <div className='s2-2'>
+          <a href='/iniproduto'> <img src='/assets/images/usuario/inicial/s2-2.png' alt='' /> <p> nossos produtos </p>  </a>
+        </div>
+        <div className='s2-3'>
+          <img src='/assets/images/usuario/inicial/s2-3.png' alt='' /> <p> ajuda </p>
+        </div>
       </div>
       <div className='s3'>
         {mostrar === true &&
@@ -76,7 +79,7 @@ saúde e aparência.<br/> É por isso que adotar uma rotina de cuidado da pele s
           <img src='/assets/images/usuario/inicial/laroche.png' alt='' />
         </div>
       </div>
-    
+
       <Rodape />
     </div>
   );
