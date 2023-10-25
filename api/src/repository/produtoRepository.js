@@ -14,10 +14,10 @@ export async function pesquisarProduto() {
     select 
     nm_produto          as nome, 
     from tb_produto where
-    nm_produto like % ? %
+    nm_produto like ?
     `;
 
-    const [respo] = await connection.query(comando);
+    const [respo] = await connection.query(`%${comando}%`);
     return respo
 }
 
@@ -35,7 +35,7 @@ export async function inserirProduto(produto){
             vl_preco, 
             qtd_estoque,
             id_ingr_atv, 
-            ds_indicacoes, 
+            ds_indicacao)
         values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `
 
