@@ -45,7 +45,7 @@ export default function Cabecalho() {
         <>
         <a href='/' className='c1-1'>
         <img src='/assets/images/usuario/cabecalho/logo_preta.png' alt=''/>
-              <p> SOLLEIL</p>
+              <p id='logo'> SOLLEIL</p>
         </a>
         
           </>
