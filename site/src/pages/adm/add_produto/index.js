@@ -174,76 +174,73 @@ export default function AddProduto() {
               </div>
             </div>
             <div className='container1_c3'>
+
               <label>Ingredientes</label>
               <input type='text' value={ingrediente} onChange={e => setIngrediente(e.target.value)}></input>
+
             </div>
             <button id='botao' onClick={removerdados}>Excluir Dados</button>
           </div>
           <div className='sec2_container-2'>
             <div className='container2_c1'>
+
               <label>Descrição</label>
               <textarea value={descri} onChange={e => setDescri(e.target.value)}></textarea>
+
             </div>
             <div className='container2_c2'>
               <div className='container2c2_coluna-1'>
+
                 <label>Tipo de pele</label>
                 <select className='tipopele' value={tipopele} onChange={(e) => setTipopele(e.target.value)}>
+                <option> selecione </option>
                   {categoriaTiposDePele.map(item =>
-                    <>
                       <option value={item.id}>{item.nome}</option>
-                    </>
                   )};
                 </select>
+
                 <label>Tamanhos</label>
                 <input type='number' value={tamanho} onChange={(e) => setTamanho(e.target.value)} className='oi' />
 
                 <label>Marca</label>
                 <select value={idMarca} onChange={(e) => setIdMarca(e.target.value)}>
+                <option> selecione </option>
                   {categoriaMarca.map(item =>
-
                     <option value={item.id}>{item.nome}</option>
-
                   )};
                 </select>
+
               </div>
               <div className='container2c2_coluna-2'>
+                
                 <label>Estoque</label>
                 <select className='tipopele' value={estoque} onChange={e => setEstoque(e.target.value)}>
-                  <option>disponível</option>
-                  <option value={estoque}>Sim</option>
+                  <option>Sim</option>
                   <option onClick={dispEstoque}>Não</option>
                 </select>
 
-
-
                 <label>Quantidade</label>
-
-
                 <div className='qtd-info'>
                   <button className='contador' type='number' value={n1} onChange={(e) => setN1(Number(e.target.value))} onClick={menos}> <img src='/assets/images/geral/-.png' alt='a' /></button>
                   <p value={qtd} onChange={(e) => setResult(Number(e.target.value))}> {qtd}</p>
                   <button className='contador' type='number' value={n2} onChange={(e) => setN2(Number(e.target.value))} onClick={mais}> <img src='/assets/images/geral/+.png' alt='' /></button>
                 </div>
 
-
                 <label>Necessidades</label>
                 <select value={necess} onChange={(e) => setNecess(e.target.value)}>
-                  <option value={0}> selecione </option>
+                  <option> selecione </option>
                   {categoriaNecessidade.map(item =>
-
                     <option value={item.id}>{item.nome}</option>
-                    
                   )};
-
                 </select>
               </div>
             </div>
             <div className='container2_c3'>
               <div className='container2c3_bloco-1'>
+
                 <label>Ingredientes Ativos</label>
                 <select value={ingre_atv} onChange={(e) => setIngre_atv(e.target.value)}>
-                  <option>
-                  </option>
+                <option> selecione </option>
                   {nomeIngrediente.map(item =>
                     <option value={item.id}>{item.nome}</option>
                   )};

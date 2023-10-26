@@ -1,4 +1,4 @@
-import { inserirProduto, listarTodosProduto, deletarProduto, alterarProduto } from '../repository/produtoRepository.js';
+import { inserirProduto, listarTodosProduto, deletarProduto, alterarProduto, pesquisarProduto } from '../repository/produtoRepository.js';
 import { Router } from 'express';
 
 const server = Router()
@@ -15,9 +15,11 @@ server.get(('/produto'), async (req, resp) => {
 
 server.get(('/pesquisa/produto'), async (req, resp) => {
   try {
-    const respo = await Pes
+    const query = req.query;
+    const respo = await pesquisarProduto(query);
+    resp.send(respo);
   } catch (err) {
-    
+    resp.status(404).send({ erro: err.message});
   }
 })
 

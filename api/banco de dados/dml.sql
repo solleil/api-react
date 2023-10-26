@@ -24,9 +24,48 @@ insert into tb_ingr_atv(nm_ingrediente, ds_ingrediente)
 select * from tb_ingr_atv;
             
 insert into tb_admin(nm_admin, ds_email, ds_senha)
-	values('Davi Cavalcanti', 'davicvital@gmail.com', 'abc@123'), 
+	values
+    ('Davi Cavalcanti', 'davicvital@gmail.com', 'abc@123'), 
     ('Fernanda Silva', 'Fernandafernanda55.br@gmail.com', 'abc@123'),
     ('Kewry Brito', 'kewrybrito7@gmail.com', 'abc@123'), 
     ('Maria Clara Siqueira', 'sequeraclara2@gmail.com', 'abc@123'), 
     ('Paloma Jonson', 'palomajonson207@gmail.com', 'abc@123');
 select * from tb_admin;
+
+insert into tb_produto ( 
+        nm_produto,
+        ds_produto,
+        ds_tamanho,
+        id_categoria,
+        id_marca,
+        id_necessidade,
+        id_tipo_pele,
+        vl_preco,
+        vl_preco_promo,
+        bt_disponivel,
+        qtd_estoque,
+        id_ingr_atv,
+        ds_detalhes,
+        ds_indicacao)
+values ('teste', 'teste de get', '000', 1, 1, 1, 1, 0.00, 0.00, false, 0, 1, 'um teste', 'teste');
+select 
+	nm_produto      as nome,
+	ds_produto      as descricao,
+	ds_tamanho      as tamanho_ml,
+	id_categoria    as categoria,
+	id_marca        as marca,
+	id_necessidade  as necessidade,
+	id_tipo_pele    as tipo_pele,
+	vl_preco        as preco,
+	vl_preco_promo  as preco_promocao,
+	bt_disponivel   as disponivel,
+	qtd_estoque     as quantidade,
+	id_ingr_atv     as ingrediente_atv,
+	ds_detalhes     as detalhes,
+	ds_indicacao    as indicacao
+from tb_produto;
+
+select 
+    nm_produto      as nome 
+    from tb_produto 
+    where nm_produto like '%t%';

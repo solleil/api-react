@@ -79,6 +79,7 @@ id_marca		int primary key auto_increment,
 nm_marca		varchar(100)
 );
 
+
 create table tb_categoria(
 id_categoria	int primary key auto_increment,
 nm_categoria	varchar(100)
@@ -102,8 +103,8 @@ foreign key (id_necessidade) references tb_necessidade(id_necessidade),
 id_tipo_pele	int,
 foreign key (id_tipo_pele) references tb_tipo_pele(id_tipo),
 
-vl_preco		decimal(15,9),
-vl_preco_promo	decimal(15,9),
+vl_preco		decimal(15,2),
+vl_preco_promo	decimal(15,2),
 bt_disponivel	boolean,
 qtd_estoque		int,
 
@@ -113,7 +114,6 @@ foreign key(id_ingr_atv) references tb_ingr_atv(id_ingrediente),
 ds_detalhes		varchar(1000),
 ds_avaliacao	varchar(5),
 ds_indicacao    varchar(200)
-
 );
 
 create table tb_imagem(

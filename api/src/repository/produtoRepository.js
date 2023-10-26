@@ -3,7 +3,22 @@ import { connection } from "./connection.js";
 
 export async function listarTodosProduto() {
     let comando= `
-        select * from tb_produto
+    select 
+        nm_produto      as nome,
+        ds_produto      as descricao,
+        ds_tamanho      as tamanho_ml,
+        id_categoria    as categoria,
+        id_marca        as marca,
+        id_necessidade  as necessidade,
+        id_tipo_pele    as tipo_pele,
+        vl_preco        as preco,
+        vl_preco_promo  as preco_promocao,
+        bt_disponivel   as disponivel,
+        qtd_estoque     as quantidade,
+        id_ingr_atv     as ingrediente_atv,
+        ds_detalhes     as detalhes,
+        ds_indicacao    as indicacao
+    from tb_produto;
     `
     let [ resposta ] = await connection.query(comando)
     return resposta;
@@ -12,7 +27,7 @@ export async function listarTodosProduto() {
 export async function pesquisarProduto() {
     const comando = `
     select 
-    nm_produto          as nome, 
+    nm_produto          as nome 
     from tb_produto where
     nm_produto like ?
     `;

@@ -23,13 +23,11 @@ export async function salvarInfos(nomeProduto, descri, tamanho, idMarca, necess,
 export async function listarMarcas() {
     const r = await api.get('/marca');
     return r.data;
-    console.log(r.response.data);
 }
 
 export async function listarNecessidades() {
     const r = await api.get('/necessidades');
     return r.data;
-    console.log(r.response.data);
 }
 
 export async function listarTiposdePele() {
