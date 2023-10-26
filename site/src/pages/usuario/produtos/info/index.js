@@ -149,7 +149,7 @@ export default function Info() {
               <div className='indica'>
 
                 <img className='indica-s1' src='/assets/images/usuario/info/indica.png' alt='' />
-                <h3>Todos os tipos de pele</h3>
+                <h3 className='h3td'>Todos os tipos de pele</h3>
 
               </div>
 
@@ -157,22 +157,22 @@ export default function Info() {
 
                 <div className='indc-s1'>
                   <img className='indica-png' src='/assets/images/usuario/info/opcoes.png' alt='' />
-                  <p>Melhora o aspecto da pele</p>
+                  <p className='pi'>Melhora o aspecto da pele</p>
                 </div>
 
                 <div className='indc-s2'>
                   <img className='indica-png' src='/assets/images/usuario/info/opcoes.png' alt='' />
-                  <p>Reduz a oleosidade</p>
+                  <p className='pi'>Reduz a oleosidade</p>
                 </div>
 
                 <div className='indc-s3'>
                   <img className='indica-png' src='/assets/images/usuario/info/opcoes.png' alt='' />
-                  <p>Promove a maciez da pele</p>
+                  <p className='pi'>Promove a maciez da pele</p>
                 </div>
 
                 <div className='indc-s4'>
                   <img className='indica-png' src='/assets/images/usuario/info/opcoes.png' alt='' />
-                  <p>Antipoluição</p>
+                  <p className='pi'>Antipoluição</p>
                 </div>
 
 
