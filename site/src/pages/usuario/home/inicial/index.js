@@ -18,7 +18,7 @@ export default function Inicial() {
         <div className='s1-1-teste'>
           <div className='s1-1'>
 
-            <video className='video-mh' controls loop >
+            <video className='video-mh' autoPlay loop muted >
 
               <source src="/assets/videos/modelomh.mp4" type="video/mp4" />
 

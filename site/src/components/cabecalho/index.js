@@ -71,7 +71,7 @@ export default function Cabecalho() {
             <a href='a'>Proteção solar</a>
             <a href='a'>Corpo</a>
             <a href='a'>Esfoliantes</a>
-            <a href='a'>Hidratantes</a>
+            <a href='a' className='a'>Hidratantes</a>
           </div>
           </>
           }
@@ -160,7 +160,7 @@ export default function Cabecalho() {
 
                 <div className="c2-3"> <button> <img src="/assets/images/geral/fav.png" alt=""   /></button>
                   <a href='/carrinho'> <img src="/assets/images/geral/sacola.png" alt=""/></a>
-                  <a href='/conta'> <img src="/assets/images/geral/perfil.png" alt="" /></a></div>
+                  <a href='/conta' className='conta' >  <img src="/assets/images/geral/perfil.png" alt="" /></a></div>
                   
               </div>
       </div>
