@@ -51,6 +51,7 @@
     }
     .cadastro{
         color: #3A3838;
+        
 
         p{
             font: 30px 'castle';
@@ -119,7 +120,7 @@
             
         }
     }
-    #botao {
+    .botao {
         background-color: #fabc59c2;
         color: #fff;
         border: none;
@@ -129,7 +130,7 @@
         border-radius: 40px;
     }
 
-    #botao:hover {
+    .botao:hover {
         cursor: pointer;
         background-color: #e4a033bd;
         transition: 0.2s;

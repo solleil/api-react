@@ -38,8 +38,16 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        font: 17px 'castle';
+        
         color: white;
+
+        .h1{
+            font-family: 'castle';
+            font-size: 36px;
+        }
+        img{
+            height: 6vh;
+        }
     }
 
     .a{
@@ -52,12 +60,14 @@
         padding: 10px;
     }
 
-    h2{
-        font:29px 'hanoble';
+    .h6{
+        font-size: 30px;
+        font-family: 'castle';
         color: white;
     }
     p{
-        font: 15px 'hanoble';
+        font-size: 18px;
+        font-family: 'Questrial', sans-serif;
         color: white;
     }
 

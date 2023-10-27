@@ -7,7 +7,7 @@ export default function Rodape() {
 
             <div className="info-R">
                 <div className="r1">
-                    <h2>Ajuda & Suporte</h2>
+                    <p className="h6">Ajuda & Suporte</p>
                     <p>Central de ajuda</p>
                     <p>Politica de entrega</p>
                     <p>Dúvidas frequentes</p>
@@ -15,7 +15,7 @@ export default function Rodape() {
                     <p>Trocas e devoluções</p>
                 </div>
                 <div className="r2">
-                    <h2>Minha Conta</h2>
+                    <p className="h6">Minha Conta</p>
                     <p>Dados pessoais</p>
                     <p>Meus endereços</p>
                     <p>Alterar senha</p>
@@ -23,12 +23,12 @@ export default function Rodape() {
                     <p>Meus favoritos</p>
                 </div>
                 <div className="r3">
-                    <h2>Institucional</h2>
+                    <p className="h6">Institucional</p>
                     <p>Revenda</p>
                     <p>Parcerias</p>
                 </div>
                 <div className="r4">
-                    <h1> SOLLEIL</h1>
+                    <p className="h1"> SOLLEIL</p>
                     <div className="a">
                         <a href="fadf"><img alt="" src="/assets/images/geral/insta.png" /></a>
                         <a href="fadf"><img alt="" src="/assets/images/geral/twitter.png"/></a>
