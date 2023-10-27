@@ -70,8 +70,9 @@
    
   .s1-2 p {
     margin-top: 60px;
-    font-size: 20px;
+    font-size: 15px;
     color: black;
+    font-family: 'Quicksand', sans-serif;
     
   }
 
@@ -80,6 +81,10 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
+        p{
+          font-family: 'Questrial', sans-serif;
+        }
   }
 
   .s2 img:hover {
@@ -127,6 +132,11 @@
   .s3 {
     margin-top: 50px;
     width: 99vw;
+
+    p{
+      font-family: 'Questrial', sans-serif;
+      font-size: 15px;
+    }
 
   }
 
@@ -195,6 +205,7 @@
 
   .s5 p {
     font-size: 26px;
+    font-family: 'Comfortaa', sans-serif;
   }
 
   .s5-1 {

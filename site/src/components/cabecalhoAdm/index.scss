@@ -17,7 +17,7 @@
     
        
         p{
-            font: 35px 'castle';
+            font: 25px 'castle';
         }
     }
     
@@ -47,8 +47,10 @@
         align-items: flex-start;
         position: absolute;
         background-color: #EDCD9C;
-        padding: 15px 15px 25px 0px;
-        gap: 20px;
+        padding: 20px 15px 30px 0px;
+        gap: 25px;
+        width: 15vw;
+        height: 45vh;
         border-radius: 10px 10px 10px 10px;
     }
 
@@ -66,6 +68,7 @@
         border-radius: 0px 15px 15px 0px;
         width: 12vw;
         padding: 5px 5px 5px 15px;
+        font-size: 10px;
     }
 
     .perfilAberto {
@@ -80,6 +83,7 @@
 
         border-radius: 15px 15px 15px 15px;
         text-align: center;
+        
     }
 
     .perfilAberto img {

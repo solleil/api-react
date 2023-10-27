@@ -21,7 +21,7 @@ export default function CabecalhoAdm() {
 
 
         <img src='/assets/images/usuario/cabecalho/logo_preta.png' alt='' />
-        <p> SOLLEIL</p>
+        <p id='log'> SOLLEIL</p>
       </div>
 
       <div className="c-linha-adm">  </div>
@@ -60,7 +60,7 @@ export default function CabecalhoAdm() {
           {menu === true &&
             <>
               <div className='menuAberto'>
-                <p className='menu'>Menu</p>
+                <a href='http://localhost:3000/inicialadm'>Menu</a>
                 <a href='http://localhost:3000/graficos'>Gráficos</a>
                 <a href='http://localhost:3000/consultapedido'>Consulta de pedidos</a>
                 <a href='http://localhost:3000/alterarstatus'>Editar pedido</a>

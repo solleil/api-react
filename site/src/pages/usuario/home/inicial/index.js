@@ -27,8 +27,8 @@ export default function Inicial() {
 
           </div>
           <div className='s1-2'>
-            <p>A importância do SkinCare reside no fato de que nossa pele merece cuidados especiais.
-              É o maior órgão do nosso corpo e enfrenta diariamente agressões ambientais. Ao adotar uma rotina de cuidado da pele, você fortalece sua barreira natural, previne danos e obtém uma pele mais saudável e radiante.
+            <p>A importância do <b>SkinCare</b> reside no fato de que nossa pele merece <b>cuidados especiais.</b>
+              É o maior órgão do nosso corpo e enfrenta diariamente agressões ambientais. Ao adotar uma rotina de cuidado da pele, você <b>fortalece sua barreira natural, previne danos e obtém uma pele mais saudável e radiante.</b>
             </p>
           </div>
 
