@@ -1,6 +1,7 @@
 import './index.scss';
+import { Link} from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import axios from 'axios'
+import axios from 'axios';
 
 export default function Cadastro() {
   const [nome, setNome] = useState('');
@@ -11,16 +12,20 @@ export default function Cadastro() {
   const [confirmaSenha, setConfirmaSenha] = useState('');
   const [dtNascimento, setDtNascimen] = useState(0);
 
+
   const [tipoPele, setTipoPele] = useState(0);
   const [tipoPeleSelecionado, setPeleSelecionado] = useState([]);
 
+  
+
   async function listarTiposdePele() {
       
-      const r = await axios.get('http://localhost:5000/tipopele')
-      setPeleSelecionado(r.data)
+      const r = await axios.get("http://localhost:5000/tipopele");
+      setPeleSelecionado(r.data);
 
   }
 
+  
   const cadastrar = () => {
     setNome('')
     setSobrenome('');
@@ -30,6 +35,8 @@ export default function Cadastro() {
     setConfirmaSenha(0);
     setDtNascimen(0);
     setTipoPele(0);
+
+   
    
   }
 
@@ -49,7 +56,7 @@ export default function Cadastro() {
 
         <div className='c-1'>
 
-          <div className='c-2'>
+          <div className='c-2' >
 
             <div className='cadastro'>
             <p>CADASTRO</p>
@@ -60,31 +67,31 @@ export default function Cadastro() {
                 
                 <div className='no-1'>
                     
-                    <input type='Nome'  placeholder="NOME" value={nome} onChange={(e) => setNome(e.target.value)}></input>
+                    <input type='Nome' id='nome'  placeholder="NOME" value={nome} onChange={ (e) => setNome(e.target.value)}></input>
                 </div>
               
                 <div className='no-1'>
                   
-                  <input type='text'  placeholder="SOBRENOME" value={sobrenome} onChange={(e) => setSobrenome(e.target.value)}></input>
+                  <input type='text' id='sobrenome' placeholder="SOBRENOME" value={sobrenome} onChange={(e) => setSobrenome(e.target.value)}></input>
                 </div>
              </div>
 
             <div className='c-4'>
               <div className='no-1'>
               
-              <input type='text'  placeholder="CPF" value={cpf} onChange={(e) => setCpf(Number(e.target.value))}></input>
+              <input type='text' id='cpf' placeholder="CPF" value={cpf} onChange={(e) => setCpf(Number(e.target.value))}></input>
               </div>
               <div className='no-1'>
               
-              <input type='text'  placeholder="E-MAIL" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+              <input type='email' id='email' placeholder="E-MAIL" value={email} onChange={(e) => setEmail(e.target.value)}></input>
               </div>
               <div className='no-1'>
               
-              <input type='password'  placeholder="SENHA" value={senha} onChange={(e) => setSenha(Number(e.target.value))}></input>
+              <input type='password' id='senha' placeholder="SENHA" value={senha} onChange={(e) => setSenha(Number(e.target.value))}></input>
               </div>
               <div className='no-1'>
               
-              <input type='password'  placeholder= "CONFIRMAÇÃO DE SENHA" value={confirmaSenha} onChange={(e) => setConfirmaSenha(Number(e.target.value))}></input>
+              <input type='password' id='senhac' placeholder= "CONFIRMAÇÃO DE SENHA" value={confirmaSenha} onChange={(e) => setConfirmaSenha(Number(e.target.value))}></input>
               </div>
             </div>
 
@@ -92,7 +99,7 @@ export default function Cadastro() {
             <div className='no-1'>
               
               <label>DATA DE NASCIMENTO</label>
-              <input type='date' value={dtNascimento} onChange={(e) => setDtNascimen(Number(e.target.value))}></input>
+              <input type='date' id='dtna' value={dtNascimento} onChange={(e) => setDtNascimen(Number(e.target.value))}></input>
               
             </div>
 
@@ -106,17 +113,22 @@ export default function Cadastro() {
                     <option value={item.id}> {item.nome} </option>
                   )
 
-                }
+                } 
               </select>
               </div>
-            </div>
-
-            <button id='botao'  onclick={cadastrar}>Cadastrar</button>
+              </div>
+            
+                <Link to={'http://localhost:3000/conta'}>
+                <button className='botao'  onclick={cadastrar} >Cadastrar</button>
+                </Link>
           </div>
 
 
         </div>
       </div>
+
+     
+
     </div>
   );
 }
