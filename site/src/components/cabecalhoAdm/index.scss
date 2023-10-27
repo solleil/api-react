@@ -15,11 +15,16 @@
         align-items: center;
         justify-content: center;  
     
-       
-        p{
-            font: 25px 'castle';
-        }
+       #log{
+        font-size: 65px;
+            font: 65px 'castle';
+       }
+        
     }
+    .c1> img {
+        margin-bottom: 15px;
+         height: 8vh;
+     }
     
     .c2-3{
         display: flex;
@@ -52,6 +57,10 @@
         width: 15vw;
         height: 45vh;
         border-radius: 10px 10px 10px 10px;
+
+        
+            
+        
     }
 
     .menu {
@@ -68,7 +77,9 @@
         border-radius: 0px 15px 15px 0px;
         width: 12vw;
         padding: 5px 5px 5px 15px;
-        font-size: 10px;
+       
+        font-size: 16px ;
+            font-family: 'Questrial', sans-serif;
     }
 
     .perfilAberto {
@@ -77,9 +88,11 @@
         justify-content: center;
         align-items: center;
         position: absolute;
-        width: 18vw;
+        width: 20vw;
         background-color: #EDCD9C;
         padding: 15px 15px 25px 0px;
+        font-size: 16px ;
+            font-family: 'Questrial', sans-serif;
 
         border-radius: 15px 15px 15px 15px;
         text-align: center;
