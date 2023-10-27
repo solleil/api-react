@@ -8,6 +8,7 @@ servidor.use(cors());
 servidor.use(express.json());
 
 
+
 import produtoController from './controller/produtoController.js';
 servidor.use(produtoController);
 

@@ -12,11 +12,9 @@ export async function listarTodosProduto() {
         id_necessidade  as necessidade,
         id_tipo_pele    as tipo_pele,
         vl_preco        as preco,
-        vl_preco_promo  as preco_promocao,
         bt_disponivel   as disponivel,
         qtd_estoque     as quantidade,
         id_ingr_atv     as ingrediente_atv,
-        ds_detalhes     as detalhes,
         ds_indicacao    as indicacao
     from tb_produto;
     `

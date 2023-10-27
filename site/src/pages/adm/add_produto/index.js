@@ -1,21 +1,16 @@
 import './index.scss';
-
 import { useState, useEffect } from 'react';
 
 import CabecalhoAdm from '../../../components/cabecalhoAdm';
-
-
-import { salvarInfos, listarMarcas, listarNecessidades, listarTiposdePele, listarIngredientes } from '../../../api/salvarinfo.js';
-
+import { listarCategorias, listarMarcas, listarNecessidades, listarTiposdePele, listarIngredientes } from '../../../api/getAPI.js';
+import { postProdutos } from '../../../api/postAPi.js';
 
 
 export default function AddProduto() {
-
-  const [adicionarproduto, setAdicionarproduto] = useState('')
-  const [categoriaMarca, setCategoriaMarca] = useState([]);
-  const [categoriaNecessidade, setCategoriaNecessidade] = useState([]);
-  const [categoriaTiposDePele, setCategoriaTiposDePele] = useState([]);
-  const [nomeIngrediente, setNomeIngrediente] = useState([]);
+  const [Marcas, setMarcas] = useState([]);
+  const [Necessidades, setNecessidades] = useState([]);
+  const [TiposPele, setTiposPele] = useState([]);
+  const [IngrS, setIngrS] = useState([]);
 
   const [nomeProduto, setNomeProduto] = useState('');
   const [ingrediente, setIngrediente] = useState('');
@@ -34,6 +29,16 @@ export default function AddProduto() {
   const [result, setResult] = useState(1);
   const [imagem, setImagem] = useState('')
 
+
+  async function SalvarClick() {
+    try {
+      const ProdutoCadastrado = await postProdutos(nomeProduto, descri, tamanho,  idMarca, necess, tipopele, precoProduto, estoque,  ingre_atv, indica)
+
+    } catch (err) {
+      alert(err.message)
+    }
+
+  }
 
   function mais() {
     const x = qtd + 1;
@@ -65,50 +70,31 @@ export default function AddProduto() {
     setIndica('');
   }
 
-
-  async function Salvarinfo() {
-    try {
-      const r = await salvarInfos(nomeProduto,
-        descri,
-        tipopele,
-        precoProduto,
-        estoque,
-        tamanho,
-        idMarca,
-        necess,
-        ingre_atv,
-        indica);
-      alert('Informações salvas')
-
-    }
-
-    catch (err) {
-      alert(err.response.data.erro)
-    }
+  async function carregarCategorias() {
+    const resp = await listarCategorias();
 
   }
 
   async function carregarMarcas() {
     const resp = await listarMarcas();
-    setCategoriaMarca(resp);
-  }
-
-
-  async function carregarTiposPele() {
-    const resp = await listarTiposdePele();
-    setCategoriaTiposDePele(resp);
-  }
-
-  async function carregarIngredientes() {
-    const resp = await listarIngredientes();
-    setNomeIngrediente(resp);
+    setMarcas(resp);
   }
 
   async function carregarNecessidades() {
     const resp = await listarNecessidades();
-    setCategoriaNecessidade(resp);
-
+    setNecessidades(resp);
   }
+
+  async function carregarTiposPele() {
+    const resp = await listarTiposdePele();
+    setTiposPele(resp);
+  }
+
+  async function carregarIngredientes() {
+    const resp = await listarIngredientes();
+    setIngrS(resp);
+  }
+
 
   useEffect(() => {
 
@@ -193,9 +179,9 @@ export default function AddProduto() {
 
                 <label>Tipo de pele</label>
                 <select className='tipopele' value={tipopele} onChange={(e) => setTipopele(e.target.value)}>
-                <option> selecione </option>
-                  {categoriaTiposDePele.map(item =>
-                      <option value={item.id}>{item.nome}</option>
+                  <option value={0}> selecione </option>
+                  {TiposPele.map(item =>
+                    <option value={item.id}>{item.nome}</option>
                   )};
                 </select>
 
@@ -204,15 +190,15 @@ export default function AddProduto() {
 
                 <label>Marca</label>
                 <select value={idMarca} onChange={(e) => setIdMarca(e.target.value)}>
-                <option> selecione </option>
-                  {categoriaMarca.map(item =>
+                  <option> selecione </option>
+                  {Marcas.map(item =>
                     <option value={item.id}>{item.nome}</option>
                   )};
                 </select>
 
               </div>
               <div className='container2c2_coluna-2'>
-                
+
                 <label>Estoque</label>
                 <select className='tipopele' value={estoque} onChange={e => setEstoque(e.target.value)}>
                   <option>Sim</option>
@@ -229,7 +215,7 @@ export default function AddProduto() {
                 <label>Necessidades</label>
                 <select value={necess} onChange={(e) => setNecess(e.target.value)}>
                   <option> selecione </option>
-                  {categoriaNecessidade.map(item =>
+                  {Necessidades.map(item =>
                     <option value={item.id}>{item.nome}</option>
                   )};
                 </select>
@@ -240,8 +226,8 @@ export default function AddProduto() {
 
                 <label>Ingredientes Ativos</label>
                 <select value={ingre_atv} onChange={(e) => setIngre_atv(e.target.value)}>
-                <option> selecione </option>
-                  {nomeIngrediente.map(item =>
+                  <option> selecione </option>
+                  {IngrS.map(item =>
                     <option value={item.id}>{item.nome}</option>
                   )};
                 </select>
@@ -251,7 +237,7 @@ export default function AddProduto() {
                 <textarea value={indica} onChange={(e) => setIndica(e.target.value)} />
               </div>
             </div>
-            <button id='botao' onClick={Salvarinfo}>Confirmar Cadastro</button>
+            <button id='botao'>Confirmar Cadastro</button>
           </div>
         </section>
       </div>

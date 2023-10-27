@@ -32,22 +32,6 @@ insert into tb_admin(nm_admin, ds_email, ds_senha)
     ('Paloma Jonson', 'palomajonson207@gmail.com', 'abc@123');
 select * from tb_admin;
 
-insert into tb_produto ( 
-        nm_produto,
-        ds_produto,
-        ds_tamanho,
-        id_categoria,
-        id_marca,
-        id_necessidade,
-        id_tipo_pele,
-        vl_preco,
-        vl_preco_promo,
-        bt_disponivel,
-        qtd_estoque,
-        id_ingr_atv,
-        ds_detalhes,
-        ds_indicacao)
-values ('teste', 'teste de get', '000', 1, 1, 1, 1, 0.00, 0.00, false, 0, 1, 'um teste', 'teste');
 select 
 	nm_produto      as nome,
 	ds_produto      as descricao,
@@ -68,4 +52,4 @@ from tb_produto;
 select 
     nm_produto      as nome 
     from tb_produto 
-    where nm_produto like '%t%';
+where nm_produto like '%t%';
