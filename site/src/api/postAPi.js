@@ -3,20 +3,40 @@ const api = axios.create({
     baseURL: 'http://localhost:5000'
 });
 
-export async function AdicionarProdutos(nomeProduto, descri, tamanho,  idMarca, necess, tipopele, precoProduto, estoque,  ingre_atv, indica) {
-    const resposta = await api.post('/produto', {
-
+export async function AdicionarProduto(nomeProduto, ingrediente, descri, precoProduto, tipopele, estoque, tamanho, qtd, idMarca, necess, ingre_atv, indica, categoria) {
+    const resposta = await api.post('/produto/inserir', {
         nome: nomeProduto,
-        desc: descri,
+        descricao: descri,
         tamanho: tamanho,
-        marca: idMarca,
-        necessidade: necess,
-        tipodepele: tipopele,
+        indicacao: indica,
         preco: precoProduto,
-        estoque: estoque,
-        ingrativo: ingre_atv,
-        indicacoes: indica
+        disponivel: estoque,
+        ingrediente: ingrediente,
+        estoque: qtd,
+        tipo_pele: tipopele,
+        categoria: categoria,
+        ingrediente_atv: ingre_atv,
+        marca: idMarca,
+        necessidade: necess
     });
 
-    return resposta.data
+    return resposta.data;
+};
+
+export async function logarUsuario(email, senha) {
+    const resposta = await api.post('/login/cliente', {
+        email:email,
+        senha:senha
+    });
+
+    return resposta.data;
+};
+
+export async function logarAdmin(email, senha) {
+    const resposta = await api.post('/login/admin', {
+        email: email,
+        senha: senha
+    });
+
+    return resposta.data;
 }

@@ -1,32 +1,38 @@
 import './index.scss';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import LoadingBar from 'react-top-loading-bar'
+import { logarUsuario } from '../../../../api/postAPi.js';
+
 export default function Login() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
+  const [carregando, setCarregando] = useState(false)
 
   const navigate = useNavigate();
+  const ref = useRef();
 
+  async function Login() {
+    ref.current.continuousStart();
+    setCarregando(true);
+    try {
+      const resposta = await logarUsuario(email, senha);
 
-  const loginUsuario = async () => {
-    try { 
-    const url = 'http://localhost:5000/login';
-    const respo = await axios.post(url, {email: email, senha: senha});
-    navigate('/');
-
-    
+      setTimeout( () => {
+        navigate('/');
+      }, 2500)
+      
     } catch (err) {
-      if (err === 404) {
-        setErro(err.response.data.erro)
-      }
+      ref.current.complete();
+      setCarregando(false);
+      setErro(err.response.data.erro)
     }
- }
+  }
 
   return (
     <div className="index_login_usuario">
-    
+      <LoadingBar color='#f11946' ref={ref} />
 
         <div className='sec_1'>
 
@@ -53,22 +59,13 @@ export default function Login() {
                 <input type='password' className='input_senha' value={senha} onChange={(e) => setSenha(e.target.value)}></input>
                 </div>
                 
-                <button onClick={loginUsuario}>Continuar</button>
-                <h4>ou</h4>
+                <button onClick={Login} disabled={carregando}>Continuar</button>
+                <h4 id='erro'>{erro}</h4>
                 <h6><Link to={'/cadastro'} id='pag_cadastro'>Não tem uma conta? Realize seu Cadastro.</Link></h6>
 
               </div>
-
-
-             
- 
-              
-          
           </div>
         </div>  
-
-
-
     </div>
   );
 }

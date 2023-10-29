@@ -35,13 +35,9 @@ export default function Cadastro() {
     setConfirmaSenha(0);
     setDtNascimen(0);
     setTipoPele(0);
-
-   
-   
   }
 
   useEffect(() =>{
-
     listarTiposdePele()
   }, [])
 

@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import storage from 'local-storage';
+import { useNavigate } from 'react-router-dom';
 import './index.scss'
 
 export default function CabecalhoAdm() {
@@ -11,6 +13,14 @@ export default function CabecalhoAdm() {
   function MudarP() {
     setPerfil(!perfil)
   }
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!storage('admin-logado')) {
+      navigate('/loginadm')
+    };
+  }, [])
 
 
 

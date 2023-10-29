@@ -24,13 +24,16 @@ server.post(('/admin'), async (req, resp) => {
 
 })
 
-server.post(('/admin/login'), async (req, resp) => {
+server.post(('/login/admin'), async (req, resp) => {
     try {
-        let x = req.body;
-        let dados = await loginAdmin(x)
+        let body = req.body;
+        let dados = await loginAdmin(body)
+        if (!dados) {
+            throw new Error('Email ou Senhas incorretos');
+        }
         resp.send(dados)
     } catch (err) {
-        resp.status(404).send({ erro: err.message })
+        resp.status(401).send({ erro: err.message })
     }
 
 });

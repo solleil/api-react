@@ -23,10 +23,10 @@ server.get(('/pesquisa/produto'), async (req, resp) => {
   }
 })
 
-server.post('/produto', async (req, resp) => {
+server.post('/produto/inserir', async (req, resp) => {
   try {
     const respo = req.body;
-    const { dados } = await inserirProduto(respo)
+    const dados = await inserirProduto(respo)
     resp.send(dados)
   }
   catch (err) {

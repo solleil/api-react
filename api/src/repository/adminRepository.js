@@ -36,14 +36,18 @@ export async function inserirAdmin(admin) {
     
 }
 
-export async function loginAdmin(usuario) {
+export async function loginAdmin(admin) {
     const comando = `
-    select * from tb_cliente where 
-    ds_email = ? and
+    select 
+    id_admin	as id,
+    ds_email	as email
+    from tb_admin where 
+    ds_email = ? 
+    and
     ds_senha = ?`;
 
-    const [result] = await connection.query(comando, [usuario.email, usuario.senha]);
-    return;
+    const [result] = await connection.query(comando, [admin.email, admin.senha]);
+    return result[0];
 }
 
 export async function alterarAdmin(usuario) {

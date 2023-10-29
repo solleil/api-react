@@ -1,7 +1,7 @@
 import { listarCategoria, inserirCategoria} from '../repository/categoriaRepository.js';
 import { Router } from 'express';
 
-const server = Router()
+const server = Router();
 
 server.get(('/categoria'), async (req, resp) => {
   try {
@@ -16,7 +16,7 @@ server.get(('/categoria'), async (req, resp) => {
 server.post(('/categoria'), async (req, resp) => {
     try {
       const respo = req.body;
-      const { dados } = await inserirCategoria(respo)
+      const dados = await inserirCategoria(respo)
       resp.send(dados)
     }
     catch (err) {

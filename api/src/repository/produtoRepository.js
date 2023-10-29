@@ -1,8 +1,8 @@
 import { connection } from "./connection.js";
 
-
+//reparar
 export async function listarTodosProduto() {
-    let comando= `
+    let comando = `
     select 
         nm_produto      as nome,
         ds_produto      as descricao,
@@ -18,7 +18,7 @@ export async function listarTodosProduto() {
         ds_indicacao    as indicacao
     from tb_produto;
     `
-    let [ resposta ] = await connection.query(comando)
+    let [resposta] = await connection.query(comando)
     return resposta;
 }
 
@@ -35,42 +35,59 @@ export async function pesquisarProduto() {
 }
 
 
-export async function inserirProduto(produto){
-    let comando = `
-        insert into tb_produto (
-            nm_produto, 
-            ds_produto, 
-            ds_tamanho, 
-            id_categoria, 
-            id_marca, 
-            id_necessidade, 
-            id_tipo_pele,
-            vl_preco, 
-            qtd_estoque,
-            id_ingr_atv, 
-            ds_indicacao)
-        values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `
+export async function inserirProduto(produto) {
+    const comando = `
+    insert into tb_produto (
+        nm_produto,
+        ds_produto,
+        ds_tamanho,
+        ds_indicacao,
+        vl_preco,
+        bt_disponivel,
+        ds_ingrediente,
+        qtd_estoque,
+        id_tipo_pele,
+        id_categoria,
+        id_ingr_atv,
+        id_marca,
+        id_necessidade)
+    values (
+        ?, 
+        ?,
+        ?, 
+        ?, 
+        ?,
+        ?,
+        ?,
+        ?,
+        ?, 
+        ?, 
+        ?, 
+        ?, 
+        ?)
+    `;
 
     const info = await connection.query(comando, [
         produto.nome,
-        produto.desc,
+        produto.descricao,
         produto.tamanho,
-        produto.categoria,
-        produto.marca,
-        produto.necessidade,
-        produto.tipodepele,
+        produto.indicacao,
         produto.preco,
+        produto.disponivel,
+        produto.ingrediente,
         produto.estoque,
-        produto.ingrativo,
-        produto.indicacoes
+        produto.tipo_pele,
+        produto.categoria,
+        produto.ingrediente_atv,
+        produto.marca,
+        produto.necessidade
     ]);
 
     produto.id = info.insertId
     return info
 }
 
-
+//reparar
 export async function alterarProduto(produto) {
     const comando = `
         update tb_cliente
@@ -90,7 +107,7 @@ export async function alterarProduto(produto) {
         where id_produto = ?
     `;
 
-    const result = await connection.query( comando, [
+    const result = await connection.query(comando, [
         produto.nome,
         produto.desc,
         produto.tamanho,
@@ -107,12 +124,12 @@ export async function alterarProduto(produto) {
     return result;
 }
 
-export async function deletarProduto(id){
+export async function deletarProduto(id) {
     let comando = `
     delete from tb_produto where id_produto = ?
     `;
-    const info= await connection.query(comando, [id])
-    const infoar= info.AffectedRows
+    const info = await connection.query(comando, [id])
+    const infoar = info.AffectedRows
     return infoar
 }
 

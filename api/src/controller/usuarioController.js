@@ -34,19 +34,19 @@ server.post(('/cliente'), async (req, resp) => {
 
 })
 
-server.post(('/login'), async (req, resp) => {
+server.post(('/login/cliente'), async (req, resp) => {
 
     try {
-        
-        const respo = req.body;
-        const dados = await loginUsuario(respo);
-        resp.send(dados)
+        const body = req.body;
+        const r = await loginUsuario(body);
+        if (!r) {
+            throw new Error('Email ou Senha incorretos')
+        }
+        resp.send(r);
     } 
     
     catch (err) {
-        
-        resp.status(404).send({ erro: err.message })
-
+        resp.status(401).send({ erro: err.message })
     }
 
 });

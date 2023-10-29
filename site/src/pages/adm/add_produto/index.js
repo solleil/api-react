@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 import CabecalhoAdm from '../../../components/cabecalhoAdm';
 import { listarCategorias, listarMarcas, listarNecessidades, listarTiposdePele, listarIngredientes } from '../../../api/getAPI.js';
-import { postProdutos } from '../../../api/postAPi.js';
+import { AdicionarProduto } from '../../../api/postAPi';
 
 
 export default function AddProduto() {
@@ -11,13 +11,14 @@ export default function AddProduto() {
   const [Necessidades, setNecessidades] = useState([]);
   const [TiposPele, setTiposPele] = useState([]);
   const [IngrS, setIngrS] = useState([]);
-
+  const [idCategoria, setIdCategoria] = useState([])
+  const [categoria, setCategoria] = useState(0);
   const [nomeProduto, setNomeProduto] = useState('');
   const [ingrediente, setIngrediente] = useState('');
   const [descri, setDescri] = useState('');
   const [precoProduto, setPreco] = useState(0)
   const [tipopele, setTipopele] = useState(0);
-  const [estoque, setEstoque] = useState(1);
+  const [estoque, setEstoque] = useState(true);
   const [tamanho, setTamanho] = useState('');
   const [qtd, setQtd] = useState(0);
   const [idMarca, setIdMarca] = useState(0);
@@ -30,16 +31,6 @@ export default function AddProduto() {
   const [imagem, setImagem] = useState('')
 
 
-  async function SalvarClick() {
-    try {
-      const ProdutoCadastrado = await postProdutos(nomeProduto, descri, tamanho,  idMarca, necess, tipopele, precoProduto, estoque,  ingre_atv, indica)
-
-    } catch (err) {
-      alert(err.message)
-    }
-
-  }
-
   function mais() {
     const x = qtd + 1;
     setQtd(x);
@@ -51,10 +42,6 @@ export default function AddProduto() {
       setQtd(x);
     };
   };
-
-  function dispEstoque() {
-    setEstoque(0);
-  }
 
   const removerdados = () => {
     setNomeProduto('')
@@ -70,10 +57,22 @@ export default function AddProduto() {
     setIndica('');
   }
 
-  async function carregarCategorias() {
-    const resp = await listarCategorias();
+  async function cadastarProduto() {
+    try {
+      const resposta = await AdicionarProduto(nomeProduto, ingrediente, descri, precoProduto, tipopele, estoque, tamanho, qtd, idMarca, necess, ingre_atv, indica, categoria);
 
+      alert("Produto cadastrado");
+
+    } catch (err) {
+      alert(err.message);
+
+    }
   }
+
+  async function carregarIdCategorias() {
+    const resp = await listarCategorias();
+    setIdCategoria(resp)
+  };
 
   async function carregarMarcas() {
     const resp = await listarMarcas();
@@ -120,9 +119,9 @@ export default function AddProduto() {
 
   }, [])
 
-
-
-
+  useEffect(() => {
+    carregarIdCategorias();
+  }, [])
 
   const ImagemA = (event) => {
     const arquivoSelecionado = event.target.files[0];
@@ -178,7 +177,7 @@ export default function AddProduto() {
               <div className='container2c2_coluna-1'>
 
                 <label>Tipo de pele</label>
-                <select className='tipopele' value={tipopele} onChange={(e) => setTipopele(e.target.value)}>
+                <select className='tipopele' value={tipopele} onChange={(e) => setTipopele(Number(e.target.value))}>
                   <option value={0}> selecione </option>
                   {TiposPele.map(item =>
                     <option value={item.id}>{item.nome}</option>
@@ -186,10 +185,10 @@ export default function AddProduto() {
                 </select>
 
                 <label>Tamanhos</label>
-                <input type='number' value={tamanho} onChange={(e) => setTamanho(e.target.value)} className='oi' />
+                <input type='text' value={tamanho} onChange={(e) => setTamanho(e.target.value)} className='oi' />
 
                 <label>Marca</label>
-                <select value={idMarca} onChange={(e) => setIdMarca(e.target.value)}>
+                <select value={idMarca} onChange={(e) => setIdMarca(Number(e.target.value))}>
                   <option> selecione </option>
                   {Marcas.map(item =>
                     <option value={item.id}>{item.nome}</option>
@@ -200,9 +199,9 @@ export default function AddProduto() {
               <div className='container2c2_coluna-2'>
 
                 <label>Estoque</label>
-                <select className='tipopele' value={estoque} onChange={e => setEstoque(e.target.value)}>
-                  <option>Sim</option>
-                  <option onClick={dispEstoque}>Não</option>
+                <select className='tipopele' value={estoque} onChange={e => setEstoque(Number(e.target.value))}>
+                  <option value={true}>Sim</option>
+                  <option value={false}>Não</option>
                 </select>
 
                 <label>Quantidade</label>
@@ -213,8 +212,8 @@ export default function AddProduto() {
                 </div>
 
                 <label>Necessidades</label>
-                <select value={necess} onChange={(e) => setNecess(e.target.value)}>
-                  <option> selecione </option>
+                <select value={necess} onChange={(e) => setNecess(Number(e.target.value))}>
+                  <option value={0}> selecione </option>
                   {Necessidades.map(item =>
                     <option value={item.id}>{item.nome}</option>
                   )};
@@ -225,11 +224,18 @@ export default function AddProduto() {
               <div className='container2c3_bloco-1'>
 
                 <label>Ingredientes Ativos</label>
-                <select value={ingre_atv} onChange={(e) => setIngre_atv(e.target.value)}>
-                  <option> selecione </option>
+                <select value={ingre_atv} onChange={(e) => setIngre_atv(Number(e.target.value))}>
+                  <option value={0}> selecione </option>
                   {IngrS.map(item =>
                     <option value={item.id}>{item.nome}</option>
                   )};
+                </select>
+                <label>categorias</label>
+                <select value={categoria} onChange={(e) => setCategoria(Number(e.target.value))}>
+                  <option value={0}>selecione</option>
+                  {idCategoria.map(item =>
+                    <option value={item.id}>{item.nome}</option>
+                  )}
                 </select>
               </div>
               <div className='container2c3_bloco-2'>
@@ -237,7 +243,7 @@ export default function AddProduto() {
                 <textarea value={indica} onChange={(e) => setIndica(e.target.value)} />
               </div>
             </div>
-            <button id='botao'>Confirmar Cadastro</button>
+            <button id='botao' onClick={cadastarProduto}>Confirmar Cadastro</button>
           </div>
         </section>
       </div>

@@ -8,7 +8,6 @@ servidor.use(cors());
 servidor.use(express.json());
 
 
-
 import produtoController from './controller/produtoController.js';
 servidor.use(produtoController);
 
@@ -33,8 +32,8 @@ servidor.use(nessecidadeController);
 import ingrAtvController from './controller/ingrAtvController.js'
 servidor.use(ingrAtvController)
 
+import categoriaController from './controller/categoriaController.js';
+servidor.use(categoriaController)
 
 
-
-
-servidor.listen(process.env.PORT, () => console.log(`API online na porta ${process.env.PORT}`));
+servidor.listen(process.env.PORT_LOCAL, () => console.log(`API online na porta ${process.env.PORT}`));

@@ -46,23 +46,23 @@ export async function inserirUsuario(usuario) {
 
     return result;
 
-}
+};
 
-//GET DOS USUARIOS
 export async function loginUsuario(usuario) {
-
-    const comando = `
-        select * 
-        from tb_cliente 
-        where 
-        ds_email = ? and
+    const comando = `      
+    select 
+        id_cliente  as id,
+        ds_email    as email
+    from tb_cliente 
+    where 
+        ds_email = ? 
+        and
         ds_senha = ?
     `;
 
     const [result] = await connection.query(comando, [usuario.email, usuario.senha]);
-    return;
-    
-}
+    return result[0];
+};
 
 //PUT DOS USUARIOS
 export async function alterarUsuario(usuario) {
