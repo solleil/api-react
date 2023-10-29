@@ -21,6 +21,7 @@ ds_cpf			varchar(100),
 dt_nasc			varchar(100),
 ds_senha		varchar(100)
 );
+drop table tb_cliente;
 
 create table tb_endereco(
 id_endereco		int primary key auto_increment,
@@ -53,6 +54,7 @@ foreign key (id_cliente) references tb_cliente(id_cliente),
 foreign key (id_endereco) references tb_endereco(id_endereco),
 foreign key (id_cartao) references tb_cartao(id_cartao)
 );
+drop table tb_pedido;
 
 create table tb_ingr_atv(
 id_ingrediente		int primary key auto_increment,
@@ -87,18 +89,17 @@ id_produto 		int primary key auto_increment,
 nm_produto		varchar(1000),
 ds_produto		varchar(10000),
 ds_tamanho		varchar(100),
-id_categoria 	int,
-id_marca		int,
-id_necessidade	int,
-id_tipo_pele	int,
-vl_preco		decimal(15,2),
-bt_disponivel	boolean,
-qtd_estoque		int,
-id_ingr_atv		int,
 ds_avaliacao	varchar(5),
 ds_indicacao    varchar(200),
-
-
+vl_preco		decimal(15,2),
+bt_disponivel	boolean,
+ds_ingrediente	varchar(500),
+id_tipo_pele	int,
+qtd_estoque		int,
+id_categoria 	int,
+id_ingr_atv		int,
+id_marca		int,
+id_necessidade	int,
 
 foreign key (id_categoria) references tb_categoria (id_categoria),
 foreign key (id_necessidade) references tb_necessidade(id_necessidade),
@@ -106,11 +107,12 @@ foreign key (id_necessidade) references tb_necessidade(id_necessidade),
 foreign key (id_tipo_pele) references tb_tipo_pele(id_tipo),
 foreign key(id_ingr_atv) references tb_ingr_atv(id_ingrediente)
 );
+drop table tb_produto;
 
 create table tb_imagem(
 id_imagem		int primary key auto_increment,
 ds_imagem 		varchar(100),
 id_produto		int,
 foreign key (id_produto) references tb_produto(id_produto)
-
 );
+drop table tb_imagem;

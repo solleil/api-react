@@ -32,24 +32,52 @@ insert into tb_admin(nm_admin, ds_email, ds_senha)
     ('Paloma Jonson', 'palomajonson207@gmail.com', 'abc@123');
 select * from tb_admin;
 
-select 
-	nm_produto      as nome,
-	ds_produto      as descricao,
-	ds_tamanho      as tamanho_ml,
-	id_categoria    as categoria,
-	id_marca        as marca,
-	id_necessidade  as necessidade,
-	id_tipo_pele    as tipo_pele,
-	vl_preco        as preco,
-	vl_preco_promo  as preco_promocao,
-	bt_disponivel   as disponivel,
-	qtd_estoque     as quantidade,
-	id_ingr_atv     as ingrediente_atv,
-	ds_detalhes     as detalhes,
-	ds_indicacao    as indicacao
-from tb_produto;
+insert into tb_cliente (
+nm_cliente,
+ds_sobrenome,
+ds_email,
+ds_senha)
+values 
+('logTest', 'logTest', 'logteste@teste.com', 1234);
 
 select 
     nm_produto      as nome 
     from tb_produto 
 where nm_produto like '%t%';
+
+insert into tb_produto (
+nm_produto,
+ds_produto,
+ds_tamanho,
+ds_avaliacao,
+ds_indicacao,
+vl_preco,
+bt_disponivel,
+ds_ingrediente,
+qtd_estoque,
+id_tipo_pele,
+id_categoria,
+id_ingr_atv,
+id_marca,
+id_necessidade)
+values ('teste2', 'teste2', 'grande', 5, 'um teste', 1.00, false, 'sem ingredientes', 1, 1, 1, 1, 1, 1);
+select * from tb_produto;
+select * from tb_cliente;
+
+select 
+	id_cliente,
+	ds_email
+from tb_cliente 
+where 
+	ds_email = 'logteste@teste.com' 
+	and
+	ds_senha = '1234';
+    
+select 
+    id_admin	as id,
+    ds_email	as email
+    from tb_admin where 
+    ds_email = 'davicvital@gmail.com' 
+    and
+    ds_senha = 'abc@123'
+
