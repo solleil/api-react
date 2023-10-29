@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CabecalhoAdm from '../../../components/cabecalhoAdm/index.js'
 import './index.scss';
+import { listarProdutos } from '../../../api/getAPI.js';
 
 export default function Consulta() {
+  const [Produtos, setProdutos] = useState([])
   const [codigo, setCodigo] = useState('');
   const [nomeProduto, setNomeProduto] = useState('');
   const [categoria, setCategoria] = useState('');
@@ -22,6 +24,15 @@ export default function Consulta() {
     setFiltro('');
     setDesc('');
   };
+
+  async function carregarProdutos() {
+    const resp = await listarProdutos();
+    setProdutos(resp);
+  };
+
+  useEffect(() => {
+    carregarProdutos();
+  }, []);
 
 
   
@@ -51,30 +62,17 @@ export default function Consulta() {
             <select id='select' value={categoria} onChange={(e) => setCategoria(e.target.value)}>
               <option disabled selected>Selecione</option>
             </select>
-          </div>
-          <div className='sec1c2-cx2'>
-            <label>Status do Produto:</label>
-            <input id='input' value={status} onChange={(e) => setStatus(e.target.value)}/>
-          </div>
-          <div className='sec1c2-cx3'>
-            <label>ID do Usuário:</label>
-            <input id='input' value={id} onChange={(e) => setId(e.target.value)}/>
-          </div>
-        </div>
-        <div className='sec1_c3'>
           <div className='sec1c3-cx1'>
             <label>Marca:</label>
             <input id='input' value={marca} onChange={(e) => setMarca(e.target.value)}/>
-          </div>
-          <div className='sec1c3-cx2'>
-            <label>Transportadora:</label>
-            <input id='input'/>
           </div>
           <div className='sec1c3-cx3'>
             <label>Filtrar por preço:</label>
             <input id='input' value={filtro} onChange={(e) => setFiltro(e.target.value)}/>
           </div>
+          </div>
         </div>
+
         <div className='sec1_c4'>
           <div className='sec1c4-cx1'>
             <label>Descrição do Produto</label>
@@ -85,15 +83,20 @@ export default function Consulta() {
             <button onClick={limparCampos}>Limpar Filtros</button>
           </div>
         </div>
+        
       </div>
       <hr/>
       <div className='sec_2'>
-        <header>
-          <h3>Resultado:</h3>
-        </header>
-        <div>
-          <h4>Sem resultados</h4>
-        </div>
+        <table>
+          <thead>
+              <tr>
+                <th></th>
+              </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
       </div>
     </section>
   );

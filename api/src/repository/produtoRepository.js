@@ -1,12 +1,11 @@
 import { connection } from "./connection.js";
 
-//reparar
 export async function listarTodosProduto() {
     let comando = `
     select 
         nm_produto      as nome,
         ds_produto      as descricao,
-        ds_tamanho      as tamanho_ml,
+        ds_tamanho      as tamanho,
         id_categoria    as categoria,
         id_marca        as marca,
         id_necessidade  as necessidade,
@@ -20,17 +19,50 @@ export async function listarTodosProduto() {
     `
     let [resposta] = await connection.query(comando)
     return resposta;
-}
+};
 
-export async function pesquisarProduto() {
+export async function mostrarProdutosId(id) {
+    const comando = `
+    select
+        id_produto      as id,
+        nm_produto      as nome,
+        ds_produto      as descricao,
+        ds_tamanho      as tamanho,
+        id_categoria    as categoria,
+        id_marca        as marca,
+        id_necessidade  as necessidade,
+        id_tipo_pele    as tipo_pele,
+        vl_preco        as preco,
+        bt_disponivel   as disponivel,
+        qtd_estoque     as quantidade,
+        id_ingr_atv     as ingrediente_atv,
+        ds_indicacao    as indicacao
+    from tb_produto
+    where id_produto = ?`;
+    const [respo] = await connection.query(comando, [id])
+    return respo[0];
+};
+
+export async function pesquisarProduto(produto) {
     const comando = `
     select 
-    nm_produto          as nome 
-    from tb_produto where
-    nm_produto like ?
+        nm_produto      as nome,
+        ds_produto      as descricao,
+        ds_tamanho      as tamanho,
+        id_categoria    as categoria,
+        id_marca        as marca,
+        id_necessidade  as necessidade,
+        id_tipo_pele    as tipo_pele,
+        vl_preco        as preco,
+        bt_disponivel   as disponivel,
+        qtd_estoque     as quantidade,
+        id_ingr_atv     as ingrediente_atv,
+        ds_indicacao    as indicacao
+    from tb_produto
+    where nm_produto like ?
     `;
 
-    const [respo] = await connection.query(`%${comando}%`);
+    const [respo] = await connection.query(comando, [`%${produto.nome}%`]);
     return respo
 }
 

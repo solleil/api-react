@@ -3,6 +3,11 @@ const api = axios.create({
     baseURL: 'http://localhost:5000'
 });
 
+export async function listarProdutos() {
+    const r = await api.get('/produto');
+    return r.data;
+}
+
 export async function listarMarcas() {
     const r = await api.get('/marca');
     return r.data;

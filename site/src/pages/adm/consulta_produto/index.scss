@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
 
 
 .index_consulta_produto {
     overflow: hidden;
-
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+    
     hr {
         height: 4px;
         background-color: #FFCE70;
@@ -50,7 +50,7 @@
 
     .sec1_c1 > div, .sec1_c2 > div, .sec1_c3 > div {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
     }
     
     .sec1_c4 > div {
@@ -71,6 +71,11 @@
         * > input, select {
             width: 25em;
         }
+    }
+    
+    .sec1c2-cx1 {
+        display: flex;
+        flex-direction: column;
     }
 
     .sec1_c3 {

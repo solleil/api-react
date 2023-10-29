@@ -1,6 +1,6 @@
 create database solleil;
 use solleil;
-
+show tables;
 
 create table tb_admin(
 id_admin        int primary key auto_increment,
@@ -28,8 +28,12 @@ id_endereco		int primary key auto_increment,
 ds_cep			varchar(100),
 ds_endereco		varchar(100),
 nr_endereco		varchar(100),
-ds_cidade		varchar(100)
+ds_cidade		varchar(100),
+id_cliente		int,
+
+foreign key (id_cliente) references tb_cliente(id_cliente)
 );
+drop table tb_endereco;
 
 create table tb_cartao(
 id_cartao	int primary key auto_increment,

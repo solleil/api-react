@@ -79,5 +79,23 @@ select
     from tb_admin where 
     ds_email = 'davicvital@gmail.com' 
     and
-    ds_senha = 'abc@123'
+    ds_senha = 'abc@123';
+    
+select * from tb_produto where nm_produto like '%t%';
 
+select 
+		id_produto		as id,
+        nm_produto      as nome,
+        ds_produto      as descricao,
+        ds_tamanho      as tamanho_ml,
+        id_categoria    as categoria,
+        id_marca        as marca,
+        id_necessidade  as necessidade,
+        id_tipo_pele    as tipo_pele,
+        vl_preco        as preco,
+        bt_disponivel   as disponivel,
+        qtd_estoque     as quantidade,
+        id_ingr_atv     as ingrediente_atv,
+        ds_indicacao    as indicacao
+    from tb_produto
+    where id_produto = 5

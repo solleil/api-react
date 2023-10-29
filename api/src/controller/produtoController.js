@@ -1,4 +1,4 @@
-import { inserirProduto, listarTodosProduto, deletarProduto, alterarProduto, pesquisarProduto } from '../repository/produtoRepository.js';
+import { inserirProduto, listarTodosProduto, deletarProduto, alterarProduto, pesquisarProduto, mostrarProdutosId } from '../repository/produtoRepository.js';
 import { Router } from 'express';
 
 const server = Router()
@@ -13,6 +13,23 @@ server.get(('/produto'), async (req, resp) => {
   }
 })
 
+server.get(('/produto/:id'), async (req, resp) => {
+  try {
+    const params = req.params.id;
+    const resposta = await mostrarProdutosId(params)
+    if (!resposta) {
+      resp.status(404).send([]);
+    }
+    else {
+      resp.send(resposta);
+    }
+  } catch (err) {
+    resp.status(400).send({
+      erro: err.message
+    });
+  }
+});
+
 server.get(('/pesquisa/produto'), async (req, resp) => {
   try {
     const query = req.query;
@@ -25,8 +42,8 @@ server.get(('/pesquisa/produto'), async (req, resp) => {
 
 server.post('/produto/inserir', async (req, resp) => {
   try {
-    const respo = req.body;
-    const dados = await inserirProduto(respo)
+    const body = req.body;
+    const dados = await inserirProduto(body)
     resp.send(dados)
   }
   catch (err) {
@@ -36,12 +53,12 @@ server.post('/produto/inserir', async (req, resp) => {
 
 server.put('/alterar/produto', async (req, resp) => {
   try {
-    const respo = req.body;
-    const { dados } = await alterarProduto(respo);
+    const body = req.body;
+    const { dados } = await alterarProduto(body);
     resp.send(dados);
   }
   catch (err) {
-    resp.status(500).send({ erro: err.message });
+    resp.status(400).send({ erro: err.message });
   }
 })
 
