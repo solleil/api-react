@@ -11,7 +11,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f5bd687c;
+    background-color: #edcc9cd3;
     
     
     .sec_1 {
@@ -19,10 +19,12 @@
         flex-direction: row;
         border-radius: 20px;
         box-shadow: 0px 0px 20px #00000080;
+        height: 70vh;
+        width: 80vh;
     }
 
     .sec1_div_img {
-        width: 30vh;
+        width: 60vh;
     }
 
     .sec1_div_img > img {
@@ -32,7 +34,7 @@
     }
 
     .sec1_login {
-        width: 300px;
+        width: 50vw;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -70,14 +72,14 @@
     #solleil {
         font-family: 'castle';
         margin: 10px 0px 5px 0px;
-        font-size: 26px;
+        font-size: 46px;
     }
 
     #login {
         font-family: 'Questrial', sans-serif;
         font-weight: 500;
         margin: 5px 0px 10px 0px;
-        font-size: 20px;
+        font-size: 26px;
     }
 
     #input_log1 {
@@ -90,8 +92,8 @@
         border: none;
         margin: 5px 0px 10px 0px;
         box-shadow: 0px 4px 4px 0px #00000040;
-        height: 20px;
-        width: 200px;
+        height: 4vh;
+        width: 18vw;
         padding: 0px 0px 0px 15px;
     }
 
@@ -99,13 +101,20 @@
         margin: 10px 0px 10px 0px;
         font-weight: bold;
     }
+    .s2-login{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30vw;
+    }
 
-    .login_1 > button {
+    .s2-login > button {
+        font-family: 'questrial';
         border: none;
         border-radius: 20px;
-        height: 35px;
-        width: 130px;
-        background-color: #CC9E56;
+        height: 4vh;
+        width: 10vw;
+        background-color: #946110e0;
         color: #fff
     }
 
