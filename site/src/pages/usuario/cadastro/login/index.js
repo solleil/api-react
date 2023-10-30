@@ -32,7 +32,7 @@ export default function Login() {
 
   return (
     <div className="index_login_usuario">
-      <LoadingBar color='#f11946' ref={ref} />
+      <LoadingBar color='#E2BC81' ref={ref} />
 
         <div className='sec_1'>
 
