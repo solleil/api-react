@@ -76,6 +76,7 @@ export async function inserirProduto(produto) {
         ds_indicacao,
         vl_preco,
         bt_disponivel,
+        bt_favorito,
         ds_ingrediente,
         qtd_estoque,
         id_tipo_pele,
@@ -94,6 +95,7 @@ export async function inserirProduto(produto) {
         ?,
         ?, 
         ?, 
+        ?,
         ?, 
         ?, 
         ?)
@@ -106,6 +108,7 @@ export async function inserirProduto(produto) {
         produto.indicacao,
         produto.preco,
         produto.disponivel,
+        produto.favorito,
         produto.ingrediente,
         produto.estoque,
         produto.tipo_pele,
