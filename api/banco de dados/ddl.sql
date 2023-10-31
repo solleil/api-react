@@ -11,6 +11,8 @@ ds_email		varchar(100),
 ds_senha		varchar(100)
 );
 
+
+
 create table tb_cliente(
 id_cliente		int primary key auto_increment,
 nm_cliente		varchar(100),
@@ -48,10 +50,14 @@ id_pedido			int primary key auto_increment,
 id_cliente			int,
 id_endereco			int,
 id_cartao			int,
-ds_nota_fiscal		varchar(100),
 qtd_parcelas		int,
 dt_pedido			datetime,
-ds_situacao			varchar(100),
+bt_pagamento        boolean,
+bt_enviado          boolean,
+
+
+
+
 
 
 foreign key (id_cliente) references tb_cliente(id_cliente),
@@ -97,6 +103,7 @@ ds_avaliacao	varchar(5),
 ds_indicacao    varchar(200),
 vl_preco		decimal(15,2),
 bt_disponivel	boolean,
+bt_favorito     boolean,
 ds_ingrediente	varchar(500),
 id_tipo_pele	int,
 qtd_estoque		int,
