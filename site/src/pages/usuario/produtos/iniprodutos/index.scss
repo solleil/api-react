@@ -102,15 +102,12 @@ overflow: hidden;
   .s6-1-p:hover{
     cursor: pointer;
     transition: 0.3s;
-    padding: 12px;
+    letter-spacing: 0.3px;
   }
   .s6-1-p img{
-    height: 30vh;
+    height: 20vh;
   }
-  .s6-1-p img:hover{
-    height: 32vh;
-    transition: 0.3s;
-  }
+  
   .s6-1-p p{
     font-size: 14px;
   }

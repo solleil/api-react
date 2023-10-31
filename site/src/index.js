@@ -37,11 +37,11 @@ root.render(
       <Routes>
 
         
-        <Route path='/' element={<Inicial />} />
+        <Route path='/inicial' element={<Inicial />} />
         <Route path='/conta' element={<Conta />} />
 
         <Route path='/cadastro' element={<Cadastro />} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/' element={<Login />} />
 
         <Route path='/produtos' element={<Produtos />} />
         <Route path='/status' element={<Status/>} />
@@ -50,16 +50,21 @@ root.render(
         <Route path='/info' element={<Info />} />
         <Route path='/enviado' element={<Enviado />}/>
 
+        <Route path='/pagamentocartao' element={<Escolherpagamento/>} />
+        <Route path='/aprovado'  element={<Pagaprovado/>} />
+
         <Route path='/filtrarproduto' element={<FiltrarProduto />}/>
         <Route path='/addproduto' element={<AddProduto />} />
         <Route path='/alterarstatus' element={<AlterarStatus/>} />
         <Route path='/editarproduto' element={<EditarProduto />} />
         <Route path='/inicialadm' element={<Inicialadm />} />
-        <Route path='/loginadm' element={<Loginadm />} />
+        <Route path='/login/adm' element={<Loginadm />} />
         <Route path='/graficos' element={<Graficos />} />
         <Route path='/consultaproduto' element={<Consulta />} />
-        <Route path='/pagamentocartao' element={<Escolherpagamento/>} />
-        <Route path='/aprovado'  element={<Pagaprovado/>} />
+
+
+
+        
 
 
       </Routes>
