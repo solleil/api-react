@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 import './index.scss';
 import Cabecalho from '../../../../components/cabecalho'
 import Rodape from '../../../../components/rodape';
+import Slider from '../../../../components/carrossel';
 
 export default function Inicial() {
   const [mostrar, setMostrar] = useState(false)
@@ -9,6 +11,9 @@ export default function Inicial() {
   function M() {
     setMostrar(!mostrar)
   }
+
+
+
 
   return (
     <div className="pag-inicial">
@@ -63,12 +68,9 @@ export default function Inicial() {
           </>}
       </div>
       <div className='s4'>
-        <img src='/assets/images/usuario/inicial/s4.png' alt='' />
-        <p>
-          Investir em Skin Care é investir em si mesmo.<br />
-          Com o passar do tempo, a <b> pele envelhece</b> e surgem sinais visíveis.<br />
-          O Skin Care ajuda a <b>retardar esse processo</b>, reduzindo rugas, linhas finas e manchas. Com uma rotina consistente, você pode ter uma <b>aparência mais jovem</b>  e radiante.
-        </p>
+        <div className='carrossel'><Slider /> </div>
+        
+     
       </div>
       <div className='s5'>
         <p>Parcerias</p>

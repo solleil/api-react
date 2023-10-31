@@ -1,11 +1,12 @@
 import './index.scss';
+import Rodape from '../../../../components/rodape';
 import Cabecalho from '../../../../components/cabecalho';
 import { useState } from 'react';
 
 export default function Carrinho() {
   const [result, setResult] = useState(1);
   const [preco, setPreco] = useState(20);
-  const [novopreco, setNovopreco] = useState(20);
+  const [novopreco, setNovopreco] = useState(0);
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
 
@@ -25,7 +26,8 @@ export default function Carrinho() {
   };
 
   function Nvalor(x) {
-    setNovopreco(preco * x);
+    const p = preco * x
+    setNovopreco(p);
   };
 
   return (
@@ -48,6 +50,13 @@ export default function Carrinho() {
           </div>
         </div>
       </div>
+
+      <div className='s-2'>
+        <div className='b-1'>total de itens: <b>3</b></div>
+        <div className='b-1'>valor total: <b>R$20,00</b></div>
+        <button className='b-3'><b>FINALIZAR COMPRA</b></button>
+      </div>
+      <Rodape/>
     </div>
   );
 }
