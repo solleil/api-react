@@ -51,6 +51,8 @@ export async function inserirUsuario (nome, sobrenome,  telefone, email, cpf, na
         cpf: cpf,
         nasc: nasc,
         senha: senha
-    })
+    });
+
+    return resposta.data;
 
 }

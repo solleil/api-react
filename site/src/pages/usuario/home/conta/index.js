@@ -5,9 +5,55 @@ import './index.scss';
 
 export default function Conta() {
     const[mostrar,setMostrar]= useState(false)
+    const[npagos,setNpagos] = useState(false)
+    const[processando,setProcessando] = useState(false)
+    const[caminho,setCaminho] = useState(false)
+    const[finalizados,setFinalizados] = useState(false)
+    const[devolucao,setDevolucao] = useState(false)
 
     function Mudar(){
         setMostrar(!mostrar)
+    }
+
+    function Mpagos(){
+      setNpagos(!npagos)
+
+      setProcessando(false)
+      setCaminho(false)
+      setFinalizados(false)
+      setDevolucao(false)
+    }
+    function Mprocessando(){
+      setNpagos(false)
+
+      setProcessando(!processando)
+      setCaminho(false)
+      setFinalizados(false)
+      setDevolucao(false)
+    }
+    function Mcaminho(){
+      setNpagos(false)
+
+      setProcessando(false)
+      setCaminho(!caminho)
+      setFinalizados(false)
+      setDevolucao(false)
+    }
+    function Mfinalizados(){
+      setNpagos(false)
+
+      setProcessando(false)
+      setCaminho(false)
+      setFinalizados(!finalizados)
+      setDevolucao(false)
+    }
+    function Mdevolucao(){
+      setNpagos(false)
+
+      setProcessando(false)
+      setCaminho(false)
+      setFinalizados(false)
+      setDevolucao(!devolucao)
     }
 
 
@@ -32,33 +78,72 @@ export default function Conta() {
 
         <div className='s1-2'>
 
-            <a href='aaa'>
+            <button onClick={Mpagos}>
               <img src='/assets/images/usuario/conta/carteira.png' alt=''/>
               <p>não pagos</p>
-            </a>
+            </button>
 
-            <a href='aaa'>
+            <button onClick={Mprocessando}>
               <img src='/assets/images/usuario/conta/caixa.png' alt=''/>
               <p>processando</p>
-            </a>
+            </button>
 
-            <a href='aaa'>
+            <button onClick={Mcaminho}> 
               <img src='/assets/images/usuario/conta/caminhao.png' alt=''/>
               <p>a caminho</p>
-            </a>
+            </button>
 
-            <a href='aaa'>
-              <img src='/assets/images/usuario/conta/comentario.png' alt=''/>
-              <p>comentados</p>
-            </a>
+            <button onClick={Mfinalizados}>
+              <img src='/assets/images/usuario/conta/finalizados.png' alt=''/>
+              <p>finalizados</p>
+            </button>
 
-            <a href='aaa'>
+            <button onClick={Mdevolucao}>
               <img src='/assets/images/usuario/conta/caixa2.png' alt=''/>
               <p>devolução</p>
-            </a>
+            </button>
 
 
 
+        </div>
+
+        <div className='s1-2-open'>
+          { npagos === true && 
+          <>
+          <div>
+            <p>futura tabela</p>
+          </div>
+          </>
+          }
+
+{ processando === true && 
+          <>
+          <div>
+            <p>futura tabela</p>
+          </div>
+          </>
+          }
+          { caminho === true && 
+          <>
+          <div>
+            <p>futura tabela</p>
+          </div>
+          </>
+          }
+          { finalizados === true && 
+          <>
+          <div>
+            <p>futura tabela</p>
+          </div>
+          </>
+          }
+          { devolucao === true && 
+          <>
+          <div>
+            <p>futura tabela</p>
+          </div>
+          </>
+          }
         </div>
 
 

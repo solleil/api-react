@@ -29,9 +29,9 @@ export default function CabecalhoAdm() {
     <div className="cabecalho">
       <div className="c1">
 
-
-        <img src='/assets/images/usuario/cabecalho/logo_preta.png' alt='' />
-        <p id='log'> SOLLEIL</p>
+      <a href='/inicial' className='c1-1'> <img src='/assets/images/usuario/cabecalho/logo_preta.png' alt='' />
+        <p id='log' > SOLLEIL</p></a>
+       
       </div>
 
       <div className="c-linha-adm">  </div>
