@@ -1,5 +1,5 @@
 import './index.scss';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { inserirUsuario } from '../../../../api/postAPi'
 import axios from 'axios';
@@ -19,38 +19,38 @@ export default function Cadastro() {
   const [tipoPele, setTipoPele] = useState(0);
   const [tipoPeleSelecionado, setPeleSelecionado] = useState([]);
   async function listarTiposdePele() {
-      
-      const r = await axios.get("http://localhost:5000/tipopele");
-      setPeleSelecionado(r.data);
+
+    const r = await axios.get("http://localhost:5000/tipopele");
+    setPeleSelecionado(r.data);
 
   }
 
-  async function inserirUsuario(){
-    try {
-      
-      if(senha!==confirmaSenha){
-        setErroConfirma('As senhas não coincidem.');
-            return;
-      }
-      
-      const r = await CadastroUsuarioReact(
-        nome,
-        sobrenome,
-        cpf,
-        email,
-        senha,
-        dtNascimento
+  //async function inserirUsuario() {
+   // try {
 
-     );
-     alert('Usuário Cadastrado');
-    } catch (err) {
-      alert(err.massage)
-      
-    }
-  }
-  
+      //if (senha !== confirmaSenha) {
+        //('As senhas não coincidem.');
+       // return;
+      //}
 
-  useEffect(() =>{
+     // const r = await CadastroUsuarioReact(
+//nome,
+     //   sobrenome,
+     //   cpf,
+     //   email,
+      ////  senha,
+      //  dtNascimento
+
+      //);
+//alert('Usuário Cadastrado');
+   // } catch (err) {
+     // alert(err.massage)
+
+    //}
+  //}
+
+
+  useEffect(() => {
     listarTiposdePele()
   }, [])
 
@@ -68,75 +68,75 @@ export default function Cadastro() {
           <div className='c-2' >
 
             <div className='cadastro'>
-            <p>CADASTRO</p>
+              <p>CADASTRO</p>
             </div>
 
 
             <div className='c-3'>
-                
-                <div className='no-1'>
-                    
-                    <input type='Nome' id='nome'  placeholder="NOME" value={nome} onChange={ (e) => setNome(e.target.value)}></input>
-                </div>
-              
-                <div className='no-1'>
-                  
-                  <input type='text' id='sobrenome' placeholder="SOBRENOME" value={sobrenome} onChange={(e) => setSobrenome(e.target.value)}></input>
-                </div>
-             </div>
+
+              <div className='no-1'>
+
+                <input type='Nome' id='nome' placeholder="NOME" value={nome} onChange={(e) => setNome(e.target.value)}></input>
+              </div>
+
+              <div className='no-1'>
+
+                <input type='text' id='sobrenome' placeholder="SOBRENOME" value={sobrenome} onChange={(e) => setSobrenome(e.target.value)}></input>
+              </div>
+            </div>
 
             <div className='c-4'>
               <div className='no-1'>
-              
-              <input type='text' id='cpf' placeholder="CPF" value={cpf} onChange={(e) => setCpf(Number(e.target.value))}></input>
+
+                <input type='text' id='cpf' placeholder="CPF" value={cpf} onChange={(e) => setCpf(Number(e.target.value))}></input>
               </div>
               <div className='no-1'>
-              
-              <input type='email' id='email' placeholder="E-MAIL" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+
+                <input type='email' id='email' placeholder="E-MAIL" value={email} onChange={(e) => setEmail(e.target.value)}></input>
               </div>
               <div className='no-1'>
-              
-              <input type='password' id='senha' placeholder="SENHA" value={senha} onChange={(e) => setSenha(Number(e.target.value))}></input>
+
+                <input type='password' id='senha' placeholder="SENHA" value={senha} onChange={(e) => setSenha(Number(e.target.value))}></input>
               </div>
               <div className='no-1'>
-              
-              <input type='password' id='senhac' placeholder= "CONFIRMAÇÃO DE SENHA" value={confirmaSenha} onChange={(e) => setConfirmaSenha(Number(e.target.value))}></input>
+
+                <input type='password' id='senhac' placeholder="CONFIRMAÇÃO DE SENHA" value={confirmaSenha} onChange={(e) => setConfirmaSenha(Number(e.target.value))}></input>
               </div>
             </div>
 
 
             <div className='no-1'>
-              
+
               <label>DATA DE NASCIMENTO</label>
               <input type='date' id='dtna' value={dtNascimento} onChange={(e) => setDtNascimen(Number(e.target.value))}></input>
-              
+
             </div>
 
             <div className='c-6'>
               <div className='no-1'>
-              <select className='tipodepele' value={tipoPele} onChange={e => setTipoPele(e.target.value)}>
-                <option id='tipopele' value={0}> Tipo Pele </option>
-                {
-                  tipoPeleSelecionado.map(item =>
+                <select className='tipodepele' value={tipoPele} onChange={e => setTipoPele(e.target.value)}>
+                  <option id='tipopele' value={0}> Tipo Pele </option>
+                  {
+                    tipoPeleSelecionado.map(item =>
 
-                    <option value={item.id}> {item.nome} </option>
-                  )
+                      <option value={item.id}> {item.nome} </option>
+                    )
 
-                } 
-              </select>
+                  }
+                </select>
               </div>
-              </div>
-            
-                <Link to={'http://localhost:3000/conta'}>
-                <button className='botao'  onclick={inserirUsuario} >Cadastrar</button>
-                </Link>
+            </div>
+
+            <Link to={'http://localhost:3000/conta'}>
+              <button className='botao' onclick={inserirUsuario} >Cadastrar</button>
+            </Link>
           </div>
 
 
         </div>
       </div>
 
-     
+
 
     </div>
   );

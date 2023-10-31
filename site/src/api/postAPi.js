@@ -43,7 +43,6 @@ export async function logarAdmin(email, senha) {
 
 export async function inserirUsuario(nome, sobrenome,  telefone, email, cpf, nasc, senha) {
     const resposta = await api.post('/cliente', {
-
         nome: nome,
         sobrenome: sobrenome,
         telefone: telefone,

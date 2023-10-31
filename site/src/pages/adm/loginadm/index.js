@@ -43,35 +43,14 @@ export default function Loginadm() {
       <div className="pag-login-adm">
         <LoadingBar color='#f11946' ref={ref} />
 
-        <div className='modeloadm'>
-          <img className='md-adm' src='/assets/images/geral/modelolgadm.png' alt='' />
-        </div>
-        <div className='lg-tudo'>
-          <img className='sol' src='/assets/images/geral/sol.png' alt='' />
-          <div className='usuario'>
-            <label>Email</label>
-            <input type='text' value={email} onChange={e => setEmail(e.target.value)} />
-          </div>
-          <div className='senha'>
-            <label>Senha</label>
-            <div className='input-senha'>
-              <input type={verSenha ? 'text' : 'password'} value={admSenha} onChange={e => setSenha(e.target.value)} />
-              <i className={`fas ${verSenha ? 'fa-eye-slash' : 'fa-eye'}`} onClick={() => setVsenha(!verSenha)}></i>
-            </div>
-          </div>
-          <div>
-            <h4>{erro}</h4>
-          </div>
+        <div className='s1'>
 
-          <div>
-            <button className='bt-entrar' onClick={login} disabled={carregando}><h2>Entrar</h2></button>
-          </div>
+        <img className='md-adm' src='/assets/images/geral/modelolgadm.png' alt='' />
 
-          <div className='anonimo'>
-            <img src='/assets/images/geral/anonimo.png' alt='' />
-          </div>
+        <
+      </div>
 
-        </div>
+        
       </div>
     );
 }
