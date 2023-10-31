@@ -15,12 +15,14 @@ export default function Cadastro() {
   const [dtNascimento, setDtNascimen] = useState(0);
 
   const [confirmaSenha, setConfirmaSenha] = useState([]);
-  const [erroConfirma, setErroConfirma] = useState('');
+
 
 
   const [tipoPele, setTipoPele] = useState(0);
   const [tipoPeleSelecionado, setPeleSelecionado] = useState([]);
 
+  
+  
 
   async function listarTiposdePele() {
   
@@ -29,34 +31,9 @@ export default function Cadastro() {
 
   }
 
-  async function inserirUsu() {
-    try {
-      
-      if(senha!==confirmaSenha){
-        setErroConfirma('As senhas não coincidem.');
-          return inserir;
-      }
-      
-      const r = await inserir(
-        nome,
-        sobrenome,
-        cpf,
-        email,
-        senha,
-        dtNascimento
-
-     );
-
-     alert('Usuário Cadastrado');
-    } catch (err) {
-      alert(err.message);
-      
-    }
-  }
-  
   useEffect(() =>{
     listarTiposdePele()
-  }, [])
+  }, []);
 
   return (
     <div className='tude'>
@@ -100,12 +77,12 @@ export default function Cadastro() {
               </div>
               <div className='no-1'>
               
-              <input type='password' id='senha' placeholder="SENHA" value={senha} onChange={(e) => setSenha(Number(e.target.value))}></input>
+              <input type='password' maxLength={8} id='senha' placeholder="SENHA" value={senha} onChange={(e) => setSenha(e.target.value)}></input>
               </div>
               <div className='no-1'>
               
-              <input type='password' id='senhac' placeholder= "CONFIRMAÇÃO DE SENHA" value={confirmaSenha} onChange={(e) => setConfirmaSenha(Number(e.target.value))}></input>
-              <p className='mensagem-erro-senha'> {erroConfirma} </p>
+              <input type='password' maxLength={8} id='senhac' placeholder= "CONFIRMAÇÃO DE SENHA" value={confirmaSenha} onChange={(e) => setConfirmaSenha(e.target.value)}></input>
+           
               
               </div>
             </div>
@@ -114,7 +91,7 @@ export default function Cadastro() {
             <div className='no-1'>
               
               <label>DATA DE NASCIMENTO</label>
-              <input type='date' id='dtna' value={dtNascimento} onChange={(e) => setDtNascimen(Number(e.target.value))}></input>
+              <input type='date' id='dtna' value={dtNascimento} onChange={(e) => setDtNascimen(e.target.value)}></input>
               
             </div>
 
@@ -139,8 +116,6 @@ export default function Cadastro() {
                 <Link className='s' to={'http://localhost:3000/conta'}>
                         Voltar login
                 </Link>
-
-                
               </div>  
           </div>
 

@@ -40,7 +40,7 @@ export async function inserirUsuario(usuario) {
         usuario.telefone,
         usuario.email,
         usuario.cpf,
-        usuario.nascimento,
+        usuario.nasc,
         usuario.senha
     ]);
 
