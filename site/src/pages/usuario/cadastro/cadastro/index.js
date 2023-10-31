@@ -33,7 +33,7 @@ export default function Cadastro() {
             return;
       }
       
-      const r = await CadastroUsuarioReact(
+      const r = await inserirUsuario(
         nome,
         sobrenome,
         cpf,
@@ -42,6 +42,7 @@ export default function Cadastro() {
         dtNascimento
 
      );
+     
      alert('Usuário Cadastrado');
     } catch (err) {
       alert(err.massage)
@@ -101,6 +102,8 @@ export default function Cadastro() {
               <div className='no-1'>
               
               <input type='password' id='senhac' placeholder= "CONFIRMAÇÃO DE SENHA" value={confirmaSenha} onChange={(e) => setConfirmaSenha(Number(e.target.value))}></input>
+              <p className='mensagem-erro-senha'> {erroConfirma} </p>
+              
               </div>
             </div>
 
