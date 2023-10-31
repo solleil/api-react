@@ -15,12 +15,19 @@ export default function Cadastro() {
   const [dtNascimento, setDtNascimen] = useState(0);
 
   const [confirmaSenha, setConfirmaSenha] = useState([]);
-
-
+  const [cadastroFeito, setCadastroFeito] = useState(false);
+ 
 
   const [tipoPele, setTipoPele] = useState(0);
   const [tipoPeleSelecionado, setPeleSelecionado] = useState([]);
 
+  const inserirUsuario = () => {
+    setCadastroFeito(true);
+
+    setTimeout (() =>{
+      setCadastroFeito(false);
+    })
+  }
   
   
 
@@ -113,8 +120,16 @@ export default function Cadastro() {
               <div className='cad'>
                
                 <button className='botao'  onclick={inserirUsuario} >Cadastrar</button>
+
+                  {cadastroFeito && (
+                    <div className='suce'>
+                      Cadastro feito com sucesso!!
+                    </div>
+                  )
+
+                  }
                 <Link className='s' to={'http://localhost:3000/conta'}>
-                        Voltar login
+                        Voltar login.
                 </Link>
               </div>  
           </div>
