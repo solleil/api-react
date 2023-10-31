@@ -1,39 +1,43 @@
 import './index.scss';
 import { Link} from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { inserirUsuario } from '../../../../api/postAPi'
+import { inserirUsuario } from '../../../../api/postAPi.js'
+
 import axios from 'axios';
 
 export default function Cadastro() {
 
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
-  const [cpf, setCpf] = useState('');
+  const [cpf, setCpf] = useState([]);
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [confirmaSenha, setConfirmaSenha] = useState('');
-  const [erroConfirma, setErroConfirma] = useState('');
   const [dtNascimento, setDtNascimen] = useState(0);
+
+  const [confirmaSenha, setConfirmaSenha] = useState([]);
+  const [erroConfirma, setErroConfirma] = useState('');
 
 
   const [tipoPele, setTipoPele] = useState(0);
   const [tipoPeleSelecionado, setPeleSelecionado] = useState([]);
+
+
   async function listarTiposdePele() {
-      
+  
       const r = await axios.get("http://localhost:5000/tipopele");
       setPeleSelecionado(r.data);
 
   }
 
-  async function inserirUsuario(){
+  async function inserirUsu() {
     try {
       
       if(senha!==confirmaSenha){
         setErroConfirma('As senhas não coincidem.');
-            return;
+          return inserir;
       }
       
-      const r = await inserirUsuario(
+      const r = await inserir(
         nome,
         sobrenome,
         cpf,
@@ -42,15 +46,14 @@ export default function Cadastro() {
         dtNascimento
 
      );
-     
+
      alert('Usuário Cadastrado');
     } catch (err) {
-      alert(err.massage)
+      alert(err.message);
       
     }
   }
   
-
   useEffect(() =>{
     listarTiposdePele()
   }, [])
@@ -129,10 +132,16 @@ export default function Cadastro() {
               </select>
               </div>
               </div>
-            
-                <Link to={'http://localhost:3000/conta'}>
+              
+              <div className='cad'>
+               
                 <button className='botao'  onclick={inserirUsuario} >Cadastrar</button>
+                <Link className='s' to={'http://localhost:3000/conta'}>
+                        Voltar login
                 </Link>
+
+                
+              </div>  
           </div>
 
 
@@ -143,4 +152,5 @@ export default function Cadastro() {
 
     </div>
   );
+
 }
