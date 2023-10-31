@@ -40,3 +40,17 @@ export async function logarAdmin(email, senha) {
 
     return resposta.data;
 }
+
+export async function inserirUsuario(nome, sobrenome,  telefone, email, cpf, nasc, senha) {
+    const resposta = await api.post('/cliente', {
+
+        nome: nome,
+        sobrenome: sobrenome,
+        telefone: telefone,
+        email: email,
+        cpf: cpf,
+        nasc: nasc,
+        senha: senha
+    })
+
+}

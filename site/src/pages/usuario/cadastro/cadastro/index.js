@@ -1,6 +1,7 @@
 import './index.scss';
 import { Link} from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { inserirUsuario } from '../../../../api/postAPi'
 import axios from 'axios';
 
 export default function Cadastro() {
@@ -26,7 +27,7 @@ export default function Cadastro() {
   }
 
   
-  const cadastrar = () => {
+  const inserirUsuario = () => {
     setNome('')
     setSobrenome('');
     setCpf(0);
@@ -115,7 +116,7 @@ export default function Cadastro() {
               </div>
             
                 <Link to={'http://localhost:3000/conta'}>
-                <button className='botao'  onclick={cadastrar} >Cadastrar</button>
+                <button className='botao'  onclick={inserirUsuario} >Cadastrar</button>
                 </Link>
           </div>
 
