@@ -5,20 +5,19 @@ import { inserirUsuario } from '../../../../api/postAPi'
 import axios from 'axios';
 
 export default function Cadastro() {
+
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
   const [cpf, setCpf] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [confirmaSenha, setConfirmaSenha] = useState('');
+  const [erroConfirma, setErroConfirma] = useState('');
   const [dtNascimento, setDtNascimen] = useState(0);
 
 
   const [tipoPele, setTipoPele] = useState(0);
   const [tipoPeleSelecionado, setPeleSelecionado] = useState([]);
-
-  
-
   async function listarTiposdePele() {
       
       const r = await axios.get("http://localhost:5000/tipopele");
@@ -26,17 +25,30 @@ export default function Cadastro() {
 
   }
 
-  
-  const inserirUsuario = () => {
-    setNome('')
-    setSobrenome('');
-    setCpf(0);
-    setEmail('');
-    setSenha(0);
-    setConfirmaSenha(0);
-    setDtNascimen(0);
-    setTipoPele(0);
+  async function inserirUsuario(){
+    try {
+      
+      if(senha!==confirmaSenha){
+        setErroConfirma('As senhas não coincidem.');
+            return;
+      }
+      
+      const r = await CadastroUsuarioReact(
+        nome,
+        sobrenome,
+        cpf,
+        email,
+        senha,
+        dtNascimento
+
+     );
+     alert('Usuário Cadastrado');
+    } catch (err) {
+      alert(err.massage)
+      
+    }
   }
+  
 
   useEffect(() =>{
     listarTiposdePele()
