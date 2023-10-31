@@ -1,0 +1,126 @@
+.seila{
+  .f1 {
+    padding: 50px;
+    width: 100%;
+    height: 100%;
+    background-color: #e7e7e7;
+    box-shadow: 0px 0px 10px #9b9b9b;
+  }
+  
+  
+  
+  
+  
+  .slider {
+    margin: 0 auto;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+  }
+  
+  .slides {
+    width: 400%;
+    height: 250px;
+    display: flex;
+  
+  }
+  
+  .slides input {
+    display: none;
+  }
+  
+  .Slide {
+    width: 25%;
+    transition: 3s;
+    display: flex;
+    align-items: center; }
+  
+  
+    .Slide img {
+      width: 100%;
+      height: 100%;
+  
+    }
+  
+    .manual-navegation {
+      position: absolute;
+      width: 90%;
+      margin-top: -20px;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .manual-btn {
+      border: 2px solid #00C2FF;
+      padding: 5px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.5s;
+    }
+  
+    .manual-btn:not(:last-child) {
+      margin-right: 15px;
+    }
+  
+    .manual-btn:hover {
+      background-color: #fff;
+    }
+  
+    #radio1:checked~.first {
+      margin-left: 0;
+    }
+  
+    #radio2:checked~.first {
+      margin-left: -25%;
+    }
+  
+    #radio3:checked~.first {
+      margin-left: -50%;
+    }
+  
+    #radio4:checked~.first {
+      margin-left: -75%;
+    }
+  
+  
+  
+  
+    .navegation-auto div {
+      border: 2px solid blue;
+      padding: 5px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.5s;
+    }
+  
+    .navegation-auto {
+      position: absolute;
+      width: 90%;
+      margin-top: 230px;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .navegation-auto div:not(:last-child) {
+      margin-right: 15px;
+    }
+  
+    #radio1:checked~.navegation-auto .auto-btn1 {
+      background-color: #fff;
+    }
+  
+    #radio2:checked~.navegation-auto .auto-btn2 {
+      background-color: #fff;
+    }
+  
+    #radio3:checked~.navegation-auto .auto-btn3 {
+      background-color: #fff;
+    }
+  
+    #radio4:checked~.navegation-auto .auto-btn4 {
+      background-color: #fff;
+    }
+}
+
+
+

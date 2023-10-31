@@ -1,58 +1,64 @@
 import './index.scss';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { inserirUsuario } from '../../../../api/postAPi'
+import { inserirUsuario } from '../../../../api/postAPi.js'
+
 import axios from 'axios';
 
 export default function Cadastro() {
 
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
-  const [cpf, setCpf] = useState('');
+  const [cpf, setCpf] = useState([]);
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [confirmaSenha, setConfirmaSenha] = useState('');
-  const [erroConfirma, setErroConfirma] = useState('');
   const [dtNascimento, setDtNascimen] = useState(0);
+
+  const [confirmaSenha, setConfirmaSenha] = useState([]);
+
 
 
   const [tipoPele, setTipoPele] = useState(0);
   const [tipoPeleSelecionado, setPeleSelecionado] = useState([]);
-  async function listarTiposdePele() {
 
-    const r = await axios.get("http://localhost:5000/tipopele");
-    setPeleSelecionado(r.data);
+  
+  
+
+  async function listarTiposdePele() {
+      
+      const r = await axios.get("http://localhost:5000/tipopele");
+      setPeleSelecionado(r.data);
 
   }
 
-  //async function inserirUsuario() {
-   // try {
+  async function inserirUsuario(){
+    try {
+      
+      if(senha!==confirmaSenha){
+        setErroConfirma('As senhas não coincidem.');
+            return;
+      }
+      
+      const r = await CadastroUsuarioReact(
+        nome,
+        sobrenome,
+        cpf,
+        email,
+        senha,
+        dtNascimento
 
-      //if (senha !== confirmaSenha) {
-        //('As senhas não coincidem.');
-       // return;
-      //}
-
-     // const r = await CadastroUsuarioReact(
-//nome,
-     //   sobrenome,
-     //   cpf,
-     //   email,
-      ////  senha,
-      //  dtNascimento
-
-      //);
-//alert('Usuário Cadastrado');
-   // } catch (err) {
-     // alert(err.massage)
-
-    //}
-  //}
-
+     );
+     alert('Usuário Cadastrado');
+    } catch (err) {
+      alert(err.massage)
+      
+    }
+  }
+  
 
   useEffect(() => {
     listarTiposdePele()
-  }, [])
+  }, []);
 
   return (
     <div className='tude'>
@@ -95,12 +101,12 @@ export default function Cadastro() {
                 <input type='email' id='email' placeholder="E-MAIL" value={email} onChange={(e) => setEmail(e.target.value)}></input>
               </div>
               <div className='no-1'>
-
-                <input type='password' id='senha' placeholder="SENHA" value={senha} onChange={(e) => setSenha(Number(e.target.value))}></input>
+              
+              <input type='password' id='senha' placeholder="SENHA" value={senha} onChange={(e) => setSenha(Number(e.target.value))}></input>
               </div>
               <div className='no-1'>
-
-                <input type='password' id='senhac' placeholder="CONFIRMAÇÃO DE SENHA" value={confirmaSenha} onChange={(e) => setConfirmaSenha(Number(e.target.value))}></input>
+              
+              <input type='password' id='senhac' placeholder= "CONFIRMAÇÃO DE SENHA" value={confirmaSenha} onChange={(e) => setConfirmaSenha(Number(e.target.value))}></input>
               </div>
             </div>
 
@@ -109,7 +115,7 @@ export default function Cadastro() {
 
               <label>DATA DE NASCIMENTO</label>
               <input type='date' id='dtna' value={dtNascimento} onChange={(e) => setDtNascimen(Number(e.target.value))}></input>
-
+              
             </div>
 
             <div className='c-6'>
@@ -125,11 +131,11 @@ export default function Cadastro() {
                   }
                 </select>
               </div>
-            </div>
-
-            <Link to={'http://localhost:3000/conta'}>
-              <button className='botao' onclick={inserirUsuario} >Cadastrar</button>
-            </Link>
+              </div>
+            
+                <Link to={'http://localhost:3000/conta'}>
+                <button className='botao'  onclick={inserirUsuario} >Cadastrar</button>
+                </Link>
           </div>
 
 
@@ -140,4 +146,5 @@ export default function Cadastro() {
 
     </div>
   );
+
 }

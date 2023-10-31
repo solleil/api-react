@@ -79,7 +79,7 @@
         font-family: 'Questrial', sans-serif;
         font-weight: 500;
         margin: 5px 0px 10px 0px;
-        font-size: 26px;
+        font-size: 22px;
     }
 
     #input_log1 {
@@ -114,21 +114,22 @@
         border-radius: 20px;
         height: 4vh;
         width: 10vw;
-        background-color: #946110e0;
+        background-color: #946110c4;
         color: #fff
+    }
+
+    .button:hover{
+        cursor: pointer;
+        letter-spacing: 1px;
+        transition: 0.3s;
+        background-color: #946110e0;
     }
 
     .login_2 > h4 {
         margin: 10px 0px 10px 0px;
     }
 
-    .login_3 > button {
-        border: none;
-        border-radius: 20px;
-        height: 35px;
-        margin: 10px 0px 15px 0px;
-        width: 173px;
-    }
+   
 
     #botao_face {
         background-color: #1977F3;
@@ -141,7 +142,10 @@
     }
 
     #pag_cadastro:hover {
-        color: #5302eb;
+        cursor: pointer;
+        transition: 0.3s;
+        letter-spacing: 1px;
+        color: #ff8818;
     }
 
     #erro {

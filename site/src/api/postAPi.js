@@ -41,7 +41,7 @@ export async function logarAdmin(email, senha) {
     return resposta.data;
 }
 
-export async function inserirUsuario(nome, sobrenome,  telefone, email, cpf, nasc, senha) {
+export async function inserirUsuario (nome, sobrenome,  telefone, email, cpf, nasc, senha) {
     const resposta = await api.post('/cliente', {
         nome: nome,
         sobrenome: sobrenome,
@@ -50,6 +50,8 @@ export async function inserirUsuario(nome, sobrenome,  telefone, email, cpf, nas
         cpf: cpf,
         nasc: nasc,
         senha: senha
-    })
+    });
+
+    return resposta.data;
 
 }
