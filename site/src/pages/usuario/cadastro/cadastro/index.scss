@@ -1,5 +1,4 @@
 .index-cadastro {
-    border: 1px solid #ff0000;
     height: 100vh;
     @font-face {
         font-family: 'castle';
@@ -7,11 +6,47 @@
     }
 
     .fundo {
-        border: solid 2px #ff0000;
         height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
+
+    .background_cadastro {
+        border: #ff0000 solid 2px;
+        height: 55vh;
+        width: 30vw;
+    }
+
+    .tela_cadastro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        gap: 30px;
+        padding: 25px;
+    }
+
+    .tela_cadastro > div {
+        display: flex;
+        justify-content: space-around;
+        gap: 20px
+    }
+
+    input, input:focus {
+        outline: none;
+        box-shadow: 0px;
+        padding-left: 5px;
+    }
+
+    .seletores {
+        border: #ff0000 solid 2px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+
 }
