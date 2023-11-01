@@ -1,9 +1,6 @@
 import './index.scss';
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { inserirUsuario } from '../../../../api/postAPi.js'
+import { useState } from 'react';
 
-import axios from 'axios';
 
 export default function Cadastro() {
 
@@ -30,42 +27,6 @@ export default function Cadastro() {
   }
   
   
-
-  async function listarTiposdePele() {
-      
-      const r = await axios.get("http://localhost:5000/tipopele");
-      setPeleSelecionado(r.data);
-
-  }
-
-  async function inserirUsuario(){
-    try {
-      
-      if(senha!==confirmaSenha){
-        setErroConfirma('As senhas não coincidem.');
-            return;
-      }
-      
-      const r = await CadastroUsuarioReact(
-        nome,
-        sobrenome,
-        cpf,
-        email,
-        senha,
-        dtNascimento
-
-     );
-     alert('Usuário Cadastrado');
-    } catch (err) {
-      alert(err.massage)
-      
-    }
-  }
-  
-
-  useEffect(() => {
-    listarTiposdePele()
-  }, []);
 
   return (
     <div className='tude'>
@@ -140,11 +101,7 @@ export default function Cadastro() {
               </div>
               </div>
             
-                <Link to={'http://localhost:3000/conta'}>
-                <button className='botao'  onclick={inserirUsuario} >Cadastrar</button>
-                <Link className='s' to={'http://localhost:3000/conta'}>
-                        Voltar login
-                </Link>
+               
           </div>
 
 
