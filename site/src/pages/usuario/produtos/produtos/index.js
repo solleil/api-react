@@ -18,10 +18,10 @@ export default function Produtos() {
             
               <div className='linha'></div>
               <p className='titulo'> <b>LIMPADOR FACIL</b></p>
-              <p className='textinho'>gel-espuma com niacinamida  e extrato de moringa</p>
+              <p className='textinho'>gel-espuma com<br/>niacinamida  e extrato de moringa</p>
               <div className='lado'>
-                <p class='preco-normal'> <b>R$39,90</b> </p>
-                <p className='parcelas'>ou x de R$24,90 sem juros</p>
+                <p class='preco-normal'> <b>R$39,90</b> ou x de R$24,90 sem juros</p>
+               
                  
                 
              
