@@ -19,15 +19,18 @@
     justify-content: flex-start;
     align-items: flex-start;
     text-align: start;
-    background-color: rgba(236, 236, 236, 0.308);
+    padding-top: 10px;
+    height: 45vh;
+    background-color: rgba(0, 0, 0, 0.308);
     border-radius: 30px;
   }
   
   
   .produtos a:hover {
     width: 100%; 
-    font-size: 22px;
-    border:5px solid #FABB59;
+    
+    
+    border:2px solid #FABB59;
   }
 
   
@@ -51,8 +54,8 @@
 
 
    .produto-img{
-    
-    margin-top: 10px;
+   
+    height: 30vh;
    }
 
 
@@ -73,7 +76,7 @@
     margin-right: 48%;
   }
   .textinho{
-    margin-left: 15px;
+    text-align: start;
   }
   
   .lado {
