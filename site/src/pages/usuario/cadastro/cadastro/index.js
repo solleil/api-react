@@ -4,6 +4,7 @@ export default function Cadastro() {
 
 
   return (
+    
     <main className='index-cadastro'>
       <section className='fundo'>
         <div className='background_cadastro'>
