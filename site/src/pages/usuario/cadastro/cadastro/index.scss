@@ -1,52 +1,191 @@
-.index-cadastro {
-    height: 100vh;
-    @font-face {
-        font-family: 'castle';
-        src: url('../../../../../public/assets/fonts/Castle\ Begale.woff');    
-    }
+@font-face {
+    font-family: 'castle';
+    src: url('../../../../../public/assets/fonts/Castle\ Begale.woff');    
+}
 
-    .fundo {
-        height: 100%;
+.tude {
+    background-color: #fabb594d;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    .c-0 {
         display: flex;
-        flex-direction: column;
+        width: 55vw;
+        height: 100%;
+        background-position-x: center;
         justify-content: center;
         align-items: center;
+        margin: 0 auto;
+        position: relative;
+
     }
 
-    .background_cadastro {
-        border: #ff0000 solid 2px;
-        height: 55vh;
-        width: 30vw;
+    .fundo img {
+        height: 100vh;
+        max-height: 100%;
+        width: 80vw;
+        object-fit: cover;
     }
 
-    .tela_cadastro {
+    .c-1 {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: 100%;
+        background-color: rgba(255, 255, 255, 0.596);
+        max-width: 50vw;
         width: 100%;
-        gap: 30px;
-        padding: 25px;
+        height: 80vh;
+        position: absolute;
+        background-position-x: center;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 2px 4px 0px #0000005a;
+        border-radius: 20px;
     }
-
-    .tela_cadastro > div {
+    .c-2{
         display: flex;
-        justify-content: space-around;
-        gap: 20px
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
     }
+    .cadastro{
+        color: #3A3838;
+        
 
-    input, input:focus {
-        outline: none;
-        box-shadow: 0px;
-        padding-left: 5px;
+        p{
+            font: 30px 'castle';
+        }
     }
-
-    .seletores {
-        border: #ff0000 solid 2px;
+    .c-3{
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: center;
+
+
+        input {
+            width: 15vw;
+            height: 4vh;
+            border-radius: 40px;
+            border: none;
+            
+        }
+
+    }
+    .c-4{
+        display: flex;
+        flex-direction: column;
+       
+       
+      
+
+        input{
+            width: 32vw;
+            height: 4vh;
+            
+            border-radius: 40px;
+            border: none;
+          
+        }
+        
+    }
+    
+    .no-1{
+        display: flex;
+        flex-direction: column;
+     
+
+        label{
+            color: #3A3838;
+        }
+
+        input{
+
+            height: 3vh;
+            border-radius: 40px;
+            padding: 5px;
+            border: none;
+        }
+    }
+    .c-6{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        select{
+            padding: 5px 9px;
+            border-radius: 40px;
+            border: none;
+            
+        }
+    }
+    .botao {
+        background-color: #fabc59c2;
+        color: #fff;
+        border: none;
+        height: 4vh;
+        width: 15vw;
+        margin: 2px;
+        border-radius: 40px;
     }
 
+    .botao:hover {
+        cursor: pointer;
+        background-color: #e4a033bd;
+        transition: 0.2s;
 
+        .c-3 label {
+            font-size: 3px;
+        }
+    }
+
+    .no-1{
+      margin: 15px;
+    }
+
+    textarea:focus, input:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }   
+
+    textarea:focus, select:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }   
+}
+
+@media (max-width: 660px) {
+    .tude{
+        .fundo img{
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+        .c-1{
+            width: 60vw;
+
+        }
+        .cadastro{
+            font-size: 30px;
+
+        }
+        .c-3{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .no-1{
+            width: 35vw;
+            height: 4vh;
+
+            input{
+                width: 35vw;
+                height: 3vh;
+             }
+        }
+        #botao{
+            width: 19vw;
+        }
+    }
 }
