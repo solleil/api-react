@@ -1,8 +1,126 @@
-main::after{
-  background-color: aqua;
+main{
+display: flex;
+align-items: center;
+flex-direction: row;
+justify-content: center;
+overflow: hidden;
+background-color: #e1c0a1;
+width: 100%;
+height: 100vh;
+
+.tudx {
+  position: relative;
+  width: 300px; 
+  height: 200px;
 }
 
-.imagex{
+.imgg{
+  width: 50vw;
+}
+img{
+  width: 20vw;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+
+.T-0 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 95px;
+  left: 570px;
+  background: #d8b490;
+  background: linear-gradient(228deg, #d8b49000 0%, #d8b49013 0%);  
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 36vw;
+  height: 68vh;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+h1{
+  font-size: 45px;
+  margin: 20px;
+  color: beige;
+  font-family: 'castle';
+}
+form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 20vw;
+  gap: 10px;
+
+  input{
+    border-radius: 15px;
+    border: none;
+  }
+  .dif{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+  .dif input{
     width: 10vw;
-    height: 1vh;
+    height: 4vh;
+
+    
+  }
+  .dif-1{
+    gap: 5px;
+  }
+  .dif-1 input{
+    width: 21vw;
+    height: 4vh;
+    margin: 5px;
+  }
+  .dif-2{
+    margin: 5px;
+  }
+  .dif-3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    select{
+      width: 8vw;
+      border-radius: 15px;
+      border: none;
+    }
+  }
+  .botao {
+    background-color: #a37158;
+    color: #fff;
+    border: none;
+    height: 4vh;
+    width: 10vw;
+    margin: 2px;
+    border-radius: 10px;
+}
+
+.botao:hover {
+    cursor: pointer;
+    background-color: #b48875;
+    transition: 0.2s;
+}
+.pag-log{
+  text-decoration: none;
+  color: beige;
+  font-size: 12px;
+}
+.pag-log:hover{
+  cursor: pointer;
+  transition: 0.4s;
+  color: #a37158;
+}
+}
+
+}
+@media (max-width: 400px) {
+    
 }
