@@ -14,8 +14,10 @@ export default function Login() {
   const ref = useRef();
 
   async function Login() {
+
     ref.current.continuousStart();
     setCarregando(true);
+    
     try {
       const resposta = await logarUsuario(email, senha);
 
