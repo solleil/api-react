@@ -5,12 +5,14 @@ export async function listarTodosUsuario() {
 
     const comando = `
         select
+
         nm_cliente      as nome,
         ds_sobrenome    as sobrenome,
         ds_telefone     as telefone,
         ds_email        as email,
         ds_cpf          as cpf,
-        dt_nasc         as nascimento
+        dt_nasc         as nascimento,
+        ds_senha        as senha
         from tb_cliente
     `;
 
@@ -21,7 +23,7 @@ export async function listarTodosUsuario() {
 
 //POST DOS USUARIOS
 export async function inserirUsuario(usuario) {
-
+    
     const comando = `
         insert into tb_cliente (
             nm_cliente, 

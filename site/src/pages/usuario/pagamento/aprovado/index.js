@@ -6,10 +6,16 @@ export default function Pagaprovado(){
     return(
         <div className='pg-aprovado'>
            <div className='cabecalho'>
-            <img className='sol-apv' src='/assets/images/geral/sol.png' alt='' />
-            <h1>SOLLEIL</h1>
-
+            <div className='lg-img'>
+           <img src='/assets/images/usuario/cabecalho/logo_preta.png' alt=''/>
+              <p id='logo'> SOLLEIL</p>
+             </div>
+               <div className='linha'></div>
            </div>
+
+
+           
+          
 
            <div className='s1-apv'>
              <h1>Pagamento Aprovado</h1>

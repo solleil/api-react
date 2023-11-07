@@ -72,8 +72,8 @@ export default function Info() {
           <div className='limpador'><h2>limpador facial sallve</h2></div>
           <div className='pl-limpa'><h3>para uma pele limpa e hidratada.</h3></div>
           <div className='vl-desconto'>
-            <div ><h3>R$ 79,90</h3></div>
-            <div ><h4>ou 3x de R$26,63</h4></div>
+            <div className='valor'><h3>R$ 79,90</h3></div>
+            <div className='parcela' ><h4>ou 3x de R$26,63</h4></div>
           </div>
           <div className='estrelas'>
             <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' />
@@ -81,11 +81,12 @@ export default function Info() {
             <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' />
             <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' />
             <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' />
+           <h3>4.8</h3>
           </div>
 
           <div className='disp'>
             <img className='disponivel' src='/assets/images/usuario/info/direito 1.png' alt='' />
-            <h5>disponivel no estoque</h5>
+            <h5 className='text-disp'>disponivel no estoque</h5>
           </div>
 
 
@@ -223,34 +224,34 @@ export default function Info() {
                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                  <p>52</p>
+                  <p className='num'>52</p>
                 </div>
 
-                <div className='av-s2'>
+                <div className='av-s1'>
                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                  <p>20</p>
+                  <p className='num'>20</p>
                 </div>
 
-                <div className='av-s3'>
+                <div className='av-s1'>
                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                  <p>4</p>
+                  <p className='num'>4</p>
                 </div>
 
-                <div className='av-s4'>
+                <div className='av-s1'>
                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                  <p>2</p>
+                  <p className='num'>2</p>
                 </div>
                 
 
-                <div className='av-s5'>
+                <div className='av-s1'>
                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                  <p>1</p>
+                  <p className='num'>1</p>
                 </div>
               </div>
                 <div className='avc'>
