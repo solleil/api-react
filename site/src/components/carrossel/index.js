@@ -1,76 +1,77 @@
-import { useEffect } from 'react'
-import './index.scss'
-import carrossel from './script'
 
+import React, { useState, useEffect } from 'react';
 
+const Carrossel = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
 
-export default function Slider() {
-
-
-
+  // Array com as informações dos slides
+  const slides = [
+    {
+      image: '/assets/images/geral/mdl1.png',
+    
+    },
+    {
+      image: '/assets/images/geral/mdl4.png',
+      
+    },
+    {
+      image: '/assets/images/geral/mdl3.png',
+     
+    },
+  ];
 
   useEffect(() => {
-    carrossel()
-  }, [])
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
+    }, 2000); 
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
+    <div className="sobre">
+      <div className="s0">
+        <div id="meuCarrossel" className="carousel slide" data-ride="carousel">
+          <ol className="carousel-indicators">
+            {slides.map((_, index) => (
+              <li
+                key={index}
+                data-target="#meuCarrossel"
+                data-slide-to={index}
+                className={index === activeIndex ? 'active' : ''}
+              ></li>
+            ))}
+          </ol>
 
-    <div className='seila'>
-      
-      <section className='f1'>
-
-      <div className='slider'>
-        <div className='slides'>
-          <input type='radio' name='radio-btn' id='radio1' />
-          <input type='radio' name='radio-btn' id='radio2' />
-          <input type='radio' name='radio-btn' id='radio3' />
-          <input type='radio' name='radio-btn' id='radio4' />
-
-
-
-          <div className='Slide first'>
-            <img src='/assets/images/geral/mdl1.png' alt='' />
+          <div className="carousel-inner">
+            {slides.map((slide, index) => (
+              <div
+                key={index}
+                className={`carousel-item ${index === activeIndex ? 'active' : ''}`}
+              >
+                <img src={slide.image} alt={`Slide ${index + 1}`} />
+                <div className="carousel-caption">
+                  <h3>{slide.title}</h3>
+                  <p>
+                    <span className="blinking">{slide.text}</span>
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
 
-          <div className='Slide'>
-            <img src='/assets/images/geral/mdl2.png' alt='' />
-          </div>
-
-          <div className='Slide'>
-            <img src='/assets/images/geral/mdl3.png' alt='' />
-
-          </div>
-          <div className='Slide'>
-            <img src='/assets/images/geral/mdl4.png' alt='' />
-          </div>
-
-          <div className='navegation-auto'>
-            <div className='auto-btn1'></div>
-            <div className='auto-btn2'></div>
-            <div className='auto-btn3'></div>
-            <div className='auto-btn4'></div>
-          </div>
-
+          <a className="carousel-control-prev" href="#meuCarrossel" role="button" data-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="sr-only">Anterior</span>
+          </a>
+          <a className="carousel-control-next" href="#meuCarrossel" role="button" data-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="sr-only">Próximo</span>
+          </a>
         </div>
-
-        <div className='manual-navegation'>
-          <label for='radio1' className='manual-btn'></label>
-          <label for='radio2' className='manual-btn'></label>
-          <label for='radio3' className='manual-btn'></label>
-          <label for='radio4' className='manual-btn'></label>
-        </div>
-
-
       </div>
-    </section>
-
     </div>
+  );
+};
 
-  )
-
-
-}
-
-
-
-
+export default Carrossel;

@@ -157,7 +157,7 @@ export default function CadastrarUsuarioPage() {
             <button onClick={Cadastrar} className="botao">Cadastrar</button>
            
 
-            <Link className='pag-log' to={'http://localhost:3000'}>« voltar para login</Link>
+            <Link className='pag-og' to={'http://localhost:3000'}>« voltar para login</Link>
 
 
 
