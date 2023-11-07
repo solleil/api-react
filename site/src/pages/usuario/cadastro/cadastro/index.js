@@ -1,116 +1,190 @@
 import './index.scss';
-import { useState } from 'react';
+import { Link, useNavigate} from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 
-export default function Cadastro() {
-
+export default function Cadastrar() {
   const [nome, setNome] = useState('');
   const [sobrenome, setSobrenome] = useState('');
-  const [cpf, setCpf] = useState([]);
   const [email, setEmail] = useState('');
+  const [cpf, setCpf] = useState('');
+  const [telefone, setTelefone] = useState([])
   const [senha, setSenha] = useState('');
-  const [dtNascimento, setDtNascimen] = useState(0);
-
-  const [confirmaSenha, setConfirmaSenha] = useState([]);
-  const [cadastroFeito, setCadastroFeito] = useState(false);
- 
-
+  const [confirsenha, setConfirsenha] = useState('');
+  const [data, setData] = useState('');
   const [tipoPele, setTipoPele] = useState(0);
   const [tipoPeleSelecionado, setPeleSelecionado] = useState([]);
+  const [erro, setErro]= useState('')
 
-  const inserirUsuario = () => {
-    setCadastroFeito(true);
+  const navigate = useNavigate()
 
-    setTimeout (() =>{
-      setCadastroFeito(false);
-    })
+  async function listarTiposdePele() {
+      const r = await axios.get("http://129.148.42.252:5027/tipopele");
+      setPeleSelecionado(r.data);
   }
-  
-  
+  async function Cadastrar(){
+     try {
+
+      let response = await axios.post ('http://129.148.42.252:5027/cliente',{ 
+        nome: nome,
+        sobrenome: sobrenome,
+        email: email,
+        telefone: telefone,
+        cpf: cpf,
+        nascimento: data,
+        senha: senha
+        
+        
+    });
+
+    if (response==401) {
+      setErro(response.data.erro)
+  }
+    else{
+      navigate('./')
+    }
+     } catch (err) {
+      alert(err.message);
+     }
+  }
+
+
+
+  useEffect(() =>{
+    listarTiposdePele()
+  }, [])
+
+  const Cadastro = (e) => {
+    e.preventDefault();
+  }
+
 
   return (
-    <div className='tude'>
 
-      <div className='c-0'>
-
-        <div className='fundo'>
-          <img src='/assets/images/geral/fe.png' alt='' />
-        </div>
-
-        <div className='c-1'>
-
-          <div className='c-2' >
-
-            <div className='cadastro'>
-              <p>CADASTRO</p>
+      <main classname="cadastro">
+          <div classname="tudx">
+            <div className='imgg'>
+            <img className="imagex" src='/assets/images/usuario/cadastro/aha.jpg' alt=''></img>
             </div>
 
+            <div className='T-0'>
+              <h1>Cadastro</h1>
 
-            <div className='c-3'>
+               <form  onSubmit={Cadastro}>
+                <div className='dif'>
 
-              <div className='no-1'>
+                <input 
+                type='nome'
+                placeholder="Nome"
+                value={nome} 
+                onChange={ (e) => setNome(e.target.value)}>
 
-                <input type='Nome' id='nome' placeholder="NOME" value={nome} onChange={(e) => setNome(e.target.value)}></input>
-              </div>
+                </input>
 
-              <div className='no-1'>
 
-                <input type='text' id='sobrenome' placeholder="SOBRENOME" value={sobrenome} onChange={(e) => setSobrenome(e.target.value)}></input>
-              </div>
-            </div>
+                <input 
+                type='text'  
+                placeholder="Sobrenome" 
+                value={sobrenome} 
+                onChange={ (e) => setSobrenome(e.target.value)}>
 
-            <div className='c-4'>
-              <div className='no-1'>
+                </input>
 
-                <input type='text' id='cpf' placeholder="CPF" value={cpf} onChange={(e) => setCpf(Number(e.target.value))}></input>
-              </div>
-              <div className='no-1'>
 
-                <input type='email' id='email' placeholder="E-MAIL" value={email} onChange={(e) => setEmail(e.target.value)}></input>
-              </div>
-              <div className='no-1'>
+                </div>
+
+                <div className='dif-1'>
+                <input 
+                type='email'  
+                placeholder="E-mail" 
+                value={email} 
+                onChange={ (e) => setEmail(e.target.value)}>
+
+                </input>
+
+
+                <input 
+                type='telefone'  
+                placeholder="Telefone" 
+                value={telefone} 
+                onChange={ (e) => setTelefone(Number(e.target.value))}>
+
+                </input>
+
+
+                <input 
+                type='text'  
+                placeholder="CPF" 
+                value={cpf} 
+                onChange={ (e) => setCpf(Number(e.target.value))}>
+
+                </input>
+
+
+                <input 
+                type='password'  
+                placeholder="Senha" 
+                value={senha} 
+                onChange={ (e) => setSenha(e.target.value)}>
+
+                </input>
+
+
+                <input 
+                type='password'  
+                placeholder="Confirmar senha" 
+                value={confirsenha} 
+                onChange={ (e) => setConfirsenha(e.target.value)}>
+
+                </input>
+
+
+                </div>
+
+                <div className='dif-2'>
+                <input 
+                type='date' 
+                value={data} 
+                onChange={ (e) => setData(e.target.value)}>
+
+                </input>
+                </div>
+
+              <div className="dif-3"> 
+
+              <select 
+              className='tipodepele'  
+              value={tipoPele} 
+              onChange={e => setTipoPele(e.target.value)}>
+
+              <option id='tipopele' value={0}>Tipo Pele</option> 
+              {
+                 tipoPeleSelecionado.map(item =>
+                <option value={item.id}> {item.nome} </option>)
+                  
+              } 
               
-              <input type='password' id='senha' placeholder="SENHA" value={senha} onChange={(e) => setSenha(Number(e.target.value))}></input>
-              </div>
-              <div className='no-1'>
-              
-              <input type='password' id='senhac' placeholder= "CONFIRMAÇÃO DE SENHA" value={confirmaSenha} onChange={(e) => setConfirmaSenha(Number(e.target.value))}></input>
-              </div>
-            </div>
+              </select>
+              </div> 
 
+                <button 
+                type="submit" 
+                onclick={Cadastrar}  
+                className="botao">Cadastrar</button>
 
-            <div className='no-1'>
-
-              <label>DATA DE NASCIMENTO</label>
-              <input type='date' id='dtna' value={dtNascimento} onChange={(e) => setDtNascimen(Number(e.target.value))}></input>
-              
-            </div>
-
-            <div className='c-6'>
-              <div className='no-1'>
-                <select className='tipodepele' value={tipoPele} onChange={e => setTipoPele(e.target.value)}>
-                  <option id='tipopele' value={0}> Tipo Pele </option>
-                  {
-                    tipoPeleSelecionado.map(item =>
-
-                      <option value={item.id}> {item.nome} </option>
-                    )
-
-                  }
-                </select>
-              </div>
-              </div>
-            
                
+
+                <Link className='pag-log' to={'http://localhost:3000'}>« voltar para login</Link>
+
+
+
+               </form>
+
+            </div>
+
           </div>
 
-
-        </div>
-      </div>
-
-
-
-    </div>
-  );
-
+      </main>
+)
 }

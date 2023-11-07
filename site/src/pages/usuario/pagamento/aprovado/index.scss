@@ -1,14 +1,44 @@
-
+@font-face {
+    font-family:'reno';
+    src: url('../../../../../public/assets/fonts/Renogare-Regular.otf');
+}
 .pg-aprovado{
     overflow-x: hidden;
 
 
     .cabecalho{
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
+        height: 10vh;
+
+        .lg-img{
+            display: flex;
+            flex-direction: row;
+            
+        }
+
+        .linha{
+            height: 3px;
+            width: 100%;
+            background-color: #5c5c5c;
+            }
+
+        img {
+            margin-bottom: 15px;
+             height: 8vh;
+         }
+
+ #logo{
+        font-size: 65px;
+        font: 65px 'castle';
     }
 
+
+    }
+
+   
     .sol-apv{
         height: 30px;
         margin-top: 30px;
@@ -17,27 +47,30 @@
     .s1-apv{
         display: flex;
         flex-direction: column;
-       
+        gap: 10px;
         background-color: black;
         height: 30vh;
 
         h1{
+            font-size: 50px;
             text-align: center;
             color: #19B400;
         }
 
         h5{
+            font-size: 15px;
             text-align: center;
             color: white;
         }
 
 
        .correto{
+        margin-top: 8%;
         display: flex;
         flex-direction: row;
         justify-content: center;
        
-        width: 100vw;
+      
         
 
        }
@@ -62,7 +95,7 @@
         justify-content: space-between;
         margin-left: 10%;
         margin-top: 30px;
-        gap: 5px;
+        gap: 10px;
         text-align: center;
         width: 80vw;
         
@@ -71,7 +104,7 @@
 
 
         .produtoveri{
-            width: 13vw;
+            height: 35vh;
             margin-left: 5%;
 
         }
@@ -79,7 +112,7 @@
         button{
             background-color: #19B400;
             width: 20vw;
-            height: 10vh;
+            height: 5vh;
             color: #ffffff;
             border: none;
             margin-top: 20px;
@@ -94,6 +127,7 @@
         }
        
         .acomps-1{
+            gap: 10px;
             margin-top: 5%;
     
         }
@@ -119,10 +153,19 @@
         }
 
         .todes{
+            margin-top: 37%;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
+            gap: 30px;
+
+
+
+            .todes p{
+                font-size: 20px;
+                font-family: 'reno';
+            }
         }
         .acp-2{
             display: flex;

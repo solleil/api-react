@@ -31,27 +31,30 @@
   
   .Slide {
     width: 25%;
-    transition: 3s;
+    transition: 5s;
     display: flex;
     align-items: center; }
   
   
     .Slide img {
       width: 100%;
-      height: 100%;
+      height: 180%;
   
     }
   
     .manual-navegation {
       position: absolute;
       width: 90%;
+      height: 60%;
       margin-top: -20px;
       display: flex;
+      flex-direction: row;
       justify-content: center;
+      align-items: flex-end;
     }
   
     .manual-btn {
-      border: 2px solid #00C2FF;
+      border: 2px solid #9b9b9b;
       padding: 5px;
       border-radius: 10px;
       cursor: pointer;
@@ -59,27 +62,24 @@
     }
   
     .manual-btn:not(:last-child) {
-      margin-right: 15px;
+      margin-right: 5px;
     }
   
     .manual-btn:hover {
-      background-color: #fff;
+      background-color: #eedd7b;
     }
   
     #radio1:checked~.first {
-      margin-left: 0;
+      margin-left: 45%;
     }
   
-    #radio2:checked~.first {
-      margin-left: -25%;
-    }
-  
+   
     #radio3:checked~.first {
-      margin-left: -50%;
+   
     }
   
     #radio4:checked~.first {
-      margin-left: -75%;
+      margin-left: 10%;
     }
   
   

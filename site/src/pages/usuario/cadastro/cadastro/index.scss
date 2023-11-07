@@ -1,209 +1,135 @@
-@font-face {
-    font-family: 'castle';
-    src: url('../../../../../public/assets/fonts/Castle\ Begale.woff');    
+main{
+display: flex;
+align-items: center;
+flex-direction: row;
+justify-content: center;
+overflow: hidden;
+background-color: #e1c0a1;
+width: 100%;
+height: 100vh;
+
+.tudx {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px; 
+  height: 200px;
 }
 
-.tude {
-    background-color: #fabc5944;
-    width: 100%;
+.imgg{
+  width:70vw;
+  height: 80vh;
+}
+img{
+  width: 35vw;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+
+.T-0 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 94px;
+  left: 630px;
+  background: #d8b490;
+  background: linear-gradient(228deg, #d8b490d8 55%, #d8b49027 80%);  
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 37vw;
+  height: 73vh;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+h1{
+  font-size: 45px;
+  margin: 20px;
+  color: beige;
+  font-family: 'castle';
+}
+form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 20vw;
+  gap: 10px;
+
+  input{
+    border-radius: 15px;
+    border: none;
+  }
+  .dif{
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 15px;
+  }
+  .dif input{
+    width: 10vw;
+    height: 4vh;
 
-
-    .c-0 {
-        display: flex;
-        width: 55vw;
-        height: 100%;
-        background-position-x: center;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        position: relative;
-
-    }
-
-    .fundo img {
-        height: 100vh;
-        max-height: 100%;
-        width: 80vw;
-        object-fit: cover;
-        opacity: 0.9;
-    }
-
-    .c-1 {
-        display: flex;
-        background-color: rgba(255, 255, 255, 0.596);
-        max-width: 50vw;
-        width: 100%;
-        height: 80vh;
-        position: absolute;
-        background-position-x: center;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0px 2px 4px 0px #0000005a;
-        border-radius: 20px;
-    }
-    .c-2{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-    .cadastro{
-        color: #3A3838;
-        height: 9vh;
-
-        p{
-            font: 35px 'castle';
-        }
-    }
-    .c-3{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-
-
-        input {
-            width: 15vw;
-            height: 4vh;
-            border-radius: 40px;
-            border: none;
-            
-        }
-
-    }
-    .c-4{
-        display: flex;
-        flex-direction: column;
-       
-       
-      
-
-        input{
-            width: 32vw;
-            height: 4vh;
-            
-            border-radius: 40px;
-            border: none;
-          
-        }
-        
-    }
     
-    .no-1{
-        display: flex;
-        flex-direction: column;
-     
-
-        label{
-            color: #3A3838;
-        }
-
-        input{
-
-            height: 3vh;
-            border-radius: 40px;
-            padding: 5px;
-            border: none;
-        }
+  }
+  .dif-1{
+    gap: 5px;
+  }
+  .dif-1 input{
+    width: 21vw;
+    height: 4vh;
+    margin: 5px;
+  }
+  .dif-2{
+    margin: 5px;
+  }
+  .dif-3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    select{
+      width: 8vw;
+      border-radius: 15px;
+      border: none;
     }
-    .c-6{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        select{
-            padding: 5px 9px;
-            border-radius: 40px;
-            border: none;
-            
-        }
-    }
-    .botao {
-        background-color: #fabc59c2;
-        color: #fff;
-        border: none;
-        height: 4vh;
-        width: 15vw;
-        margin: 10px;
-        border-radius: 40px;
-    }
-
-    .botao:hover {
-        cursor: pointer;
-        background-color: #e4a033bd;
-        transition: 0.2s;
-
-        .c-3 label {
-            font-size: 3px;
-        }
-    }
-    .cad{
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-
-        .s{
-            
-            color: rgb(0, 0, 0);
-            text-decoration: none;
-        }
-    }
-    .no-1{
-      margin: 15px;
-    }
-
-    textarea:focus, input:focus {
-        box-shadow: 0 0 0 0;
-        outline: 0;
-    }   
-
-    textarea:focus, select:focus {
-        box-shadow: 0 0 0 0;
-        outline: 0;
-    }   
-
-    .suce{
-        display: flex;
-        background-color: aqua;
-    }
+  }
+  .botao {
+    background-color: #a37158;
+    color: #fff;
+    border: none;
+    height: 4vh;
+    width: 10vw;
+    margin: 2px;
+    border-radius: 10px;
 }
 
+.botao:hover {
+    cursor: pointer;
+    background-color: #b48875;
+    transition: 0.2s;
+}
+.pag-log{
+  text-decoration: none;
+  color: beige;
+  margin: 15px;
+  font-size: 18px;
+}
+.pag-log:hover{
+  cursor: pointer;
+  transition: 0.4s;
+  color: #a37158;
+}
+}
 
-@media (max-width: 660px) {
-    .tude{
-        .fundo img{
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-        }
-        .c-1{
-            width: 60vw;
-
-        }
-        .cadastro{
-            font-size: 30px;
-
-        }
-        .c-3{
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-        }
-        .no-1{
-            width: 35vw;
-            height: 4vh;
-
-            input{
-                width: 35vw;
-                height: 3vh;
-             }
-        }
-        #botao{
-            width: 20vw;
-        }
-    }
+}
+@media (max-width: 830px) {
+  main{
+  background-color: #e1c0a1;
+  width: 100%;
+  height: 200vh;
+  }
 }

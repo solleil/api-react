@@ -22,7 +22,7 @@ import EditarProduto from './pages/adm/editar_produto';
 import Inicialadm from './pages/adm/home_adm';
 import Loginadm from './pages/adm/loginadm';
 import Graficos from './pages/adm/pagina_graficos';
-import FiltrarProduto from './pages/adm/filtrar_produto';
+import FiltrarProduto from './pages/adm/filtrar_pedido';
 
 import Consulta from './pages/adm/consulta_produto';
 import Escolherpagamento from './pages/usuario/pagamento/pagamentocartao';
