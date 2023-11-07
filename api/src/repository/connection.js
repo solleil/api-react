@@ -2,9 +2,9 @@ import mysql from 'mysql2/promise';
 
 const connection = await mysql.createConnection({
 
-    host: process.env.HOST_LOCAL,
-    user: process.env.USER_LOCAL,
-    password: process.env.PWD_LOCAL,
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PWD,
     database: process.env.MYSQL_DB
 
 });

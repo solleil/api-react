@@ -98,4 +98,16 @@ select
         id_ingr_atv     as ingrediente_atv,
         ds_indicacao    as indicacao
     from tb_produto
-    where id_produto = 5
+    where id_produto = 5;
+
+    select
+
+        nm_cliente      as nome,
+        ds_sobrenome    as sobrenome,
+        ds_telefone     as telefone,
+        ds_email        as email,
+        ds_cpf          as cpf,
+        dt_nasc         as nascimento,
+        ds_senha        as senha
+        from tb_cliente;
+        
