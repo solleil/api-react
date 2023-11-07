@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { api_url } from '../constats';
 const api = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: api_url
 });
 
 export async function CadastrarUsuario(nome, sobrenome, telefone, email, cpf, data, senha) {
@@ -38,6 +39,8 @@ export async function AdicionarProduto(nomeProduto, ingrediente, descri, precoPr
 
     return resposta.data;
 };
+
+
 
 export async function logarUsuario(email, senha) {
     const resposta = await api.post('/login/cliente', {

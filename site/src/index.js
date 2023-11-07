@@ -37,7 +37,6 @@ root.render(
     <BrowserRouter>
       <Routes>
 
-        
         <Route path='/' element={<Inicial />} />
         <Route path='/conta' element={<Conta />} />
 
@@ -61,13 +60,8 @@ root.render(
         <Route path='/home/adm' element={<Inicialadm />} />
         <Route path='/login/adm' element={<Loginadm />} />
         <Route path='/graficos' element={<Graficos />} />
-        <Route path='/consulta/produto' element={<Consulta />} />
-
-
-
-        
-
-
+        <Route path='/consultar/produto' element={<Consulta />} />
+      
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
