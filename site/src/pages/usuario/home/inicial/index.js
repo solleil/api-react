@@ -6,6 +6,7 @@ import Carrossel from '../../../../components/carrossel'
 
 export default function Inicial() {
   const [mostrar, setMostrar] = useState(false)
+  
 
   function M() {
     setMostrar(!mostrar)
@@ -65,6 +66,8 @@ export default function Inicial() {
               </div>
             </div>
           </>}
+
+          
       </div>
       <div className='s4'>
        <Carrossel/>
