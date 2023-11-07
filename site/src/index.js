@@ -38,30 +38,30 @@ root.render(
       <Routes>
 
         
-        <Route path='/inicial' element={<Inicial />} />
+        <Route path='/' element={<Inicial />} />
         <Route path='/conta' element={<Conta />} />
 
         <Route path='/cadastro' element={<Cadastro />} />
-        <Route path='/' element={<Login />} />
+        <Route path='/login/usuario' element={<Login />} />
 
         <Route path='/produtos' element={<Produtos />} />
         <Route path='/status' element={<Status/>} />
         <Route path='/carrinho' element={<Carrinho />} />
-        <Route path='/iniproduto' element={<IniProdutos />} />
+        <Route path='/inicial/produto' element={<IniProdutos />} />
         <Route path='/info' element={<Info />} />
         <Route path='/enviado' element={<Enviado />}/>
 
-        <Route path='/pagamentocartao' element={<Escolherpagamento/>} />
+        <Route path='/pagamento/cartao' element={<Escolherpagamento/>} />
         <Route path='/aprovado'  element={<Pagaprovado/>} />
 
-        <Route path='/filtrarproduto' element={<FiltrarProduto />}/>
+        <Route path='/filtrar/produto' element={<FiltrarProduto />}/>
         <Route path='/addproduto' element={<AddProduto />} />
         <Route path='/alterarstatus' element={<AlterarStatus/>} />
         <Route path='/editarproduto' element={<EditarProduto />} />
-        <Route path='/inicialadm' element={<Inicialadm />} />
+        <Route path='/home/adm' element={<Inicialadm />} />
         <Route path='/login/adm' element={<Loginadm />} />
         <Route path='/graficos' element={<Graficos />} />
-        <Route path='/consultaproduto' element={<Consulta />} />
+        <Route path='/consulta/produto' element={<Consulta />} />
 
 
 
