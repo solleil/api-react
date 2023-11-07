@@ -13,6 +13,7 @@ server.get(('/admin'), async (req, resp) => {
 })
 
 
+// atualizar
 server.post(('/admin'), async (req, resp) => {
     try {
         let x = req.body;
@@ -49,6 +50,7 @@ server.put('/admin/alterar', async (req,resp) =>{
     }
 })
 
+// atualizar
 server.delete(('/admin/:id'), async (req, resp) => {
     try {
         let id = req.params.id;

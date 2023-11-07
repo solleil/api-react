@@ -139,7 +139,8 @@ export async function alterarProduto(produto) {
         qtd_estoque = ?,
         id_ingr_atv = ?, 
         ds_indicacoes = ?, 
-        where id_produto = ?
+        where 
+        id_produto = ?
     `;
 
     const result = await connection.query(comando, [
@@ -168,4 +169,15 @@ export async function deletarProduto(id) {
     return infoar
 }
 
-
+export async function inserirImagemProduto(imagem, id) {
+    const comando = `
+    update tb_produto 
+    set 
+    img_produto = ? 
+    where 
+    id_produto = ?
+    `;
+    
+    const [respo] = await connection.query(comando, [imagem, id])
+    return respo;
+}

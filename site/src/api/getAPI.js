@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { api_url } from '../constats';
 const api = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: api_url
 });
 
 export async function listarProdutos() {

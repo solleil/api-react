@@ -1,4 +1,4 @@
-import { listarPedido, inserirPedido} from '../repository/pedidoRepository.js';
+import { listarPedido, inserirPedido } from '../repository/pedidoRepository.js';
 import { Router } from 'express';
 
 const server = Router()
@@ -14,14 +14,14 @@ server.get(('/marca'), async (req, resp) => {
 })
 
 server.post(('/marca'), async (req, resp) => {
-    try {
-      const respo = req.body;
-      const { dados } = await inserirPedido(respo)
-      resp.send(dados)
-    }
-    catch (err) {
-      resp.status(404).send({ erro: err.message });
-    }
-  })
+  try {
+    const respo = req.body;
+    const { dados } = await inserirPedido(respo)
+    resp.send(dados)
+  }
+  catch (err) {
+    resp.status(404).send({ erro: err.message });
+  }
+})
 
-  export default server;
+export default server;

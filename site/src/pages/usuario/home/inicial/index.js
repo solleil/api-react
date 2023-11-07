@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { useEffect } from 'react';
 import './index.scss';
 import Cabecalho from '../../../../components/cabecalho'
 import Rodape from '../../../../components/rodape';
-import Slider from '../../../../components/carrossel';
+import Carrossel from '../../../../components/carrossel'
 
 export default function Inicial() {
   const [mostrar, setMostrar] = useState(false)
@@ -68,7 +67,7 @@ export default function Inicial() {
           </>}
       </div>
       <div className='s4'>
-        <div className='carrossel'><Slider /> </div>
+       <Carrossel/>
         
      
       </div>

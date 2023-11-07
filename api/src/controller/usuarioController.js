@@ -8,8 +8,8 @@ server.get(('/cliente'), async (req, resp) => {
     try {
         const respo = await listarTodosUsuario();
         resp.send(respo);
-    } 
-    
+    }
+
     catch (err) {
 
         resp.status(404).send({ erro: err.message })
@@ -24,7 +24,7 @@ server.post(('/cliente'), async (req, resp) => {
         let dados = await inserirUsuario(respo)
         resp.send(dados)
 
-    } 
+    }
 
     catch (err) {
 
@@ -43,27 +43,27 @@ server.post(('/login/cliente'), async (req, resp) => {
             throw new Error('Email ou Senha incorretos')
         }
         resp.send(r);
-    } 
-    
+    }
+
     catch (err) {
         resp.status(401).send({ erro: err.message })
     }
 
 });
 
-server.put('/alterar/cliente', async (req,resp) =>{
-    
+server.put('/alterar/cliente', async (req, resp) => {
+
     try {
 
         const respo = req.body;
-        const {dados} = await alterarUsuario(respo);
+        const { dados } = await alterarUsuario(respo);
         resp.send(dados);
 
-    } 
-    
+    }
+
     catch (err) {
 
-        resp.status(404).send({erro: err.message});
+        resp.status(404).send({ erro: err.message });
 
     }
 
@@ -74,11 +74,11 @@ server.delete(('/cliente/:id'), async (req, resp) => {
     try {
 
         const id = req.params.id;
-        const {dados} = await deletarUsuario(id);
+        const { dados } = await deletarUsuario(id);
         resp.send(dados)
 
-    } 
-    
+    }
+
     catch (err) {
 
         resp.status(404).send({ erro: err.message })

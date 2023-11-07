@@ -28,9 +28,10 @@ drop table tb_cliente;
 create table tb_endereco(
 id_endereco		int primary key auto_increment,
 ds_cep			varchar(100),
-ds_rua		    varchar(100),
+ds_endereco		varchar(100),
 nr_endereco		varchar(100),
 ds_cidade		varchar(100),
+ds_bairro		varchar(100),
 id_cliente		int,
 
 foreign key (id_cliente) references tb_cliente(id_cliente)
@@ -111,6 +112,7 @@ id_categoria 	int,
 id_ingr_atv		int,
 id_marca		int,
 id_necessidade	int,
+img_produto		varchar(200),
 
 foreign key (id_categoria) references tb_categoria (id_categoria),
 foreign key (id_necessidade) references tb_necessidade(id_necessidade),
@@ -120,10 +122,4 @@ foreign key(id_ingr_atv) references tb_ingr_atv(id_ingrediente)
 );
 drop table tb_produto;
 
-create table tb_imagem(
-id_imagem		int primary key auto_increment,
-ds_imagem 		varchar(100),
-id_produto		int,
-foreign key (id_produto) references tb_produto(id_produto)
-);
-drop table tb_imagem;
+update tb_produto set img_produto = 1 where id_produto = 1;
