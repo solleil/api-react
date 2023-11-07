@@ -3,6 +3,22 @@ const api = axios.create({
     baseURL: 'http://localhost:5000'
 });
 
+export async function CadastrarUsuario(nome, sobrenome, telefone, email, cpf, data, senha) {
+    const resposta = await api.post('/cliente', {
+        nome: nome,
+        sobrenome: sobrenome,
+        telefone: telefone,
+        email: email,
+        cpf: cpf,
+        nasc: data,
+        senha: senha
+
+    });
+
+    return resposta.data;
+    console.log(resposta.data);
+}
+
 export async function AdicionarProduto(nomeProduto, ingrediente, descri, precoProduto, tipopele, estoque, tamanho, qtd, idMarca, necess, ingre_atv, indica, categoria) {
     const resposta = await api.post('/produto/inserir', {
         nome: nomeProduto,

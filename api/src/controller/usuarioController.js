@@ -16,20 +16,18 @@ server.get(('/cliente'), async (req, resp) => {
 
     }
 })
-server.post(('/cliente'), async (req, resp) => {
 
+server.post('/cliente', async (req, resp) => {
     try {
+        const usuario = req.body
 
-        let respo = req.body;
-        let dados = await inserirUsuario(respo)
-        resp.send(dados)
+        const resposta = await inserirUsuario(usuario);
+        resp.send(resposta);
 
-    } 
-
-    catch (err) {
-
-        resp.status(404).send({ erro: err.message })
-
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        });
     }
 
 })

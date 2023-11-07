@@ -36,4 +36,4 @@ import categoriaController from './controller/categoriaController.js';
 servidor.use(categoriaController)
 
 
-servidor.listen(process.env.PORT_LOCAL, () => console.log(`API online na porta ${process.env.PORT}`));
+servidor.listen(process.env.PORT_LOCAL, () => console.log(`API online na porta ${process.env.PORT_LOCAL}`));
