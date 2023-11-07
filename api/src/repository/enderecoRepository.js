@@ -15,11 +15,15 @@ export async function listarEndereco() {
     return resp
 }
 
-export async function inserirEndereco(){
+export async function inserirEndereco(endereco){
     const comando=`
-    insert into tb_endereco(ds_cep, ds_endereco, nr_endereco, ds_cidade)
+    insert into tb_endereco(ds_cep, ds_rua, nr_endereco, ds_cidade)
     values(?, ?, ?, ?)
     `
-    const [resp]= await connection.query(comando)
+    const [resp]= await connection.query(comando, [
+        endereco.cep,
+        endereco.rua,
+        endereco.numero,      
+    ])
     return resp
 }

@@ -44,35 +44,38 @@ export default function Loginadm() {
         <LoadingBar color='#f11946' ref={ref} />
 
 
-        <div className='modeloadm'>
-          <img className='md-adm' src='/assets/images/geral/modelolgadm.png' alt='' />
-        </div>
-        <div className='lg-tudo'>
+        <div className='s1'>
+          <img className='img-s1' src='/assets/images/adm/login/moca.jpg' alt='' />
+
+          <div className='s2'>
+
           <img className='sol' src='/assets/images/geral/sol.png' alt='' />
-          <div className='usuario'>
-            <label>Email</label>
+
+          <div className='s2-gap'>
+            <label>Email</label><br></br>
             <input type='text' value={email} onChange={e => setEmail(e.target.value)} />
           </div>
-          <div className='senha'>
-            <label>Senha</label>
-            <div className='input-senha'>
-              <input type={verSenha ? 'text' : 'password'} value={admSenha} onChange={e => setSenha(e.target.value)} />
-              
-            </div>
+
+          <div className='s2-gap'>
+            <label>Senha</label><br></br>
+              <input type={verSenha ? 'text' : 'password'} value={admSenha} onChange={e => setSenha(e.target.value)} />  
           </div>
+
           <div>
             <h4>{erro}</h4>
           </div>
 
           <div>
-            <button className='bt-entrar' onClick={login} disabled={carregando}><h2>Entrar</h2></button>
+            <button className='s2-button' onClick={login} disabled={carregando}><h2>entrar</h2></button>
           </div>
 
-          <div className='anonimo'>
-            <img src='/assets/images/geral/anonimo.png' alt='' />
-          </div>
 
+          </div>
+          
         </div>
+
+
+    
        
 
         

@@ -4,6 +4,10 @@
     align-items: center;
     overflow: hidden;
 
+    input, select{
+        font-family: 'Questrial', sans-serif;
+    }
+
     .s-2 {
         height: 10vh;
         background-color: #ffffff;
@@ -322,6 +326,7 @@
 
         input {
             margin-left: 25px;
+           font-family: 'Questrial', sans-serif;;
         }
 
 

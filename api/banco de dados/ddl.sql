@@ -28,7 +28,7 @@ drop table tb_cliente;
 create table tb_endereco(
 id_endereco		int primary key auto_increment,
 ds_cep			varchar(100),
-ds_endereco		varchar(100),
+ds_rua		    varchar(100),
 nr_endereco		varchar(100),
 ds_cidade		varchar(100),
 id_cliente		int,

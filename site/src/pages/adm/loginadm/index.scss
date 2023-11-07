@@ -1,71 +1,68 @@
 .pag-login-adm {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  background-color: #cc9f56ab;
+  width: 100vw;
+  height: 100vh;
 
   .s1{
-    width: 50vw;
-  }
+    display: flex;
+    flex-direction: row;
+    width: 60vw;
+    background-color: #ebb069;
 
-  .sol {
-    margin-top: 15%;
+    border-radius: 25px;
+    box-shadow: 3px 7px 15px #968c7d;
 
-  }
-
-  .modeloadm {
-    .md-adm {
-      width: 40vw;
-      height: 100vh;
+    .img-s1{
+      width: 30vw;
+      
+      border-radius: 15px;
     }
-
   }
 
-  .lg-tudo {
+  .s2{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #FFE898;
-    
-
-    .usuario {
-      display: flex;
-      flex-direction: column;
-
-      input {
-        width: 20vw;
-        height: 5vh;
-        border-radius: 5px;
-      }
-    }
-
-    .senha {
-      display: flex;
-      flex-direction: column;
-
-      input {
-        width: 20vw;
-        height: 5vh;
-        border-radius: 5px;
-        font-size: 20px;
-      }
-
-
-    }
-  }
-
-  .bt-entrar {
-    border: none;
     justify-content: center;
-    background-color: black;
-    color: white;
-    width: 12vw;
-    height: 7vh;
-    border-radius: 10px;
-    margin-top: 10px;
+    width: 30vw;
 
+    gap: 25px;
+
+    .s2-gap{
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+    }
+
+
+    input{
+      border: 1px solid black;
+      border-radius: 10px;
+      background-color: #fff2e275;
+      padding: 2px;
+      padding-left: 8px;
+    }
+
+    .s2-button{
+      background-color: #edcc9cd3;
+      border: 2px solid ;
+      border: none;
+      font-family: 'Questrial', sans-serif;
+      padding: 8px;
+      border-radius: 8px;
+      box-shadow: 3px 3px 10px #8a6c3fbd;
+    }
+    .s2-button:hover{
+      cursor: pointer;
+      background-color:#fad398d3 ;
+      transition: 0.3s;
+      letter-spacing: 1px;
+    }
   }
 
-  .anonimo {
-    margin-top: 32%;
-    margin-left: 90%;
-  }
+  
+
 }

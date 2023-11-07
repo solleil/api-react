@@ -54,7 +54,7 @@ root.render(
         <Route path='/pagamentocartao' element={<Escolherpagamento/>} />
         <Route path='/aprovado'  element={<Pagaprovado/>} />
 
-        <Route path='/filtrarproduto' element={<FiltrarProduto />}/>
+        <Route path='/filtrarpedido' element={<FiltrarProduto />}/>
         <Route path='/addproduto' element={<AddProduto />} />
         <Route path='/alterarstatus' element={<AlterarStatus/>} />
         <Route path='/editarproduto' element={<EditarProduto />} />

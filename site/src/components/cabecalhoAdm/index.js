@@ -18,9 +18,14 @@ export default function CabecalhoAdm() {
 
   useEffect(() => {
     if (!storage('admin-logado')) {
-      navigate('/loginadm')
+      navigate('/login/adm')
     };
   }, [])
+
+  function Sair(){
+    storage.remove('admin-logado')
+    navigate('/login/adm')
+  }
 
 
 
@@ -72,8 +77,9 @@ export default function CabecalhoAdm() {
               <div className='menuAberto'>
                 <a href='http://localhost:3000/inicialadm'>Menu</a>
                 <a href='http://localhost:3000/graficos'>Gráficos</a>
-                <a href='http://localhost:3000/consultapedido'>Consulta de pedidos</a>
-                <a href='http://localhost:3000/alterarstatus'>Editar pedido</a>
+                <a href='http://localhost:3000/filtrarpedido'>Filtro de pedidos</a>
+                <a href='http://localhost:3000/alterar/status'>Editar pedido</a>
+                <a href='http://localhost:3000/edicao'>Editar Manual</a>
                 <a href='http://localhost:3000/consultaproduto'>Consulta de produtos</a>
 
               </div>
@@ -95,6 +101,7 @@ export default function CabecalhoAdm() {
                 <p>Elisangela Silva</p>
                 <p>Administrador Financeiro<br></br>São Paulo, São Jose dos Campos</p>
                 <p> <b>status:</b> online</p>
+                <button onClick={Sair}>Sair</button>
               </div>
             </>
           }

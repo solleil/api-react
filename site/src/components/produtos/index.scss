@@ -1,36 +1,40 @@
-.rodape{
+.produto{
+  
 
+  .prod-desc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+  
+    gap: 6px;
+    width: 20vw;
 
-    .s6-1{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        width: 100vw;
-      }
-      .s6-1-p{
-        border: 4px solid #fabc59ab;
-        border-radius: 15px;
-        padding: 8px;
-      }
-      .s6-1-p:hover{
-        cursor: pointer;
-        transition: 0.3s;
-        padding: 12px;
-      }
-      .s6-1-p img{
-        height: 30vh;
-      }
-      .s6-1-p img:hover{
-        height: 32vh;
-        transition: 0.3s;
-      }
-      .s6-1-p p{
-        font-size: 14px;
-      }
-      .s6-1-p b{
-        font-size: 18px;
-      }
+    p{
+      width: 20vw;
+    }
+  }
+
+  .img-prod{
+    width: 18vw;
+  }
+
+  .prod-desc:hover{
+    border: 4px solid #ffe998e8;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .s1-start{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  margin-left: 20px;
+  }
+
 
 
 }

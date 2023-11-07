@@ -1,4 +1,5 @@
-import Cabecalho from '../../../components/cabecalho';
+
+import CabecalhoAdm from '../../../components/cabecalhoAdm';
 import './index.scss';
 import { useState } from 'react';
 
@@ -16,7 +17,7 @@ export default function FiltrarPedido(){
 return(
     <div className='filtr-pedido'>
         <div className='cabe'>
-        <Cabecalho></Cabecalho>
+        <CabecalhoAdm/>
         </div>
 
         <div className='ka'>
