@@ -1,5 +1,8 @@
-import { inserirProduto, listarTodosProduto, deletarProduto, alterarProduto, pesquisarProduto, mostrarProdutosId } from '../repository/produtoRepository.js';
+import { inserirProduto, listarTodosProduto, deletarProduto, alterarProduto, pesquisarProduto, mostrarProdutosId, inserirImagemProduto } from '../repository/produtoRepository.js';
 import { Router } from 'express';
+
+import multer from 'multer';
+const upload = multer({ dest: 'storage/fotos_gerais_produtos' });
 
 const server = Router()
 
@@ -36,7 +39,7 @@ server.get(('/pesquisa/produto'), async (req, resp) => {
     const respo = await pesquisarProduto(query);
     resp.send(respo);
   } catch (err) {
-    resp.status(404).send({ erro: err.message});
+    resp.status(404).send({ erro: err.message });
   }
 })
 
@@ -72,5 +75,21 @@ server.delete(('/produto/:id'), async (req, resp) => {
     resp.status(404).send({ erro: err.message });
   }
 })
+
+server.put(('/imagem/produto/:id'), upload.single('foto_produto'), async (req, resp) => {
+  try {
+    const idProduto = req.params.id;
+    const imagem = req.file.path;
+    const respo = await inserirImagemProduto(imagem, idProduto);
+
+    if (respo != 1) {
+      throw new Error('Erro ao Salvar imagem');
+    };
+    resp.status(204).send(respo)
+
+  } catch (err) {
+    resp.status(400).send({ erro: err.message });
+  };
+});
 
 export default server;
