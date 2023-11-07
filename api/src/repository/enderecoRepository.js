@@ -1,8 +1,8 @@
-import {connection} from './connection.js'
+import { connection } from './connection.js'
 
 
 export async function listarEndereco() {
-    const comando= `
+    const comando = `
     select 
     ds_cep   as cep,
     ds_endereco  as endereco,
@@ -11,19 +11,25 @@ export async function listarEndereco() {
     from tb_endereco
     `
 
-    const [resp]= await connection.query(comando)
+    const [resp] = await connection.query(comando)
     return resp
 }
 
-export async function inserirEndereco(endereco){
-    const comando=`
-    insert into tb_endereco(ds_cep, ds_rua, nr_endereco, ds_cidade)
-    values(?, ?, ?, ?)
+export async function inserirEndereco(endereco) {
+    const comando = `
+    insert into tb_endereco(ds_cep,
+         ds_rua, 
+         nr_endereco, 
+         ds_cidade, 
+         ds_bairro, 
+         ds_cliente, 
+         id_cliente)
+    values(?, ?, ?, ?, ?, ?)
     `
-    const [resp]= await connection.query(comando, [
+    const [resp] = await connection.query(comando, [
         endereco.cep,
         endereco.rua,
-        endereco.numero,      
+        endereco.numero,
     ])
     return resp
 }
