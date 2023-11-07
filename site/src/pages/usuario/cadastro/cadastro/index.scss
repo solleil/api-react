@@ -10,15 +10,19 @@ height: 100vh;
 
 .tudx {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 300px; 
   height: 200px;
 }
 
 .imgg{
-  width: 54vw;
+  width:70vw;
+  height: 80vh;
 }
 img{
-  width: 23vw;
+  width: 35vw;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
@@ -30,13 +34,13 @@ img{
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 95px;
-  left: 570px;
+  top: 94px;
+  left: 630px;
   background: #d8b490;
-  background: linear-gradient(228deg, #d8b49000 0%, #d8b49013 0%);  
+  background: linear-gradient(228deg, #d8b490d8 55%, #d8b49027 80%);  
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  width: 36vw;
+  width: 37vw;
   height: 73vh;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
@@ -111,7 +115,8 @@ form{
 .pag-log{
   text-decoration: none;
   color: beige;
-  font-size: 12px;
+  margin: 15px;
+  font-size: 18px;
 }
 .pag-log:hover{
   cursor: pointer;
@@ -121,6 +126,10 @@ form{
 }
 
 }
-@media (max-width: 400px) {
-    
+@media (max-width: 830px) {
+  main{
+  background-color: #e1c0a1;
+  width: 100%;
+  height: 200vh;
+  }
 }
