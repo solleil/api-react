@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Conta from './pages/usuario/home/conta';
 import Inicial from './pages/usuario/home/inicial'
 
-import Cadastro from './pages/usuario/cadastro/cadastro';
+import CadastroUsuario from './pages/usuario/cadastro/cadastro';
 import Login from './pages/usuario/cadastro/login';
 
 import Carrinho from './pages/usuario/produtos/carrinho';
@@ -41,7 +41,7 @@ root.render(
         <Route path='/conta' element={<Conta />} />
 
         <Route path='/cadastro' element={<Cadastro />} />
-        <Route path='/login/usuario' element={<Login />} />
+        <Route path='/' element={<Login />} />
 
         <Route path='/produtos' element={<Produtos />} />
         <Route path='/status' element={<Status/>} />
