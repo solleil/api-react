@@ -24,16 +24,19 @@ import tipoPeleController from './controller/tipoPeleController.js'
 servidor.use(tipoPeleController);
 
 import marcaController from './controller/marcaController.js'
-servidor.use(marcaController)
+servidor.use(marcaController);
 
 import nessecidadeController from './controller/necessidadeController.js'
 servidor.use(nessecidadeController);
 
 import ingrAtvController from './controller/ingrAtvController.js'
-servidor.use(ingrAtvController)
+servidor.use(ingrAtvController);
 
 import categoriaController from './controller/categoriaController.js';
-servidor.use(categoriaController)
+servidor.use(categoriaController);
+
+import enderecoController from './controller/enderecoController.js';
+servidor.use(enderecoController)
 
 
 servidor.listen(process.env.PORT_LOCAL, () => console.log(`API online na porta ${process.env.PORT_LOCAL}`));

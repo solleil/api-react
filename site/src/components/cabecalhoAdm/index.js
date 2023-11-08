@@ -75,12 +75,12 @@ export default function CabecalhoAdm() {
           {menu === true &&
             <>
               <div className='menuAberto'>
-                <a href='http://localhost:3000/inicialadm'>Menu</a>
+                <a href='http://localhost:3000/home/adm'>Menu</a>
                 <a href='http://localhost:3000/graficos'>Gráficos</a>
-                <a href='http://localhost:3000/filtrarpedido'>Filtro de pedidos</a>
+                <a href='http://localhost:3000/filtrar/pedido'>Filtro de pedidos</a>
                 <a href='http://localhost:3000/alterar/status'>Editar pedido</a>
                 <a href='http://localhost:3000/edicao'>Editar Manual</a>
-                <a href='http://localhost:3000/consultaproduto'>Consulta de produtos</a>
+                <a href='http://localhost:3000/consultar/produto'>Consulta de produtos</a>
 
               </div>
             </>

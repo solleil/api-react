@@ -64,6 +64,12 @@ values ('teste2', 'teste2', 'grande', 5, 'um teste', 1.00, false, 'sem ingredien
 select * from tb_produto;
 select * from tb_cliente;
 
+ update tb_produto 
+    set 
+    img_produto = 'storage/nlebsbqoe'
+    where 
+    id_produto = 1;
+
 select 
 	id_cliente,
 	ds_email
@@ -99,15 +105,33 @@ select
         ds_indicacao    as indicacao
     from tb_produto
     where id_produto = 5;
+    
+    insert into tb_endereco(
+		ds_cep			,
+		ds_rua,
+		nr_endereco		,
+		ds_cidade		,
+		ds_bairro		,
+		id_cliente		)
+    values('teste', 'teste', 'teste', 'teste', 'teste', 1);
+    select * from tb_endereco;
+    
+    
+insert into tb_endereco(
+         ds_cep,
+         ds_rua, 
+         nr_endereco, 
+         ds_cidade, 
+         ds_bairro, 
+         id_cliente)
+    values(?, ?, ?, ?, ?);
+    
+ select
+	ds_cep,
+    ds_rua,
+    nr_endereco,
+    ds_cidade,
+    ds_bairro,
+    id_cliente
+from tb_endereco;
 
-    select
-
-        nm_cliente      as nome,
-        ds_sobrenome    as sobrenome,
-        ds_telefone     as telefone,
-        ds_email        as email,
-        ds_cpf          as cpf,
-        dt_nasc         as nascimento,
-        ds_senha        as senha
-        from tb_cliente;
-        

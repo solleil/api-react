@@ -17,7 +17,6 @@ export async function CadastrarUsuario(nome, sobrenome, telefone, email, cpf, da
     });
 
     return resposta.data;
-    console.log(resposta.data);
 }
 
 export async function AdicionarProduto(nomeProduto, ingrediente, descri, precoProduto, tipopele, estoque, tamanho, qtd, idMarca, necess, ingre_atv, indica, categoria) {
@@ -60,6 +59,15 @@ export async function logarAdmin(email, senha) {
     return resposta.data;
 }
 
-export  async function InserirEndereço (rua, numero, bairro, cidade, cep) {
-    const resposta = await api.post('/endereco')
+export  async function InserirEndereço (rua, numero, bairro, cidade, cep, id) {
+    const resposta = await api.post('/endereco', {
+        cep: cep,
+        rua: rua,
+        numero: numero,
+        cidade: cidade,
+        bairro: bairro,
+        cliente: id
+    })
+
+    return resposta.data;
 }

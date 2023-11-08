@@ -1,4 +1,5 @@
 import './index.scss';
+import storage from 'local-storage'
 import { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import LoadingBar from 'react-top-loading-bar'
@@ -14,16 +15,15 @@ export default function Login() {
   const ref = useRef();
 
   async function Login() {
-
     ref.current.continuousStart();
     setCarregando(true);
-    
     try {
       const resposta = await logarUsuario(email, senha);
+      storage('usuario-logado', resposta);
 
       setTimeout( () => {
         navigate('/');
-      }, 2500)
+      }, 2500);
       
     } catch (err) {
       ref.current.complete();

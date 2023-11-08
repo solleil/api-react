@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import storage from 'local-storage'
+import storage from 'local-storage';
 import './index.scss';
 import { logarAdmin } from '../../../api/postAPi.js';
 import LoadingBar from 'react-top-loading-bar';
@@ -17,7 +17,7 @@ export default function Loginadm() {
 
   useEffect(()=> {
     if (storage('admin-logado')) {
-      navigate('/inicialadm')
+      navigate('/inicial/adm')
     }
   }, [])
 
@@ -28,7 +28,7 @@ export default function Loginadm() {
       const resposta = await logarAdmin(email, admSenha);
       storage('admin-logado', resposta);
       setTimeout(() => {
-        navigate('/inicialadm');
+        navigate('/inicial/adm');
       }, 2500)
 
     } catch (err) {
@@ -41,7 +41,7 @@ export default function Loginadm() {
 
     return (
       <div className="pag-login-adm">
-        <LoadingBar color='#f11946' ref={ref} />
+        <LoadingBar color='#43B541' ref={ref} />
 
 
         <div className='s1'>
