@@ -137,4 +137,15 @@
             }
         }
     }
+
+    .parcerias{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .parcerias img{
+        height: 15vh;
+    }
 }

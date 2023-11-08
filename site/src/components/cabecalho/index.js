@@ -13,6 +13,7 @@ export default function Cabecalho() {
       function Mudar(){
         setMenu(!menu)
     }
+    
 
 
 
@@ -40,23 +41,47 @@ export default function Cabecalho() {
             </h1>
          </div>
         <div className="c1">
-        
-        {menu === true &&
-        <>
+   
+
         <a href='/inicial' className='c1-1'>
         <img src='/assets/images/usuario/cabecalho/logo_preta.png' alt=''/>
               <p id='logo'> SOLLEIL</p>
         </a>
         
-          </>
-              }
+         
+
+
+        </div>
+ 
+              <div className="c-linha">  </div>
+
+              <div className="c2">
+                <div className="c2-1"> 
+                <button id='menos' onClick={Mudar} className='funcaomudar'> <img src="/assets/images/geral/menu.png" alt=""   />  </button></div>
+                
+                
+
+                <div className="c2-2"> 
+                          <div className="input">
+                             <input className='inp' type="text" /> 
+                             <button> <img src="/assets/images/geral/pesquisa.png" alt=""/></button>
+                          </div> 
+                 </div>
+                  
+
+                <div className="c2-3"> <button> <img src="/assets/images/geral/fav.png" alt=""   /></button>
+                  <a href='/carrinho'> <img src="/assets/images/geral/sacola.png" alt=""/></a>
+                  <a href='/conta' className='conta' >  <img src="/assets/images/geral/perfil.png" alt="" /></a></div>
+                  
+              </div>
 
 
 
-        {menu === false &&
+              <div>
+              {menu === true &&
         <>
         <div className='filtros'>
-        <img src='/assets/images/usuario/cabecalho/logo_preta.png' alt=''/>
+      
         
         <div>    
           {categoria ? ( <p onClick={FCategorias}  className='yellow'>Categorias</p>) : (<p onClick={FCategorias} className='n-yellow'>Categorias</p>)}
@@ -138,31 +163,9 @@ export default function Cabecalho() {
         
           </>
               }
-      
-
-        </div>
- 
-              <div className="c-linha">  </div>
-
-              <div className="c2">
-                <div className="c2-1"> 
-                <button id='menos' onClick={Mudar} className='funcaomudar'> <img src="/assets/images/geral/menu.png" alt=""   />  </button></div>
-                
-                
-
-                <div className="c2-2"> 
-                          <div className="input">
-                             <input className='inp' type="text" /> 
-                             <button> <img src="/assets/images/geral/pesquisa.png" alt=""/></button>
-                          </div> 
-                 </div>
-                  
-
-                <div className="c2-3"> <button> <img src="/assets/images/geral/fav.png" alt=""   /></button>
-                  <a href='/carrinho'> <img src="/assets/images/geral/sacola.png" alt=""/></a>
-                  <a href='/conta' className='conta' >  <img src="/assets/images/geral/perfil.png" alt="" /></a></div>
-                  
               </div>
       </div>
+
+     
     );
   }
