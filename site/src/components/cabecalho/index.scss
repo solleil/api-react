@@ -161,7 +161,7 @@
     }
 
     textarea:focus,
-    input:focus {
+    input:focus, button:focus {
         box-shadow: 0 0 0 0;
         outline: 0;
     }
@@ -180,7 +180,7 @@
         align-items: center;
         flex-direction: row;
         cursor: pointer;
-
+        
 
     }
 
@@ -228,7 +228,7 @@
         align-items: center;
         text-align: center;
         width: 15vw;
-        height: 13vh;
+        height: 5vh;
         margin: 0px;
         background-color: #ffe998e3;
         padding: 0px 0px 0px 20px;

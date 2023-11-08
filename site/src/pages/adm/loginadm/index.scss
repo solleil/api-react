@@ -35,12 +35,17 @@
       display: flex;
       flex-direction: column;
       gap: 0px;
+
+      label{
+        height: 0vh;
+        padding: 0px 0px 0px 15px;
+      }
     }
 
 
     input{
       border: 1px solid black;
-      border-radius: 10px;
+      border-radius: 80px;
       background-color: #fff2e275;
       padding: 2px;
       padding-left: 8px;
@@ -51,8 +56,13 @@
       border: 2px solid ;
       border: none;
       font-family: 'Questrial', sans-serif;
-      padding: 8px;
-      border-radius: 8px;
+      h2{
+        font-size: 26px;
+        height: 3vh;
+      }
+      
+      padding: 2px 15px 2px 15px;
+      border-radius: 80px;
       box-shadow: 3px 3px 10px #8a6c3fbd;
     }
     .s2-button:hover{
