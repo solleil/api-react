@@ -29,7 +29,8 @@
     }
 
     #input, #select {
-        height: 20px;
+        height: 3vh;
+
     }
 
     #input:focus, textarea:focus {
@@ -38,7 +39,7 @@
 
     .sec_1 {
         height: 100%;
-        padding: 25px 35px;
+        padding: 20px 35px;
         
     }
 
@@ -60,17 +61,42 @@
     
     .sec1_c1, .sec1_c2, .sec1_c3 {
         justify-content: space-between;
-        margin-bottom: 25px;
+        margin-bottom: 30px;
     }
+
+    
+    .sec1_c2{
+        display: flex;
+        flex-direction: row;
+       
+       
+    }
+    
+    .sim{
+        display: flex;
+        flex-direction: row;
+      
+        
+        input{
+            width: 25vw;
+            
+            
+        }
+        select{
+            width: 20vw;
+        }
+    }
+
+
+
+
 
     .sec1c1-cx2 > input {
-        width: 60rem;
+        width: 60vw;
     }
 
-    .sec1_c2 {
-        * > input, select {
-            width: 25em;
-        }
+    .sec1_c2 > input {
+        width: 100vw;
     }
     
     .sec1c2-cx1 {
@@ -78,11 +104,7 @@
         flex-direction: column;
     }
 
-    .sec1_c3 {
-        * > input, select {
-            width: 25em;
-        }
-    }
+    
 
     .sec1c4-cx1 > textarea  {
         height: 10rem;
@@ -109,7 +131,10 @@
 
     .sec1c4-botoes > button:hover {
         cursor: pointer;
-        outline: 5px solid #FFCE70;
+        transition: 0.3s;
+        letter-spacing: 1px;
+        border: none;
+        outline: 2px solid #FFCE70;
     }   
 
 }
