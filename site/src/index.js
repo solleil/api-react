@@ -40,7 +40,7 @@ root.render(
         <Route path='/' element={<Inicial />} />
         <Route path='/conta' element={<Conta />} />
 
-        <Route path='/cadastro' element={<Cadastro />} />
+        <Route path='/cadastro' element={<CadastroUsuario />} />
         <Route path='/' element={<Login />} />
 
         <Route path='/produtos' element={<Produtos />} />
