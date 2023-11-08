@@ -77,7 +77,7 @@ export default function Inicial() {
       <div className='s5'>
         <p>Parcerias</p>
         <div className='s5-1'>
-          <img src='/assets/images/usuario/inicial/sallve.png' alt='' />
+            <a> <img src='/assets/images/usuario/inicial/sallve.png' alt='' /> </a>
           <img src='/assets/images/usuario/inicial/biossance.png' alt='' />
           <img src='/assets/images/usuario/inicial/creamy.png' alt='' />
           <img src='/assets/images/usuario/inicial/simple.png' alt='' />

@@ -28,7 +28,7 @@ export default function Loginadm() {
       const resposta = await logarAdmin(email, admSenha);
       storage('admin-logado', resposta);
       setTimeout(() => {
-        navigate('/inicial/adm');
+        navigate('/inicialadm');
       }, 2500)
 
     } catch (err) {

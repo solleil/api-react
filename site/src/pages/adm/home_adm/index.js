@@ -14,13 +14,14 @@ export default function Inicialadm() {
             <div className='titulo_marcas'>
               <p>Parcerias</p>
             </div>
-            <div className=''>
-              <a href='a'><img alt='a' src='/assets/images/usuario/inicial/biossance.png' /></a>
-              <a href='a'><img alt='a' src='/assets/images/usuario/inicial/cerave.png' /></a>
-              <a href='a'><img alt='a' src='/assets/images/usuario/inicial/creamy.png' /></a>
-              <a href='a'><img alt='a' src='/assets/images/usuario/inicial/laroche.png' /></a>
-              <a href='a'><img alt='a' src='/assets/images/usuario/inicial/sallve.png' /></a>
-              <a href='a'><img alt='a' src='/assets/images/usuario/inicial/simple.png' /></a>
+            <div className='parcerias'>
+              <a href='https://www.sephora.com.br/biossance/'><img alt='a' src='/assets/images/usuario/inicial/biossance.png' /></a>
+              <a href='https://www.cerave.com.br/'><img alt='a' src='/assets/images/usuario/inicial/cerave.png' /></a>
+              <a href='https://www.creamy.com.br/'><img alt='a' src='/assets/images/usuario/inicial/creamy.png' /></a>
+              <a href='https://www.laroche-posay.com.br/'><img alt='a' src='/assets/images/usuario/inicial/laroche.png' /></a>
+              <a href='https://www.sallve.com.br/'><img alt='a' src='/assets/images/usuario/inicial/sallve.png' /></a>
+              <a href='https://simpleorganic.com.br/'><img alt='a' src='/assets/images/usuario/inicial/simple.png' /></a>
+              
             </div>
         </section>
 
