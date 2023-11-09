@@ -114,18 +114,23 @@ h1{
     letter-spacing: 1px;
     transition: 0.2s;
 }
-.pag-log{
+.pag-og{
   text-decoration: none;
   color: beige;
   margin: 15px;
   font-size: 18px;
 }
-.pag-log:hover{
+.pag-og:hover{
   cursor: pointer;
   transition: 0.3s;
   letter-spacing: 1px;
   color: #a37158;
 }
+input:focus, select:focus {
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+} 
 }
 
 }
