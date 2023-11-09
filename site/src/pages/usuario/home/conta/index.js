@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import storage from 'local-storage'
 import Cabecalho from '../../../../components/cabecalho';
 import Rodape from '../../../../components/rodape';
 import './index.scss';
+import { InserirEndereco } from '../../../../api/postAPi';
 
 export default function Conta() {
   const [mostrar, setMostrar] = useState(true);
@@ -11,13 +12,30 @@ export default function Conta() {
   const [caminho, setCaminho] = useState(false);
   const [finalizados, setFinalizados] = useState(false);
   const [devolucao, setDevolucao] = useState(false);
+  
+  
+  
+  
   const [rua, setRua] = useState('');
   const [numero, setNumero] = useState(0);
   const [bairro, setBairro] = useState('');
   const [cidade, setCidade] = useState('');
   const [cep, setCep] = useState(0);
+  const [id, setId] = useState('');
+  
+  async function cadastrarEndereco() {
+    try {
+      const resposta = await InserirEndereco(rua, numero, bairro, cidade, cep, id);
 
-  function Mudar() {
+      alert("Endereço cadastrado com sucesso");
+
+    } catch (err) {
+      alert(err.message);
+
+    }
+  }
+
+    function Mudar() {
     setMostrar(!mostrar)
   }
 

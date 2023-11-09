@@ -59,7 +59,7 @@ export async function logarAdmin(email, senha) {
     return resposta.data;
 }
 
-export  async function InserirEndereço (rua, numero, bairro, cidade, cep, id) {
+export  async function InserirEndereco (rua, numero, bairro, cidade, cep, id) {
     const resposta = await api.post('/endereco', {
         cep: cep,
         rua: rua,
