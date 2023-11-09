@@ -4,36 +4,52 @@ import Cabecalho from '../../../../components/cabecalho';
 import Rodape from '../../../../components/rodape';
 import './index.scss';
 import { InserirEndereco } from '../../../../api/postAPi';
+import { listarEndereco, listarTiposdePele } from '../../../../api/getAPI';
 
 export default function Conta() {
+  const [enderecoS, setEnderecoS] = useState([]);
+  const [tiposPeleS, setTiposPeleS] = useState([]);
   const [mostrar, setMostrar] = useState(true);
   const [npagos, setNpagos] = useState(false);
   const [processando, setProcessando] = useState(false);
   const [caminho, setCaminho] = useState(false);
   const [finalizados, setFinalizados] = useState(false);
   const [devolucao, setDevolucao] = useState(false);
-  
-  
-  
-  
   const [rua, setRua] = useState('');
   const [numero, setNumero] = useState(0);
   const [bairro, setBairro] = useState('');
   const [cidade, setCidade] = useState('');
   const [cep, setCep] = useState(0);
-  const [id, setId] = useState('');
+
   
   async function cadastrarEndereco() {
     try {
+      const id = storage('usuario-logado').id;
       const resposta = await InserirEndereco(rua, numero, bairro, cidade, cep, id);
-
       alert("Endereço cadastrado com sucesso");
 
     } catch (err) {
       alert(err.message);
-
-    }
+    };
   }
+
+  async function carregarEndereco() {
+    const id = storage('usuario-logado').id;
+    const respo = await listarEndereco(id);
+    setEnderecoS(respo);
+  }
+
+  async function carregarTiposPele() {
+    const respo = await listarTiposdePele();
+    setTiposPeleS(respo);
+  }
+
+  useEffect(() => {
+    carregarEndereco()
+    carregarTiposPele()
+  }, [])
+
+
 
     function Mudar() {
     setMostrar(!mostrar)
@@ -198,11 +214,10 @@ export default function Conta() {
           <div className='s2-2-info'>
             <p>tipo de pele:</p>
             <select>
-              <option>normal</option>
-              <option>sensível</option>
-              <option>mista</option>
-              <option>oleosa</option>
-              <option>seca</option>
+              <option value={0}>selecione</option>
+              {tiposPeleS.map((item) => 
+                <option value={item.id}> {item.nome} </option>
+              )}
             </select>
           </div>
 
@@ -237,10 +252,13 @@ export default function Conta() {
         </div>
 
         <div className='s3-lado'>
-          <div className='s3-2'>
-            <p>Rua: ***</p> <p>Nº ***</p> <p>Bairro:***</p> <p>Cidade:***</p>
-            <p>Cel:***</p> <p>Cep:***</p>
-          </div>
+          {enderecoS.map((item) => 
+            <div className='s3-2'>
+              <p>Rua: {item.rua} </p> <p>Nº {item.endereco} </p> <p>Bairro: {item.bairro} </p> <p>Cidade: {item.cidade} </p>
+              <p> Cel: *** </p> <p>Cep: {item.cep} </p>
+            </div>
+          )}
+          
 
           {mostrar === false &&
             <>
@@ -249,13 +267,13 @@ export default function Conta() {
           {mostrar === true &&
             <>
               <div className='s3-3'>
-                <input type='text' placeholder='rua' className='rua' />
-                <input type='text' placeholder='nº' className='numero' />
-                <input type='text' placeholder='bairro' className='bairro' />
-                <input type='text' placeholder='cidade' className='cidade' />
-                <input type='text' placeholder='cep' className='cep' />
+                <input type='text' placeholder='rua' className='rua' onChange={(e) => setRua(e.target.value)} />
+                <input type='text' placeholder='nº' className='numero' onChange={(e) => setNumero(e.target.value)} />
+                <input type='text' placeholder='bairro' className='bairro' onChange={(e) => setBairro(e.target.value)} />
+                <input type='text' placeholder='cidade' className='cidade' onChange={(e) => setCidade(e.target.value)} />
+                <input type='text' placeholder='cep' className='cep' onChange={(e) => setCep(e.target.value)}/>
 
-                <button> <img src='/assets/images/usuario/conta/salvar.png' alt='' />  </button>
+                <button onClick={cadastrarEndereco}> <img src='/assets/images/usuario/conta/salvar.png' alt='' />  </button>
                 <button> <img src='/assets/images/usuario/conta/editar.png' alt='' />  </button>
                 <button> <img src='/assets/images/usuario/conta/excluir.png' alt='' />  </button>
               </div>

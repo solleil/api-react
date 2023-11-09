@@ -33,3 +33,8 @@ export async function listarCategorias() {
     const r = await api.get('/categoria');
     return r.data;
 }
+
+export async function listarEndereco(id) {
+    const r = await api.get(`/endereco/${id}`);
+    return r.data
+}

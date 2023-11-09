@@ -94,34 +94,15 @@ export default function AddProduto() {
     setIngrS(resp);
   }
 
-
   useEffect(() => {
-
-    carregarNecessidades()
-
-  }, [])
-
-  useEffect(() => {
-
+    carregarNecessidades();
     carregarTiposPele();
-
-  }, [])
-
-  useEffect(() => {
-
     carregarMarcas();
-
-  }, [])
-
-  useEffect(() => {
-
     carregarIngredientes();
-
+     carregarIdCategorias();
   }, [])
 
-  useEffect(() => {
-    carregarIdCategorias();
-  }, [])
+
 
   const ImagemA = (event) => {
     const arquivoSelecionado = event.target.files[0];

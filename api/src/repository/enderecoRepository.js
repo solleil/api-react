@@ -17,6 +17,23 @@ export async function listarEndereco() {
     return resp
 }
 
+export async function listarDadosEndereco(id) {
+    const comando = `
+    select
+        ds_cep          as cep,
+        ds_rua          as rua,
+        nr_endereco     as endereco,
+        ds_cidade       as cidade,
+        ds_bairro       as bairro,
+        id_cliente      as cliente
+    from tb_endereco
+    where id_cliente = ?
+    `;
+
+    const [respo] = await connection.query(comando, [id])
+    return respo;
+}
+
 export async function inserirEndereco(endereco) {
     const comando = `
     insert into tb_endereco(

@@ -37,7 +37,7 @@ root.render(
     <BrowserRouter>
       <Routes>
 
-        <Route path='/inicial' element={<Inicial />} />
+        <Route path='/' element={<Inicial />} />
         <Route path='/conta' element={<Conta />} />
 
         <Route path='/cadastro' element={<CadastroUsuario />} />
