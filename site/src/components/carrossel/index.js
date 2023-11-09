@@ -11,7 +11,7 @@ const Carrossel = () => {
     
     },
     {
-      image: '/assets/images/geral/mdl4.png',
+      image: '/assets/images/geral/mdl2.png',
       
     },
     {
