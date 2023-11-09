@@ -71,3 +71,5 @@ export  async function InserirEndereco (rua, numero, bairro, cidade, cep, id) {
 
     return resposta.data;
 }
+
+

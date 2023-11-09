@@ -6,8 +6,8 @@ export async function listarCartao(){
      nm_cartao as nome,
      ds_cvc    as cvs,
      ds_numero as numero,
-     ds_validade as validade
-
+     ds_validade as validade,
+     id_cliente as cliente
      from tb_cartao`
 
     const [resp] = await connection.query(comando)
@@ -17,8 +17,8 @@ export async function listarCartao(){
 
 export async function inserirCartao(){
     const comando= `
-    insert into tb_cartao(nm_cartao, ds_cvc, ds_numero, ds_validade)
-    values(?,?,?,?)
+    insert into tb_cartao(nm_cartao, ds_cvc, ds_numero, ds_validade, id_cliente)
+    values('?, ?, ?, ?, ?')
     `
     const [resp] = await connection.query(comando)
     return resp

@@ -43,8 +43,11 @@ id_cartao	int primary key auto_increment,
 nm_cartao	varchar(100),
 ds_cvc		varchar(100),
 ds_numero	varchar(100),
-ds_validade varchar(100)
+ds_validade varchar(100),
+id_cliente  int,
+foreign key (id_cliente) references tb_cliente(id_cliente)
 );
+drop table tb_cartao;
 
 create table tb_pedido(
 id_pedido			int primary key auto_increment,
