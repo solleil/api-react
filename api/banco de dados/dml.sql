@@ -40,6 +40,14 @@ ds_senha)
 values 
 ('logTest', 'logTest', 'logteste@teste.com', 1234);
 
+insert into tb_cliente (
+	nm_cliente,
+	ds_sobrenome,
+	ds_email,
+	ds_senha)
+values 
+('usuario','teste','usuario.com','abc@123');
+
 select 
     nm_produto      as nome 
     from tb_produto 
@@ -116,22 +124,13 @@ select
     values('teste', 'teste', 'teste', 'teste', 'teste', 1);
     select * from tb_endereco;
     
+    select
+        ds_cep          as cep,
+        ds_rua          as rua,
+        nr_endereco     as endereco,
+        ds_cidade       as cidade,
+        ds_bairro       as bairro,
+        id_cliente      as cliente
+    from tb_endereco
+    where id_cliente = 2;
     
-insert into tb_endereco(
-         ds_cep,
-         ds_rua, 
-         nr_endereco, 
-         ds_cidade, 
-         ds_bairro, 
-         id_cliente)
-    values(?, ?, ?, ?, ?);
-    
- select
-	ds_cep,
-    ds_rua,
-    nr_endereco,
-    ds_cidade,
-    ds_bairro,
-    id_cliente
-from tb_endereco;
-
