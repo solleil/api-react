@@ -38,3 +38,8 @@ export async function listarEndereco(id) {
     const r = await api.get(`/endereco/${id}`);
     return r.data
 }
+
+
+export async function listarUsuario(id){
+    
+}

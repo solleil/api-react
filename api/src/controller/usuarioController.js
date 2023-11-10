@@ -17,6 +17,21 @@ server.get(('/cliente'), async (req, resp) => {
     }
 })
 
+server.get(('/cliente/:id'), async (req, resp) => {
+
+    try {
+        const params= req.params.id
+        const respo = await listarTodosUsuario();
+        resp.send(respo);
+    }
+
+    catch (err) {
+
+        resp.status(404).send({ erro: err.message })
+
+    }
+})
+
 server.post('/cliente', async (req, resp) => {
     try {
         const usuario = req.body

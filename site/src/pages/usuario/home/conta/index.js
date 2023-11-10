@@ -3,12 +3,13 @@ import storage from 'local-storage'
 import Cabecalho from '../../../../components/cabecalho';
 import Rodape from '../../../../components/rodape';
 import './index.scss';
-import { InserirEndereco } from '../../../../api/postAPi';
+import { CadastrarUsuario, InserirEndereco } from '../../../../api/postAPi';
 import { listarEndereco, listarTiposdePele } from '../../../../api/getAPI';
 
 export default function Conta() {
   const [enderecoS, setEnderecoS] = useState([]);
   const [tiposPeleS, setTiposPeleS] = useState([]);
+  const [usuarioInfo, setUsuarioInfo] = useState([])
   const [mostrar, setMostrar] = useState(true);
   const [npagos, setNpagos] = useState(false);
   const [processando, setProcessando] = useState(false);
@@ -20,6 +21,17 @@ export default function Conta() {
   const [bairro, setBairro] = useState('');
   const [cidade, setCidade] = useState('');
   const [cep, setCep] = useState(0);
+
+
+
+  const [ nome, setNome ] = useState('')
+  const [ sobrenome, setSobrenome ] = useState('')
+  const [ tipopele, setTipopele ] = useState('')
+  const [ email, setEmail ] = useState('')
+  const [ cpf, setCpf ] = useState('')
+  const [ telefone, setTelefone ] = useState('')
+
+
 
 
   async function cadastrarEndereco() {
@@ -201,40 +213,7 @@ export default function Conta() {
         </div>
 
         <div className='s2-2'>
-          <div className='s2-2-info'>
-            <p>nome:</p>
-            <p>***</p>
-          </div>
-
-          <div className='s2-2-info'>
-            <p>sobrenome:</p>
-            <p>***</p>
-          </div>
-
-          <div className='s2-2-info'>
-            <p>tipo de pele:</p>
-            <select>
-              <option value={0}>selecione</option>
-              {tiposPeleS.map((item) =>
-                <option value={item.id}> {item.nome} </option>
-              )}
-            </select>
-          </div>
-
-          <div className='s2-2-info'>
-            <p>email:</p>
-            <p>***</p>
-          </div>
-
-          <div className='s2-2-info'>
-            <p>cpf:</p>
-            <p>***</p>
-          </div>
-
-          <div className='s2-2-info'>
-            <p>telefone:</p>
-            <p>***</p>
-          </div>
+       
 
 
         </div>

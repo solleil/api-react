@@ -222,7 +222,7 @@
         align-items: center;
         text-align: center;
         width: 15vw;
-        height: 5vh;
+        height: 6vh;
         margin: 0px;
         background-color: #ffe998e3;
         padding: 0px 0px 0px 20px;
@@ -265,4 +265,56 @@
     }
 
 
+
+
+
+
+
+
+
+
+
+    @media (max-width: 500px) {
+
+
+        .pisca-s1{
+            display: flex;
+            align-items: center;
+
+            gap: 5px;
+        }
+
+
+        .c1{
+            height: 8vh !important;
+        }
+        .c1-1 img{
+            height: 4vh;
+        }
+        #logo{
+            font-size: 25px !important;
+        }
+
+
+        .c2{
+
+
+            img{
+                height: 2vh;
+            }
+            input{
+                width: 25vw;
+            }
+        } 
+        .input{
+            width: 40vw;
+            border: 1px solid black;
+        }
+
+    }
+
+
+
+
+    
 }
