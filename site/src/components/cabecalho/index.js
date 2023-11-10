@@ -3,7 +3,7 @@ import './index.scss';
 
 
 export default function Cabecalho() {
-      const[menu, setMenu] = useState(true)
+      const[menu, setMenu] = useState(false)
       const[categoria, setCategoria] = useState(false)
       const[tipoPele, setTipoPele] = useState(false)
       const[necessidades, setNecessidades] = useState(false)

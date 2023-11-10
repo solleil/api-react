@@ -33,7 +33,7 @@ export default function CadastrarUsuarioPage() {
     try {
       const r = await CadastrarUsuario(nome, sobrenome, telefone, email, cpf, data, senha)
 
-      alert('Usuario Cabastrado')
+      alert('Usuario Cadastrado')
 
     } catch (err) {
       alert(err.message);

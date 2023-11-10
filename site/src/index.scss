@@ -4,4 +4,10 @@ body {
   box-sizing: border-box;
   font-family: 'Questrial', sans-serif;
 
+  textarea:focus,
+    input:focus, button:focus , select:focus, a:focus{
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }
+
 }
