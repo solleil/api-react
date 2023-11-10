@@ -1,19 +1,40 @@
 import './index.scss'
 import Cabecalho from '../../../../components/cabecalho'
-import { useState } from 'react'
+import { useState } from 'react';
+import storage from 'local-storage';
+import { InserirCartao } from '../../../../api/postAPi';
 
 export default function Escolherpagamento() {
-
     const [cartao, setCartao] = useState(false);
+    const [cartaoDebito, setCartaoDebito] = useState(false);
+    const [nomeCartao, setNomeCartao] = useState('');
+    const [cvcCartao, setCVCCartao] = useState('');
+    const [numeroCartao, setNumeroCartao] = useState('');
+    const [validadeCartao, setValidadeCartao] = useState('');
+    const [mesValidade, setMesValidade] = useState('')
+    const [anoValidade, setanoValidade] = useState('');
+
+    
+    async function cadastrarcartao() {
+        try {
+            setValidadeCartao(`${anoValidade}/${mesValidade}`);
+            const id = storage('usuario-logado').id;
+            const resposta = await InserirCartao(nomeCartao, cvcCartao, numeroCartao, validadeCartao, id);
+            alert('cartão cadastrado');
+        } catch (err) {
+            alert(err.message);
+        }
+    }
+
 
     function MudarCartao() {
         setCartao(!cartao)
+        setCartaoDebito(false)
     }
-
-    const [cartaoDebito, setCartaoDebito] = useState(false);
 
     function MudarCartaoDebito() {
         setCartaoDebito(!cartaoDebito)
+        setCartao(false)
     }
 
     return (
@@ -72,7 +93,7 @@ export default function Escolherpagamento() {
 
                             <div className='info-tudo'>
                                 <div className='info'>
-                                    <input type='number' placeholder='número do cartão' className='i'></input>
+                                    <input type='number' placeholder='número do cartão' className='i' onChange={(e) => setNumeroCartao(e.target.value)}></input>
 
 
                                     <div className='info-1'>
@@ -80,31 +101,31 @@ export default function Escolherpagamento() {
 
 
                                         <div className='info-2'>
-                                            <select>
-                                                <option disabled selected>mês</option>
-                                                <option>janeiro</option>
-                                                <option>fevereiro</option>
-                                                <option>março</option>
-                                                <option>abril</option>
-                                                <option>maio</option>
-                                                <option>junho</option>
-                                                <option>julho</option>
-                                                <option>agosto</option>
-                                                <option>setembro</option>
-                                                <option>outubro</option>
-                                                <option>novembro</option>
-                                                <option>dezembro</option>
+                                            <select value={mesValidade} onChange={(e) => setMesValidade(e.target.value)}>
+                                                <option value={0}>mês</option>
+                                                <option value={1}>janeiro</option>
+                                                <option value={2}>fevereiro</option>
+                                                <option value={3}>março</option>
+                                                <option value={4}>abril</option>
+                                                <option value={5}>maio</option>
+                                                <option value={6}>junho</option>
+                                                <option value={7}>julho</option>
+                                                <option value={8}>agosto</option>
+                                                <option value={9}>setembro</option>
+                                                <option value={10}>outubro</option>
+                                                <option value={11}>novembro</option>
+                                                <option value={12}>dezembro</option>
                                             </select>
 
-                                            <select>
-                                                <option disabled selected>ano</option>
-                                                <option>2024</option>
-                                                <option>2025</option>
-                                                <option>2026</option>
-                                                <option>2027</option>
-                                                <option>2028</option>
-                                                <option>2029</option>
-                                                <option>2030</option>
+                                            <select value={anoValidade} onChange={(e) => setanoValidade(e.target.value)}>
+                                                <option value={0}>ano</option>
+                                                <option value={24}>2024</option>
+                                                <option value={25}>2025</option>
+                                                <option value={26}>2026</option>
+                                                <option value={27}>2027</option>
+                                                <option value={28}>2028</option>
+                                                <option value={29}>2029</option>
+                                                <option value={30}>2030</option>
                                             </select>
                                         </div>
                                     </div>
@@ -129,35 +150,30 @@ export default function Escolherpagamento() {
 
 
                                 <div className='info-lado'>
-                                    <input className='nome-cartao' type='text' placeholder='nome impresso no cartão'></input>
+                                    <input className='nome-cartao' type='text' placeholder='nome impresso no cartão' onChange={(e) => setNomeCartao(e.target.value)}></input>
 
                                     <p id='cod'>código de segurança:</p>
                                     <div className='infoo'>
-                                        <input className='codigo' type='text'></input>
+                                        <input className='codigo' type='text' onChange={(e) => setCVCCartao(e.target.value)}></input>
                                         <input className='codigo2' type='text' placeholder='CPF do titular'></input>
                                     </div>
                                     <div className='infoo2'>
-                                        
 
-                                            <div className='espaco'><input className='ch' type='checkbox'/></div>
-                                        
+
+                                        <div className='espaco'><input className='ch' type='checkbox' /></div>
+
                                         <label className='cont'>guardar para próxima compra</label>
-                                        <div className='espaco'><input className='ch' type='checkbox'/></div>
+                                        <div className='espaco'><input className='ch' type='checkbox' /></div>
                                         <label className='gua'> definir como padrão</label>
                                     </div>
                                 </div>
                             </div>
                             <div className='botao'>
-                               
-                                    <button>concluir cadastro</button>
-                             
+
+                                <button onClick={cadastrarcartao}>concluir cadastro</button>
+
                             </div>
-
-
-
-
-
-
+x
                         </div>
                     </>
                 }
@@ -215,19 +231,19 @@ export default function Escolherpagamento() {
                                             </select>
                                         </div>
                                         <div className='infoo2-Debito'>
-                                        
-                                            <div className='debito'> 
-                                                <input className='ch' type='checkbox'/>
+
+                                            <div className='debito'>
+                                                <input className='ch' type='checkbox' />
                                                 <label className='cont'>guardar para próxima compra</label>
                                             </div>
                                             <div className='debito'>
-                                                <input className='ch' type='checkbox'/>
+                                                <input className='ch' type='checkbox' />
                                                 <label className='gua'> definir como padrão</label>
                                             </div>
-                                      
+
+                                        </div>
                                     </div>
-                                    </div>
-                                  
+
 
 
 
@@ -245,14 +261,14 @@ export default function Escolherpagamento() {
                                         <input className='codigo' type='text'></input>
                                         <input className='codigo2' type='text' placeholder='CPF do titular'></input>
                                     </div>
-                                    
+
                                 </div>
-                                
+
                             </div>
                             <div className='botao'>
-                               
-                                    <button>concluir cadastro</button>
-                             
+
+                                <button>concluir cadastro</button>
+
                             </div>
 
 

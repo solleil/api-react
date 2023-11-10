@@ -21,7 +21,7 @@ export default function Conta() {
   const [cidade, setCidade] = useState('');
   const [cep, setCep] = useState(0);
 
-  
+
   async function cadastrarEndereco() {
     try {
       const id = storage('usuario-logado').id;
@@ -51,7 +51,7 @@ export default function Conta() {
 
 
 
-    function Mudar() {
+  function Mudar() {
     setMostrar(!mostrar)
   }
 
@@ -215,7 +215,7 @@ export default function Conta() {
             <p>tipo de pele:</p>
             <select>
               <option value={0}>selecione</option>
-              {tiposPeleS.map((item) => 
+              {tiposPeleS.map((item) =>
                 <option value={item.id}> {item.nome} </option>
               )}
             </select>
@@ -252,13 +252,13 @@ export default function Conta() {
         </div>
 
         <div className='s3-lado'>
-          {enderecoS.map((item) => 
+          {enderecoS.map((item) =>
             <div className='s3-2'>
               <p>Rua: {item.rua} </p> <p>Nº {item.endereco} </p> <p>Bairro: {item.bairro} </p> <p>Cidade: {item.cidade} </p>
               <p> Cel: *** </p> <p>Cep: {item.cep} </p>
             </div>
           )}
-          
+
 
           {mostrar === false &&
             <>
@@ -271,7 +271,7 @@ export default function Conta() {
                 <input type='text' placeholder='nº' className='numero' onChange={(e) => setNumero(e.target.value)} />
                 <input type='text' placeholder='bairro' className='bairro' onChange={(e) => setBairro(e.target.value)} />
                 <input type='text' placeholder='cidade' className='cidade' onChange={(e) => setCidade(e.target.value)} />
-                <input type='text' placeholder='cep' className='cep' onChange={(e) => setCep(e.target.value)}/>
+                <input type='text' placeholder='cep' className='cep' onChange={(e) => setCep(e.target.value)} />
 
                 <button onClick={cadastrarEndereco}> <img src='/assets/images/usuario/conta/salvar.png' alt='' />  </button>
                 <button> <img src='/assets/images/usuario/conta/editar.png' alt='' />  </button>

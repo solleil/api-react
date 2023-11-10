@@ -43,8 +43,8 @@ export async function AdicionarProduto(nomeProduto, ingrediente, descri, precoPr
 
 export async function logarUsuario(email, senha) {
     const resposta = await api.post('/login/cliente', {
-        email:email,
-        senha:senha
+        email: email,
+        senha: senha
     });
 
     return resposta.data;
@@ -59,7 +59,7 @@ export async function logarAdmin(email, senha) {
     return resposta.data;
 }
 
-export  async function InserirEndereco (rua, numero, bairro, cidade, cep, id) {
+export async function InserirEndereco(rua, numero, bairro, cidade, cep, id) {
     const resposta = await api.post('/endereco', {
         cep: cep,
         rua: rua,
@@ -70,6 +70,18 @@ export  async function InserirEndereco (rua, numero, bairro, cidade, cep, id) {
     })
 
     return resposta.data;
+}
+
+export async function InserirCartao(nome, cvc, numero, validade, IdCliente) {
+    const resposta = await api.post('/cartao', {
+        nome: nome,
+        cvc: cvc,
+        numero: numero,
+        validade: validade,
+        cliente: IdCliente
+    })
+
+    return resposta.data
 }
 
 

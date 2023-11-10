@@ -146,3 +146,19 @@ select
     from tb_endereco
     where id_cliente = 2;
     
+select
+	 id_cartao as id,
+     nm_cartao as nome,
+     ds_cvc    as cvs,
+     ds_numero as numero,
+     ds_validade as validade,
+     id_cliente as cliente
+     from tb_cartao;
+     
+insert into tb_cartao(
+	nm_cartao,
+    ds_cvc, 
+    ds_numero, 
+    ds_validade, 
+    id_cliente)
+values('teste', '000', '000-000-000', '23', 2);
