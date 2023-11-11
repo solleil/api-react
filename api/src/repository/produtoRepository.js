@@ -179,5 +179,5 @@ export async function inserirImagemProduto(imagem, id) {
     `;
     
     const [respo] = await connection.query(comando, [imagem, id])
-    return respo;
+    return respo.affectedRows;
 }

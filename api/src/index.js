@@ -11,6 +11,8 @@ servidor.use(express.json());
 import produtoController from './controller/produtoController.js';
 servidor.use(produtoController);
 
+servidor.use('/storage/fotos_gerais_produtos', express.static('storage/fotos_gerais_produtos'))
+
 import usuarioController from './controller/usuarioController.js';
 servidor.use(usuarioController);
 

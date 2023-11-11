@@ -81,11 +81,12 @@ server.put(('/imagem/produto/:id'), upload.single('foto_produto'), async (req, r
     const idProduto = req.params.id;
     const imagem = req.file.path;
     const respo = await inserirImagemProduto(imagem, idProduto);
-
     if (respo != 1) {
-      throw new Error('Erro ao Salvar imagem');
-    };
-    resp.status(204).send(respo)
+      throw new Error('Erro ao salvar imagem')
+    }
+
+
+    resp.status(204).send()
 
   } catch (err) {
     resp.status(400).send({ erro: err.message });
