@@ -5,6 +5,7 @@ import Rodape from '../../../../components/rodape';
 import './index.scss';
 import { CadastrarUsuario, InserirEndereco } from '../../../../api/postAPi';
 import { listarEndereco, listarTiposdePele } from '../../../../api/getAPI';
+import { editarEndereco } from '../../../../api/putAPI';
 
 export default function Conta() {
   const [enderecoS, setEnderecoS] = useState([]);
@@ -38,6 +39,17 @@ export default function Conta() {
     try {
       const id = storage('usuario-logado').id;
       const resposta = await InserirEndereco(rua, numero, bairro, cidade, cep, id);
+      alert("Endereço cadastrado com sucesso");
+
+    } catch (err) {
+      alert(err.message);
+    };
+  }
+
+  async function alterarEndereco() {
+    try {
+      const id = storage('usuario-logado').id;
+      const resposta = await editarEndereco(rua, numero, bairro, cidade, cep, id);
       alert("Endereço cadastrado com sucesso");
 
     } catch (err) {
@@ -253,7 +265,7 @@ export default function Conta() {
                 <input type='text' placeholder='cep' className='cep' onChange={(e) => setCep(e.target.value)} />
 
                 <button onClick={cadastrarEndereco}> <img src='/assets/images/usuario/conta/salvar.png' alt='' />  </button>
-                <button> <img src='/assets/images/usuario/conta/editar.png' alt='' />  </button>
+                <button onClick={alterarEndereco}> <img src='/assets/images/usuario/conta/editar.png' alt='' />  </button>
                 <button> <img src='/assets/images/usuario/conta/excluir.png' alt='' />  </button>
               </div>
             </>}
