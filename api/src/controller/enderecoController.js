@@ -1,4 +1,4 @@
-import { listarEndereco, inserirEndereco, deletarEndereco, listarDadosEndereco } from '../repository/enderecoRepository.js';
+import { listarEndereco, inserirEndereco, deletarEndereco, listarDadosEndereco, alterarEndereco } from '../repository/enderecoRepository.js';
 import { Router } from 'express';
 
 const server = Router();
@@ -46,5 +46,22 @@ server.delete(('/endereco/:id'), async (req, resp) => {
   }
 })
 
-export default server;
+server.put('/endereco/:id', async (req, resp) => {
 
+  try {
+      const params = Number(req.params.id);
+      const respo = req.body;
+      const { dados } = await alterarEndereco(params,respo);
+      resp.send(dados);
+
+  }
+
+  catch (err) {
+
+      resp.status(404).send({ erro: err.message });
+
+  }
+
+})
+
+export default server;
