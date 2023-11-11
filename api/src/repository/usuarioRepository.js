@@ -2,23 +2,39 @@ import { connection } from './connection.js';
 
 //GET DOS USUARIOS
 export async function listarTodosUsuario() {
-
     const comando = `
         select
-
-        nm_cliente      as nome,
-        ds_sobrenome    as sobrenome,
-        ds_telefone     as telefone,
-        ds_email        as email,
-        ds_cpf          as cpf,
-        dt_nasc         as nascimento,
-        ds_senha        as senha
+            id_cliente      as id,
+            nm_cliente      as nome,
+            ds_sobrenome    as sobrenome,
+            ds_telefone     as telefone,
+            ds_email        as email,
+            ds_cpf          as cpf,
+            dt_nasc         as nascimento,
+            ds_senha        as senha
         from tb_cliente
     `;
 
     const [result] = await connection.query(comando)
     return result;
+}
 
+export async function listarTodosUsuariosID(id) {
+    const comando = `
+        select
+            id_cliente      as id,
+            nm_cliente      as nome,
+            ds_sobrenome    as sobrenome,
+            ds_telefone     as telefone,
+            ds_email        as email,
+            ds_cpf          as cpf,
+            dt_nasc         as nascimento,
+            ds_senha        as senha
+        from tb_cliente
+        where id_cliente = ?
+    `;
+
+    const [result] = await connection.query(comando, [id])
 }
 
 //POST DOS USUARIOS
@@ -67,7 +83,7 @@ export async function loginUsuario(usuario) {
 };
 
 //PUT DOS USUARIOS
-export async function alterarUsuario(usuario) {
+export async function alterarUsuario(usuario, id) {
     const comando = `
         update tb_cliente
         set 
@@ -89,7 +105,7 @@ export async function alterarUsuario(usuario) {
         usuario.cpf,
         usuario.nascimento,
         usuario.senha,
-        usuario.id
+        id
     ]);
 
     const resultAR = result.AffectedRows;

@@ -1,8 +1,10 @@
 import './index.scss';
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState, useRef } from 'react';
+import storage from 'local-storage';
+import LoadingBar from 'react-top-loading-bar'
 import axios from 'axios';
-import { CadastrarUsuario } from '../../../../api/postAPi';
+import { CadastrarUsuario, logarUsuario } from '../../../../api/postAPi';
 
 
 export default function CadastrarUsuarioPage() {
@@ -21,7 +23,12 @@ export default function CadastrarUsuarioPage() {
 
   const [tipoPele, setTipoPele] = useState(0);
   const [tipoPeleSelecionado, setPeleSelecionado] = useState([]);
-  
+
+  const [carregando, setCarregando] = useState(false)
+
+  const navigate = useNavigate();
+  const ref = useRef();
+
 
 
   async function listarTiposdePele() {
@@ -30,25 +37,45 @@ export default function CadastrarUsuarioPage() {
   };
 
   async function Cadastrar() {
+    setCarregando(true);
     try {
       const r = await CadastrarUsuario(nome, sobrenome, telefone, email, cpf, data, senha)
+      logarCliente();
+    } catch (err) {
+      ref.current.complete();
+      setCarregando(false);
+      alert(err.message);
+    }
+  }
 
-      alert('Usuario Cadastrado')
+  async function logarCliente() {
+    ref.current.continuousStart();
+    try {
+      const respo = await logarUsuario(email, senha);
+      storage('usuario-logado', respo);
+
+      setTimeout(() => {
+        navigate('/');
+      }, 2500);
 
     } catch (err) {
       alert(err.message);
-      console.log(err.message);
     }
-
   }
+
+  useEffect(() => {
+    if (!storage('usuario-logado')) {
+      navigate('/');
+    }
+  }, []);
 
   useEffect(() => {
     listarTiposdePele()
   }, []);
 
   return (
-
     <main className="cadastro">
+      <LoadingBar color='#43B541' ref={ref} />
       <div className="tudx">
         <div className='imgg'>
           <img className="imagex" src='/assets/images/usuario/cadastro/aha.jpg' alt=''></img>
@@ -154,8 +181,8 @@ export default function CadastrarUsuarioPage() {
               </select>
             </div>
 
-            <button onClick={Cadastrar} className="botao">Cadastrar</button>
-           
+            <button onClick={Cadastrar} disabled={carregando} className="botao">Cadastrar</button>
+
 
             <Link className='pag-og' to={'/login'}>« voltar para login</Link>
 

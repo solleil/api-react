@@ -4,6 +4,7 @@ import { connection } from './connection.js'
 export async function listarEndereco() {
     const comando = `
     select
+        id_endereco     as id,
         ds_cep          as cep,
         ds_rua          as rua,
         nr_endereco     as endereco,
@@ -27,7 +28,7 @@ export async function listarDadosEndereco(id) {
         ds_bairro       as bairro,
         id_cliente      as cliente
     from tb_endereco
-    where id_cliente = ?
+    where id_endereco = ?
     `;
 
     const [respo] = await connection.query(comando, [id])
@@ -73,7 +74,7 @@ export async function alterarEndereco(id, endereco){
         ds_rua 		        = 	?,  
         nr_endereco	        = 	?,
         ds_cidade           =   ?,
-        ds_bairro           = 	?,
+        ds_bairro           = 	?
         where id_endereco   =   ?
         ;
     `

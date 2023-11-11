@@ -1,6 +1,6 @@
 import './index.scss';
 import storage from 'local-storage'
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import LoadingBar from 'react-top-loading-bar'
 import { logarUsuario } from '../../../../api/postAPi.js';
@@ -31,6 +31,12 @@ export default function Login() {
       setErro(err.response.data.erro)
     }
   }
+
+  useEffect(() => {
+    if (storage('usuario-logado')) {
+      navigate('/');
+    }
+  }, []);
 
   return (
     <div className="index_login_usuario">
