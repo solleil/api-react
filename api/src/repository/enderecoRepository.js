@@ -28,7 +28,7 @@ export async function listarDadosEndereco(id) {
         ds_bairro       as bairro,
         id_cliente      as cliente
     from tb_endereco
-    where id_endereco = ?
+    where id_cliente = ?
     `;
 
     const [respo] = await connection.query(comando, [id])
@@ -45,7 +45,8 @@ export async function inserirEndereco(endereco) {
          ds_bairro, 
          id_cliente)
     values(?, ?, ?, ?, ?, ?)
-    `
+    `;
+
     const [resp] = await connection.query(comando, [
         endereco.cep,
         endereco.rua,
@@ -79,7 +80,7 @@ export async function alterarEndereco(id, endereco){
         ;
     `
 
-    const [result] = await connection.query(comando,[
+    const [respo] = await connection.query(comando,[
         endereco.cep,
         endereco.rua,
         endereco.numero,
@@ -87,7 +88,6 @@ export async function alterarEndereco(id, endereco){
         endereco.bairro,
         id
     ])
-    const resultAR = result.AffectedRows;
-    return resultAR;
+    return respo.affectedRows;
 
 }

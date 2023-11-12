@@ -39,7 +39,7 @@ export default function CadastrarUsuarioPage() {
   async function Cadastrar() {
     setCarregando(true);
     try {
-      const r = await CadastrarUsuario(nome, sobrenome, telefone, email, cpf, data, senha)
+      await CadastrarUsuario(nome, sobrenome, telefone, email, cpf, data, senha)
       logarCliente();
     } catch (err) {
       ref.current.complete();
@@ -66,8 +66,8 @@ export default function CadastrarUsuarioPage() {
   useEffect(() => {
     if (!storage('usuario-logado')) {
       navigate('/');
-    }
-  }, []);
+    };
+  });
 
   useEffect(() => {
     listarTiposdePele()

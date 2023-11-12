@@ -5,13 +5,12 @@ const api = axios.create({
 });
 
 export async function editarEndereco(rua, numero, bairro, cidade, cep, id) {
-    const resposta = await api.post('/endereco', {
+    const resposta = await api.put(`/endereco/${id}`, {
         cep: cep,
         rua: rua,
         numero: numero,
         cidade: cidade,
-        bairro: bairro,
-        cliente: id
+        bairro: bairro
     })
 
     return resposta.data;

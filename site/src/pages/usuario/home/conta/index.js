@@ -1,11 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage'
 import Cabecalho from '../../../../components/cabecalho';
 import Rodape from '../../../../components/rodape';
 import './index.scss';
-import { CadastrarUsuario, InserirEndereco } from '../../../../api/postAPi';
+import { InserirEndereco } from '../../../../api/postAPi';
 import { listarEndereco, listarTiposdePele } from '../../../../api/getAPI';
 import { editarEndereco } from '../../../../api/putAPI';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import LoadingBar from 'react-top-loading-bar';
 
 export default function Conta() {
   const [enderecoS, setEnderecoS] = useState([]);
@@ -22,38 +26,49 @@ export default function Conta() {
   const [bairro, setBairro] = useState('');
   const [cidade, setCidade] = useState('');
   const [cep, setCep] = useState(0);
+  const [carregando, setCarregando] = useState(false);
+
+  const navigate = useNavigate();
+  const ref = useRef();
 
 
-
-  const [ nome, setNome ] = useState('')
-  const [ sobrenome, setSobrenome ] = useState('')
-  const [ tipopele, setTipopele ] = useState('')
-  const [ email, setEmail ] = useState('')
-  const [ cpf, setCpf ] = useState('')
-  const [ telefone, setTelefone ] = useState('')
-
-
+  const [nome, setNome] = useState('')
+  const [sobrenome, setSobrenome] = useState('')
+  const [tipopele, setTipopele] = useState('')
+  const [email, setEmail] = useState('')
+  const [cpf, setCpf] = useState('')
+  const [telefone, setTelefone] = useState('')
 
 
   async function cadastrarEndereco() {
+    ref.current.continuousStart();
+    setCarregando(true)
     try {
       const id = storage('usuario-logado').id;
-      const resposta = await InserirEndereco(rua, numero, bairro, cidade, cep, id);
-      alert("Endereço cadastrado com sucesso");
-
+      await InserirEndereco(rua, numero, bairro, cidade, cep, id);
+      setTimeout(() => {
+        toast.success("Endereço cadastrado com sucesso");
+      }, 2500);
     } catch (err) {
-      alert(err.message);
+      ref.current.complete();
+      setCarregando(true)
+      toast.error(err.message);
     };
   }
 
   async function alterarEndereco() {
+    ref.current.continuousStart();
+    setCarregando(true)
     try {
       const id = storage('usuario-logado').id;
-      const resposta = await editarEndereco(rua, numero, bairro, cidade, cep, id);
-      alert("Endereço cadastrado com sucesso");
-
+      await editarEndereco(rua, numero, bairro, cidade, cep, id);
+      setTimeout(() => {
+        toast.success("Endereço editado com sucesso");
+      }, 2500);
     } catch (err) {
-      alert(err.message);
+      ref.current.complete();
+      setCarregando(false);
+      toast.error(err.response.data.erro);
     };
   }
 
@@ -71,9 +86,13 @@ export default function Conta() {
   useEffect(() => {
     carregarEndereco()
     carregarTiposPele()
-  }, [])
+  }, []);
 
-
+  useEffect(() => {
+    if (!storage('usuario-logado')) {
+      navigate('/login');
+    }
+  });
 
   function Mudar() {
     setMostrar(!mostrar)
@@ -127,10 +146,10 @@ export default function Conta() {
 
 
   return (
-
     <div className="pag-conta">
       <Cabecalho />
-
+      <ToastContainer />
+      <LoadingBar color='#43B541' ref={ref} />
       <div className='s1'>
         <p>Olá, </p>
 
@@ -225,7 +244,7 @@ export default function Conta() {
         </div>
 
         <div className='s2-2'>
-       
+
 
 
         </div>
@@ -246,7 +265,7 @@ export default function Conta() {
           {enderecoS.map((item) =>
             <div className='s3-2'>
               <p>Rua: {item.rua} </p> <p>Nº {item.endereco} </p> <p>Bairro: {item.bairro} </p> <p>Cidade: {item.cidade} </p>
-              <p> Cel: *** </p> <p>Cep: {item.cep} </p>
+              <p>Cep: {item.cep} </p>
             </div>
           )}
 
@@ -264,7 +283,7 @@ export default function Conta() {
                 <input type='text' placeholder='cidade' className='cidade' onChange={(e) => setCidade(e.target.value)} />
                 <input type='text' placeholder='cep' className='cep' onChange={(e) => setCep(e.target.value)} />
 
-                <button onClick={cadastrarEndereco}> <img src='/assets/images/usuario/conta/salvar.png' alt='' />  </button>
+                <button onClick={cadastrarEndereco} disabled={carregando}> <img src='/assets/images/usuario/conta/salvar.png' alt='' />  </button>
                 <button onClick={alterarEndereco}> <img src='/assets/images/usuario/conta/editar.png' alt='' />  </button>
                 <button> <img src='/assets/images/usuario/conta/excluir.png' alt='' />  </button>
               </div>

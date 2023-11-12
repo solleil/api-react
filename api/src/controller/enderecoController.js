@@ -15,7 +15,6 @@ server.get(('/endereco'), async (req, resp) => {
 
 server.get(('/endereco/:id'), async (req, resp) => {
   try {
-
     const params = req.params.id;
     const respo = await listarDadosEndereco(params);
     resp.send(respo);
@@ -47,21 +46,15 @@ server.delete(('/endereco/:id'), async (req, resp) => {
 })
 
 server.put('/endereco/:id', async (req, resp) => {
-
   try {
-    const params = Number(req.params.id);
+    const params = req.params.id;
     const respo = req.body;
     const dados = await alterarEndereco(params, respo);
     resp.send(dados);
 
-  }
-
-  catch (err) {
-
+  } catch (err) {
     resp.status(404).send({ erro: err.message });
-
   }
-
 })
 
 export default server;
