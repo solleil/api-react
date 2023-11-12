@@ -7,8 +7,7 @@ import './index.scss';
 import { InserirEndereco } from '../../../../api/postAPi';
 import { listarEndereco, listarTiposdePele } from '../../../../api/getAPI';
 import { editarEndereco } from '../../../../api/putAPI';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import LoadingBar from 'react-top-loading-bar';
 
 export default function Conta() {
@@ -41,14 +40,13 @@ export default function Conta() {
 
 
   async function cadastrarEndereco() {
-    ref.current.continuousStart();
+    ref.current.complete();
     setCarregando(true)
     try {
       const id = storage('usuario-logado').id;
       await InserirEndereco(rua, numero, bairro, cidade, cep, id);
-      setTimeout(() => {
-        toast.success("Endereço cadastrado com sucesso");
-      }, 2500);
+      toast.success("Endereço cadastrado com sucesso");
+      carregarEndereco();
     } catch (err) {
       ref.current.complete();
       setCarregando(true)
@@ -57,14 +55,13 @@ export default function Conta() {
   }
 
   async function alterarEndereco() {
-    ref.current.continuousStart();
+    ref.current.complete();
     setCarregando(true)
     try {
       const id = storage('usuario-logado').id;
       await editarEndereco(rua, numero, bairro, cidade, cep, id);
-      setTimeout(() => {
-        toast.success("Endereço editado com sucesso");
-      }, 2500);
+      carregarEndereco();
+      toast.success("Endereço editado com sucesso");
     } catch (err) {
       ref.current.complete();
       setCarregando(false);
@@ -75,6 +72,12 @@ export default function Conta() {
   async function carregarEndereco() {
     const id = storage('usuario-logado').id;
     const respo = await listarEndereco(id);
+    if (respo) {
+      setCarregando(true);
+    }
+    if (!respo) {
+      setCarregando(false)
+    }
     setEnderecoS(respo);
   }
 
@@ -148,7 +151,6 @@ export default function Conta() {
   return (
     <div className="pag-conta">
       <Cabecalho />
-      <ToastContainer />
       <LoadingBar color='#43B541' ref={ref} />
       <div className='s1'>
         <p>Olá, </p>

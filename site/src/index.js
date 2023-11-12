@@ -2,6 +2,8 @@ import React from 'react';
 import './index.scss';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Conta from './pages/usuario/home/conta';
 import Inicial from './pages/usuario/home/inicial'
@@ -34,6 +36,7 @@ import Pagaprovado from './pages/usuario/pagamento/aprovado';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <ToastContainer />
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Inicial />} />
@@ -45,7 +48,7 @@ root.render(
         <Route path='/produtos' element={<Produtos />} />
         <Route path='/status' element={<Status />} />
         <Route path='/carrinho' element={<Carrinho />} />
-        <Route path='/inicial/produto' element={<IniProdutos />} />
+        <Route path='/inicial/produto/:idParams' element={<IniProdutos />} />
         <Route path='/info' element={<Info />} />
         <Route path='/enviado' element={<Enviado />} />
 
@@ -55,7 +58,7 @@ root.render(
         <Route path='/filtrarproduto' element={<FiltrarProduto />} />
         <Route path='/addproduto' element={<AddProduto />} />
         <Route path='/alterarstatus' element={<AlterarStatus />} />
-        <Route path='/editarproduto' element={<EditarProduto />} />
+        <Route path='/editarproduto/:idParams' element={<EditarProduto />} />
         <Route path='/home/adm' element={<Inicialadm />} />
         <Route path='/login/adm' element={<Loginadm />} />
         <Route path='/graficos' element={<Graficos />} />
