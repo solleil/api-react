@@ -7,14 +7,20 @@
     overflow: hidden;
     
     .exemplo{
-       height: 54vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+       height: 40vh;
+        width: 60vw;
         padding: 10px;
+        margin-left: 15%;
     }
 
     .td-info{
 
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
        
        
@@ -503,3 +509,94 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    .pag-info {
+        .opc-info,
+        .avaliac {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .opc-1,
+        .ingred {
+            width: 100%;
+        }
+
+        .info,
+             
+        .limpador{
+
+            h2{
+               font-size: 20px;
+            }
+
+        }
+
+
+
+        h3{
+            font: 10px "reno";
+        }
+        h2{
+            font: 12px "reno";
+        }
+
+        .ml{
+
+            width: 15vw;
+            margin: 10px;
+            border-radius: 20px;
+            border: 1px solid #FFE898;
+            padding: 8px;
+            background-color: white;
+
+        }
+
+        .qtd-info {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+             border: 2px solid #FFE898;
+             border-radius: 25px;
+             width: 20vw;
+             height: 10vh;
+             display:flex ;
+             margin-left: 10%;
+            flex-direction: row;
+     
+         
+
+        
+        }
+
+        .add-info button {
+            width: 100%;
+        }
+
+        .avaliac .star {
+            width: 100%;
+        }
+
+        .s6 {
+            padding: 10px;
+        }
+
+        
+    }
+}
