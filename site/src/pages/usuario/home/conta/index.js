@@ -43,10 +43,16 @@ export default function Conta() {
     ref.current.complete();
     setCarregando(true)
     try {
-      const id = storage('usuario-logado').id;
-      await InserirEndereco(rua, numero, bairro, cidade, cep, id);
-      toast.success("Endereço cadastrado com sucesso");
-      carregarEndereco();
+      if(storage('usuario-logado')){
+        const id = storage('usuario-logado').id;
+        await InserirEndereco(rua, numero, bairro, cidade, cep, id);
+        toast.success("Endereço cadastrado com sucesso");
+        carregarEndereco();
+      }
+      else{
+
+      }
+     
     } catch (err) {
       ref.current.complete();
       setCarregando(true)
@@ -148,12 +154,20 @@ export default function Conta() {
 
 
 
+  function LogOut(){
+    storage.remove('usuario-logado')
+    navigate('/')
+  }
+
+
   return (
     <div className="pag-conta">
       <Cabecalho />
       <LoadingBar color='#43B541' ref={ref} />
       <div className='s1'>
-        <p>Olá, </p>
+      <div className='s1-0'> <p>Olá, </p> <button onClick={LogOut}>Log-out</button> </div>
+        
+
 
         <div className='s1-1'>
           <p>seus pedidos:</p>
