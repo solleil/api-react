@@ -33,7 +33,7 @@ export default function Login() {
   }
 
   useEffect(() => {
-    if (!storage('usuario-logado')) {
+    if (storage('usuario-logado')) {
       navigate('/');
     }
   });

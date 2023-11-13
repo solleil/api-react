@@ -60,7 +60,7 @@ export async function inserirEndereco(endereco) {
 
 export async function deletarEndereco(id) {
     const comando = `
-    delete from tb_endereco where id_endereco = ?
+    delete from tb_endereco where id_cliente = ?
     `;
 
     const [resp] = await connection.query(comando, [id]);
