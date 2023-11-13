@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 const Carrossel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Array com as informações dos slides
   const slides = [
     {
       image: '/assets/images/geral/mdl1.png',

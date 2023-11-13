@@ -86,6 +86,14 @@ export default function Inicial() {
         </div>
       </div>
 
+      <div className='s6'>
+        <div className='pisca'>
+        <h1>
+        <span className='pisca-s6'> <p>CONHEÇA</p> <p>NOSSOS</p> <p>PRODUTOS</p></span>
+        </h1>
+        </div>
+      </div>
+
       <Rodape />
     </div>
   );
