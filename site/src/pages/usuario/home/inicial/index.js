@@ -49,7 +49,7 @@ export default function Inicial() {
           <img src='/assets/images/usuario/inicial/s2-1.png' alt='' /> <p>sobre nós</p>
         </div>
         <div className='s2-2'>
-          <a href='/inicial/produto'> <img src='/assets/images/usuario/inicial/s2-2.png' alt='' /> <p> nossos produtos </p>  </a>
+          <a href='/inicial/produto/:idParams'> <img src='/assets/images/usuario/inicial/s2-2.png' alt='' /> <p> nossos produtos </p>  </a>
         </div>
         <div className='s2-3'>
           <img src='/assets/images/usuario/inicial/s2-3.png' alt='' /> <p> ajuda </p>
