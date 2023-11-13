@@ -1,5 +1,6 @@
 .ka{
     background-color: white;
+    overflow: hidden;
     
     .cla{
         display: flex;
@@ -212,16 +213,10 @@
     }
 }
 
-@media (max-width: 660px) {
+@media (max-width: 550px) {
     .ka{
         input{
-            
-            height: 5vh;
-        }
-        
-        button{
-            width: 30vw;
-            height: 6vh;
+           width: 10px;
         }
 
     }

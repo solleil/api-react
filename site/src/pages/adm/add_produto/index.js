@@ -133,6 +133,15 @@ export default function AddProduto() {
           </div>
         </section>
         <section className='sec_2'>
+
+
+
+
+
+
+
+
+
           <div className='sec2_container-1'>
             <div className='container1_c1'>
               <label>Nome Produto</label>
@@ -154,8 +163,19 @@ export default function AddProduto() {
               <input type='text' value={ingrediente} onChange={e => setIngrediente(e.target.value)}></input>
 
             </div>
-            <button id='botao' onClick={removerdados}>Excluir Dados</button>
+
+            <div className='container2c3_bloco-2'>
+                <label>Indicações</label>
+                <textarea value={indica} onChange={(e) => setIndica(e.target.value)} />
+              </div>
+            <button className='botao' onClick={removerdados}>Excluir Dados</button>
           </div>
+
+
+
+
+
+
           <div className='sec2_container-2'>
             <div className='container2_c1'>
 
@@ -228,13 +248,15 @@ export default function AddProduto() {
                   )}
                 </select>
               </div>
-              <div className='container2c3_bloco-2'>
-                <label>Indicações</label>
-                <textarea value={indica} onChange={(e) => setIndica(e.target.value)} />
-              </div>
+              
             </div>
-            <button id='botao' onClick={cadastarProduto} disabled={carregando}>Confirmar Cadastro</button>
+            <button className='botao' onClick={cadastarProduto} disabled={carregando}>Confirmar Cadastro</button>
           </div>
+
+
+
+
+
         </section>
       </div>
     </div>
