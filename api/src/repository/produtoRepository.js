@@ -15,7 +15,8 @@ export async function listarTodosProduto() {
         bt_disponivel   as disponivel,
         qtd_estoque     as quantidade,
         id_ingr_atv     as ingrediente_atv,
-        ds_indicacao    as indicacao
+        ds_indicacao    as indicacao,
+        img_produto     as imagem
     from tb_produto;
     `
     let [resposta] = await connection.query(comando)
