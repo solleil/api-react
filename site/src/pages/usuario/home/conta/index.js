@@ -14,7 +14,7 @@ import LoadingBar from 'react-top-loading-bar';
 export default function Conta() {
   const [enderecoS, setEnderecoS] = useState([]);
   const [tiposPeleS, setTiposPeleS] = useState([]);
-  const [dadoS, setdadoS ] = useState([])
+  const [usuarioInfo, setUsuarioInfo] = useState([])
   const [mostrar, setMostrar] = useState(true);
   const [npagos, setNpagos] = useState(false);
   const [processando, setProcessando] = useState(false);
@@ -26,18 +26,18 @@ export default function Conta() {
   const [bairro, setBairro] = useState('');
   const [cidade, setCidade] = useState('');
   const [cep, setCep] = useState(0);
+  const [carregando, setCarregando] = useState(false);
+
+  const navigate = useNavigate();
+
+
   const [nome, setNome] = useState('')
   const [sobrenome, setSobrenome] = useState('')
-  const [tipopele, setTipopele] = useState('')
+  const [tiposPeleS, setTiposPeleS] = useState([]);
   const [email, setEmail] = useState('')
   const [cpf, setCpf] = useState('')
   const [telefone, setTelefone] = useState('')
-  const [carregando, setCarregando] = useState(false);
-  const navigate = useNavigate();
 
-  if (storage('usuario-logado')) {
-    var id = storage('usuario-logado').id;
-  }
 
   async function cadastrarEndereco() {
     setCarregando(true)
@@ -79,6 +79,7 @@ export default function Conta() {
   }
 
   async function carregarEndereco() {
+    const id = storage('usuario-logado').id;
     const respo = await listarEndereco(id);
     setEnderecoS(respo);
   }
@@ -91,6 +92,8 @@ export default function Conta() {
     const respo = await listarTiposdePele();
     setTiposPeleS(respo);
   }
+
+ 
 
   useEffect(() => {
     carregarEndereco()
@@ -105,6 +108,10 @@ export default function Conta() {
 
   function Mudar() {
     setMostrar(!mostrar)
+  }
+
+  function muda() {
+    setMudar(!mudar)
   }
 
   function Mpagos() {
@@ -256,14 +263,49 @@ export default function Conta() {
 
         <div className='s2-1'>
           <p>dados pessoais:</p>
-          <p className='p' >editar <img src='/assets/images/usuario/conta/editar.png' alt='' /></p>
+          <p className='p' onClick={muda} >editar <img src='/assets/images/usuario/conta/editar.png' alt='' /></p>
         </div>
 
+        {
+          usuarioInfo.map(item =>
+            <div className='s2-2'>
+              <p> {item.nome}</p>
+              <p> {item.sobrenome}</p>  
+              <p> {item.email}</p>
+              <p> {item.cpf}</p>
+              <p> {item.telefone}</p>
+            </div>
+              )
+            }
+
+        {mudar === false &&
+            <>
+            </>}
+
+          {mudar === true &&
         <div className='s2-2'>
+        
+          <div className='s2-3'>
 
+            <input type='text' placeholder='Nome' value={nome} onChange={e => setNome(e.target.value)}></input>
+            <input type='text' placeholder='Sobrenome' value={sobrenome} onChange={e => setSobrenome(e.target.value)}></input>
+            <select type='text' value={tiposPeleS} onChange={e => setTiposPeleS(e.target.value)}> 
+              <option>Tipos de pele</option>
+              {
+              tiposPeleS.map (item =>
+                <option value={item.id}> {item.nome} </option>)
+            }
+            </select>
+          </div>
 
-
+          <div className='s2-4'>
+            <input type='text' placeholder='Email' value={email} onChange={e => setEmail(e.target.value)}></input>
+            <input type='text' placeholder='Cpf' value={cpf} onChange={e => setCpf(e.target.value)}></input>
+            <input type='text' placeholder='Telefone' value={telefone} onChange={e => setTelefone(e.target.value)}></input>
+          </div>
+          
         </div>
+}
 
       </div>
 

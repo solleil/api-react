@@ -39,16 +39,21 @@ export default function CadastrarUsuarioPage() {
   async function Cadastrar() {
     setCarregando(true);
     try {
+
       await CadastrarUsuario(nome, sobrenome, telefone, email, cpf, data, senha)
       logarCliente();
+
     } catch (err) {
+
       ref.current.complete();
       setCarregando(false);
       alert(err.message);
+
     }
   }
 
   async function logarCliente() {
+    
     ref.current.continuousStart();
     try {
       const respo = await logarUsuario(email, senha);
@@ -65,7 +70,7 @@ export default function CadastrarUsuarioPage() {
 
   useEffect(() => {
     if (!storage('usuario-logado')) {
-      navigate('/');
+      navigate('/cadastro');
     };
   });
 
