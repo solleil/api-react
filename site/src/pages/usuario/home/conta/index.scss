@@ -4,6 +4,7 @@
     align-items: center;
     text-align: center;
     gap:18px;
+    overflow: hidden;
    
 
 
@@ -94,7 +95,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100vw;
+        width: 100%;
     }
     .s2-1{
         display: flex;
@@ -107,52 +108,41 @@
     .s2-1 img{
         height: 2vh;
     }
-
-
-
     .s2-2{
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-
-        width: 80vw;
-        gap: 15px
-    }
-    .p:hover{
-        cursor: pointer;
-        font-size: 18px;
-        transition: 0.4s;
-    }
-    .s2-2-info{
-        
-
-        display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
-        width: 20vw;
-        height: 15vh;
-        gap: 0px;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        
+        margin: 15px;
+        
+        input {
+            border: 2px solid #fabc5988;
+            border-radius: 10px;
+            width: 20vw;
+            height: 5vh;
+            padding: 0 10px;
+        }
+        select {
+            border: 2px solid #fabc5988;
+            border-radius: 10px;
+            width: 20vw;
+            height: 5vh;
+            color: #6d6d6d;
+            padding: 0 10px;
+            
+        }
 
-    
     }
-
-    select{
-        border: none;
-        border-radius: 15px;
+    .s2-3{
+        display: flex;
+        flex-direction: row;
     }
-    select:hover{
-        cursor: pointer;
-        transition: 0.4s;
-        border:1px solid black
+    .s2-4{
+        display: flex;
+        flex-direction: row;
     }
-    option{
-        border: none;
-        background-color: none;
-    }
-
 
 
 
