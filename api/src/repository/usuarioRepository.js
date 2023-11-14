@@ -19,23 +19,6 @@ export async function listarTodosUsuario() {
     return result;
 }
 
-export async function listarTodosUsuariosID(id) {
-    const comando = `
-        select
-            id_cliente      as id,
-            nm_cliente      as nome,
-            ds_sobrenome    as sobrenome,
-            ds_telefone     as telefone,
-            ds_email        as email,
-            ds_cpf          as cpf,
-            dt_nasc         as nascimento,
-            ds_senha        as senha
-        from tb_cliente
-        where id_cliente = ?
-    `;
-
-    const [result] = await connection.query(comando, [id])
-}
 
 //POST DOS USUARIOS
 export async function inserirUsuario(usuario) {
