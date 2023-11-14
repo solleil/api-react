@@ -11,7 +11,7 @@ export default function Info() {
   const [n1, setN1] = useState(0)
   const [n2, setN2] = useState(0)
   const [result, setResult] = useState(0)
-  const [indic, setIndic] = useState(false);
+  const [indic, setIndic] = useState(true);
   const [comprov, setComprov] = useState(false);
   const [avalia, setAvalia] = useState(false);
   const [ingredientesatv, setIngrentesatv] = useState(false);
@@ -195,7 +195,7 @@ export default function Info() {
             <>
               <div className='comprova'>
 
-                <p>o Limpador Facial passou por uma série de estudos clínicos que garantem a<br /> segurança do produto:<br />
+                <p>o Limpador Facial passou por uma série de estudos clínicos que garantem <br />a segurança do produto:<br />
                   <b>Dermatologicamente testado em pele sensível -</b> produto seguro para ser<br /> aplicado sobre a pele;<br />
                   <b>Oftalmologicamente testado -</b>  produto seguro para ser aplicado, com os<br /> olhos fechados;<br />
                   <b>Não-fototóxico e não-sensibilizante -</b>  o produto não causa irritação/<br />sensibilização na pele;Não-comedogênico - o produto não promoveu aumento em<br /> comedões abertos e fechados, nem em pápulas e pústulas;<br />
