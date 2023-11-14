@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage'
 import Cabecalho from '../../../../components/cabecalho';
@@ -6,9 +6,9 @@ import Rodape from '../../../../components/rodape';
 import './index.scss';
 import { InserirEndereco } from '../../../../api/postAPi';
 import { listarEndereco, listarTiposdePele } from '../../../../api/getAPI';
+import { apagarEndereco } from '../../../../api/deleteAPI';
 import { editarEndereco } from '../../../../api/putAPI';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 import LoadingBar from 'react-top-loading-bar';
 
 export default function Conta() {
@@ -29,7 +29,6 @@ export default function Conta() {
   const [carregando, setCarregando] = useState(false);
 
   const navigate = useNavigate();
-  const ref = useRef();
 
 
   const [nome, setNome] = useState('')
@@ -41,32 +40,47 @@ export default function Conta() {
 
 
   async function cadastrarEndereco() {
-    ref.current.continuousStart();
     setCarregando(true)
     try {
-      const id = storage('usuario-logado').id;
-      await InserirEndereco(rua, numero, bairro, cidade, cep, id);
-      setTimeout(() => {
+      if(storage('usuario-logado')){
+        const id = storage('usuario-logado').id;
+        await InserirEndereco(rua, numero, bairro, cidade, cep, id);
         toast.success("Endereço cadastrado com sucesso");
-      }, 2500);
+        carregarEndereco();
+      }
+      else{
+
+      }
+     
     } catch (err) {
-      ref.current.complete();
       setCarregando(true)
       toast.error(err.message);
     };
   }
 
   async function alterarEndereco() {
-    ref.current.continuousStart();
-    setCarregando(true)
+    setCarregando(false)
     try {
       const id = storage('usuario-logado').id;
       await editarEndereco(rua, numero, bairro, cidade, cep, id);
-      setTimeout(() => {
-        toast.success("Endereço editado com sucesso");
-      }, 2500);
+      carregarEndereco(id);
+      toast.success("Endereço editado com sucesso");
     } catch (err) {
-      ref.current.complete();
+      setCarregando(false);
+      toast.error(err.response.data.erro);
+    };
+  }
+
+  async function deletarEndereco (){
+    
+    setCarregando(false)
+    
+    try {
+      const id = storage('usuario-logado').id;
+      await apagarEndereco(id);
+      carregarEndereco(id);
+      toast.success("Endereço excluido com sucesso");
+    } catch (err) {
       setCarregando(false);
       toast.error(err.response.data.erro);
     };
@@ -145,13 +159,20 @@ export default function Conta() {
 
 
 
+  function LogOut(){
+    storage.remove('usuario-logado')
+    navigate('/')
+  }
+
+
   return (
     <div className="pag-conta">
       <Cabecalho />
-      <ToastContainer />
-      <LoadingBar color='#43B541' ref={ref} />
+      <LoadingBar color='#43B541'/>
       <div className='s1'>
-        <p>Olá, </p>
+      <div className='s1-0'> <p>Olá, </p> <button onClick={LogOut}>Log-out</button> </div>
+        
+
 
         <div className='s1-1'>
           <p>seus pedidos:</p>
@@ -257,13 +278,13 @@ export default function Conta() {
       <div className='s3'>
 
         <div className='s3-1'>
-          <p>endereços</p>
+          <b>endereços</b>
           <p className='p' onClick={Mudar}>adicionar ou editar <img src='/assets/images/usuario/conta/editar.png' alt='' /></p>
         </div>
 
         <div className='s3-lado'>
           {enderecoS.map((item) =>
-            <div className='s3-2'>
+            <div className='s3-2' key={item.id}>
               <p>Rua: {item.rua} </p> <p>Nº {item.endereco} </p> <p>Bairro: {item.bairro} </p> <p>Cidade: {item.cidade} </p>
               <p>Cep: {item.cep} </p>
             </div>
@@ -285,7 +306,7 @@ export default function Conta() {
 
                 <button onClick={cadastrarEndereco} disabled={carregando}> <img src='/assets/images/usuario/conta/salvar.png' alt='' />  </button>
                 <button onClick={alterarEndereco}> <img src='/assets/images/usuario/conta/editar.png' alt='' />  </button>
-                <button> <img src='/assets/images/usuario/conta/excluir.png' alt='' />  </button>
+                <button onClick={deletarEndereco}> <img src='/assets/images/usuario/conta/excluir.png' alt='' />  </button>
               </div>
             </>}
 

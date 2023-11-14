@@ -3,6 +3,7 @@ import { connection } from "./connection.js";
 export async function listarTodosProduto() {
     let comando = `
     select 
+        id_produto      as id,
         nm_produto      as nome,
         ds_produto      as descricao,
         ds_tamanho      as tamanho,
@@ -14,7 +15,8 @@ export async function listarTodosProduto() {
         bt_disponivel   as disponivel,
         qtd_estoque     as quantidade,
         id_ingr_atv     as ingrediente_atv,
-        ds_indicacao    as indicacao
+        ds_indicacao    as indicacao,
+        img_produto     as imagem
     from tb_produto;
     `
     let [resposta] = await connection.query(comando)
@@ -101,7 +103,7 @@ export async function inserirProduto(produto) {
         ?)
     `;
 
-    const info = await connection.query(comando, [
+    const [info] = await connection.query(comando, [
         produto.nome,
         produto.descricao,
         produto.tamanho,
@@ -117,9 +119,7 @@ export async function inserirProduto(produto) {
         produto.marca,
         produto.necessidade
     ]);
-
-    produto.id = info.insertId
-    return info
+    return info;
 }
 
 //reparar
@@ -143,7 +143,7 @@ export async function alterarProduto(produto) {
         id_produto = ?
     `;
 
-    const result = await connection.query(comando, [
+    const [result] = await connection.query(comando, [
         produto.nome,
         produto.desc,
         produto.tamanho,
@@ -164,9 +164,8 @@ export async function deletarProduto(id) {
     let comando = `
     delete from tb_produto where id_produto = ?
     `;
-    const info = await connection.query(comando, [id])
-    const infoar = info.AffectedRows
-    return infoar
+    const [info] = await connection.query(comando, [id])
+    return info
 }
 
 export async function inserirImagemProduto(imagem, id) {
@@ -179,5 +178,5 @@ export async function inserirImagemProduto(imagem, id) {
     `;
     
     const [respo] = await connection.query(comando, [imagem, id])
-    return respo.affectedRows;
+    return respo
 }

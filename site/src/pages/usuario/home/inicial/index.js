@@ -4,6 +4,7 @@ import Cabecalho from '../../../../components/cabecalho'
 import Rodape from '../../../../components/rodape';
 import Carrossel from '../../../../components/carrossel'
 
+
 export default function Inicial() {
   const [mostrar, setMostrar] = useState(false)
   
@@ -49,7 +50,7 @@ export default function Inicial() {
           <img src='/assets/images/usuario/inicial/s2-1.png' alt='' /> <p>sobre nós</p>
         </div>
         <div className='s2-2'>
-          <a href='/inicial/produto'> <img src='/assets/images/usuario/inicial/s2-2.png' alt='' /> <p> nossos produtos </p>  </a>
+          <a href='/inicial/produto/:idParams'> <img src='/assets/images/usuario/inicial/s2-2.png' alt='' /> <p> nossos produtos </p>  </a>
         </div>
         <div className='s2-3'>
           <img src='/assets/images/usuario/inicial/s2-3.png' alt='' /> <p> ajuda </p>
@@ -77,7 +78,7 @@ export default function Inicial() {
       <div className='s5'>
         <p>Parcerias</p>
         <div className='s5-1'>
-            <a> <img src='/assets/images/usuario/inicial/sallve.png' alt='' /> </a>
+            <a href=''> <img src='/assets/images/usuario/inicial/sallve.png' alt='' /> </a>
           <img src='/assets/images/usuario/inicial/biossance.png' alt='' />
           <img src='/assets/images/usuario/inicial/creamy.png' alt='' />
           <img src='/assets/images/usuario/inicial/simple.png' alt='' />

@@ -28,10 +28,10 @@ server.post(('/endereco'), async (req, resp) => {
   try {
     const respo = req.body;
     const dados = await inserirEndereco(respo)
-    resp.send(dados)
+    resp.status(201).send(dados)
   }
   catch (err) {
-    resp.status(404).send({ erro: err.message });
+    resp.status(400).send({ erro: err.message });
   }
 })
 
@@ -49,8 +49,8 @@ server.put('/endereco/:id', async (req, resp) => {
   try {
     const params = req.params.id;
     const respo = req.body;
-    const dados = await alterarEndereco(params, respo);
-    resp.send(dados);
+    await alterarEndereco(params, respo);
+    resp.sendStatus(204);
 
   } catch (err) {
     resp.status(404).send({ erro: err.message });

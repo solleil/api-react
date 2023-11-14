@@ -413,6 +413,31 @@
     }
 
 
+    
+    .pisca-s6 {
+      animation: pisca-s6 2.5s infinite;
+       display: flex;
+      flex-direction: row;
+      margin-top: 15px;
+     gap: 5px; 
+    
+          
+
+  
+    }
+    
+    @keyframes pisca{
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      
+     
+    }
+
+
   }
 
 

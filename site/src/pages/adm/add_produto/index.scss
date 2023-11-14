@@ -106,6 +106,8 @@
         display: flex;
         flex-direction: column;
         margin-right: 20px;
+        justify-content: space-between;
+        height: 80vh;
     }
 
     .container1_c1 {
@@ -143,6 +145,8 @@
     .sec2_container-2 {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+        height: 80vh;
     }
 
     .container2_c1 {
@@ -200,15 +204,16 @@
         border: 1px solid #E2BC81;
     }
 
-    #botao {
+    .botao {
         background-color: #fabc59;
         color: #fff;
         border: none;
         height: 50px;
         border-radius: 50px;
+        height: 5vh;
     }
 
-    #botao:hover {
+    .botao:hover {
         cursor: pointer;
         background-color: #d89d3d;
         transition: 0.3s;
@@ -294,6 +299,11 @@
         height: auto;
         border: 1px solid #ccc;
         border-radius: 5px; 
+      }
+
+      #imagem-recolher {
+        visibility: hidden;
+        position: absolute;
       }
 
 

@@ -16,3 +16,14 @@ export async function editarEndereco(rua, numero, bairro, cidade, cep, id) {
     return resposta.data;
 }
 
+export async function enviarImagem(id, imagem) {
+    const formData = new FormData();
+    formData.append('foto_produto', imagem)
+    const respo = await api.put(`/imagem/produto/${id}`, formData, {
+        headers: {
+            "Content-Type": "multipart/form-data"
+        },
+    })
+
+    return respo.status;
+}

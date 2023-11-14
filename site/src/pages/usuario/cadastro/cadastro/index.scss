@@ -134,10 +134,25 @@ input:focus, select:focus {
 }
 
 }
-@media (max-width: 830px) {
+@media (max-width: 550px) {
   main{
-  background-color: #e1c0a1;
-  width: 100%;
-  height: 200vh;
+    width: 100%;
+  }
+  .imgg{
+    display: none;
+  }
+  .T-0{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-220%, 10%);
+    border-radius: 20px;
+    display: flex;
+  }
+  form{
+    display: flex ;
+    
+    height: 50%;
+    background: #d8b490;
   }
 }

@@ -25,7 +25,7 @@ export default function MolduraProdutos(){
                     <div className='s1-start'>
                         <b>{item.nome}</b>
                         <p>{item.descricao}</p>
-                        <b>{item.preco}</b>
+                        <b>R${item.preco}</b>
                     </div>
                 </div>
             )}

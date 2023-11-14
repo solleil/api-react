@@ -150,7 +150,7 @@ export default function Info() {
               <div className='indica'>
 
                 <img className='indica-s1' src='/assets/images/usuario/info/indica.png' alt='' />
-                <h3 className='h3td'>Todos os tipos de pele</h3>
+                <p className='tdp'>Todos os tipos de pele</p>
 
               </div>
 
@@ -247,8 +247,17 @@ export default function Info() {
                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
                   <p className='num'>2</p>
                 </div>
-                
 
+
+
+
+
+
+
+
+
+                
+                <div className='td-avali'>
                 <div className='av-s1'>
                   <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
                   <p className='num'>1</p>
@@ -262,24 +271,25 @@ export default function Info() {
 
                   <div className='avc-s2'>
                     <img className='avcpf' src='/assets/images/geral/perfil.png' alt='' />
-                    <p>Produto incrivel, entrega totalmente rapida nota 10</p>
-                    <img id='final' className='avcimg' src='/assets/images/geral/estrelat.png' alt='' />
-                    <p id='final'>5.0</p>
+                    <p className='pdt'>Produto incrivel, entrega totalmente rapida nota 10</p>
+                    <img  className='avcimg' src='/assets/images/geral/estrelat.png' alt='' />
+                    <p className='final'>5.0</p>
                   </div>
 
                   <div className='avc-s2'>
                     <img className='avcpf' src='/assets/images/geral/perfil.png' alt='' />
                     <p>Eu ameiiiiiii, produto maravilhoso entrega rapida! super<br /> recomendo comprem.</p>
-                    <img id='final' className='avcimg' src='/assets/images/geral/estrelat.png' alt='' />
-                    <p id='final' >5.0</p>
+                    <img  className='avcimg' src='/assets/images/geral/estrelat.png' alt='' />
+                    <p className='final' >5.0</p>
                   </div>
 
                   <div className='avc-s2'>
                     <img className='avcpf' src='/assets/images/geral/perfil.png' alt='' />
                     <p>Não sabia que esse produto era tão bom, simplesmente<br /> comprem.</p>
-                    <img id='final' className='avcimg' src='/assets/images/geral/estrelat.png' alt='' />
-                    <p id='final'>5.0</p>
+                    <img  className='avcimg' src='/assets/images/geral/estrelat.png' alt='' />
+                    <p className='final'>5.0</p>
 
+                  </div>
                   </div>
 
 

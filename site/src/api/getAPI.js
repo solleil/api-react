@@ -40,6 +40,10 @@ export async function listarEndereco(id) {
 }
 
 
-export async function listarUsuario(id){
+// export async function listarUsuario(id){
     
-}
+// }
+
+export async function buscarImgProduto(imagem) {
+    return `${api.getUri()}/${imagem}`
+};

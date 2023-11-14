@@ -1,9 +1,10 @@
 import './index.scss';
-import { useState, useEffect } from 'react';
-
+import { useState, useEffect, useRef } from 'react';
+import { toast } from 'react-toastify';
 import CabecalhoAdm from '../../../components/cabecalhoAdm';
 import { listarCategorias, listarMarcas, listarNecessidades, listarTiposdePele, listarIngredientes } from '../../../api/getAPI.js';
 import { AdicionarProduto } from '../../../api/postAPi';
+import { enviarImagem } from '../../../api/putAPI.js';
 
 
 export default function AddProduto() {
@@ -29,7 +30,9 @@ export default function AddProduto() {
   const [n2, setN2] = useState(0)
   const [result, setResult] = useState(1);
   const [imagem, setImagem] = useState('')
+  const [carregando, setCarregando] = useState(false)
 
+  const ref = useRef();
 
   function mais() {
     const x = qtd + 1;
@@ -58,14 +61,17 @@ export default function AddProduto() {
   }
 
   async function cadastarProduto() {
+    setCarregando(true)
     try {
-      const resposta = await AdicionarProduto(nomeProduto, ingrediente, descri, precoProduto, tipopele, estoque, tamanho, qtd, idMarca, necess, ingre_atv, indica, categoria);
-
-      alert("Produto cadastrado");
-
+      const respo = await AdicionarProduto(nomeProduto, ingrediente, descri, precoProduto, tipopele, estoque, tamanho, qtd, idMarca, necess, ingre_atv, indica, categoria);
+      await enviarImagem(respo.insertId, imagem);
+      toast.success("Produto cadastrado");
+      setTimeout(() => {
+        setCarregando(false);
+      }, 2000);
     } catch (err) {
-      alert(err.message);
-
+      setCarregando(false);
+      toast.error(err.message);
     }
   }
 
@@ -99,15 +105,19 @@ export default function AddProduto() {
     carregarTiposPele();
     carregarMarcas();
     carregarIngredientes();
-     carregarIdCategorias();
+    carregarIdCategorias();
   }, [])
 
 
+  function EscolherImagem() {
+    document.getElementById('imagem-recolher').click();
+  }
 
-  const ImagemA = (event) => {
-    const arquivoSelecionado = event.target.files[0];
-    setImagem(URL.createObjectURL(arquivoSelecionado));
-  };
+  function mostrarImagem() {
+    return URL.createObjectURL(imagem)
+  }
+
+
 
   return (
     <div className="index_AddProduto">
@@ -123,6 +133,15 @@ export default function AddProduto() {
           </div>
         </section>
         <section className='sec_2'>
+
+
+
+
+
+
+
+
+
           <div className='sec2_container-1'>
             <div className='container1_c1'>
               <label>Nome Produto</label>
@@ -131,12 +150,11 @@ export default function AddProduto() {
               <input type='text' value={precoProduto} onChange={(e) => setPreco(Number(e.target.value))}></input>
             </div>
             <div className='container1_c2'>
-              <h2>Alterar Imagem</h2>
-              <div className='tela_alterar_img'>
-                <input type="file" accept="image/*" className='input-imagem' onChange={ImagemA} />
-                <img
-                  src={imagem} alt="Imagem" className="imagem-preview" />
-                <div className='tela_por_img'></div>
+              <h2>Inserir Imagem</h2>
+              <div className='tela_alterar_img' onClick={EscolherImagem}>
+                <input type="file" className='input-imagem' id='imagem-recolher' onChange={(e) => setImagem(e.target.files[0])} />
+                {!imagem && <h3>Insira uma Imagem!</h3>} 
+                {imagem && <img src={mostrarImagem()} alt="Imagem" className="imagem-preview" />}
               </div>
             </div>
             <div className='container1_c3'>
@@ -145,8 +163,19 @@ export default function AddProduto() {
               <input type='text' value={ingrediente} onChange={e => setIngrediente(e.target.value)}></input>
 
             </div>
-            <button id='botao' onClick={removerdados}>Excluir Dados</button>
+
+            <div className='container2c3_bloco-2'>
+                <label>Indicações</label>
+                <textarea value={indica} onChange={(e) => setIndica(e.target.value)} />
+              </div>
+            <button className='botao' onClick={removerdados}>Excluir Dados</button>
           </div>
+
+
+
+
+
+
           <div className='sec2_container-2'>
             <div className='container2_c1'>
 
@@ -161,7 +190,7 @@ export default function AddProduto() {
                 <select className='tipopele' value={tipopele} onChange={(e) => setTipopele(Number(e.target.value))}>
                   <option value={0}> selecione </option>
                   {TiposPele.map(item =>
-                    <option value={item.id}>{item.nome}</option>
+                    <option key={item.id} value={item.id}>{item.nome}</option>
                   )};
                 </select>
 
@@ -172,7 +201,7 @@ export default function AddProduto() {
                 <select value={idMarca} onChange={(e) => setIdMarca(Number(e.target.value))}>
                   <option> selecione </option>
                   {Marcas.map(item =>
-                    <option value={item.id}>{item.nome}</option>
+                    <option key={item.id} value={item.id}>{item.nome}</option>
                   )};
                 </select>
 
@@ -180,9 +209,9 @@ export default function AddProduto() {
               <div className='container2c2_coluna-2'>
 
                 <label>Estoque</label>
-                <select className='tipopele' value={estoque} onChange={e => setEstoque(Number(e.target.value))}>
-                  <option value={true}>Sim</option>
-                  <option value={false}>Não</option>
+                <select className='tipopele' value={estoque} onChange={(e) => setEstoque(Boolean(e.target.value))}>
+                  <option value={1}>Sim</option>
+                  <option value={0}>Não</option>
                 </select>
 
                 <label>Quantidade</label>
@@ -196,7 +225,7 @@ export default function AddProduto() {
                 <select value={necess} onChange={(e) => setNecess(Number(e.target.value))}>
                   <option value={0}> selecione </option>
                   {Necessidades.map(item =>
-                    <option value={item.id}>{item.nome}</option>
+                    <option key={item.id} value={item.id}>{item.nome}</option>
                   )};
                 </select>
               </div>
@@ -208,24 +237,26 @@ export default function AddProduto() {
                 <select value={ingre_atv} onChange={(e) => setIngre_atv(Number(e.target.value))}>
                   <option value={0}> selecione </option>
                   {IngrS.map(item =>
-                    <option value={item.id}>{item.nome}</option>
+                    <option key={item.id} value={item.id}>{item.nome}</option>
                   )};
                 </select>
                 <label>categorias</label>
                 <select value={categoria} onChange={(e) => setCategoria(Number(e.target.value))}>
                   <option value={0}>selecione</option>
                   {idCategoria.map(item =>
-                    <option value={item.id}>{item.nome}</option>
+                    <option key={item.id} value={item.id}>{item.nome}</option>
                   )}
                 </select>
               </div>
-              <div className='container2c3_bloco-2'>
-                <label>Indicações</label>
-                <textarea value={indica} onChange={(e) => setIndica(e.target.value)} />
-              </div>
+              
             </div>
-            <button id='botao' onClick={cadastarProduto}>Confirmar Cadastro</button>
+            <button className='botao' onClick={cadastarProduto} disabled={carregando}>Confirmar Cadastro</button>
           </div>
+
+
+
+
+
         </section>
       </div>
     </div>

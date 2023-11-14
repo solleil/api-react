@@ -114,3 +114,32 @@
     }    
 }
 
+@media screen and (max-width: 550px) {
+
+    .c1{
+        height: 8vh !important;
+    }
+    .c1-1 img{
+        height: 4vh;
+    }
+    #logo{
+        font-size: 25px !important;
+    }
+
+
+    .c2{
+
+
+        img{
+            height: 2vh;
+        }
+        input{
+            width: 25vw;
+        }
+    } 
+    .input{
+        width: 40vw;
+        border: 1px solid black;
+    }
+
+}

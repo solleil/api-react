@@ -43,7 +43,7 @@ server.get(('/pesquisa/produto'), async (req, resp) => {
   }
 })
 
-server.post('/produto/inserir', async (req, resp) => {
+server.post('/produto', async (req, resp) => {
   try {
     const body = req.body;
     const dados = await inserirProduto(body)
@@ -81,10 +81,6 @@ server.put(('/imagem/produto/:id'), upload.single('foto_produto'), async (req, r
     const idProduto = req.params.id;
     const imagem = req.file.path;
     const respo = await inserirImagemProduto(imagem, idProduto);
-    if (respo != 1) {
-      throw new Error('Erro ao salvar imagem')
-    }
-
 
     resp.status(204).send()
 
