@@ -207,7 +207,7 @@
         justify-content: center;
         align-items: center;
         background-color: #FFE898;
-        width: 20vw;
+        width: 15vw;
         height: 5vh;
         border-radius: 30px;
 
@@ -222,7 +222,12 @@
 
 
 
-            .tdp{
+            .indica-s1 p{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
                 font-size: 30px;
             }
 
@@ -408,9 +413,8 @@
      }
 
      .avcpf{
-        height: 4vh;
-        margin-bottom: 4%;
-        margin-left: 2%;
+       height: 4vh;
+       margin: 4px;
 
  
 
@@ -445,11 +449,14 @@
 
 
 
+             .avc-s2 p{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
 
-            .final{
-                margin-bottom: 5%;
-            }
-
+             }
+           
         }
 
       
@@ -521,6 +528,83 @@
 
    
    }
+
+   @media (max-width: 400px) {
+    .pag-info {
+        .opc-info,
+        .avaliac {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .opc-1,
+        .ingred {
+            width: 100%;
+        }
+
+        .info,
+             
+        .limpador{
+
+            h2{
+               font-size: 20px;
+            }
+
+        }
+
+
+
+        h3{
+            font: 10px "reno";
+        }
+        h2{
+            font: 12px "reno";
+        }
+
+        .ml{
+
+            width: 15vw;
+            margin: 10px;
+            border-radius: 20px;
+            border: 1px solid #FFE898;
+            padding: 8px;
+            background-color: white;
+
+        }
+
+        .qtd-info {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+             border: 2px solid #FFE898;
+             border-radius: 25px;
+             width: 20vw;
+             height: 10vh;
+             display:flex ;
+             margin-left: 10%;
+            flex-direction: row;
+     
+         
+
+        
+        }
+
+        .add-info button {
+            width: 100%;
+        }
+
+        .avaliac .star {
+            width: 100%;
+        }
+
+        .s6 {
+            padding: 10px;
+        }
+
+        
+    }
+}
 
    
 
