@@ -87,6 +87,46 @@ export default function Inicial() {
         </div>
       </div>
 
+      <div className='s6'>
+        <div className='pisca'>
+          <h1>
+          <span className='pisca-s6'><p>CONHEÇA NOSSOS PRODUTOS</p></span>
+          </h1>
+        </div>
+
+        <div className='s6-1'>
+            <div className='s6-img'>
+          <img className='s6-p1' src='/assets/images/usuario/inicial/pdts6.webp' alt='' />
+          <p>SÉRUM</p>
+        </div>
+
+        <div className='s6-img'>
+          <img className='s6-p1' src='/assets/images/usuario/inicial/pdtts6.webp' alt='' />
+          <p>GEL DE LIMPEZA</p>
+        </div>
+
+
+        <div className='s6-img'>
+          <img className='s6-p1' src='/assets/images/usuario/inicial/pdttts6.webp' alt='' />
+          <p>ÁGUA MICELAR</p>
+        </div>
+
+        <div className='s6-img'>
+          <img className='s6-p1' src='/assets/images/usuario/inicial/pdtttts6.png' alt='' />
+          <p> HIDRATANTE FACIL</p>
+        </div>
+
+
+
+
+
+        </div>
+
+      
+
+      </div>
+
+     
       <Rodape />
     </div>
   );

@@ -48,7 +48,7 @@ const Carrossel = () => {
                 key={index}
                 className={`carousel-item ${index === activeIndex ? 'active' : ''}`}
               >
-                <img src={slide.image} alt={`Slide ${index + 1}`} />
+                <img  className='slide-img' src={slide.image} alt={`Slide ${index + 1}`} />
                 <div className="carousel-caption">
                   <h3>{slide.title}</h3>
                   <p>

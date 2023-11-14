@@ -58,6 +58,8 @@ create table tb_pedido(
     id_cartao int,
     qtd_parcelas int,
     dt_pedido datetime,
+    vl_total  decimal(10,2),
+    qtd_produtos int,
     bt_pagamento boolean,
     bt_enviado boolean,
     foreign key (id_cliente) references tb_cliente(id_cliente),
@@ -119,6 +121,19 @@ create table tb_produto(
 );
 
 drop table tb_produto;
+
+
+
+create table tb_carrinho(
+id_carrinho   int primary key auto_increment,
+id_cliente    int,
+id_produto  int,
+foreign key (id_cliente) references tb_cliente(id_cliente),
+foreign key (id_produto) references tb_produto(id_produto)
+);
+drop table tb_carrinho;
+
+
 
 update
     tb_produto
