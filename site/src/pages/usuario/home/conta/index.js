@@ -14,7 +14,7 @@ import LoadingBar from 'react-top-loading-bar';
 export default function Conta() {
   const [enderecoS, setEnderecoS] = useState([]);
   const [tiposPeleS, setTiposPeleS] = useState([]);
-  const [usuarioInfo, setUsuarioInfo] = useState([])
+  const [dadoS, setdadoS ] = useState([])
   const [mostrar, setMostrar] = useState(true);
   const [npagos, setNpagos] = useState(false);
   const [processando, setProcessando] = useState(false);
@@ -26,32 +26,28 @@ export default function Conta() {
   const [bairro, setBairro] = useState('');
   const [cidade, setCidade] = useState('');
   const [cep, setCep] = useState(0);
-  const [carregando, setCarregando] = useState(false);
-
-  const navigate = useNavigate();
-
-
   const [nome, setNome] = useState('')
   const [sobrenome, setSobrenome] = useState('')
   const [tipopele, setTipopele] = useState('')
   const [email, setEmail] = useState('')
   const [cpf, setCpf] = useState('')
   const [telefone, setTelefone] = useState('')
+  const [carregando, setCarregando] = useState(false);
+  const navigate = useNavigate();
 
+  if (storage('usuario-logado')) {
+    var id = storage('usuario-logado').id;
+  }
 
   async function cadastrarEndereco() {
     setCarregando(true)
     try {
-      if(storage('usuario-logado')){
-        const id = storage('usuario-logado').id;
+      if (storage('usuario-logado')) {
         await InserirEndereco(rua, numero, bairro, cidade, cep, id);
         toast.success("Endereço cadastrado com sucesso");
-        carregarEndereco();
-      }
-      else{
+        carregarEndereco(id);
+      };
 
-      }
-     
     } catch (err) {
       setCarregando(true)
       toast.error(err.message);
@@ -61,7 +57,6 @@ export default function Conta() {
   async function alterarEndereco() {
     setCarregando(false)
     try {
-      const id = storage('usuario-logado').id;
       await editarEndereco(rua, numero, bairro, cidade, cep, id);
       carregarEndereco(id);
       toast.success("Endereço editado com sucesso");
@@ -71,12 +66,9 @@ export default function Conta() {
     };
   }
 
-  async function deletarEndereco (){
-    
+  async function deletarEndereco() {
     setCarregando(false)
-    
     try {
-      const id = storage('usuario-logado').id;
       await apagarEndereco(id);
       carregarEndereco(id);
       toast.success("Endereço excluido com sucesso");
@@ -87,9 +79,12 @@ export default function Conta() {
   }
 
   async function carregarEndereco() {
-    const id = storage('usuario-logado').id;
     const respo = await listarEndereco(id);
     setEnderecoS(respo);
+  }
+
+  async function carregarUsuario() {
+    
   }
 
   async function carregarTiposPele() {
@@ -159,7 +154,7 @@ export default function Conta() {
 
 
 
-  function LogOut(){
+  function LogOut() {
     storage.remove('usuario-logado')
     navigate('/')
   }
@@ -168,10 +163,10 @@ export default function Conta() {
   return (
     <div className="pag-conta">
       <Cabecalho />
-      <LoadingBar color='#43B541'/>
+      <LoadingBar color='#43B541' />
       <div className='s1'>
-      <div className='s1-0'> <p>Olá, </p> <button onClick={LogOut}>Log-out</button> </div>
-        
+        <div className='s1-0'> <p>Olá, </p> <button onClick={LogOut}>Log-out</button> </div>
+
 
 
         <div className='s1-1'>
