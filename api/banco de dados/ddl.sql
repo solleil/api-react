@@ -131,7 +131,7 @@ id_produto  int,
 foreign key (id_cliente) references tb_cliente(id_cliente),
 foreign key (id_produto) references tb_produto(id_produto)
 );
-
+drop table tb_carrinho;
 
 
 
