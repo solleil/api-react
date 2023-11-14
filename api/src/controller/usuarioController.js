@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { listarTodosUsuario, inserirUsuario, deletarUsuario, alterarUsuario, loginUsuario } from '../repository/usuarioRepository.js';
+import { listarTodosUsuario, inserirUsuario, deletarUsuario, alterarUsuario, loginUsuario, listarTodosUsuariosID } from '../repository/usuarioRepository.js';
 
 const server = Router()
 
