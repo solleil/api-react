@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './index.scss';
-
+import { useNavigate } from 'react-router-dom';
+import storage from 'local-storage'
 
 export default function Cabecalho() {
       const[menu, setMenu] = useState(false)
@@ -14,7 +15,7 @@ export default function Cabecalho() {
         setMenu(!menu)
     }
     
-
+    const navigate = useNavigate();
 
 
     function FCategorias(){
@@ -31,6 +32,11 @@ export default function Cabecalho() {
     }
 
 
+
+    function LogOut(){
+      storage.remove('usuario-logado')
+      navigate('/')
+    }
 
     return (
       
@@ -69,7 +75,7 @@ export default function Cabecalho() {
                  </div>
                   
 
-                <div className="c2-3"> <button> <img src="/assets/images/geral/fav.png" alt=""   /></button>
+                <div className="c2-3"> <button onClick={LogOut}> <img src="/assets/images/usuario/cabecalho/sair.png" alt=""   /></button>
                   <a href='/carrinho'> <img src="/assets/images/geral/sacola.png" alt=""/></a>
                   <a href='/conta' className='conta' >  <img src="/assets/images/geral/perfil.png" alt="" /></a></div>
                   

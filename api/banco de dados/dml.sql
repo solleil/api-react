@@ -314,3 +314,14 @@ insert into
     )
 values
 ('teste', '000', '000-000-000', '23', 2);
+
+
+select * from tb_carrinho 
+inner join tb_cliente as cliente 
+inner join tb_produto as produto
+
+on cliente.id_cliente = produto.id_produto
+;
+
+insert into tb_carrinho (id_cliente, id_produto)
+values (1,1);

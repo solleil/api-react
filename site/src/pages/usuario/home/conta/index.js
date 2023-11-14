@@ -159,10 +159,7 @@ export default function Conta() {
 
 
 
-  function LogOut(){
-    storage.remove('usuario-logado')
-    navigate('/')
-  }
+
 
 
   return (
@@ -170,7 +167,7 @@ export default function Conta() {
       <Cabecalho />
       <LoadingBar color='#43B541'/>
       <div className='s1'>
-      <div className='s1-0'> <p>Olá, </p> <button onClick={LogOut}>Log-out</button> </div>
+      <div className='s1-0'> <p>Olá, </p> </div>
         
 
 

@@ -25,9 +25,15 @@
 
         
         button{
-            border: none;
-             background-color: #fabc5988;
+            border: 1px solid #fabc599c;
+            background-color: #fabc5921;
              border-radius: 15px;
+             padding: 0px 8px 0px 8px ;
+        }
+        button:hover{
+            background-color: #fabc5963;
+            transition: 0.3s;
+            letter-spacing: 1px;
         }
     }
     .s1-1{

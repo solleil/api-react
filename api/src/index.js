@@ -41,4 +41,9 @@ import enderecoController from './controller/enderecoController.js';
 servidor.use(enderecoController)
 
 
+
+import carrinhoController from './controller/carrinhoController.js';
+servidor.use(carrinhoController)
+
+
 servidor.listen(process.env.PORT_LOCAL, () => console.log(`API online na porta ${process.env.PORT_LOCAL}`));
