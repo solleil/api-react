@@ -1,6 +1,5 @@
 import { connection } from './connection.js';
 
-//GET DOS USUARIOS
 export async function listarTodosUsuario() {
     const comando = `
         select
@@ -35,11 +34,10 @@ export async function listarUsuarioporId(id) {
     `;
 
     const [respo] = await connection.query(comando, [id])
-    return respo;
+    return respo[0];
 }
 
 
-//POST DOS USUARIOS
 export async function inserirUsuario(usuario) {
 
     const comando = `
@@ -84,7 +82,6 @@ export async function loginUsuario(usuario) {
     return result[0];
 };
 
-//PUT DOS USUARIOS
 export async function alterarUsuario(usuario, id) {
     const comando = `
         update tb_cliente
@@ -115,7 +112,6 @@ export async function alterarUsuario(usuario, id) {
 
 }
 
-//DELETE DOS USUARIOS
 export async function deletarUsuario(id) {
     const comando = `
     delete 

@@ -9,6 +9,11 @@ export async function listarProdutos() {
     return r.data;
 }
 
+export async function listarProdutosId(id) {
+    const r = await api.get(`/produto/${id}`);
+    return r.data;
+}
+
 export async function listarMarcas() {
     const r = await api.get('/marca');
     return r.data;
@@ -36,14 +41,21 @@ export async function listarCategorias() {
 
 export async function listarEndereco(id) {
     const r = await api.get(`/endereco/${id}`);
-    return r.data
+    return r.data;
 }
 
 
-// export async function listarUsuario(id){
-    
-// }
+export async function listarUsuario(id){
+    const r = await api.get(`/cliente/${id}`);
+    return r.data;
+}
 
-export async function buscarImgProduto(imagem) {
-    return `${api.getUri()}/${imagem}`
-};
+export async function listarCartao(id) {
+    const r = await api.get(`/cartao/${id}`)
+    return r.data
+}
+
+export async function listarAdminId(id) {
+    const r = await api.get(`/admin/${id}`);
+    return r.data;
+}

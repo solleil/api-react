@@ -3,18 +3,33 @@ import { connection } from './connection.js';
 export async function listarAdmin() {
     const comando = `
         select
-            id_admin            as id
+            id_admin            as id,
             nm_admin            as nome,
             ds_sobrenome        as sobrenome,
-            ds_cargo            as cargo,-  
-            ds_email            as email,
-        from tb_admin;
+            ds_cargo            as cargo,
+            ds_email            as email
+        from tb_admin
     `;
         
     const [resp] = await connection.query(comando)
     return resp;
 }
 
+export async function listarAdminId(id) {
+    const comando = `
+    select
+        id_admin            as id,
+        nm_admin            as nome,
+        ds_sobrenome        as sobrenome,
+        ds_cargo            as cargo,
+        ds_email            as email
+    from tb_admin
+    where id_admin = ?
+    `;
+
+    const [respo] = await connection.query(comando, [id]);
+    return respo[0];
+}
 
 export async function inserirAdmin(admin) {
     let comando = `
