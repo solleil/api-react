@@ -96,33 +96,33 @@ export default function Inicial() {
 
         <div className='s6-1'>
             <div className='s6-img'>
-          <img className='s6-p1' src='/assets/images/usuario/inicial/pdts6.webp' alt='' />
-          <p>SÉRUM</p>
+          <img className='s6-p1' src='/assets/images/usuario/inicial/pdts6.png' alt='' />
+          <p className='s6-p'>SÉRUM</p>
         </div>
 
         <div className='s6-img'>
-          <img className='s6-p1' src='/assets/images/usuario/inicial/pdtts6.webp' alt='' />
-          <p>GEL DE LIMPEZA</p>
+          <img className='s6-p1' src='/assets/images/usuario/inicial/pdtts6.png' alt='' />
+          <p className='s6-p'>GEL DE LIMPEZA</p>
         </div>
 
 
         <div className='s6-img'>
-          <img className='s6-p1' src='/assets/images/usuario/inicial/pdttts6.webp' alt='' />
-          <p>ÁGUA MICELAR</p>
+          <img className='s6-p1' src='/assets/images/usuario/inicial/pdttts6.png' alt='' />
+          <p className='s6-p'>ÁGUA MICELAR</p>
         </div>
 
         <div className='s6-img'>
           <img className='s6-p1' src='/assets/images/usuario/inicial/pdtttts6.png' alt='' />
-          <p> HIDRATANTE FACIL</p>
+          <p className='s6-p'> HIDRATANTE FACIL</p>
         </div>
 
-
-
-
-
+       
         </div>
 
-      
+       <div className='s7'>
+          <button className='s7-ver' >VER MAIS</button>
+        </div>
+
 
       </div>
 
