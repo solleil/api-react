@@ -1,7 +1,7 @@
 insert into
     tb_categoria(nm_categoria)
 values
-('Máscaras'),
+    ('Máscaras'),
     ('Limpadores'),
     ('Séruns'),
     ('Proteção solar'),
@@ -17,7 +17,7 @@ from
 insert into
     tb_tipo_pele(nm_tipo_pele)
 values
-('Todos os tipos'),
+    ('Todos os tipos'),
     ('Pele mista'),
     ('Pele seca'),
     ('Pele oleosa'),
@@ -32,7 +32,7 @@ from
 insert into
     tb_necessidade(nm_necessidade)
 values
-('Acne'),
+    ('Acne'),
     ('Oleosidade'),
     ('Olheira'),
     ('Cicatrizes/textura'),
@@ -48,7 +48,7 @@ from
 insert into
     tb_marca(nm_marca)
 values
-('Sallve'),
+    ('Sallve'),
     ('Principia'),
     ('La Roche'),
     ('Cerave'),
@@ -267,7 +267,7 @@ insert into
         ds_bairro
     )
 values
-('teste', 'teste', 'teste', 'teste', 'teste');
+    ('teste', 'teste', 'teste', 'teste', 'teste');
 
 select
     *
@@ -313,29 +313,38 @@ insert into
         id_cliente
     )
 values
-('teste', '000', '000-000-000', '23', 2);
+    ('teste', '000', '000-000-000', '23', 2);
 
+select
+    *
+from
+    tb_carrinho
+    inner join tb_cliente on tb_carrinho.id_cliente = tb_cliente.id_cliente
+    inner join tb_produto on tb_carrinho.id_produto = tb_produto.id_produto
+order by
+    id_carrinho;
 
+select
+    *
+from
+    tb_carrinho;
 
-  
- select *
-from tb_carrinho
-inner join tb_cliente on tb_carrinho.id_cliente = tb_cliente.id_cliente
-inner join tb_produto on tb_carrinho.id_produto = tb_produto.id_produto
-order by id_carrinho
-;
+insert into
+    tb_carrinho (id_cliente, id_produto)
+values
+    (1, 2);
 
-select * from tb_carrinho;
+insert into
+    tb_produto(nm_produto)
+values
+    ('teste');
 
-insert into tb_carrinho (id_cliente, id_produto)
-values (1,2);
+select
+    *
+from
+    tb_cliente;
 
-insert into tb_produto(nm_produto)
-values ('teste');
-
-select * from tb_cliente;
-
-
-insert into tb_admin(ds_email, ds_senha)
-values ('adm.com', 1234)
-
+insert into
+    tb_admin(ds_email, ds_senha)
+values
+    ('adm.com', 1234)

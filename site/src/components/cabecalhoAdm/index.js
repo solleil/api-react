@@ -2,21 +2,34 @@ import { useState, useEffect } from 'react';
 import storage from 'local-storage';
 import { useNavigate } from 'react-router-dom';
 import './index.scss'
+import { listarAdminId } from '../../api/getAPI';
 
 export default function CabecalhoAdm() {
+  const [admin, setAdmin] = useState({});
   const [menu, setMenu] = useState(false)
-  const [perfil, setPerfil] = useState(false)
+  const [perfil, setPerfil] = useState(false);
+  
+  const navigate = useNavigate();
+
+  if (storage('admin-logado')) {
+    var id = storage('admin-logado').id
+  }
+
+  async function carregarAdm() {
+    const respo = await listarAdminId(id);
+    setAdmin(respo)
+  }
 
   function Mudar() {
     setMenu(!menu)
   }
+
   function MudarP() {
     setPerfil(!perfil)
   }
 
-  const navigate = useNavigate();
-
   useEffect(() => {
+    carregarAdm()
     if (!storage('admin-logado')) {
       navigate('/login/adm')
     };
@@ -87,20 +100,13 @@ export default function CabecalhoAdm() {
           }
         </div>
 
-
-
-
-
-
-
         <div className='ac3-2'>
           {perfil === true &&
             <>
               <div className='perfilAberto'>
                 <img src='/assets/images/adm/inicial_adm/exemplo.png' alt='' />
-                <p>Elisangela Silva</p>
-                <p>Administrador Financeiro<br></br>São Paulo, São Jose dos Campos</p>
-                <p> <b>status:</b> online</p>
+                <p>{`${admin.nome} ${admin.sobrenome}}`}</p>
+                <p>{admin.cargo}<br></br>São Paulo</p>
                 <button onClick={Sair}>Sair</button>
               </div>
             </>

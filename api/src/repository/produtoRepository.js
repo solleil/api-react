@@ -17,7 +17,7 @@ export async function listarTodosProduto() {
         id_ingr_atv     as ingrediente_atv,
         ds_indicacao    as indicacao,
         img_produto     as imagem
-    from tb_produto;
+    from tb_produto
     `
     let [resposta] = await connection.query(comando)
     return resposta;
@@ -25,7 +25,7 @@ export async function listarTodosProduto() {
 
 export async function mostrarProdutosId(id) {
     const comando = `
-    select
+    select 
         id_produto      as id,
         nm_produto      as nome,
         ds_produto      as descricao,
@@ -38,7 +38,8 @@ export async function mostrarProdutosId(id) {
         bt_disponivel   as disponivel,
         qtd_estoque     as quantidade,
         id_ingr_atv     as ingrediente_atv,
-        ds_indicacao    as indicacao
+        ds_indicacao    as indicacao,
+        img_produto     as imagem
     from tb_produto
     where id_produto = ?`;
     const [respo] = await connection.query(comando, [id])

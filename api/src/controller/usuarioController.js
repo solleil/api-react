@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { listarTodosUsuario, inserirUsuario, deletarUsuario, alterarUsuario, loginUsuario } from '../repository/usuarioRepository.js';
+import { listarTodosUsuario, inserirUsuario, deletarUsuario, alterarUsuario, loginUsuario, listarUsuarioporId } from '../repository/usuarioRepository.js';
 
 const server = Router()
 
@@ -21,7 +21,7 @@ server.get(('/cliente/:id'), async (req, resp) => {
 
     try {
         const params = req.params.id
-        const respo = await listarTodosUsuariosID(params);
+        const respo = await listarUsuarioporId(params);
         resp.send(respo);
     }
 

@@ -24,7 +24,6 @@ export default function Inicialadm() {
               
             </div>
         </section>
-
         <section className='conteudo_meio'>
           <div className='contmeio_container-1'>
             <div className='contmeioc1_subcontainer-1'>
@@ -39,43 +38,6 @@ export default function Inicialadm() {
               <img src='/assets/images/adm/inicial_adm/grafico_produto.png' alt='' />
             </div>
           </div>
-          <div className='contmeio_container-2'>
-            <header className='titulo_avaliacoes'>
-              <h2> <img src='assets/images/geral/estrela.svg' alt='oi'/> Avaliações </h2>
-            </header>
-            <div className='tela_avaliacao'>
-              <h3>Sem avaliações</h3>
-            </div>
-          </div>
-        </section>
-        <section className='rank_produtos'>
-        <h2>Melhores Avaliações!</h2>
-         <div className='rankP'>
-          <div id='ranqueado'>
-            <h6>1º</h6>
-            <div className='rp_produto'>
-              <img src='assets/images/usuario/inicial/produto.png' alt='0'/>
-              <h3>Limpador Facial </h3>
-            </div>
-            <h5><img src='assets/images/geral/estrela.svg' alt='a' /> 5.0</h5>
-          </div>
-          <div id='ranqueado'>
-            <h6>2º</h6>
-            <div className='rp_produto'>
-              <img src='assets/images/usuario/inicial/produto.png' alt='0'/>
-              <h3>Limpador Facial </h3>
-            </div>
-              <h5><img src='assets/images/geral/estrela.svg' alt='a' /> 5.0</h5>
-          </div>
-          <div id='ranqueado'>
-            <h6>3º</h6>
-            <div className='rp_produto'>
-              <img src='assets/images/usuario/inicial/produto.png' alt='0'/>
-              <h3>Limpador Facial </h3>
-            </div>
-            <h5>  <img src='assets/images/geral/estrela.svg' alt='a' /> 5.0</h5>
-          </div>
-         </div>
         </section>
       </div>
     </div>

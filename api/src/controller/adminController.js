@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { alterarAdmin, deletarAdmin, inserirAdmin, listarAdmin, loginAdmin } from '../repository/adminRepository.js';
+import { alterarAdmin, deletarAdmin, inserirAdmin, listarAdmin, listarAdminId, loginAdmin } from '../repository/adminRepository.js';
 const server = Router()
 
 server.get(('/admin'), async (req, resp) => {
@@ -9,6 +9,16 @@ server.get(('/admin'), async (req, resp) => {
 
     } catch (err) {
         resp.status(404).send({ erro: err.message })
+    }
+})
+
+server.get(('/admin/:id'), async (req, resp) => {
+    try {
+        const params = req.params.id;
+        const resposta = await listarAdminId(params);
+        resp.send(resposta);
+    } catch (err) {
+        resp.status(404).send({erro: err.message})
     }
 })
 
