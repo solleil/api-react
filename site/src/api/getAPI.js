@@ -50,6 +50,11 @@ export async function listarUsuario(id){
     return r.data;
 }
 
+export async function listarCartao(id) {
+    const r = await api.get(`/cartao/${id}`)
+    return r.data
+}
+
 export async function listarAdminId(id) {
     const r = await api.get(`/admin/${id}`);
     return r.data;

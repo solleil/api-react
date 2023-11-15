@@ -204,14 +204,14 @@
         width: 30vw;
         gap: 15px;
     }
-    .s3-3 input{
+    .s3-3 input, select{
         border: 3px solid #fabc5988;
         border-radius: 25px;
         padding: 0px 10px 0px 10px;
         height: 5vh;
         font-family: 'Questrial', sans-serif;
     }
-    textarea:focus, input:focus {
+    textarea:focus, input:focus, selcet:focus {
         box-shadow: 0 0 0 0;
         outline: 0;
     }
@@ -219,16 +219,20 @@
         width: 15vw;
     }
     .numero{
-        width: 5vw;
+        width: 12vw;
     }
     .bairro{
         width: 15vw;
     }
     .cidade{
-        width: 15vh;
+        width: 24vh;
     }
     .cep{
-        width: 30vw;
+        width: 28vw;
+    }
+
+    select{
+        color: #6d6d6d;
     }
 
     .s3-3 button{
@@ -282,9 +286,29 @@
     }
 
 
+    
+    .p{
+        cursor: pointer;
+    }
 
+    .p:hover{
+        transition: 0.3s;
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
 
+    .i:hover{
+        transition: 0.3s;
+        height: 3vh;
+    }
 
+    .c{
+        width: 15vw;
+    }
+
+    .o{
+        width: 12vw;
+    }
 
 
 
