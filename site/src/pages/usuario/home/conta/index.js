@@ -21,6 +21,7 @@ export default function Conta() {
   const [caminho, setCaminho] = useState(false);
   const [finalizados, setFinalizados] = useState(false);
   const [devolucao, setDevolucao] = useState(false);
+  const [mudar, setMudar] = useState(false)
   const [rua, setRua] = useState('');
   const [numero, setNumero] = useState(0);
   const [bairro, setBairro] = useState('');
@@ -30,10 +31,13 @@ export default function Conta() {
 
   const navigate = useNavigate();
 
+  if (storage('usuario-logado')) {
+    var id = storage('usuario-logado').id
+  }
+
 
   const [nome, setNome] = useState('')
   const [sobrenome, setSobrenome] = useState('')
-  const [tipopele, setTipopele] = useState('')
   const [email, setEmail] = useState('')
   const [cpf, setCpf] = useState('')
   const [telefone, setTelefone] = useState('')
@@ -42,16 +46,12 @@ export default function Conta() {
   async function cadastrarEndereco() {
     setCarregando(true)
     try {
-      if(storage('usuario-logado')){
-        const id = storage('usuario-logado').id;
+      if (storage('usuario-logado')) {
         await InserirEndereco(rua, numero, bairro, cidade, cep, id);
         toast.success("Endereço cadastrado com sucesso");
-        carregarEndereco();
-      }
-      else{
+        carregarEndereco(id);
+      };
 
-      }
-     
     } catch (err) {
       setCarregando(true)
       toast.error(err.message);
@@ -61,7 +61,6 @@ export default function Conta() {
   async function alterarEndereco() {
     setCarregando(false)
     try {
-      const id = storage('usuario-logado').id;
       await editarEndereco(rua, numero, bairro, cidade, cep, id);
       carregarEndereco(id);
       toast.success("Endereço editado com sucesso");
@@ -71,12 +70,9 @@ export default function Conta() {
     };
   }
 
-  async function deletarEndereco (){
-    
+  async function deletarEndereco() {
     setCarregando(false)
-    
     try {
-      const id = storage('usuario-logado').id;
       await apagarEndereco(id);
       carregarEndereco(id);
       toast.success("Endereço excluido com sucesso");
@@ -92,10 +88,16 @@ export default function Conta() {
     setEnderecoS(respo);
   }
 
+  async function carregarUsuario() {
+    
+  }
+
   async function carregarTiposPele() {
     const respo = await listarTiposdePele();
     setTiposPeleS(respo);
   }
+
+ 
 
   useEffect(() => {
     carregarEndereco()
@@ -110,6 +112,10 @@ export default function Conta() {
 
   function Mudar() {
     setMostrar(!mostrar)
+  }
+
+  function muda() {
+    setMudar(!mudar)
   }
 
   function Mpagos() {
@@ -168,7 +174,7 @@ export default function Conta() {
   return (
     <div className="pag-conta">
       <Cabecalho />
-      <LoadingBar color='#43B541'/>
+      <LoadingBar color='#43B541' />
       <div className='s1'>
       <div className='s1-0'> <p>Olá, </p> <button onClick={LogOut}>Log-out</button> </div>
         
@@ -261,14 +267,49 @@ export default function Conta() {
 
         <div className='s2-1'>
           <p>dados pessoais:</p>
-          <p className='p' >editar <img src='/assets/images/usuario/conta/editar.png' alt='' /></p>
+          <p className='p' onClick={muda} >editar <img src='/assets/images/usuario/conta/editar.png' alt='' /></p>
         </div>
 
+        {
+          usuarioInfo.map(item =>
+            <div className='s2-2'>
+              <p> {item.nome}</p>
+              <p> {item.sobrenome}</p>  
+              <p> {item.email}</p>
+              <p> {item.cpf}</p>
+              <p> {item.telefone}</p>
+            </div>
+              )
+            }
+
+        {mudar === false &&
+            <>
+            </>}
+
+          {mudar === true &&
         <div className='s2-2'>
+        
+          <div className='s2-3'>
 
+            <input type='text' placeholder='Nome' value={nome} onChange={e => setNome(e.target.value)}></input>
+            <input type='text' placeholder='Sobrenome' value={sobrenome} onChange={e => setSobrenome(e.target.value)}></input>
+            <select type='text' value={tiposPeleS} onChange={e => setTiposPeleS(e.target.value)}> 
+              <option>Tipos de pele</option>
+              {
+              tiposPeleS.map (item =>
+                <option value={item.id}> {item.nome} </option>)
+            }
+            </select>
+          </div>
 
-
+          <div className='s2-4'>
+            <input type='text' placeholder='Email' value={email} onChange={e => setEmail(e.target.value)}></input>
+            <input type='text' placeholder='Cpf' value={cpf} onChange={e => setCpf(e.target.value)}></input>
+            <input type='text' placeholder='Telefone' value={telefone} onChange={e => setTelefone(e.target.value)}></input>
+          </div>
+          
         </div>
+}
 
       </div>
 

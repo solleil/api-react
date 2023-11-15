@@ -17,12 +17,31 @@ export async function listarTodosUsuario() {
 
     const [result] = await connection.query(comando)
     return result;
+};
+
+export async function listarUsuarioporId(id) {
+    const comando = `
+    select
+        id_cliente      as id,
+        nm_cliente      as nome,
+        ds_sobrenome    as sobrenome,
+        ds_telefone     as telefone,
+        ds_email        as email,
+        ds_cpf          as cpf,
+        dt_nasc         as nascimento,
+        ds_senha        as senha
+    from tb_cliente
+    where id_cliente = ?
+    `;
+
+    const [respo] = await connection.query(comando, [id])
+    return respo;
 }
 
 
 //POST DOS USUARIOS
 export async function inserirUsuario(usuario) {
-    
+
     const comando = `
         insert into tb_cliente (
             nm_cliente, 

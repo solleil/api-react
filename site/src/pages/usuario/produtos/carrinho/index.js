@@ -10,6 +10,9 @@ export default function Carrinho() {
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
 
+
+
+
   function mais() {
     const x = result + 1;
     setResult(x);
@@ -33,13 +36,20 @@ export default function Carrinho() {
       <Cabecalho/>
       <div className='s-1'>
         <p><b>MINHA SACOLA DE COMPRAS</b></p>
+
+
         <div className="s-1-1">
+
+          
+
+
           <div className='img-s1'><img src='/assets/images/usuario/carrinho/produto-sallve.png' alt='' /></div>
           <div className='s-1-2'>
             <div className='s-1-1-2'>
               <b>hidratante antiatrito sallve</b>
               <p>valor: R$20,00</p>
             </div>
+
             <div className='s-1-1-3'>
               <div className='qtd-valor'><p>valor: <b>R$ {novopreco} </b></p></div>
               <div className='qtd-info'>                 <button type='number' value={num1} onChange={(e) => setNum1(Number(e.target.value))} onClick={menos}> <p>-</p></button>
@@ -50,10 +60,13 @@ export default function Carrinho() {
             </div>
           </div>
         </div>
+
+
+
       </div>
 
       <div className='s-2'>
-        <div className='b-1'>total de itens: <b>3</b></div>
+
         <div className='b-1'>valor total: <b>R$20,00</b></div>
         <button className='b-3'><b>FINALIZAR COMPRA</b></button>
       </div>

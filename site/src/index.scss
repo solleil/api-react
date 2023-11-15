@@ -6,8 +6,9 @@ body {
 
   textarea:focus,
     input:focus, button:focus , select:focus, a:focus{
-        box-shadow: 0 0 0 0;
-        outline: 0;
+      text-decoration: none;
+        box-shadow: 0px 0px 0px 0px;
+        outline: none;
     }
 
 }
