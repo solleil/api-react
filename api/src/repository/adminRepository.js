@@ -6,7 +6,7 @@ export async function listarAdmin() {
             id_admin            as id
             nm_admin            as nome,
             ds_sobrenome        as sobrenome,
-            ds_cargo            as cargo,
+            ds_cargo            as cargo,-  
             ds_email            as email,
         from tb_admin;
     `;
