@@ -47,3 +47,8 @@ export async function listarEndereco(id) {
 export async function buscarImgProduto(imagem) {
     return `${api.getUri()}/${imagem}`
 };
+
+export async function listarCartao(id) {
+    const r = await api.get(`/cartao/${id}`)
+    return r.data
+}

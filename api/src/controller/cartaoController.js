@@ -24,4 +24,14 @@ server.post(('/cartao'), async (req, resp) => {
     }
   })
 
+  server.delete(('/cartao/:id'), async (req, resp) => {
+    try {
+      const params = req.params.id;
+      const respo = await deletarCartao(params);
+      resp.send(respo)
+    } catch (err) {
+      resp.status(404).send({ erro: err.message })
+    }
+  })
+
   export default server;

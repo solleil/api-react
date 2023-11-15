@@ -38,3 +38,12 @@ export async function inserirCartao(cartao){
 
     return resp.affectedRows
 }
+
+export async function deletaCartao(id) {
+    const comando = `
+    delete from tb_cartao where id_cliente = ?
+    `;
+
+    const [resp] = await connection.query(comando, [id]);
+    return resp;
+}

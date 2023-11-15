@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import storage from 'local-storage'
+import storage, { set } from 'local-storage'
 import Cabecalho from '../../../../components/cabecalho';
 import Rodape from '../../../../components/rodape';
 import './index.scss';
@@ -10,6 +10,8 @@ import { apagarEndereco } from '../../../../api/deleteAPI';
 import { editarEndereco } from '../../../../api/putAPI';
 import { toast } from 'react-toastify';
 import LoadingBar from 'react-top-loading-bar';
+import { InserirCartao } from '../../../../api/postAPi';
+import { listarCartao } from '../../../../api/getAPI';
 
 export default function Conta() {
   const [enderecoS, setEnderecoS] = useState([]);
@@ -28,6 +30,16 @@ export default function Conta() {
   const [cidade, setCidade] = useState('');
   const [cep, setCep] = useState(0);
   const [carregando, setCarregando] = useState(false);
+
+
+  const [cartao, setCartao] = useState(false);
+  const [cartaoDebito, setCartaoDebito] = useState(false);
+  const [nomeCartao, setNomeCartao] = useState('');
+  const [cvcCartao, setCVCCartao] = useState('');
+  const [numeroCartao, setNumeroCartao] = useState('');
+  const [validadeCartao, setValidadeCartao] = useState('');
+  const [mesValidade, setMesValidade] = useState('')
+  const [anoValidade, setanoValidade] = useState('');
 
   const navigate = useNavigate();
 
@@ -86,6 +98,23 @@ export default function Conta() {
     const id = storage('usuario-logado').id;
     const respo = await listarEndereco(id);
     setEnderecoS(respo);
+  }
+
+  async function cadastrarcartao() {
+    try {
+        setValidadeCartao(`${anoValidade}/${mesValidade}`);
+        const id = storage('usuario-logado').id;
+        const resposta = await InserirCartao(nomeCartao, cvcCartao, numeroCartao, validadeCartao, id);
+        toast.success("cartão cadastrado com sucesso");
+    } catch (err) {
+        alert(err.message);
+    }
+}
+
+  async function carregarCartao() {
+    const id = storage('usuario-logado').id;
+    const respo = await listarCartao(id);
+    setCartao(respo)
   }
 
   async function carregarUsuario() {
@@ -165,18 +194,13 @@ export default function Conta() {
 
 
 
-  function LogOut(){
-    storage.remove('usuario-logado')
-    navigate('/')
-  }
-
 
   return (
     <div className="pag-conta">
       <Cabecalho />
       <LoadingBar color='#43B541' />
       <div className='s1'>
-      <div className='s1-0'> <p>Olá, </p> <button onClick={LogOut}>Log-out</button> </div>
+      <div className='s1-0'> <p>Olá, </p>  </div>
         
 
 
@@ -266,8 +290,8 @@ export default function Conta() {
       <div className='s2'>
 
         <div className='s2-1'>
-          <p>dados pessoais:</p>
-          <p className='p' onClick={muda} >editar <img src='/assets/images/usuario/conta/editar.png' alt='' /></p>
+          <b>dados pessoais:</b>
+          <p className='p' onClick={muda} >editar <img className='i' src='/assets/images/usuario/conta/editar.png' alt='' /></p>
         </div>
 
         {
@@ -320,7 +344,7 @@ export default function Conta() {
 
         <div className='s3-1'>
           <b>endereços</b>
-          <p className='p' onClick={Mudar}>adicionar ou editar <img src='/assets/images/usuario/conta/editar.png' alt='' /></p>
+          <p className='p' onClick={Mudar}>adicionar ou editar <img className='i' src='/assets/images/usuario/conta/editar.png' alt='' /></p>
         </div>
 
         <div className='s3-lado'>
@@ -362,9 +386,71 @@ export default function Conta() {
 
       </div>
 
-
+            
 
       <div className='linha'>.</div>
+
+      <div className='s3-1'>
+          <b>pagamento</b>
+          <p className='p' onClick={Mudar}>adicionar ou editar <img className='i' src='/assets/images/usuario/conta/editar.png' alt='' /></p>
+        </div>
+
+        <div className='s3-lado'>
+          {enderecoS.map((item) =>
+            <div className='s3-2' key={item.id}>
+              <p>rua: {item.rua} </p> <p>Nº {item.endereco} </p> <p>Bairro: {item.bairro} </p> <p>Cidade: {item.cidade} </p>
+              <p>Cep: {item.cep} </p>
+            </div>
+          )}
+
+
+          {mostrar === false &&
+            <>
+            </>}
+
+          {mostrar === true &&
+            <>
+              <div className='s3-3'>
+                <input type='text' placeholder='nome no cartão' className='rua' onChange={(e) => setNomeCartao(e.target.value)} />
+                <input type='text' placeholder='número do cartão' className='numero' onChange={(e) => setNumeroCartao(e.target.value)}/>
+                <select className='bairro' value={mesValidade} onChange={(e) => setMesValidade(e.target.value)}>
+                                                <option value={0}>mês</option>
+                                                <option value={1}>janeiro</option>
+                                                <option value={2}>fevereiro</option>
+                                                <option value={3}>março</option>
+                                                <option value={4}>abril</option>
+                                                <option value={5}>maio</option>
+                                                <option value={6}>junho</option>
+                                                <option value={7}>julho</option>
+                                                <option value={8}>agosto</option>
+                                                <option value={9}>setembro</option>
+                                                <option value={10}>outubro</option>
+                                                <option value={11}>novembro</option>
+                                                <option value={12}>dezembro</option>
+                </select>
+                <select className='cidade' value={anoValidade} onChange={(e) => setanoValidade(e.target.value)}>
+                                                <option value={0}>ano</option>
+                                                <option value={24}>2024</option>
+                                                <option value={25}>2025</option>
+                                                <option value={26}>2026</option>
+                                                <option value={27}>2027</option>
+                                                <option value={28}>2028</option>
+                                                <option value={29}>2029</option>
+                                                <option value={30}>2030</option>
+                </select>
+                <input type='text' className='c' placeholder='CPF do titular'/>
+                <input id='cod' onChange={(e) => setCVCCartao(e.target.value)} type='text' className='o' placeholder='código de segurança'/>
+
+                <button onClick={cadastrarcartao} > <img src='/assets/images/usuario/conta/salvar.png' alt='' />  </button>
+                <button > <img src='/assets/images/usuario/conta/editar.png' alt='' />  </button>
+                <button > <img src='/assets/images/usuario/conta/excluir.png' alt='' />  </button>
+              </div>  
+            </>}
+
+
+        </div>
+
+        <div className='linha'>.</div>
 
       <div className='s4'>
         <div className='s4-1'>
