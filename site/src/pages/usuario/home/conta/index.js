@@ -206,7 +206,7 @@ export default function Conta() {
       <Cabecalho />
       <LoadingBar color='#43B541' />
       <div className='s1'>
-        <div className='s1-0'> <p>Olá, </p> <button onClick={LogOut}>Log-out</button> </div>
+        <div className='s1-0'> <p>Olá, {usuarioInfo.nome} </p> <button onClick={LogOut}>Log-out</button> </div>
 
 
 
