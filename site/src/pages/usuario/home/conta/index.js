@@ -110,12 +110,6 @@ export default function Conta() {
     }
 }
 
-  async function carregarCartao() {
-    const id = storage('usuario-logado').id;
-    const respo = await listarCartao(id);
-    setCartao(respo)
-  }
-
   async function carregarUsuario() {
     const respo = await listarUsuario(id);
     setUsuarioInfo(respo)

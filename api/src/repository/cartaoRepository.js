@@ -17,6 +17,22 @@ export async function listarCartao(){
 
 }
 
+export async function listarCartaoid(id){
+    const comando= `
+    select
+        nm_cartao       as nome,
+        ds_cvc          as cvc,
+        ds_numero       as numero,
+        ds_validade     as validade,
+        id_cliente      as cliente      
+    from tb_cartao
+    where id_cliente = ?
+    `;
+
+    const [resp] = await connection.query(comando, [id])
+    return resp[0]
+}
+
 export async function inserirCartao(cartao){
     const comando = `
     insert into tb_cartao(
