@@ -41,6 +41,7 @@ export default function Conta() {
   const [mesValidade, setMesValidade] = useState('')
   const [anoValidade, setanoValidade] = useState('');
 
+  const [ mudarPagamento, setMudarPagamento]= useState(false)
   const navigate = useNavigate();
 
   if (storage('usuario-logado')) {
@@ -109,12 +110,6 @@ export default function Conta() {
         alert(err.message);
     }
 }
-
-  async function carregarCartao() {
-    const id = storage('usuario-logado').id;
-    const respo = await listarCartao(id);
-    setCartao(respo)
-  }
 
   async function carregarUsuario() {
     const respo = await listarUsuario(id);
@@ -198,6 +193,10 @@ export default function Conta() {
   function LogOut() {
     storage.remove('usuario-logado')
     navigate('/')
+  }
+
+  function MudarP(){
+    setMudarPagamento(!mudarPagamento)
   }
 
 
@@ -296,23 +295,23 @@ export default function Conta() {
       <div className='s2'>
 
         <div className='s2-1'>
-          <p>dados pessoais:</p>
-          <p className='p' onClick={muda} >editar <img src='/assets/images/usuario/conta/editar.png' alt='' /></p>
+          <p className='e'>dados pessoais:</p>
+          <p className='d' onClick={muda} >editar <img src='/assets/images/usuario/conta/editar.png' alt='' /></p>
         </div>
           <div className='s2-2'>
-            <p> Nome: {`${usuarioInfo.nome} ${usuarioInfo.sobrenome}`}</p>
-            <p> Email: {usuarioInfo.email}</p>
-            <p> CPF: {usuarioInfo.cpf}</p>
-            <p> Telefone: {usuarioInfo.telefone}</p>
+            <p> <b>Nome:</b> {`${usuarioInfo.nome} ${usuarioInfo.sobrenome}`}</p>
+            <p> <b>Email:</b> {usuarioInfo.email}</p>
+            <p> <b>CPF:</b> {usuarioInfo.cpf}</p>
+            <p> <b>Telefone:</b> {usuarioInfo.telefone}</p>
           </div>
         {mudar === false &&
           <>
           </>}
 
         {mudar === true &&
-          <div className='s2-2'>
+          <div className='s2-3'>
 
-            <div className='s2-3'>
+            <div className='s2-4'>
 
               <input type='text' placeholder='Nome' value={nome} onChange={e => setNome(e.target.value)}></input>
               <input type='text' placeholder='Sobrenome' value={sobrenome} onChange={e => setSobrenome(e.target.value)}></input>
@@ -325,7 +324,7 @@ export default function Conta() {
               </select>
             </div>
 
-            <div className='s2-4'>
+            <div className='s2-5'>
               <input type='text' placeholder='Email' value={email} onChange={e => setEmail(e.target.value)}></input>
               <input type='text' placeholder='Cpf' value={cpf} onChange={e => setCpf(e.target.value)}></input>
               <input type='text' placeholder='Telefone' value={telefone} onChange={e => setTelefone(e.target.value)}></input>
