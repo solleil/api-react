@@ -41,6 +41,7 @@ export default function Conta() {
   const [mesValidade, setMesValidade] = useState('')
   const [anoValidade, setanoValidade] = useState('');
 
+  const [ mudarPagamento, setMudarPagamento]= useState(false)
   const navigate = useNavigate();
 
   if (storage('usuario-logado')) {
@@ -192,6 +193,10 @@ export default function Conta() {
   function LogOut() {
     storage.remove('usuario-logado')
     navigate('/')
+  }
+
+  function MudarP(){
+    setMudarPagamento(!mudarPagamento)
   }
 
 
