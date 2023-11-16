@@ -14,7 +14,6 @@ export default function Info() {
   const [result, setResult] = useState(0);
   const [indic, setIndic] = useState(true);
   const [comprov, setComprov] = useState(false);
-  const [avalia, setAvalia] = useState(false);
   const [ingredientesatv, setIngrentesatv] = useState(false);
 
   const { idParams } = useParams();
@@ -36,33 +35,23 @@ export default function Info() {
     setIndic(!indic)
 
     setComprov(false)
-    setAvalia(false)
     setIngrentesatv(false)
   }
   function mudarC() {
     setComprov(!comprov)
 
     setIndic(false)
-    setAvalia(false)
     setIngrentesatv(false)
 
 
   }
-  function mudarA() {
-    setAvalia(!avalia)
-
-    setComprov(false)
-    setIndic(false)
-    setIngrentesatv(false)
-
-
-  }
+ 
   function mudarIng() {
     setIngrentesatv(!ingredientesatv)
 
     setComprov(false)
     setIndic(false)
-    setAvalia(false)
+   
 
   }
 
@@ -88,7 +77,7 @@ export default function Info() {
           <div className='pl-limpa'><h3>para uma pele limpa e hidratada.</h3></div>
           <div className='vl-desconto'>
             <div className='valor'><h3>R$ {produtO.preco}</h3></div>
-            <div className='parcela' ><h4>ou 3x de R$26,63</h4></div>
+            
           </div>
           <div className='estrelas'>
             <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' />
@@ -149,7 +138,6 @@ export default function Info() {
 
           {indic ? (<b onClick={mudarI} className='bold'>indicações <div className='bold-linhas1'></div>  </b>) : (<p onClick={mudarI} className='n-bold'>indicações </p>)}
           {comprov ? (<b onClick={mudarC} className='bold'>comprovações<div className='bold-linhas2'></div>  </b>) : (<p onClick={mudarC} className='n-bold'>comprovações </p>)}
-          {avalia ? (<b onClick={mudarA} className='bold'>avaliações <div className='bold-linhas3'></div>  </b>) : (<p onClick={mudarA} className='n-bold'>avaliações </p>)}
           {ingredientesatv ? (<b onClick={mudarIng} className='bold'>ingredientes ativos <div className='bold-linhas4'></div>  </b>) : (<p onClick={mudarIng} className='n-bold'>ingredientes ativos </p>)}
         </div>
         <div className='linhas'></div>
@@ -225,97 +213,10 @@ export default function Info() {
 
 
 
-          <div>
+    
 
 
-            {avalia === true &&
-              <>
-                <div className='avaliac'>
-
-                  <div className='star'>
-                    <div className='av-s1'>
-                      <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                      <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                      <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                      <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                      <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                      <p className='num'>52</p>
-                    </div>
-
-                    <div className='av-s1'>
-                      <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                      <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                      <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                      <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                      <p className='num'>20</p>
-                    </div>
-
-                    <div className='av-s1'>
-                      <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                      <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                      <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                      <p className='num'>4</p>
-                    </div>
-
-                    <div className='av-s1'>
-                      <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                      <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                      <p className='num'>2</p>
-                    </div>
-
-
-
-
-
-
-
-
-
-
-                    <div className='td-avali'>
-                      <div className='av-s1'>
-                        <img className='estrelaa' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-                        <p className='num'>1</p>
-                      </div>
-                    </div>
-                    <div className='avc'>
-                      <div className='avc-s1'>
-                        <img className='avcp' src='/assets/images/geral/estrelap.png' alt='' />
-                        <h2>Avaliações</h2>
-                      </div>
-
-                      <div className='avc-s2'>
-                        <img className='avcpf' src='/assets/images/geral/perfil.png' alt='' />
-                        <p className='pdt'>Produto incrivel, entrega totalmente rapida nota 10</p>
-                        <img className='avcimg' src='/assets/images/geral/estrelat.png' alt='' />
-                        <p className='final'>5.0</p>
-                      </div>
-
-                      <div className='avc-s2'>
-                        <img className='avcpf' src='/assets/images/geral/perfil.png' alt='' />
-                        <p>Eu ameiiiiiii, produto maravilhoso entrega rapida! super<br /> recomendo comprem.</p>
-                        <img className='avcimg' src='/assets/images/geral/estrelat.png' alt='' />
-                        <p className='final' >5.0</p>
-                      </div>
-
-                      <div className='avc-s2'>
-                        <img className='avcpf' src='/assets/images/geral/perfil.png' alt='' />
-                        <p>Não sabia que esse produto era tão bom, simplesmente<br /> comprem.</p>
-                        <img className='avcimg' src='/assets/images/geral/estrelat.png' alt='' />
-                        <p className='final'>5.0</p>
-
-                      </div>
-                    </div>
-
-
-                  </div>
-
-
-                </div>
-              </>}
-
-          </div>
-
+        
 
 
           <div>
