@@ -130,18 +130,22 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 100px;
+        justify-content: space-between;
+        gap: 120px;
         font-size: 19px;
     }
+    
+
     .s2-3{
         display: flex;
-        flex-direction:column ;
-        align-items: center;
-        justify-self: flex-start;
-        width: 90vw;
-        
+        flex-wrap: wrap;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 80vw;
+        gap: 15px;
 
-        input{
+
+            input{
             border: 3px solid #fabc5988;
             border-radius: 25px;
             padding: 0px 10px 0px 10px;
@@ -149,6 +153,33 @@
             font-family: 'Questrial', sans-serif;
         }
     }
+    .dnt{
+        margin: 4px;
+    }
+    .s2-3 button{
+        background-color: #fabc5988;
+        border: none;
+        border-radius: 30px;
+        width: 8vw;
+        height: 6vh;
+        
+        
+        img{
+            width: 2vw;
+        }
+    }
+    .s2-6{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+    .s2-6 button:hover{
+        transition: 0.5s;
+        cursor: pointer;
+        background-color: #fabc59c9;
+    }
+
+
 
 
     .s3{

@@ -75,33 +75,32 @@ server.post(('/login/cliente'), async (req, resp) => {
 
 });
 
-server.put('/alterar/cliente/:id', async (req, resp) => {
+server.put('/cliente/alterar/:id', async (req, resp) => {
 
     try {
-        const params = req.params.id;
-        const verifica = await listarTodosUsuariosID(params);
-        if (!verifica) {
-            throw new Error('Usuario inexistente')
-        };
-        const body = req.body;
-        const { dados } = await alterarUsuario(body, params);
-        resp.send(dados);
+        const { id } = req.params;
+        const usuario = req.body;
 
+        const respo = await alterarUsuario(usuario, id);
+
+        if (respo != 1) {
+            throw new Error( 'Usuario inexistente' );
+        } else {
+            resp.status(204).send();
+        } 
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        });
+        
     }
-
-    catch (err) {
-
-        resp.status(404).send({ erro: err.message });
-
-    }
-
-})
+});
 
 server.delete(('/cliente/:id'), async (req, resp) => {
 
     try {
         const params = req.params.id;
-        const verifica = await listarTodosUsuariosID(params);
+        const verifica = await listarUsuarioporId(params);
         if (!verifica) {
             throw new Error('Usuario inexistente')
         };

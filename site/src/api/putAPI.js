@@ -4,6 +4,18 @@ const api = axios.create({
     baseURL: api_url
 });
 
+export async function editarUsuario(nome, sobrenome, telefone, email, cpf, id) {
+    const resp = await api.put(`/alterar/cliente/${id}`, {
+        nome: nome,
+        sobrenome: sobrenome,
+        telefone: telefone,
+        email: email,
+        cpf: cpf
+    })
+
+    return resp.data;
+}
+
 export async function editarEndereco(rua, numero, bairro, cidade, cep, id) {
     const resposta = await api.put(`/endereco/${id}`, {
         cep: cep,

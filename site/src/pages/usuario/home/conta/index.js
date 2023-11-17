@@ -12,6 +12,7 @@ import { toast } from 'react-toastify';
 import LoadingBar from 'react-top-loading-bar';
 import { InserirCartao } from '../../../../api/postAPi';
 import { listarCartao } from '../../../../api/getAPI';
+import { editarUsuario } from '../../../../api/putAPI';
 
 export default function Conta() {
   const [enderecoS, setEnderecoS] = useState([]);
@@ -82,7 +83,16 @@ export default function Conta() {
       toast.error(err.response.data.erro);
     };
   }
-
+  async function alterarUsuario(){
+    try {
+      await editarUsuario(nome, sobrenome, telefone, email, cpf, id);
+      carregarUsuario(id);
+      toast.success("Usuario editado com sucesso");
+    } catch (err) {
+      setCarregando(false);
+      toast.error(err.response.data.erro);
+    };
+  }
   async function deletarEndereco() {
     setCarregando(false)
     try {
@@ -300,9 +310,9 @@ export default function Conta() {
         </div>
           <div className='s2-2'>
             <p> <b>Nome:</b> {`${usuarioInfo.nome} ${usuarioInfo.sobrenome}`}</p>
+            <p> <b>Telefone:</b> {usuarioInfo.telefone}</p>
             <p> <b>Email:</b> {usuarioInfo.email}</p>
             <p> <b>CPF:</b> {usuarioInfo.cpf}</p>
-            <p> <b>Telefone:</b> {usuarioInfo.telefone}</p>
           </div>
         {mudar === false &&
           <>
@@ -313,9 +323,9 @@ export default function Conta() {
 
             <div className='s2-4'>
 
-              <input type='text' placeholder='Nome' value={nome} onChange={e => setNome(e.target.value)}></input>
-              <input type='text' placeholder='Sobrenome' value={sobrenome} onChange={e => setSobrenome(e.target.value)}></input>
-              <select type='text' value={tiposPeleS} onChange={e => setTiposPeleS(e.target.value)}>
+              <input className='dnt' type='text' placeholder='Nome' value={nome} onChange={e => setNome(e.target.value)}></input>
+              <input className='dnt' type='text' placeholder='Sobrenome' value={sobrenome} onChange={e => setSobrenome(e.target.value)}></input>
+              <select className='dnt' type='text' value={tiposPeleS} onChange={e => setTiposPeleS(e.target.value)}>
                 <option>Tipos de pele</option>
                 {
                   tiposPeleS.map(item =>
@@ -325,9 +335,14 @@ export default function Conta() {
             </div>
 
             <div className='s2-5'>
-              <input type='text' placeholder='Email' value={email} onChange={e => setEmail(e.target.value)}></input>
-              <input type='text' placeholder='Cpf' value={cpf} onChange={e => setCpf(e.target.value)}></input>
-              <input type='text' placeholder='Telefone' value={telefone} onChange={e => setTelefone(e.target.value)}></input>
+              <input className='dnt' type='text' placeholder='Telefone' value={telefone} onChange={e => setTelefone(e.target.value)}></input>
+              <input className='dnt' type='text' placeholder='Email' value={email} onChange={e => setEmail(e.target.value)}></input>
+              <input className='dnt' type='text' placeholder='Cpf' value={cpf} onChange={e => setCpf(e.target.value)}></input>
+            </div>
+
+            <div className='s2-6'>
+              <button onClick={alterarUsuario}> <img src='/assets/images/usuario/conta/editar.png' alt='' />  </button>
+              <button> <img src='/assets/images/usuario/conta/excluir.png' alt='' />  </button>
             </div>
 
           </div>

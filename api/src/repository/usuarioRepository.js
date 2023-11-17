@@ -90,9 +90,8 @@ export async function alterarUsuario(usuario, id) {
             ds_sobrenome = ?, 
             ds_telefone = ?, 
             ds_email = ?, 
-            ds_cpf = ?, 
-            dt_nasc = ?, 
-            ds_senha = ?
+            ds_cpf = ?
+            
         where id_cliente = ?
     `;
 
@@ -102,8 +101,6 @@ export async function alterarUsuario(usuario, id) {
         usuario.telefone,
         usuario.email,
         usuario.cpf,
-        usuario.nascimento,
-        usuario.senha,
         id
     ]);
 

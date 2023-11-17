@@ -285,6 +285,21 @@ set
 where
     id_endereco = 1;
 
+
+update
+    tb_cliente
+
+set
+    nm_cliente = "test",
+    ds_sobrenome = "test", 
+    ds_telefone = "test", 
+    ds_email = "test", 
+    ds_cpf = "test"
+            
+where id_cliente = 1;
+
+
+
 select
     ds_cep as cep,
     ds_rua as rua,
