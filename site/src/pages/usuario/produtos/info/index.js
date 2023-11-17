@@ -5,6 +5,8 @@ import Cabecalho from '../../../../components/cabecalho';
 import Rodape from '../../../../components/rodape';
 import './index.scss';
 import { api_url } from '../../../../constats';
+import storage from 'local-storage';
+import {toast} from 'react-toastify';
 
 
 export default function Info() {
@@ -53,6 +55,22 @@ export default function Info() {
     setIndic(false)
    
 
+  }
+
+  function AdicionarCarrinho(){
+    let carrinho = [];
+    if(storage('carrinhosolleil')){
+      carrinho = storage('carrinhosolleil')
+    }
+
+    if(!carrinho.find(item => item.id === idParams)){
+        carrinho.push({
+          id: idParams,
+          qtd: 1
+        })
+        storage('carrinhosolleil', carrinho);
+    }
+    toast.success('produto adicionado ao carrinho')
   }
 
   function mais() {
@@ -115,7 +133,7 @@ export default function Info() {
           </div>
 
           <div className='add-info'>
-            <button> adicionar a sacola</button>
+            <button onClick={AdicionarCarrinho} className='ad'> adicionar a sacola</button>
             <div>
               <img className='coracao-info' src='/assets/images/usuario/info/image 22.png' alt='' />
             </div>
