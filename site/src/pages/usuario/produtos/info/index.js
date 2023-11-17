@@ -95,20 +95,14 @@ export default function Info() {
           <div className='pl-limpa'><h3>para uma pele limpa e hidratada.</h3></div>
           <div className='vl-desconto'>
             <div className='valor'><h3>R$ {produtO.preco}</h3></div>
-            
           </div>
-          <div className='estrelas'>
-            <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-            <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-            <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-            <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-            <img className='estrela' src='/assets/images/usuario/info/estrela 1.png' alt='' />
-            <h3>4.8</h3>
-          </div>
-
           <div className='disp'>
-            <img className='disponivel' src='/assets/images/usuario/info/direito 1.png' alt='' />
-            <h5 className='text-disp'>disponivel no estoque</h5>
+           
+            {produtO.disponivel === 1 &&  
+            <h5 className='text-disp'>Disponivel no estoque</h5>}
+            {produtO.disponivel === 0 && 
+            <h5 className='text-disp'>Indisponivel no estoque</h5>}
+
           </div>
 
 

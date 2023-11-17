@@ -8,7 +8,7 @@ import CarrinhoProduto from '../../../../components/carrinhoproduto';
 
 export default function Carrinho() {
   const [itens, setItens] = useState([]);
-
+  console.log(itens)
 
 
   async function CarregarCarrinhoSolleil() {
@@ -26,6 +26,7 @@ export default function Carrinho() {
         })
       }
       setItens(temp);
+      console.log(temp);
     }
   }
 
@@ -46,7 +47,7 @@ export default function Carrinho() {
 
 
         {itens.map(item =>
-          <CarrinhoProduto/>
+          <CarrinhoProduto item={item}/>
           )}
 
       </div>

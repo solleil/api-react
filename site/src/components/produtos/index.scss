@@ -1,5 +1,11 @@
 .produto{
 
+  display: flex ;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+
   .prod-desc{
     display: flex;
     flex-direction: column;

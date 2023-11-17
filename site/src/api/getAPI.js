@@ -19,6 +19,10 @@ export async function listarProdutosId(id) {
     return r.data;
 }
 
+export async function PesquisarProduto(nome) {
+    const r = await api.get()
+}
+
 export async function listarMarcas() {
     const r = await api.get('/marca');
     return r.data;
@@ -63,4 +67,11 @@ export async function listarCartao(id) {
 export async function listarAdminId(id) {
     const r = await api.get(`/admin/${id}`);
     return r.data;
+}
+
+
+export function MostrarImagem(imagem) {
+    
+     return `${api_url}/${imagem}`;
+      
 }

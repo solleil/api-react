@@ -41,20 +41,18 @@ root.render(
       <Routes>
         <Route path='/' element={<Inicial />} />
         <Route path='/conta' element={<Conta />} />
-
         <Route path='/cadastro' element={<CadastroUsuario />} />
         <Route path='/login' element={<Login />} />
-
         <Route path='/produtos' element={<Produtos />} />
+        <Route path='/produtos/:filtro' element={<Produtos />} />
         <Route path='/status' element={<Status />} />
         <Route path='/carrinho' element={<Carrinho />} />
         <Route path='/inicial/produto' element={<IniProdutos />} />
         <Route path='/info/:idParams' element={<Info />} />
         <Route path='/enviado' element={<Enviado />} />
-
         <Route path='/pagamento/cartao' element={<Escolherpagamento />} />
         <Route path='/aprovado' element={<Pagaprovado />} />
-        <Route path='/edicao' element={<EditarProduto/>} />
+
         <Route path='/filtrarproduto' element={<FiltrarProduto />} />
         <Route path='/addproduto' element={<AddProduto />} />
         <Route path='/alterar/produto/:idParams' element={<AddProduto />} />
