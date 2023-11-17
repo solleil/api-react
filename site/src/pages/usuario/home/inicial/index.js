@@ -3,6 +3,7 @@ import './index.scss';
 import Cabecalho from '../../../../components/cabecalho'
 import Rodape from '../../../../components/rodape';
 import Carrossel from '../../../../components/carrossel'
+import { Link } from 'react-router-dom';
 
 
 export default function Inicial() {
@@ -50,7 +51,7 @@ export default function Inicial() {
           <img src='/assets/images/usuario/inicial/s2-1.png' alt='' /> <p>sobre nós</p>
         </div>
         <div className='s2-2'>
-          <a href='/inicial/produto'> <img src='/assets/images/usuario/inicial/s2-2.png' alt='' /> <p> nossos produtos </p>  </a>
+          <a href='/produtos'> <img src='/assets/images/usuario/inicial/s2-2.png' alt='' /> <p> nossos produtos </p>  </a>
         </div>
         <div className='s2-3'>
           <img src='/assets/images/usuario/inicial/s2-3.png' alt='' /> <p> ajuda </p>
@@ -118,11 +119,9 @@ export default function Inicial() {
 
        
         </div>
-
-       <div className='s7'>
-          <button className='s7-ver' >VER MAIS</button>
+        <div className='s7'  >
+        <Link to="/produtos"> <button className='s7-ver'>VER MAIS</button> </Link>
         </div>
-
 
       </div>
 
