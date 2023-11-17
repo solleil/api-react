@@ -12,6 +12,8 @@ import { toast } from 'react-toastify';
 import LoadingBar from 'react-top-loading-bar';
 import { InserirCartao } from '../../../../api/postAPi';
 import { listarCartao } from '../../../../api/getAPI';
+import { editarUsuario } from '../../../../api/putAPI';
+import { apagarCartao } from '../../../../api/deleteAPI';
 
 export default function Conta() {
   const [enderecoS, setEnderecoS] = useState([]);

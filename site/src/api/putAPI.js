@@ -5,7 +5,7 @@ const api = axios.create({
 });
 
 export async function editarUsuario(nome, sobrenome, telefone, email, cpf, id) {
-    const resp = await api.put(`/alterar/cliente/${id}`, {
+    const resp = await api.put(`/cliente/alterar/${id}`, {
         nome: nome,
         sobrenome: sobrenome,
         telefone: telefone,
