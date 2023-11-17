@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CabecalhoAdm from '../../../components/cabecalhoAdm/index.js'
 import './index.scss';
-import { listarCategorias, listarMarcas, listarProdutos } from '../../../api/getAPI.js';
+import { listarCategorias, listarMarcas, listarProdutosInner } from '../../../api/getAPI.js';
+import { deletarProduto } from '../../../api/deleteAPI.js';
 
 export default function Consulta() {
   const [ProdutoS, setProdutoS] = useState([]);
-  const [marcaS, setMarcaS ] = useState([]);
+  const [marcaS, setMarcaS] = useState([]);
   const [categoriaS, setCategoriaS] = useState([]);
   const [Idcategoria, setIdCategoria] = useState(0);
   const [idMarca, setIdMarca] = useState(0);
@@ -13,6 +15,8 @@ export default function Consulta() {
   const [nomeProduto, setNomeProduto] = useState('');
   const [filtro, setFiltro] = useState('');
   const [desc, setDesc] = useState('');
+
+  const navigate = useNavigate();
 
   function limparCampos() {
     setCodigo(0);
@@ -23,8 +27,17 @@ export default function Consulta() {
     setDesc('');
   };
 
+  function navPagEditar(id) {
+    navigate(`/alterar/produto/${id}`)
+  }
+
+  async function deletar(id) {
+    await deletarProduto(id);
+    carregarProdutos()
+  }
+
   async function carregarProdutos() {
-    const resp = await listarProdutos();
+    const resp = await listarProdutosInner();
     setProdutoS(resp);
   };
 
@@ -47,8 +60,6 @@ export default function Consulta() {
 
 
   return (
-
-
     <section className='index_consulta_produto'>
       <CabecalhoAdm />
       <header>
@@ -79,7 +90,7 @@ export default function Consulta() {
               <label>Categoria:</label>
               <select id='select' value={Idcategoria} onChange={(e) => setIdCategoria(e.target.value)}>
                 <option value={0}>Selecione</option>
-                {categoriaS.map((item) => 
+                {categoriaS.map((item) =>
                   <option key={item.id} value={item.id}>{item.nome}</option>
                 )}
               </select>
@@ -88,8 +99,8 @@ export default function Consulta() {
               <label>Marca:</label>
               <select id='select' value={idMarca} onChange={(e) => setIdMarca(e.target.value)}>
                 <option value={0}>Selecione</option>
-                {marcaS.map((item) => 
-                <option key={item.id} value={item.id}> {item.nome} </option>
+                {marcaS.map((item) =>
+                  <option key={item.id} value={item.id}> {item.nome} </option>
                 )}
               </select>
             </div>
@@ -118,33 +129,34 @@ export default function Consulta() {
 
       </div>
       <div className='sec_2'>
-        <table>
-          <thead>
-            <tr>
-              <th>Id:</th>
-              <th>Nome:</th>
-              <th>Categoria:</th>
-              <th>Marca:</th>
-              <th>Preço:</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {ProdutoS.map((item) => 
-              <tr key={item.id}>
-                <td>{item.id}</td>
-                <td>{item.nome}</td>
-                <td>{item.categoria}</td>
-                <td>{item.marca}</td>
-                <td>{item.preco}</td>
-                <td>
-                  <button className='botao'>Editar</button>
-                  <button className='botao'>Deletar</button>
-                </td>
+       
+          <table>
+            <thead>
+              <tr>
+                <th>Id:</th>
+                <th>Nome:</th>
+                <th>Categoria:</th>
+                <th>Marca:</th>
+                <th>Preço:</th>
+                <th></th>
               </tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
+            <tbody> 
+              {ProdutoS.map((item) =>
+                <tr key={item.id_produto}>
+                  <td>{item.id_produto}</td>
+                  <td>{item.nm_produto}</td>
+                  <td>{item.nm_categoria}</td>
+                  <td>{item.nm_marca}</td>
+                  <td>{item.vl_preco}</td>
+                  <td>
+                    <button className='botao' onClick={() => navPagEditar(item.id_produto)}>Editar</button>
+                    <button className='botao' onClick={() => deletar(item.id_produto)}>Deletar</button>
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
       </div>
     </section>
   );

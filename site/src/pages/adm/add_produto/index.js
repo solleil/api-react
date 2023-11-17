@@ -1,10 +1,12 @@
 import './index.scss';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import CabecalhoAdm from '../../../components/cabecalhoAdm';
-import { listarCategorias, listarMarcas, listarNecessidades, listarTiposdePele, listarIngredientes } from '../../../api/getAPI.js';
+import { listarCategorias, listarMarcas, listarNecessidades, listarTiposdePele, listarIngredientes, listarProdutosId } from '../../../api/getAPI.js';
 import { AdicionarProduto } from '../../../api/postAPi';
-import { enviarImagem } from '../../../api/putAPI.js';
+import { editarProduto, enviarImagem } from '../../../api/putAPI.js';
+import { api_url } from '../../../constats.js';
 
 
 export default function AddProduto() {
@@ -26,13 +28,13 @@ export default function AddProduto() {
   const [necess, setNecess] = useState(0);
   const [ingre_atv, setIngre_atv] = useState(0);
   const [indica, setIndica] = useState('');
-  const [n1, setN1] = useState(0)
-  const [n2, setN2] = useState(0)
+  const [n1, setN1] = useState(0);
+  const [n2, setN2] = useState(0);
   const [result, setResult] = useState(1);
-  const [imagem, setImagem] = useState('')
-  const [carregando, setCarregando] = useState(false)
+  const [imagem, setImagem] = useState('');
+  const [carregando, setCarregando] = useState(false);
 
-  const ref = useRef();
+  const { idParams } = useParams();
 
   function mais() {
     const x = qtd + 1;
@@ -46,7 +48,7 @@ export default function AddProduto() {
     };
   };
 
-  const removerdados = () => {
+  function removerdados() {
     setNomeProduto('')
     setPreco(0);
     setIngrediente('');
@@ -60,15 +62,20 @@ export default function AddProduto() {
     setIndica('');
   }
 
-  async function cadastarProduto() {
+  async function produtoEditAdd() {
     setCarregando(true)
     try {
+     if (!idParams) {
       const respo = await AdicionarProduto(nomeProduto, ingrediente, descri, precoProduto, tipopele, estoque, tamanho, qtd, idMarca, necess, ingre_atv, indica, categoria);
       await enviarImagem(respo.insertId, imagem);
       toast.success("Produto cadastrado");
-      setTimeout(() => {
-        setCarregando(false);
-      }, 2000);
+      setCarregando(false)}
+      else {
+        await editarProduto(nomeProduto, ingrediente, descri, precoProduto, tipopele, estoque, tamanho, qtd, idMarca, necess, ingre_atv, indica, categoria, idParams)
+        await enviarImagem(idParams, imagem);
+        toast.success("Produto editado");
+        setCarregando(false)
+      }
     } catch (err) {
       setCarregando(false);
       toast.error(err.message);
@@ -100,12 +107,27 @@ export default function AddProduto() {
     setIngrS(resp);
   }
 
+  async function carregarProdutosId() {
+    const respo = await listarProdutosId(idParams)
+    setNomeProduto(respo.nome)
+    setDescri(respo.descricao)
+    setIndica(respo.indicacao)
+    setIngrediente(respo.ingrediente)
+    setTamanho(respo.tamanho)
+    setPreco(respo.preco)
+    setQtd(respo.quantidade)
+    setImagem(respo.imagem)
+  }
+
   useEffect(() => {
     carregarNecessidades();
     carregarTiposPele();
     carregarMarcas();
     carregarIngredientes();
     carregarIdCategorias();
+    if (idParams) {
+      carregarProdutosId()
+    }
   }, [])
 
 
@@ -114,17 +136,20 @@ export default function AddProduto() {
   }
 
   function mostrarImagem() {
-    return URL.createObjectURL(imagem)
+    if (typeof(imagem) === 'object') {
+      return URL.createObjectURL(imagem)
+    }
+    else {
+      return `${api_url}/${imagem}`
+    }
   }
-
-
 
   return (
     <div className="index_AddProduto">
       <CabecalhoAdm className='cabecalho' />
       <div className='titulo'>
-        <p>Adicionar novo produto</p>
-
+        {!idParams && <p>Adicionar novo produto</p>}
+        {idParams && <p>Editar produto</p>}
       </div>
       <div id='linha'></div>
       <div className='fundo_pagina'>
@@ -133,15 +158,6 @@ export default function AddProduto() {
           </div>
         </section>
         <section className='sec_2'>
-
-
-
-
-
-
-
-
-
           <div className='sec2_container-1'>
             <div className='container1_c1'>
               <label>Nome Produto</label>
@@ -150,7 +166,8 @@ export default function AddProduto() {
               <input type='text' value={precoProduto} onChange={(e) => setPreco(Number(e.target.value))}></input>
             </div>
             <div className='container1_c2'>
-              <h2>Inserir Imagem</h2>
+              {!idParams && <h2>Inserir Imagem</h2>}
+              {idParams && <h2>Edite a Imagem</h2>}
               <div className='tela_alterar_img' onClick={EscolherImagem}>
                 <input type="file" className='input-imagem' id='imagem-recolher' onChange={(e) => setImagem(e.target.files[0])} />
                 {!imagem && <h3>Insira uma Imagem!</h3>} 
@@ -168,14 +185,8 @@ export default function AddProduto() {
                 <label>Indicações</label>
                 <textarea value={indica} onChange={(e) => setIndica(e.target.value)} />
               </div>
-            <button className='botao' onClick={removerdados}>Excluir Dados</button>
+            <button className='botao' onClick={removerdados}>Limpar Dados</button>
           </div>
-
-
-
-
-
-
           <div className='sec2_container-2'>
             <div className='container2_c1'>
 
@@ -250,13 +261,9 @@ export default function AddProduto() {
               </div>
               
             </div>
-            <button className='botao' onClick={cadastarProduto} disabled={carregando}>Confirmar Cadastro</button>
+            {!idParams && <button className='botao' onClick={produtoEditAdd} disabled={carregando}>Confirmar Cadastro</button>}
+            {idParams && <button className='botao' onClick={produtoEditAdd} disabled={carregando}>Confirmar Edição</button>}
           </div>
-
-
-
-
-
         </section>
       </div>
     </div>

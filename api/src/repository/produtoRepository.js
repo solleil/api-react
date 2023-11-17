@@ -23,6 +23,20 @@ export async function listarTodosProduto() {
     return resposta;
 };
 
+export async function listarProdutosInner() {
+    const comando = `
+    select *
+	from tb_produto
+    inner join tb_marca
+    on tb_produto.id_produto = tb_marca.id_marca
+	inner join tb_categoria
+    on tb_produto.id_produto = tb_categoria.id_categoria;
+    `;
+
+    const [respo] = await connection.query(comando)
+    return respo;
+}
+
 export async function mostrarProdutosId(id) {
     const comando = `
     select 
@@ -35,6 +49,7 @@ export async function mostrarProdutosId(id) {
         id_necessidade  as necessidade,
         id_tipo_pele    as tipo_pele,
         vl_preco        as preco,
+        ds_ingrediente  as ingrediente,
         bt_disponivel   as disponivel,
         qtd_estoque     as quantidade,
         id_ingr_atv     as ingrediente_atv,
@@ -79,7 +94,6 @@ export async function inserirProduto(produto) {
         ds_indicacao,
         vl_preco,
         bt_disponivel,
-        bt_favorito,
         ds_ingrediente,
         qtd_estoque,
         id_tipo_pele,
@@ -97,7 +111,6 @@ export async function inserirProduto(produto) {
         ?,
         ?,
         ?, 
-        ?, 
         ?,
         ?, 
         ?, 
@@ -111,7 +124,6 @@ export async function inserirProduto(produto) {
         produto.indicacao,
         produto.preco,
         produto.disponivel,
-        produto.favorito,
         produto.ingrediente,
         produto.estoque,
         produto.tipo_pele,
@@ -123,46 +135,48 @@ export async function inserirProduto(produto) {
     return info;
 }
 
-//reparar
 export async function alterarProduto(produto) {
     const comando = `
-        update tb_cliente
+        update tb_produto
         set 
-        nm_produto = ?,
-        ds_produto = ?, 
-        ds_tamanho = ?, 
-        id_categoria = ?, 
-        id_marca = ?, 
-        id_necessidade = ?, 
-        id_tipo_pele = ?, 
-        vl_preco = ?, 
-        bt_disponivel = ?, 
-        qtd_estoque = ?,
-        id_ingr_atv = ?, 
-        ds_indicacoes = ?, 
+            nm_produto = ?,
+            ds_produto = ?,
+            ds_tamanho = ?,
+            ds_indicacao = ?,
+            vl_preco = ?,
+            bt_disponivel = ?,
+            ds_ingrediente = ?,
+            qtd_estoque = ?,
+            id_tipo_pele = ?,
+            id_categoria = ?,
+            id_ingr_atv = ?,
+            id_marca = ?,
+            id_necessidade = ?
         where 
         id_produto = ?
     `;
 
     const [result] = await connection.query(comando, [
         produto.nome,
-        produto.desc,
+        produto.descricao,
         produto.tamanho,
+        produto.indicacao,
+        produto.preco,
+        produto.disponivel,
+        produto.ingrediente,
+        produto.estoque,
+        produto.tipo_pele,
         produto.categoria,
+        produto.ingrediente_atv,
         produto.marca,
         produto.necessidade,
-        produto.tipodepele,
-        produto.preco,
-        produto.estoque,
-        produto.ingrativo,
-        produto.indicacoes,
         produto.id
     ]);
     return result;
 }
 
 export async function deletarProduto(id) {
-    let comando = `
+    const comando = `
     delete from tb_produto where id_produto = ?
     `;
     const [info] = await connection.query(comando, [id])

@@ -1,4 +1,4 @@
-import { inserirProduto, listarTodosProduto, deletarProduto, alterarProduto, pesquisarProduto, mostrarProdutosId, inserirImagemProduto } from '../repository/produtoRepository.js';
+import { inserirProduto, listarTodosProduto, deletarProduto, alterarProduto, pesquisarProduto, mostrarProdutosId, inserirImagemProduto, listarProdutosInner } from '../repository/produtoRepository.js';
 import { Router } from 'express';
 
 import multer from 'multer';
@@ -13,6 +13,15 @@ server.get(('/produto'), async (req, resp) => {
   }
   catch (err) {
     resp.status(404).send({ erro: err.message });
+  }
+})
+
+server.get(('/produtos/inner'), async (req, resp) => {
+  try {
+    const respo = await listarProdutosInner();
+    resp.send(respo)
+  } catch (err) {
+    resp.status(407).send({erro: err.message})
   }
 })
 
@@ -57,8 +66,8 @@ server.post('/produto', async (req, resp) => {
 server.put('/alterar/produto', async (req, resp) => {
   try {
     const body = req.body;
-    const { dados } = await alterarProduto(body);
-    resp.send(dados);
+    await alterarProduto(body);
+    resp.sendStatus(204);
   }
   catch (err) {
     resp.status(400).send({ erro: err.message });

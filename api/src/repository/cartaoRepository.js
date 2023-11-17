@@ -1,8 +1,8 @@
 import { connection } from './connection.js';
 
 
-export async function listarCartao(){
-    const comando= `
+export async function listarCartao() {
+    const comando = `
     select
         nm_cartao       as nome,
         ds_cvc          as cvc,
@@ -17,8 +17,8 @@ export async function listarCartao(){
 
 }
 
-export async function listarCartaoid(id){
-    const comando= `
+export async function listarCartaoid(id) {
+    const comando = `
     select
         nm_cartao       as nome,
         ds_cvc          as cvc,
@@ -33,7 +33,7 @@ export async function listarCartaoid(id){
     return resp[0]
 }
 
-export async function inserirCartao(cartao){
+export async function inserirCartao(cartao) {
     const comando = `
     insert into tb_cartao(
         nm_cartao,
@@ -64,7 +64,7 @@ export async function deletaCartao(id) {
     return resp;
 }
 
-export async function alterarCartao(id, cartao){
+export async function alterarCartao(id, cartao) {
     const comando = `
             update tb_cartao
             set
@@ -77,7 +77,7 @@ export async function alterarCartao(id, cartao){
             where id_cartao     = ?
     `
 
-    const [respo] = await connection.query(comando,[
+    const [respo] = await connection.query(comando, [
         cartao.nome,
         cartao.cvc,
         cartao.numero,

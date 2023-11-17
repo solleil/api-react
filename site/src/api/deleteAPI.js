@@ -15,3 +15,7 @@ export async function apagarCartao(id) {
 
     return resposta.data;
 }
+
+export async function deletarProduto(id) {
+    await api.delete(`/produto/${id}`)
+}

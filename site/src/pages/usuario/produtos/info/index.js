@@ -28,7 +28,7 @@ export default function Info() {
   }
 
   useEffect(() => {
-    carregarProduto()
+    carregarProduto();
   }, [])
 
   function mudarI() {

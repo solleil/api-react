@@ -9,6 +9,11 @@ export async function listarProdutos() {
     return r.data;
 }
 
+export async function listarProdutosInner() {
+    const r = await api.get('/produtos/inner');
+    return r.data
+}
+
 export async function listarProdutosId(id) {
     const r = await api.get(`/produto/${id}`);
     return r.data;
