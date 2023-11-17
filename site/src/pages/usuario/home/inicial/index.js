@@ -3,6 +3,7 @@ import './index.scss';
 import Cabecalho from '../../../../components/cabecalho'
 import Rodape from '../../../../components/rodape';
 import Carrossel from '../../../../components/carrossel'
+import { Link } from 'react-router-dom';
 
 
 export default function Inicial() {
@@ -117,6 +118,9 @@ export default function Inicial() {
         </div>
 
        
+        </div>
+        <div className='s7'  >
+        <Link to="/produtos"> <button className='s7-ver'>VER MAIS</button> </Link>
         </div>
 
       </div>
