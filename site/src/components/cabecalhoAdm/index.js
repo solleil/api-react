@@ -69,10 +69,11 @@ export default function CabecalhoAdm() {
 
 
         <div className="c2-3">
-        
+          <a href='http://localhost:3000/editarproduto' className='editarAdm'> 
 
+          <img src='/assets/images/adm/cabecalho/editar.png' alt='' /></a>
 
-          <a href='http://localhost:3000/addproduto' className='addAdm'> 
+          <a href='/addproduto' className='addAdm'> 
           <img src='/assets/images/adm/cabecalho/add.png' alt='' />
           </a>
 
@@ -87,12 +88,12 @@ export default function CabecalhoAdm() {
           {menu === true &&
             <>
               <div className='menuAberto'>
-                <a href='http://localhost:3000/home/adm'>Menu</a>
-                <a href='http://localhost:3000/graficos'>Gráficos</a>
-                <a href='http://localhost:3000/filtrarpedido'>Filtro de pedidos</a>
-                <a href='http://localhost:3000/alterar/status'>Editar pedido</a>
-                <a href='http://localhost:3000/edicao'>Editar Manual</a>
-                <a href='http://localhost:3000/consultar/produto'>Consulta de produtos</a>
+                <a href='/home/adm'>Menu</a>
+                <a href='/graficos'>Gráficos</a>
+                <a href='/filtrar'>Filtro de pedidos</a>
+                <a href='/edicao'>Editar pedido</a>
+                
+                <a href='/consultar/produto'>Consulta de produtos</a>
 
               </div>
             </>
