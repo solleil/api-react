@@ -12,6 +12,7 @@ import { toast } from 'react-toastify';
 import LoadingBar from 'react-top-loading-bar';
 import { InserirCartao } from '../../../../api/postAPi';
 import { listarCartao } from '../../../../api/getAPI';
+import { apagarCartao } from '../../../../api/deleteAPI';
 
 export default function Conta() {
   const [enderecoS, setEnderecoS] = useState([]);
@@ -33,7 +34,6 @@ export default function Conta() {
 
 
   const [cartao, setCartao] = useState(false);
-  const [cartaoDebito, setCartaoDebito] = useState(false);
   const [nomeCartao, setNomeCartao] = useState('');
   const [cvcCartao, setCVCCartao] = useState('');
   const [numeroCartao, setNumeroCartao] = useState('');
@@ -95,6 +95,18 @@ export default function Conta() {
     };
   }
 
+  async function deletarCartao() {
+    setCarregando(false)
+    try {
+      await apagarCartao(id);
+      carregarCartao(id);
+      toast.success("Cartão excluido com sucesso");
+    } catch (err) {
+      setCarregando(false);
+      toast.error(err.response.data.erro);
+    };
+  }
+
   async function carregarEndereco() {
     const respo = await listarEndereco(id);
     setEnderecoS(respo);
@@ -116,6 +128,11 @@ export default function Conta() {
     setUsuarioInfo(respo)
   }
 
+  async function carregarCartao(){
+    const respo = await listarCartao(id);
+    setCartao(respo)
+  }
+
   async function carregarTiposPele() {
     const respo = await listarTiposdePele();
     setTiposPeleS(respo);
@@ -127,6 +144,7 @@ export default function Conta() {
     carregarEndereco()
     carregarTiposPele()
     carregarUsuario()
+    carregarCartao()
   }, []);
 
   useEffect(() => {
@@ -205,7 +223,7 @@ export default function Conta() {
       <Cabecalho />
       <LoadingBar color='#43B541' />
       <div className='s1'>
-        <div className='s1-0'> <p>Olá, {usuarioInfo.nome} </p> <button onClick={LogOut}>Log-out</button> </div>
+        <div className='s1-0'> <p>Olá, {usuarioInfo.nome} </p>  </div>
 
 
 
@@ -348,8 +366,8 @@ export default function Conta() {
         <div className='s3-lado'>
           {enderecoS.map((item) =>
             <div className='s3-2' key={item.id}>
-              <p>Rua: {item.rua} </p> <p>Nº {item.endereco} </p> <p>Bairro: {item.bairro} </p> <p>Cidade: {item.cidade} </p>
-              <p>Cep: {item.cep} </p>
+              <p><b>Rua:</b> {item.rua} </p> <p><b>Nº</b> {item.endereco} </p> <p><b>Bairro: </b>{item.bairro} </p> <p><b>Cidade:</b> {item.cidade} </p>
+              <p> <b>Cep:</b>{item.cep} </p>
             </div>
           )}
 
@@ -395,12 +413,14 @@ export default function Conta() {
         </div>
 
         <div className='s3-lado'>
-          {enderecoS.map((item) =>
-            <div className='s3-2' key={item.id}>
-              <p>rua: {item.rua} </p> <p>Nº {item.endereco} </p> <p>Bairro: {item.bairro} </p> <p>Cidade: {item.cidade} </p>
-              <p>Cep: {item.cep} </p>
+
+            <div className='s3-2'>
+              <p><b>nome no cartão:</b>{cartao.nome}</p> 
+              <p><b>número do cartão:</b>{cartao.numero}</p> 
+              <p><b>validade:</b>{cartao.validade}</p>
+              <p><b>código de segurança:</b>{cartao.cvc}</p>
             </div>
-          )}
+
 
 
           {mostrar === false &&
@@ -410,8 +430,8 @@ export default function Conta() {
           {mostrar === true &&
             <>
               <div className='s3-3'>
-                <input type='text' placeholder='nome no cartão' className='rua' onChange={(e) => setNomeCartao(e.target.value)} />
-                <input type='text' placeholder='número do cartão' className='numero' onChange={(e) => setNumeroCartao(e.target.value)}/>
+                <input type='text' placeholder='nome no cartão' className='rua' value={nomeCartao} onChange={(e) => setNomeCartao(e.target.value)} />
+                <input type='text' placeholder='número do cartão' className='numero' value={numeroCartao} onChange={(e) => setNumeroCartao(e.target.value)}/>
                 <select className='bairro' value={mesValidade} onChange={(e) => setMesValidade(e.target.value)}>
                                                 <option value={0}>mês</option>
                                                 <option value={1}>janeiro</option>
@@ -437,12 +457,11 @@ export default function Conta() {
                                                 <option value={29}>2029</option>
                                                 <option value={30}>2030</option>
                 </select>
-                <input type='text' className='c' placeholder='CPF do titular'/>
-                <input id='cod' onChange={(e) => setCVCCartao(e.target.value)} type='text' className='o' placeholder='código de segurança'/>
+                <input id='cod' value={cvcCartao} onChange={(e) => setCVCCartao(e.target.value)} type='text' className='o' placeholder='código de segurança'/>
 
                 <button onClick={cadastrarcartao} > <img src='/assets/images/usuario/conta/salvar.png' alt='' />  </button>
                 <button > <img src='/assets/images/usuario/conta/editar.png' alt='' />  </button>
-                <button > <img src='/assets/images/usuario/conta/excluir.png' alt='' />  </button>
+                <button onClick={deletarCartao} > <img src='/assets/images/usuario/conta/excluir.png' alt='' />  </button>
               </div>  
             </>}
 

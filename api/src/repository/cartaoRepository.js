@@ -63,3 +63,28 @@ export async function deletaCartao(id) {
     const [resp] = await connection.query(comando, [id]);
     return resp;
 }
+
+export async function alterarCartao(id, cartao){
+    const comando = `
+            update tb_cartao
+            set
+            
+            nm_cartao           =   ?,
+            ds_cvc              =   ?,
+            ds_numero           =   ?,
+            ds_validade         =   ?
+            
+            where id_cartao     = ?
+    `
+
+    const [respo] = await connection.query(comando,[
+        cartao.nome,
+        cartao.cvc,
+        cartao.numero,
+        cartao.validade,
+        cartao.cliente,
+        id
+    ])
+    return respo.affectedRows;
+
+}
