@@ -195,3 +195,19 @@ export async function inserirImagemProduto(imagem, id) {
     const [respo] = await connection.query(comando, [imagem, id])
     return respo
 }
+
+
+export async function buscaProduto(nome) {
+    const comando = `
+    select 
+	id_produto as id,
+    nm_produto as nome,
+    vl_preco as preco
+    from tb_produto
+    where nm_produto like ?
+    ;
+    `;
+    
+    const [respo] = await connection.query(comando, [   `%${nome}%`   ])
+    return respo
+}

@@ -141,3 +141,8 @@ set
     img_produto = 1
 where
     id_produto = 1;
+
+
+
+
+    

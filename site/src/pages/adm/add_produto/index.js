@@ -60,6 +60,7 @@ export default function AddProduto() {
     setIdMarca('');
     setNecess('');
     setIndica('');
+    setImagem('')
   }
 
   async function produtoEditAdd() {

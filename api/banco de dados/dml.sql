@@ -378,3 +378,12 @@ insert into
     tb_admin(ds_email, ds_senha)
 values
     ('adm.com', 1234)
+
+
+    select 
+	id_produto as id,
+    nm_produto as nome,
+    vl_preco as preco
+    from tb_produto
+    where nm_produto like ?
+    ;
