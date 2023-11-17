@@ -57,6 +57,7 @@ root.render(
 
         <Route path='/filtrarproduto' element={<FiltrarProduto />} />
         <Route path='/addproduto' element={<AddProduto />} />
+        <Route path='/alterar/produto/:idParams' element={<AddProduto />} />
         <Route path='/alterarstatus' element={<AlterarStatus />} />
         <Route path='/editarproduto/:idParams' element={<EditarProduto />} />
         <Route path='/home/adm' element={<Inicialadm />} />

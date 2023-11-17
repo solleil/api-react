@@ -106,14 +106,9 @@ export default function Info() {
 
           <div className='qtd'>
             <div className='qtd-info'>
-
-
               <button type='number' value={n1} onChange={(e) => setN1(Number(e.target.value))} onClick={menos}> <img src='/assets/images/geral/-.png' alt='a' /></button>
               <p value={result} onChange={(e) => setResult(Number(e.target.value))}> {result}</p>
               <button type='number' value={n2} onChange={(e) => setN2(Number(e.target.value))} onClick={mais}> <img src='/assets/images/geral/+.png' alt='' /></button>
-
-
-
             </div>
 
 
@@ -197,15 +192,7 @@ export default function Info() {
             {comprov === true &&
               <>
                 <div className='comprova'>
-
-                  <p>o Limpador Facial passou por uma série de estudos clínicos que garantem <br />a segurança do produto:<br />
-                    <b>Dermatologicamente testado em pele sensível -</b> produto seguro para ser<br /> aplicado sobre a pele;<br />
-                    <b>Oftalmologicamente testado -</b>  produto seguro para ser aplicado, com os<br /> olhos fechados;<br />
-                    <b>Não-fototóxico e não-sensibilizante -</b>  o produto não causa irritação/<br />sensibilização na pele;Não-comedogênico - o produto não promoveu aumento em<br /> comedões abertos e fechados, nem em pápulas e pústulas;<br />
-                    <b>Hipoalergênico -</b>  o produto não induziu processo de irritação e sensibilização<br /> cutânea em nenhum voluntário durante o período de estudo.
-                  </p>
-
-
+                  <p>{produtO.descricao}</p>
                 </div>
               </>}
 
@@ -256,32 +243,12 @@ export default function Info() {
                     </div>
                     <p>também chamado de Pro-Vitamina B5, é conhecido pelo seu poder hidratante e<br /> suavizante, promove ação calmante e anti-inflamatória.</p>
                   </div>
-
-
-
-
-
                 </div>
               </>}
-
           </div>
-
-
-
-
         </div>
       </div>
-
-
       <Rodape />
     </div>
-
-
-
-
-
-
-
-
   );
 }
