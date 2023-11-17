@@ -2,7 +2,7 @@ import './index.scss';
 import Rodape from '../../../../components/rodape';
 import Cabecalho from '../../../../components/cabecalho';
 import { useEffect, useState } from 'react';
-import storage, { set } from 'local-storage';
+import storage from 'local-storage';
 import { listarProdutosId } from '../../../../api/getAPI';
 import CarrinhoProduto from '../../../../components/carrinhoproduto';
 
