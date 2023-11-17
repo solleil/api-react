@@ -223,7 +223,9 @@
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 90vh;
+    margin: 40px 0px 40px 0px;
+ 
+    height: 60vh;
 
   }
 
@@ -237,7 +239,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-
+    
     width: 60vw;
     gap: 45px
   }
@@ -251,6 +253,7 @@
     transition: 0.3s;
     height: 22vh;
   }
+
 
   
 
@@ -271,6 +274,8 @@
 
   
   .pisca-s6 {
+     color: #000;
+
     animation: pisca 1.0s infinite;
      display: flex;
     flex-direction: row;
@@ -278,10 +283,13 @@
     margin-top: 15px;
    gap: 5px; 
   
-        
+
+   
 
 
   }
+
+  
   
   @keyframes pisca{
     0%, 100% {
@@ -297,6 +305,7 @@
   .s6{
     display: flex;
     flex-direction: column;
+     
 
 
     .s6-1{
@@ -314,13 +323,13 @@
     height: 30vh;
 
 
-    .s6-1 p{
-      font-family: 'Questrial', sans-serif;
+    .s6 p{
+      font-family: 'Comfortaa', sans-serif;
     }
   }
 
   .s6-p1:hover{
-    background-color: #E5C28C;
+     background-color: #FFE898;
     border-radius: 25px;
     cursor: pointer;
     transition: 0.3s;
@@ -332,10 +341,12 @@
   .s7{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: center; 
+   
 
      .s7-ver{
-   
+    height: 5vh;
+    width: 10vw;
     align-items: center;
     color: white;
     background-color: #000;

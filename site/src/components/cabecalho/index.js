@@ -2,6 +2,8 @@ import { useState } from 'react';
 import './index.scss';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage'
+import { listarProdutos, buscarProdutos } from '../../api/getAPI';
+import { useEffect } from 'react';
 
 export default function Cabecalho() {
       const[menu, setMenu] = useState(false)
@@ -9,6 +11,9 @@ export default function Cabecalho() {
       const[tipoPele, setTipoPele] = useState(false)
       const[necessidades, setNecessidades] = useState(false)
       const[marcas, setMarcas] = useState(false)
+      const [ produtos, setProdutos] = useState('')
+
+      const[ pesq, setPesq] = useState('')
 
 
       function Mudar(){
@@ -31,12 +36,27 @@ export default function Cabecalho() {
       setMarcas(!marcas)
     }
 
-
-
     function LogOut(){
       storage.remove('usuario-logado')
       navigate('/')
     }
+
+    function navFiltro(id) {
+      navigate(`/produtos/${id}`)
+    }
+
+    async function carregarProdutos(){
+      const resp = await listarProdutos();
+      console.log(resp)
+      setProdutos(resp)
+    }
+
+   
+
+    useEffect(() => {
+      carregarProdutos();
+    }, [])
+
 
     return (
       
@@ -69,8 +89,8 @@ export default function Cabecalho() {
 
                 <div className="c2-2"> 
                           <div className="input">
-                             <input className='inp' type="text" /> 
-                             <button> <img src="/assets/images/geral/pesquisa.png" alt=""/></button>
+                             <input className='inp' type="text" value={pesq} onChange={e => setPesq(e.target.value)}/> 
+                             <button> <img src="/assets/images/geral/pesquisa.png" alt="" onClick={carregarProdutos}/></button>
                           </div> 
                  </div>
                   
@@ -96,13 +116,13 @@ export default function Cabecalho() {
           {categoria === true &&
           <>
           <div className='position'>
-            <a href='a'> Máscaras</a>
-            <a href='a'> Limpadores   </a>
-            <a href='a'>Séruns</a>
-            <a href='a'>Proteção solar</a>
-            <a href='a'>Corpo</a>
-            <a href='a'>Esfoliantes</a>
-            <a href='a' className='a'>Hidratantes</a>
+            <a href='a' onClick={() => navFiltro(1)}> Máscaras</a>
+            <a href='a' onClick={() => navFiltro(2)}> Limpadores   </a>
+            <a href='a' onClick={() => navFiltro(3)}>Séruns</a>
+            <a href='a' onClick={() => navFiltro(4)}>Proteção solar</a>
+            <a href='a' onClick={() => navFiltro(5)}>Corpo</a>
+            <a href='a' onClick={() => navFiltro(6)}>Esfoliantes</a>
+            <a href='a' className='a' onClick={() => navFiltro(7)}>Hidratantes</a>
           </div>
           </>
           }
@@ -117,12 +137,12 @@ export default function Cabecalho() {
           {tipoPele === true &&
           <>
           <div className='position'>
-            <a href='a'>Todos os tipos</a>
-            <a href='a'> Pele mista  </a>
-            <a href='a'>Pele seca</a>
-            <a href='a'>Pele oleosa</a>
-            <a href='a'>Pele sensível</a>
-            <a href='a'>Pele normal</a>
+            <a href='a' onClick={() => navFiltro(1)}>Todos os tipos</a>
+            <a href='a' onClick={() => navFiltro(2)}> Pele mista  </a>
+            <a href='a' onClick={() => navFiltro(3)}>Pele seca</a>
+            <a href='a' onClick={() => navFiltro(4)}>Pele oleosa</a>
+            <a href='a' onClick={() => navFiltro(5)}>Pele sensível</a>
+            <a href='a' onClick={() => navFiltro(6)}>Pele normal</a>
           </div>
           </>
           }
@@ -134,13 +154,13 @@ export default function Cabecalho() {
           {necessidades === true &&
           <>
           <div className='position'>
-            <a href='a'>Acne</a>
-            <a href='a'> Oleosidade  </a>
-            <a href='a'>Olheiras</a>
-            <a href='a'>Cicatrizes/textura</a>
-            <a href='a'>Antipoluição</a>
-            <a href='a'>Cravos</a>
-            <a href='a'>Hiperpigmentação</a>
+            <a href='a' onClick={() => navFiltro(1)}>Acne</a>
+            <a href='a' onClick={() => navFiltro(2)}> Oleosidade  </a>
+            <a href='a' onClick={() => navFiltro(3)}>Olheiras</a>
+            <a href='a' onClick={() => navFiltro(4)}>Cicatrizes/textura</a>
+            <a href='a' onClick={() => navFiltro(5)}>Antipoluição</a>
+            <a href='a' onClick={() => navFiltro(6)}>Cravos</a>
+            <a href='a' onClick={() => navFiltro(7)}>Hiperpigmentação</a>
           </div>
           </>
           }
@@ -153,7 +173,7 @@ export default function Cabecalho() {
           {marcas === true &&
           <>
           <div className='position'>
-            <a href='a'>Sallve</a>
+            <a href='a' >Sallve</a>
             <a href='a'> Cerave </a>
             <a href='a'>Principia</a>
             <a href='a'>Laneige</a>
@@ -170,6 +190,11 @@ export default function Cabecalho() {
           </>
               }
               </div>
+
+
+              
+
+
       </div>
 
      

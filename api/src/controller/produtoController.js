@@ -44,7 +44,7 @@ server.get(('/produto/:id'), async (req, resp) => {
 
 server.get(('/pesquisa/produto'), async (req, resp) => {
   try {
-    const query = req.query;
+    const query = req.query.nome;
     const respo = await pesquisarProduto(query);
     resp.send(respo);
   } catch (err) {
@@ -97,5 +97,21 @@ server.put(('/imagem/produto/:id'), upload.single('foto_produto'), async (req, r
     resp.status(400).send({ erro: err.message });
   };
 });
+
+
+
+
+server.get(('produto/busca'), async(req, resp) =>{
+  try {
+      const { nome } = req.query;
+      const resposta= await buscaProduto(nome);
+
+      if(resposta.length == 0){
+          resp.status(404).send([])
+      }
+  } catch (err) {
+    resp.status(404).send({erro: err.message})
+  }
+}  )
 
 export default server;

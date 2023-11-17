@@ -205,6 +205,8 @@ export default function Inicial() {
         </div>
       </div>
 
+      <div className='s5-linha'></div>
+
       <div className='s6'>
         <div className='pisca'>
           <h1>
@@ -214,23 +216,23 @@ export default function Inicial() {
 
         <div className='s6-1'>
             <div className='s6-img'>
-          <img className='s6-p1' src='/assets/images/usuario/inicial/pdts6.png' alt='' />
+          <Link to="/produtos">  <img className='s6-p1' src='/assets/images/usuario/inicial/pdts6.png' alt='' /></Link>
           <p className='s6-p'>SÉRUM</p>
         </div>
 
         <div className='s6-img'>
-          <img className='s6-p1' src='/assets/images/usuario/inicial/pdtts6.png' alt='' />
+          <Link to="/produtos"> <img className='s6-p1' src='/assets/images/usuario/inicial/pdtts6.png' alt='' /></Link>
           <p className='s6-p'>GEL DE LIMPEZA</p>
         </div>
 
 
-        <div className='s6-img'>
-          <img className='s6-p1' src='/assets/images/usuario/inicial/pdttts6.png' alt='' />
+        <div className='s6-img'> 
+          <Link to="/produtos"> <img className='s6-p1' src='/assets/images/usuario/inicial/pdttts6.png' alt='' /></Link>
           <p className='s6-p'>ÁGUA MICELAR</p>
         </div>
 
         <div className='s6-img'>
-          <img className='s6-p1' src='/assets/images/usuario/inicial/pdtttts6.png' alt='' />
+         <Link to="/produtos"> <img className='s6-p1' src='/assets/images/usuario/inicial/pdtttts6.png' alt='' /> </Link>
           <p className='s6-p'> HIDRATANTE FACIL</p>
         </div>
 
