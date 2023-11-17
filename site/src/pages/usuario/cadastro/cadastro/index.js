@@ -60,7 +60,7 @@ export default function CadastrarUsuarioPage() {
       storage('usuario-logado', respo);
 
       setTimeout(() => {
-        navigate('/');
+        navigate('/login');
       }, 2500);
 
     } catch (err) {

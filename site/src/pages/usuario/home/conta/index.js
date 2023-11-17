@@ -13,7 +13,7 @@ import LoadingBar from 'react-top-loading-bar';
 import { InserirCartao } from '../../../../api/postAPi';
 import { listarCartao } from '../../../../api/getAPI';
 import { editarUsuario } from '../../../../api/putAPI';
-import { apagarCartao } from '../../../../api/deleteAPI';
+import { apagarCartao, deletarUsuario } from '../../../../api/deleteAPI';
 
 export default function Conta() {
   const [enderecoS, setEnderecoS] = useState([]);
@@ -88,10 +88,11 @@ export default function Conta() {
       await editarUsuario(nome, sobrenome, telefone, email, cpf, id);
       carregarUsuario(id);
       toast.success("Usuario editado com sucesso");
+
     } catch (err) {
       setCarregando(false);
       toast.error(err.response.data.erro);
-    };
+    }; 
   }
   async function deletarEndereco() {
     setCarregando(false)
@@ -116,7 +117,18 @@ export default function Conta() {
       toast.error(err.response.data.erro);
     };
   }
+  async function deletarDados(){
+    setCarregando(false)
+    try {
+      await deletarUsuario(id);
+      carregarUsuario(id);
+      toast.success("Alteraçao excluida")
+    } catch (err) {
+      setCarregando(false);
+      toast.error(err.response.data.erro);
+    }
 
+  }
   async function carregarEndereco() {
     const respo = await listarEndereco(id);
     setEnderecoS(respo);
@@ -343,13 +355,7 @@ export default function Conta() {
 
               <input className='dnt' type='text' placeholder='Nome' value={nome} onChange={e => setNome(e.target.value)}></input>
               <input className='dnt' type='text' placeholder='Sobrenome' value={sobrenome} onChange={e => setSobrenome(e.target.value)}></input>
-              <select className='dnt' type='text' value={tiposPeleS} onChange={e => setTiposPeleS(e.target.value)}>
-                <option>Tipos de pele</option>
-                {
-                  tiposPeleS.map(item =>
-                    <option key={item.id} value={item.id}> {item.nome} </option>)
-                }
-              </select>
+              
             </div>
 
             <div className='s2-5'>
@@ -360,8 +366,7 @@ export default function Conta() {
 
             <div className='s2-6'>
               <button onClick={alterarUsuario}> <img src='/assets/images/usuario/conta/editar.png' alt='' />  </button>
-              <button> <img src='/assets/images/usuario/conta/excluir.png' alt='' />  </button>
-            </div>
+              </div>
 
           </div>
         }

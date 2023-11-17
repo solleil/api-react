@@ -19,3 +19,10 @@ export async function apagarCartao(id) {
 export async function deletarProduto(id) {
     await api.delete(`/produto/${id}`)
 }
+
+
+export async function deletarUsuario(id) {
+    const resp = await api.delete(`/cliente/${id}`)
+
+    return resp.data;
+}

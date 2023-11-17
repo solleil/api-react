@@ -84,7 +84,7 @@ server.put('/cliente/alterar/:id', async (req, resp) => {
         const respo = await alterarUsuario(usuario, id);
 
         if (respo != 1) {
-            throw new Error( 'Usuario inexistente' );
+            throw new Error( 'Não foi possivel' );
         } else {
             resp.status(204).send();
         } 
