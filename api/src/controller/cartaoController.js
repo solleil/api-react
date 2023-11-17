@@ -1,4 +1,4 @@
-import { listarCartao, inserirCartao, listarCartaoid, deletaCartao } from '../repository/cartaoRepository.js';
+import { listarCartao, inserirCartao, listarCartaoid, deletaCartao, alterarCartao } from '../repository/cartaoRepository.js';
 import { Router } from 'express';
 
 const server = Router()
@@ -48,5 +48,18 @@ server.post(('/cartao'), async (req, resp) => {
       resp.status(404).send({ erro: err.message })
     }
   })
+
+  server.put('/cartao/:id', async (req, resp) => {
+    try {
+      const params = req.params.id;
+      const respo = req.body;
+      await alterarCartao(params, respo);
+      resp.sendStatus(204);
+  
+    } catch (err) {
+      resp.status(404).send({ erro: err.message });
+    }
+  })
+  
 
   export default server;

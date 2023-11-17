@@ -308,6 +308,9 @@ select
     ds_bairro as bairro
 from
     tb_endereco;
+    
+    select * from tb_endereco;
+    
 
 select
     id_cartao as id,
@@ -329,6 +332,16 @@ insert into
     )
 values
     ('teste', '000', '000-000-000', '23', 2);
+    
+    update
+    tb_cartao
+set
+    nm_cartao = "teste",
+    ds_cvc = "teste",
+    ds_numero = "teste",
+    ds_validade = "teste"
+where
+    id_cartao = 1;
 
 select
     *
@@ -358,6 +371,8 @@ select
     *
 from
     tb_cliente;
+    
+    select * from tb_cartao;
 
 insert into
     tb_admin(ds_email, ds_senha)

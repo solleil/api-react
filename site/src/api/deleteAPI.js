@@ -9,3 +9,9 @@ export async function apagarEndereco(id) {
 
     return resposta.data;
 }
+
+export async function apagarCartao(id) {
+    const resposta = await api.delete(`/cartao/${id}`)
+
+    return resposta.data;
+}
