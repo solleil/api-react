@@ -47,7 +47,7 @@ export default function CabecalhoAdm() {
     <div className="cabecalho">
       <div className="c1">
 
-      <a href='/inicial' className='c1-1'> <img src='/assets/images/usuario/cabecalho/logo_preta.png' alt='' />
+      <a href='/' className='c1-1'> <img src='/assets/images/usuario/cabecalho/logo_preta.png' alt='' />
         <p id='log' > SOLLEIL</p></a>
        
       </div>
@@ -69,9 +69,8 @@ export default function CabecalhoAdm() {
 
 
         <div className="c2-3">
-          <a href='http://localhost:3000/editarproduto' className='editarAdm'> 
+        
 
-          <img src='/assets/images/adm/cabecalho/editar.png' alt='' /></a>
 
           <a href='http://localhost:3000/addproduto' className='addAdm'> 
           <img src='/assets/images/adm/cabecalho/add.png' alt='' />

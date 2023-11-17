@@ -64,3 +64,10 @@ export async function listarAdminId(id) {
     const r = await api.get(`/admin/${id}`);
     return r.data;
 }
+
+
+export function MostrarImagem(imagem) {
+    
+     return `${api_url}/${imagem}`;
+      
+}
