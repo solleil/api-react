@@ -11,7 +11,7 @@ export default function Produtos() {
     <div className="pag-produtos">
       <Cabecalho />
       <div className='s1'>
-        <h3>FILTRADO POR MARCA: <strong>SALLVE</strong></h3>
+        <h3> <strong></strong></h3>
 
         <div className='s1-row'>
           <MolduraProdutos />
