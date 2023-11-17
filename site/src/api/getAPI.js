@@ -19,6 +19,10 @@ export async function listarProdutosId(id) {
     return r.data;
 }
 
+export async function PesquisarProduto(nome) {
+    const r = await api.get()
+}
+
 export async function listarMarcas() {
     const r = await api.get('/marca');
     return r.data;
