@@ -10,6 +10,6 @@ const connection = await mysql.createConnection({
 });
 
 
-console.log(`BD CONECTADO NA PORTA ${process.env.PORT}`);
+console.log(`BD CONECTADO NA PORTA ${process.env.MYSQL_PORT}`);
 
 export { connection }
