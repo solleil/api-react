@@ -69,7 +69,7 @@ export default function CabecalhoAdm() {
 
 
         <div className="c2-3">
-          <a href='http://localhost:3000/editarproduto' className='editarAdm'> 
+          <a href='/editarproduto' className='editarAdm'> 
 
           <img src='/assets/images/adm/cabecalho/editar.png' alt='' /></a>
 
