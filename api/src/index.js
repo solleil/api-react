@@ -46,4 +46,4 @@ import carrinhoController from './controller/carrinhoController.js';
 servidor.use(carrinhoController)
 
 
-servidor.listen(process.env.MYSQL_PORT, () => console.log(`API online na porta ${process.env.MYSQL_PORT}`));
+servidor.listen(process.env.PORT_LOCAL, () => console.log(`API online na porta ${process.env.MYSQL_PORT}`));
