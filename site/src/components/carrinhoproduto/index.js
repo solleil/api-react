@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage';
 
-export default function CarrinhoProduto(props) {
+export default function CarrinhoProduto(props, removerItem) {
 
 
   const [result, setResult] = useState(1);
@@ -16,7 +16,9 @@ export default function CarrinhoProduto(props) {
 
   
 
-  
+  function remover(){
+    removerItem()
+  }
 
 
   function mais() {
@@ -65,7 +67,7 @@ export default function CarrinhoProduto(props) {
       <div className='s-1-2'>
         <div className='s-1-1-2'>
           <b> {props.item.produto.nome} </b>
-          <p> {props.item.produto.preco} </p>
+          <p> R$ {props.item.produto.preco} </p>
         </div>
 
         <div className='s-1-1-3'>
@@ -73,7 +75,7 @@ export default function CarrinhoProduto(props) {
           <div className='qtd-info'>                 <button type='number' value={num1} onChange={(e) => setNum1(Number(e.target.value))} onClick={menos}> <p>-</p></button>
             <b onChange={(e) => setResult(Number(e.target.value))}> {result}</b >
             <button type='number' value={num2} onChange={(e) => setNum2(Number(e.target.value))} onClick={mais}> <p>+</p></button></div>
-          <img src='/assets/images/usuario/carrinho/lixo.png' alt='0' />
+          <img className='lixo' onClick={remover} src='/assets/images/usuario/carrinho/lixo.png' alt='0' />
           <img src='/assets/images/usuario/carrinho/coracao.png' alt='0' />
         </div>
       </div>

@@ -36,6 +36,14 @@ export default function Carrinho() {
     CarregarCarrinhoSolleil();
   }, [])
 
+  function removerItem(id){
+    let carrinho = Storage('carrinhosolleil');
+    carrinho = carrinho.filter(item => item.id !== id);
+
+    Storage('carrinho', carrinho);
+    CarregarCarrinhoSolleil();
+  }
+
 
 
 
@@ -47,7 +55,7 @@ export default function Carrinho() {
 
 
         {itens.map(item =>
-          <CarrinhoProduto item={item}/>
+          <CarrinhoProduto item={item} removerItem={removerItem}/>
           )}
 
       </div>
