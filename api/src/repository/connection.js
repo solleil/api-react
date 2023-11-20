@@ -2,14 +2,14 @@ import mysql from 'mysql2/promise';
 
 const connection = await mysql.createConnection({
 
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PWD,
-    database: process.env.MYSQL_DB
+    host: process.env.HOST_LOCAL,
+    user: process.env.USER_LOCAL,
+    password: process.env.PWD_LOCAL,
+    database: process.env.DB_LOCAL
 
 });
 
 
-console.log(`BD CONECTADO NA PORTA ${process.env.MYSQL_PORT}`);
+console.log(`BD CONECTADO NA PORTA ${process.env.PORT_LOCAL}`);
 
 export { connection }

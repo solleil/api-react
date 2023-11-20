@@ -2,8 +2,9 @@ import { useState } from 'react';
 import './index.scss';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage'
-import { listarProdutos, buscarProdutos } from '../../api/getAPI';
+import { listarProdutos, buscaProdutos } from '../../api/getAPI';
 import { useEffect } from 'react';
+import SearchBar from '../barraPesquisa';
 
 export default function Cabecalho() {
       const[menu, setMenu] = useState(false)
@@ -11,7 +12,7 @@ export default function Cabecalho() {
       const[tipoPele, setTipoPele] = useState(false)
       const[necessidades, setNecessidades] = useState(false)
       const[marcas, setMarcas] = useState(false)
-      const [ produtos, setProdutos] = useState('')
+      const [ produtos, setProdutos] = useState([])
 
       const[ pesq, setPesq] = useState('')
 
@@ -191,6 +192,9 @@ export default function Cabecalho() {
               }
               </div>
 
+
+             
+           <SearchBar/>
 
               
 

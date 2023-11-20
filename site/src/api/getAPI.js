@@ -75,3 +75,8 @@ export function MostrarImagem(imagem) {
      return `${api_url}/${imagem}`;
       
 }
+
+    export async function buscaProduto(nome){
+        const resposta= await api.get(`/produto/busca?nome=${nome}`)
+        return resposta.data
+    }
