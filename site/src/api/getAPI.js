@@ -24,6 +24,11 @@ export async function listarProdutosFiltro(queryIDT) {
     return r.data;
 }
 
+export async function listarProdutosConsulta(queryFiltro) {
+    const r = await api.get(`/produto/consulta?${queryFiltro}`);
+    return r.data;
+}
+
 export async function PesquisarProduto(nome) {
     const r = await api.get()
 }

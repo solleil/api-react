@@ -18,8 +18,18 @@ server.get(('/produto'), async (req, resp) => {
 
 server.get(('/produto/consulta'), async (req, resp) => {
   try {
-    const body = req.body;
-    const respo = await buscaProdutoFiltro(body);
+    const queryNome = req.query.nome;
+    const queryDesc = req.query.desc;
+    const queryId = req.query.id;
+    const queryCat = req.query.categoria;
+    const queryMarca = req.query.marca;
+    const queryPreco = req.query.preco;
+    const respo = await buscaProdutoFiltro(queryNome, queryDesc, queryId, queryCat, queryMarca, queryPreco);
+
+    if (respo.length == 0) {
+      throw new Error('Produto não encontrado')
+    }
+
     resp.send(respo);
   } catch (err) {
     resp.status(404).send({erro: err.message})
