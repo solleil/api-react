@@ -1,6 +1,5 @@
 import { listarProdutos, listarProdutosFiltro } from '../../api/getAPI';
 import { api_url } from '../../constats';
-import Produtos from '../../pages/usuario/produtos/produtos';
 import './index.scss';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
