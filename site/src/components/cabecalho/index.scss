@@ -5,65 +5,68 @@
     align-items: center;
     width: 100vw;
 
-    input{
+    input {
         font-family: 'Questrial', sans-serif;
         color: black;
     }
-    
 
-    
-    
-    
+
+
+
+
     .pisca-s1 {
         animation: pisca 2.5s infinite;
-         display: flex;
+        display: flex;
         flex-direction: row;
         margin-top: 15px;
-       gap: 5px; 
-      
-            
+        gap: 5px;
 
-    
-      }
-      
-      @keyframes pisca{
-        0%, 100% {
-          opacity: 0;
+
+
+
+    }
+
+    @keyframes pisca {
+
+        0%,
+        100% {
+            opacity: 0;
         }
+
         50% {
-          opacity: 1;
+            opacity: 1;
         }
-        
-       
-      }
 
-  
 
-    
+    }
 
-      .pisca h1{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            background-color: #FFE898;
-            font-size: 12px;
-            height: 3vh;
-            width: 100vw;
-           
 
-             #frete{
-                color: rgb(255, 157, 11);
-             }
-       
-      }
 
-      
-     
 
-      
-        
-      
+
+    .pisca h1 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #FFE898;
+        font-size: 12px;
+        height: 3vh;
+        width: 100vw;
+
+
+        #frete {
+            color: rgb(255, 157, 11);
+        }
+
+    }
+
+
+
+
+
+
+
 
     .c1 {
         display: flex;
@@ -74,7 +77,7 @@
         width: 100vw;
         height: 15vh;
 
-       
+
 
 
     }
@@ -89,20 +92,20 @@
         p {
             text-decoration: none;
             color: black;
-            
-            
-            
-           
+
+
+
+
         }
 
-        #logo{
+        #logo {
             font-size: 65px;
             font: 65px 'castle';
         }
     }
 
-    .c1-1 > img {
-       margin-bottom: 15px;
+    .c1-1>img {
+        margin-bottom: 15px;
         height: 8vh;
     }
 
@@ -162,7 +165,8 @@
     }
 
     textarea:focus,
-    input:focus, button:focus {
+    input:focus,
+    button:focus {
         box-shadow: 0 0 0 0;
         outline: 0;
     }
@@ -181,7 +185,7 @@
         align-items: center;
         flex-direction: row;
         cursor: pointer;
-        
+
     }
 
 
@@ -202,15 +206,16 @@
         gap: 8px;
         width: 15vw;
 
-        a {
+        h1 {
             color: black;
             text-decoration: none;
             font-size: 15px;
             font-family: 'Comfortaa', sans-serif;
-            
+            transition: 0.2s;
+
         }
 
-        a:hover {
+        h1:hover {
             transition: 0.2s;
             cursor: pointer;
 
@@ -230,7 +235,7 @@
         border-radius: 25px 25px 0px 0px;
         font-family: 'Questrial', sans-serif !important;
 
-      
+
 
 
     }
@@ -252,9 +257,9 @@
         margin: 0px;
 
         padding: 0px 0px 0px 15px;
-    
 
-            
+
+
     }
 
     .n-yellow:hover {
@@ -278,7 +283,7 @@
     @media screen and (max-width: 500px) {
 
 
-        .pisca-s1{
+        .pisca-s1 {
             display: flex;
             align-items: center;
 
@@ -286,28 +291,32 @@
         }
 
 
-        .c1{
+        .c1 {
             height: 8vh !important;
         }
-        .c1-1 img{
+
+        .c1-1 img {
             height: 4vh;
         }
-        #logo{
+
+        #logo {
             font-size: 25px !important;
         }
 
 
-        .c2{
+        .c2 {
 
 
-            img{
+            img {
                 height: 2vh;
             }
-            input{
+
+            input {
                 width: 25vw;
             }
-        } 
-        .input{
+        }
+
+        .input {
             width: 40vw;
             border: 1px solid black;
         }
@@ -317,5 +326,5 @@
 
 
 
-    
+
 }

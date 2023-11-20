@@ -19,6 +19,11 @@ export async function listarProdutosId(id) {
     return r.data;
 }
 
+export async function listarProdutosFiltro(queryIDT) {
+    const r = await api.get(`/produto/filtro?${queryIDT}`);
+    return r.data;
+}
+
 export async function PesquisarProduto(nome) {
     const r = await api.get()
 }
@@ -54,7 +59,7 @@ export async function listarEndereco(id) {
 }
 
 
-export async function listarUsuario(id){
+export async function listarUsuario(id) {
     const r = await api.get(`/cliente/${id}`);
     return r.data;
 }
@@ -71,12 +76,12 @@ export async function listarAdminId(id) {
 
 
 export function MostrarImagem(imagem) {
-    
-     return `${api_url}/${imagem}`;
-      
+
+    return `${api_url}/${imagem}`;
+
 }
 
-    export async function buscaProduto(nome){
-        const resposta= await api.get(`/produto/busca?nome=${nome}`)
-        return resposta.data
-    }
+export async function buscaProduto(nome) {
+    const resposta = await api.get(`/produto/busca?nome=${nome}`)
+    return resposta.data
+}

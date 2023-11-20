@@ -11,9 +11,9 @@ export default function Consulta() {
   const [categoriaS, setCategoriaS] = useState([]);
   const [Idcategoria, setIdCategoria] = useState(0);
   const [idMarca, setIdMarca] = useState(0);
-  const [codigo, setCodigo] = useState(0);
+  const [codigo, setCodigo] = useState();
   const [nomeProduto, setNomeProduto] = useState('');
-  const [filtro, setFiltro] = useState('');
+  const [preco, setPreco] = useState();
   const [desc, setDesc] = useState('');
 
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ export default function Consulta() {
     setNomeProduto('');
     setIdCategoria(0);
     setIdMarca(0);
-    setFiltro('');
+    setPreco(0);
     setDesc('');
   };
 
@@ -51,6 +51,7 @@ export default function Consulta() {
     setCategoriaS(respo)
   }
 
+
   useEffect(() => {
     carregarProdutos();
     carregarMarcas();
@@ -72,7 +73,7 @@ export default function Consulta() {
 
           <div className='sec1c1-cx1'>
             <label>Código:</label>
-            <input id='input' value={codigo} onChange={(e) => setCodigo(e.target.value)} />
+            <input id='input' value={codigo} onChange={(e) => setCodigo(Number(e.target.value))} />
           </div>
 
           <div className='sec1c1-cx2'>
@@ -88,7 +89,7 @@ export default function Consulta() {
 
             <div className='sim'>
               <label>Categoria:</label>
-              <select id='select' value={Idcategoria} onChange={(e) => setIdCategoria(e.target.value)}>
+              <select id='select' value={Idcategoria} onChange={(e) => setIdCategoria(Number(e.target.value))}>
                 <option value={0}>Selecione</option>
                 {categoriaS.map((item) =>
                   <option key={item.id} value={item.id}>{item.nome}</option>
@@ -97,7 +98,7 @@ export default function Consulta() {
             </div>
             <div className='sim'>
               <label>Marca:</label>
-              <select id='select' value={idMarca} onChange={(e) => setIdMarca(e.target.value)}>
+              <select id='select' value={idMarca} onChange={(e) => setIdMarca(Number(e.target.value))}>
                 <option value={0}>Selecione</option>
                 {marcaS.map((item) =>
                   <option key={item.id} value={item.id}> {item.nome} </option>
@@ -107,7 +108,7 @@ export default function Consulta() {
 
             <div className='sim'>
               <label className='aha'>Filtrar por preço:</label>
-              <input id='input' value={filtro} onChange={(e) => setFiltro(e.target.value)} />
+              <input id='input' value={preco} onChange={(e) => setPreco(Number(e.target.value))} />
             </div>
 
           </div>
@@ -129,7 +130,6 @@ export default function Consulta() {
 
       </div>
       <div className='sec_2'>
-       
           <table>
             <thead>
               <tr>
@@ -143,15 +143,18 @@ export default function Consulta() {
             </thead>
             <tbody> 
               {ProdutoS.map((item) =>
-                <tr key={item.id_produto}>
-                  <td>{item.id_produto}</td>
-                  <td>{item.nm_produto}</td>
-                  <td>{item.nm_categoria}</td>
-                  <td>{item.nm_marca}</td>
-                  <td>{item.vl_preco}</td>
+                <tr key={item.id}>
+                  <td>{item.id}</td>
+                  <td>{item.nome}</td>
+                  <td>{item.nome_categoria}</td>
+                  <td>{item.nome_marca}</td>
+                  <td>R${item.preco}</td>
                   <td>
-                    <button className='botao' onClick={() => navPagEditar(item.id_produto)}>Editar</button>
-                    <button className='botao' onClick={() => deletar(item.id_produto)}>Deletar</button>
+                    {item.id !== 0 && 
+                    <>
+                    <button className='botao' onClick={() => navPagEditar(item.id)}>Editar</button>
+                    <button className='botao' onClick={() => deletar(item.id)}>Deletar</button>
+                    </>}
                   </td>
                 </tr>
               )}

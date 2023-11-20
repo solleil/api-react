@@ -1,4 +1,4 @@
-import { inserirProduto, listarTodosProduto, deletarProduto, alterarProduto, pesquisarProduto, mostrarProdutosId, inserirImagemProduto, listarProdutosInner } from '../repository/produtoRepository.js';
+import { inserirProduto, listarTodosProduto, deletarProduto, alterarProduto, pesquisarProduto, mostrarProdutosId, inserirImagemProduto, listarProdutosInner, buscaProdutoFiltro, filtroProdutoID } from '../repository/produtoRepository.js';
 import { Router } from 'express';
 
 import multer from 'multer';
@@ -16,12 +16,35 @@ server.get(('/produto'), async (req, resp) => {
   }
 })
 
+server.get(('/produto/consulta'), async (req, resp) => {
+  try {
+    const body = req.body;
+    const respo = await buscaProdutoFiltro(body);
+    resp.send(respo);
+  } catch (err) {
+    resp.status(404).send({erro: err.message})
+  }
+})
+
+server.get(('/produto/filtro'), async (req, resp) => {
+  try {
+    const queryC = req.query.categoria;
+    const queryM = req.query.marca;
+    const queryN = req.query.necess;
+    const queryT = req.query.tipopele;
+    const respo = await filtroProdutoID(queryC, queryM, queryN, queryT)
+    resp.send(respo);
+  } catch (err) {
+    resp.status(404).send({erro: err.message})
+  }
+})
+
 server.get(('/produtos/inner'), async (req, resp) => {
   try {
     const respo = await listarProdutosInner();
     resp.send(respo)
   } catch (err) {
-    resp.status(407).send({erro: err.message})
+    resp.status(404).send({erro: err.message})
   }
 })
 
@@ -56,10 +79,10 @@ server.post('/produto', async (req, resp) => {
   try {
     const body = req.body;
     const dados = await inserirProduto(body)
-    resp.send(dados)
+    resp.status(201).send(dados)
   }
   catch (err) {
-    resp.status(404).send({ erro: err.message });
+    resp.status(400).send({ erro: err.message });
   }
 })
 
@@ -97,8 +120,6 @@ server.put(('/imagem/produto/:id'), upload.single('foto_produto'), async (req, r
     resp.status(400).send({ erro: err.message });
   };
 });
-
-
 
 
 server.get(('produto/busca'), async(req, resp) =>{
