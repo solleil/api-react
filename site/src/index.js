@@ -25,6 +25,7 @@ import Inicialadm from './pages/adm/home_adm';
 import Loginadm from './pages/adm/loginadm';
 import Graficos from './pages/adm/pagina_graficos';
 import FiltrarProduto from './pages/adm/filtrar_pedido';
+import EditarManual from './pages/adm/editar_manual';
 
 import Consulta from './pages/adm/consulta_produto';
 import Escolherpagamento from './pages/usuario/pagamento/pagamentocartao';
@@ -54,6 +55,7 @@ root.render(
         <Route path='/aprovado' element={<Pagaprovado />} />
 
         <Route path='/filtrarproduto' element={<FiltrarProduto />} />
+        <Route path='/editarmanual' element={<EditarManual/>} />
         <Route path='/addproduto' element={<AddProduto />} />
         <Route path='/alterar/produto/:idParams' element={<AddProduto />} />
         <Route path='/alterarstatus' element={<AlterarStatus />} />
