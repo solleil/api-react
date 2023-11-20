@@ -20,7 +20,7 @@ import Enviado from './pages/usuario/produtos/enviado';
 
 import AddProduto from './pages/adm/add_produto';
 import AlterarStatus from './pages/adm/alterar_status';
-import EditarProduto from './pages/adm/editar_produto';
+// import EditarProduto from './pages/adm/editar_produto';
 import Inicialadm from './pages/adm/home_adm';
 import Loginadm from './pages/adm/loginadm';
 import Graficos from './pages/adm/pagina_graficos';

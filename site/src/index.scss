@@ -3,7 +3,9 @@ body {
   margin: 0px;
   box-sizing: border-box;
   font-family: 'Questrial', sans-serif;
-
+  * {
+    transition: 0.2s;
+  }
   textarea:focus,
     input:focus, button:focus , select:focus, a:focus{
       text-decoration: none;

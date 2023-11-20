@@ -1,7 +1,7 @@
 import { connection } from "./connection.js";
 
 export async function listarTodosProduto() {
-    let comando = `
+    const comando = `
     select 
         id_produto      as id,
         nm_produto      as nome,
@@ -19,18 +19,72 @@ export async function listarTodosProduto() {
         img_produto     as imagem
     from tb_produto
     `
-    let [resposta] = await connection.query(comando)
+    const [resposta] = await connection.query(comando)
     return resposta;
 };
 
-export async function listarProdutosInner() {
+export async function buscaProdutoFiltro(produto) {
     const comando = `
-    select *
-	from tb_produto
+    select 
+        tb_produto.id_produto as id,
+        nm_produto as nome,
+        ds_produto as descricao,
+        ds_tamanho as tamanho,
+        tb_produto.id_categoria as categoria,
+        tb_categoria.nm_categoria as nome_categoria,
+        tb_produto.id_marca as marca,
+        tb_marca.nm_marca as nome_marca,
+        id_necessidade as necessidade,
+        id_tipo_pele as tipo_pele,
+        vl_preco as preco,
+        bt_disponivel as disponivel,
+        qtd_estoque as quantidade,
+        id_ingr_atv as ingrediente_atv,
+        ds_indicacao as indicacao
+    from tb_produto 
     inner join tb_marca
     on tb_produto.id_produto = tb_marca.id_marca
-	inner join tb_categoria
-    on tb_produto.id_produto = tb_categoria.id_categoria;
+    inner join tb_categoria
+    on tb_produto.id_produto = tb_categoria.id_categoria
+    where (nm_produto like ? or ds_produto like ?)
+    and (id_produto = ? or tb_produto.id_categoria = ? or tb_produto.id_marca = ?  or vl_preco <= ?)
+    `;
+
+    const [respo] = await connection.query(comando, [
+        `%${produto.nome}%`,
+        `%${produto.descricao}%`,
+        produto.id,
+        produto.categoria,
+        produto.marca,
+        produto.preco
+    ]);
+    
+    return respo;
+}
+
+export async function listarProdutosInner() {
+    const comando = `
+    select 
+        tb_produto.id_produto as id,
+        nm_produto as nome,
+        ds_produto as descricao,
+        ds_tamanho as tamanho,
+        tb_produto.id_categoria as categoria,
+        tb_categoria.nm_categoria as nome_categoria,
+        tb_produto.id_marca as marca,
+        tb_marca.nm_marca as nome_marca,
+        id_necessidade as necessidade,
+        id_tipo_pele as tipo_pele,
+        vl_preco as preco,
+        bt_disponivel as disponivel,
+        qtd_estoque as quantidade,
+        id_ingr_atv as ingrediente_atv,
+        ds_indicacao as indicacao
+    from tb_produto 
+    inner join tb_marca
+    on tb_produto.id_produto = tb_marca.id_marca
+    inner join tb_categoria
+    on tb_produto.id_produto = tb_categoria.id_categoria
     `;
 
     const [respo] = await connection.query(comando)
@@ -60,6 +114,33 @@ export async function mostrarProdutosId(id) {
     const [respo] = await connection.query(comando, [id])
     return respo[0];
 };
+
+export async function filtroProdutoID(idc, idm, idn, idtt) {
+    const comando = `
+    select 
+        id_produto      as id,
+        nm_produto      as nome,
+        ds_produto      as descricao,
+        ds_tamanho      as tamanho,
+        id_categoria    as categoria,
+        id_marca        as marca,
+        id_necessidade  as necessidade,
+        id_tipo_pele    as tipo_pele,
+        vl_preco        as preco,
+        ds_ingrediente  as ingrediente,
+        bt_disponivel   as disponivel,
+        qtd_estoque     as quantidade,
+        id_ingr_atv     as ingrediente_atv,
+        ds_indicacao    as indicacao,
+        img_produto     as imagem
+    from tb_produto
+    where (id_categoria = ? or id_marca = ? or id_necessidade = ? or id_tipo_pele = ?);
+    `;
+
+    const [respo] = await connection.query(comando, [idc, idm, idn, idtt])
+    return respo;
+
+}
 
 export async function pesquisarProduto(produto) {
     const comando = `
