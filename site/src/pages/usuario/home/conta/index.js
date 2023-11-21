@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import storage, { set } from 'local-storage'
+import storage from 'local-storage'
 import Cabecalho from '../../../../components/cabecalho';
 import Rodape from '../../../../components/rodape';
 import './index.scss';
@@ -229,12 +229,6 @@ export default function Conta() {
   }
 
 
-
-  function LogOut() {
-    storage.remove('usuario-logado')
-    navigate('/')
-  }
-
   function MudarP(){
     setMudarPagamento(!mudarPagamento)
   }
@@ -245,7 +239,7 @@ export default function Conta() {
       <Cabecalho />
       <LoadingBar color='#43B541' />
       <div className='s1'>
-        <div className='s1-0'> <p>Olá, {usuarioInfo.nome} </p>  </div>
+        <div className='s1-0'> <p>Olá, {usuarioInfo.nome}. </p>  </div>
 
 
 
@@ -339,7 +333,7 @@ export default function Conta() {
           <p className='p' onClick={muda} >editar <img src='/assets/images/usuario/conta/editar.png' alt='' /></p>
         </div>
           <div className='s2-2'>
-            <p> <b>Nome:</b> {`${usuarioInfo.nome} ${usuarioInfo.sobrenome}`}</p>
+            <p> <b>Nome:</b> {`${usuarioInfo.nome} ${usuarioInfo.sobrenome}.`}</p>
             <p> <b>Telefone:</b> {usuarioInfo.telefone}</p>
             <p> <b>Email:</b> {usuarioInfo.email}</p>
             <p> <b>CPF:</b> {usuarioInfo.cpf}</p>

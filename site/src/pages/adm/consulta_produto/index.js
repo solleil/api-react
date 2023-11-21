@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CabecalhoAdm from '../../../components/cabecalhoAdm/index.js'
 import './index.scss';
-import { listarCategorias, listarMarcas, listarProdutosInner } from '../../../api/getAPI.js';
+import { listarCategorias, listarMarcas, listarProdutosConsulta, listarProdutosFiltro, listarProdutosInner } from '../../../api/getAPI.js';
 import { deletarProduto } from '../../../api/deleteAPI.js';
 
 export default function Consulta() {
@@ -27,83 +27,85 @@ export default function Consulta() {
     setDesc('');
   };
 
-  // async function Filtro() {
-  //   if (nomeProduto && codigo && Idcategoria && idMarca && preco) {
-
-  //   }
-  //   else {
-  //     if (nomeProduto) {
-  //       if (desc) {
-  //         const query = `nome=${nomeProduto}&desc=${desc}`;
-  //       }
-  //       else if (codigo) {
-  //         const query = `nome=${nomeProduto}&id=${codigo}`;
-  //       }
-  //       else if (Idcategoria) {
-  //         const query = `nome=${nomeProduto}&categoria=${Idcategoria}`;
-  //       }
-  //       else if (idMarca) {
-  //         const query = `nome=${nomeProduto}&marca=${idMarca}`;
-  //       }
-  //       else if (preco) {
-  //         const query = `nome=${nomeProduto}&preco=${preco}`;
-  //       }
-  //       else {
-  //         const query = `nome=${nomeProduto}`;
-  //       }
-  //     }
-  //     else if (desc) {
-  //       if (codigo) {
-  //         const query = `desc=${desc}&id=${codigo}`;
-  //       }
-  //       else if (Idcategoria) {
-  //         const query = `desc=${desc}&categoria=${Idcategoria}`;
-  //       }
-  //       else if (idMarca) {
-  //         const query = `desc=${desc}&marca=${idMarca}`;
-  //       }
-  //       else if (preco) {
-  //         const query = `desc=${desc}&preco=${preco}`;
-  //       }
-  //       else {
-  //         const query = `desc=${desc}`;
-  //       } 
-  //     }
-  //     else if (codigo) {
-  //       if (Idcategoria) {
-  //         const query = `id=${codigo}&categoria=${Idcategoria}`;
-  //       }
-  //       else if (idMarca) {
-  //         const query = `id=${codigo}&marca=${idMarca}`;
-  //       }
-  //       else if (preco) {
-  //         const query = `id=${codigo}&preco=${preco}`;
-  //       }
-  //       else {
-  //         const query = `id=${codigo}`;
-  //       } 
-  //     }
-  //     else if (Idcategoria) {
-  //       if (idMarca) {
-  //         const query = `categoria=${Idcategoria}&marca=${idMarca}`;
-  //       }
-  //       else if (preco) {
-  //         const query = `categoria=${Idcategoria}&preco=${preco}`;
-  //       }
-  //       else {
-  //         const query = `categoria=${Idcategoria}`;
-  //       } 
-  //     }
-  //     else if (idMarca) {
-  //       if (preco) {
-  //         const query = `marca=${idMarca}&preco=${preco}`;
-  //       }
-  //       else {
-  //         const query = `marca=${idMarca}`;
-  //       } 
-  //     }
-  //   }
-  // }
+  async function Filtro() {
+    if (nomeProduto && codigo && Idcategoria && idMarca && preco) {
+      const query = `nome=${nomeProduto}$id=${codigo}&categoria=${Idcategoria}&marca=${idMarca}&preco=${preco}`;
+      const respo = await listarProdutosConsulta(query);
+      setProdutoS(respo)
+    }
+    else {
+      if (nomeProduto) {
+        if (desc) {
+          const query = `nome=${nomeProduto}&desc=${desc}`;
+        }
+        else if (codigo) {
+          const query = `nome=${nomeProduto}&id=${codigo}`;
+        }
+        else if (Idcategoria) {
+          const query = `nome=${nomeProduto}&categoria=${Idcategoria}`;
+        }
+        else if (idMarca) {
+          const query = `nome=${nomeProduto}&marca=${idMarca}`;
+        }
+        else if (preco) {
+          const query = `nome=${nomeProduto}&preco=${preco}`;
+        }
+        else {
+          const query = `nome=${nomeProduto}`;
+        }
+      }
+      else if (desc) {
+        if (codigo) {
+          const query = `desc=${desc}&id=${codigo}`;
+        }
+        else if (Idcategoria) {
+          const query = `desc=${desc}&categoria=${Idcategoria}`;
+        }
+        else if (idMarca) {
+          const query = `desc=${desc}&marca=${idMarca}`;
+        }
+        else if (preco) {
+          const query = `desc=${desc}&preco=${preco}`;
+        }
+        else {
+          const query = `desc=${desc}`;
+        } 
+      }
+      else if (codigo) {
+        if (Idcategoria) {
+          const query = `id=${codigo}&categoria=${Idcategoria}`;
+        }
+        else if (idMarca) {
+          const query = `id=${codigo}&marca=${idMarca}`;
+        }
+        else if (preco) {
+          const query = `id=${codigo}&preco=${preco}`;
+        }
+        else {
+          const query = `id=${codigo}`;
+        } 
+      }
+      else if (Idcategoria) {
+        if (idMarca) {
+          const query = `categoria=${Idcategoria}&marca=${idMarca}`;
+        }
+        else if (preco) {
+          const query = `categoria=${Idcategoria}&preco=${preco}`;
+        }
+        else {
+          const query = `categoria=${Idcategoria}`;
+        } 
+      }
+      else if (idMarca) {
+        if (preco) {
+          const query = `marca=${idMarca}&preco=${preco}`;
+        }
+        else {
+          const query = `marca=${idMarca}`;
+        } 
+      }
+    }
+  }
 
   function navPagEditar(id) {
     navigate(`/alterar/produto/${id}`)
