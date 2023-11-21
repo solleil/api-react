@@ -178,5 +178,27 @@
           
         }
 
-    }
+
+
+
+
+        }
+
+        @media (max-width: 550px) {
+
+            .pg-aprovado{
+                overflow-x: hidden;}
+            
+            
+                .cabecalho{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    height: 10vh;}
+            
+                 
+            
+          
+                }
 }

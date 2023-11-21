@@ -11,7 +11,7 @@ export default function Consulta() {
   const [categoriaS, setCategoriaS] = useState([]);
   const [Idcategoria, setIdCategoria] = useState(0);
   const [idMarca, setIdMarca] = useState(0);
-  const [codigo, setCodigo] = useState();
+  const [codigo, setCodigo] = useState(0);
   const [nomeProduto, setNomeProduto] = useState('');
   const [preco, setPreco] = useState();
   const [desc, setDesc] = useState('');
@@ -26,6 +26,84 @@ export default function Consulta() {
     setPreco(0);
     setDesc('');
   };
+
+  // async function Filtro() {
+  //   if (nomeProduto && codigo && Idcategoria && idMarca && preco) {
+
+  //   }
+  //   else {
+  //     if (nomeProduto) {
+  //       if (desc) {
+  //         const query = `nome=${nomeProduto}&desc=${desc}`;
+  //       }
+  //       else if (codigo) {
+  //         const query = `nome=${nomeProduto}&id=${codigo}`;
+  //       }
+  //       else if (Idcategoria) {
+  //         const query = `nome=${nomeProduto}&categoria=${Idcategoria}`;
+  //       }
+  //       else if (idMarca) {
+  //         const query = `nome=${nomeProduto}&marca=${idMarca}`;
+  //       }
+  //       else if (preco) {
+  //         const query = `nome=${nomeProduto}&preco=${preco}`;
+  //       }
+  //       else {
+  //         const query = `nome=${nomeProduto}`;
+  //       }
+  //     }
+  //     else if (desc) {
+  //       if (codigo) {
+  //         const query = `desc=${desc}&id=${codigo}`;
+  //       }
+  //       else if (Idcategoria) {
+  //         const query = `desc=${desc}&categoria=${Idcategoria}`;
+  //       }
+  //       else if (idMarca) {
+  //         const query = `desc=${desc}&marca=${idMarca}`;
+  //       }
+  //       else if (preco) {
+  //         const query = `desc=${desc}&preco=${preco}`;
+  //       }
+  //       else {
+  //         const query = `desc=${desc}`;
+  //       } 
+  //     }
+  //     else if (codigo) {
+  //       if (Idcategoria) {
+  //         const query = `id=${codigo}&categoria=${Idcategoria}`;
+  //       }
+  //       else if (idMarca) {
+  //         const query = `id=${codigo}&marca=${idMarca}`;
+  //       }
+  //       else if (preco) {
+  //         const query = `id=${codigo}&preco=${preco}`;
+  //       }
+  //       else {
+  //         const query = `id=${codigo}`;
+  //       } 
+  //     }
+  //     else if (Idcategoria) {
+  //       if (idMarca) {
+  //         const query = `categoria=${Idcategoria}&marca=${idMarca}`;
+  //       }
+  //       else if (preco) {
+  //         const query = `categoria=${Idcategoria}&preco=${preco}`;
+  //       }
+  //       else {
+  //         const query = `categoria=${Idcategoria}`;
+  //       } 
+  //     }
+  //     else if (idMarca) {
+  //       if (preco) {
+  //         const query = `marca=${idMarca}&preco=${preco}`;
+  //       }
+  //       else {
+  //         const query = `marca=${idMarca}`;
+  //       } 
+  //     }
+  //   }
+  // }
 
   function navPagEditar(id) {
     navigate(`/alterar/produto/${id}`)
@@ -130,36 +208,36 @@ export default function Consulta() {
 
       </div>
       <div className='sec_2'>
-          <table>
-            <thead>
-              <tr>
-                <th>Id:</th>
-                <th>Nome:</th>
-                <th>Categoria:</th>
-                <th>Marca:</th>
-                <th>Preço:</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody> 
-              {ProdutoS.map((item) =>
-                <tr key={item.id}>
-                  <td>{item.id}</td>
-                  <td>{item.nome}</td>
-                  <td>{item.nome_categoria}</td>
-                  <td>{item.nome_marca}</td>
-                  <td>R${item.preco}</td>
-                  <td>
-                    {item.id !== 0 && 
+        <table>
+          <thead>
+            <tr>
+              <th>Id:</th>
+              <th>Nome:</th>
+              <th>Categoria:</th>
+              <th>Marca:</th>
+              <th>Preço:</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {ProdutoS.map((item) =>
+              <tr key={item.id}>
+                <td>{item.id}</td>
+                <td>{item.nome}</td>
+                <td>{item.nome_categoria}</td>
+                <td>{item.nome_marca}</td>
+                <td>R${item.preco}</td>
+                <td>
+                  {item.id !== 0 &&
                     <>
-                    <button className='botao' onClick={() => navPagEditar(item.id)}>Editar</button>
-                    <button className='botao' onClick={() => deletar(item.id)}>Deletar</button>
+                      <button className='botao' onClick={() => navPagEditar(item.id)}>Editar</button>
+                      <button className='botao' onClick={() => deletar(item.id)}>Deletar</button>
                     </>}
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
       </div>
     </section>
   );

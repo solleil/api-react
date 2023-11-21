@@ -94,3 +94,25 @@
     height: 5vh;
     padding: 0px 0px 0px 15px;
 }
+
+.lixo{
+    cursor: pointer;
+}
+
+.lixoo{
+    cursor: pointer;
+}
+
+.lixo:hover{
+    height: 9vh;
+    width: 4vw;
+    transition: 0.3s;
+    border-radius: 8px;
+}
+
+.lixoo:hover{
+    height: 7vh;
+    width: 4vw;
+    transition: 0.3s;
+    border-radius: 8px;
+}
