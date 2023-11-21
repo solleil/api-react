@@ -377,7 +377,7 @@ from
 insert into
     tb_admin(ds_email, ds_senha)
 values
-    ('adm.com', 1234)
+    ('adm.com', 1234);
 
 
     select 

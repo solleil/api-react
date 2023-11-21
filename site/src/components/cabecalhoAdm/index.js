@@ -90,11 +90,11 @@ export default function CabecalhoAdm() {
               <div className='menuAberto'>
                 <a href='/home/adm'>Menu</a>
                 <a href='/graficos'>Gráficos</a>
-                <a href='/filtrar'>Filtro de pedidos</a>
+                <a href='/filtrarproduto'>Filtro de pedidos</a>
                 <a href='/edicao'>Editar pedido</a>
                 
                 <a href='/consultar/produto'>Consulta de produtos</a>
-
+x'x
               </div>
             </>
           }

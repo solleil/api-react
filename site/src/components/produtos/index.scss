@@ -11,14 +11,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px;
-  
+    padding: 10px !important;
+    border: 4px solid #ffe99833;
+    border-radius: 25px;
     gap: 6px;
     width: 20vw;
 
-    p{
-      width: 20vw;
-    }
+ 
+    margin: 12px;
   }
 
   .img-prod{
@@ -38,6 +38,13 @@
     justify-content: flex-start;
     align-items: flex-start;
   margin-left: 20px;
+  width: 15vw;
+
+  p, b{
+    text-align: left;
+    font-size: 14px ;
+    margin: 0px;
+  }
   }
 
 

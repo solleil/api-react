@@ -36,10 +36,10 @@ export default function Carrinho() {
   }, [])
 
   function removerItem(id){
-    let carrinho = Storage('carrinhosolleil');
+    let carrinho = storage('carrinhosolleil');
     carrinho = carrinho.filter(item => item.id != id);
 
-    Storage('carrinhosolleil', carrinho);
+    storage('carrinhosolleil', carrinho);
     CarregarCarrinhoSolleil();
   }
 
@@ -57,12 +57,6 @@ export default function Carrinho() {
           <CarrinhoProduto item={item} removerItem={removerItem} carregarCarrinhoSolleil={CarregarCarrinhoSolleil} />
           )}
 
-      </div>
-
-      <div className='s-2'>
-
-        <div className='b-1'>valor total: <b>R$20,00</b></div>
-        <a href='/pagamento/cartao' className='b-3'><b>FINALIZAR COMPRA</b></a>
       </div>
       <Rodape />
     </div>

@@ -20,8 +20,8 @@ export default function Conta() {
   const [tiposPeleS, setTiposPeleS] = useState([]);
   const [usuarioInfo, setUsuarioInfo] = useState({})
   const [mostrar, setMostrar] = useState(true);
-  const [npagos, setNpagos] = useState(false);
-  const [processando, setProcessando] = useState(false);
+
+
   const [caminho, setCaminho] = useState(false);
   const [finalizados, setFinalizados] = useState(false);
   const [devolucao, setDevolucao] = useState(false);
@@ -183,46 +183,24 @@ export default function Conta() {
     setMudar(!mudar)
   }
 
-  function Mpagos() {
-    setNpagos(!npagos)
 
-    setProcessando(false)
-    setCaminho(false)
-    setFinalizados(false)
-    setDevolucao(false)
-  }
-
-  function Mprocessando() {
-    setNpagos(false)
-
-    setProcessando(!processando)
-    setCaminho(false)
-    setFinalizados(false)
-    setDevolucao(false)
-  }
 
   function Mcaminho() {
-    setNpagos(false)
-
-    setProcessando(false)
+   
     setCaminho(!caminho)
     setFinalizados(false)
     setDevolucao(false)
   }
 
   function Mfinalizados() {
-    setNpagos(false)
-
-    setProcessando(false)
+   
     setCaminho(false)
     setFinalizados(!finalizados)
     setDevolucao(false)
   }
 
   function Mdevolucao() {
-    setNpagos(false)
-
-    setProcessando(false)
+   
     setCaminho(false)
     setFinalizados(false)
     setDevolucao(!devolucao)
@@ -258,15 +236,8 @@ export default function Conta() {
 
         <div className='s1-2'>
 
-          <button onClick={Mpagos}>
-            <img src='/assets/images/usuario/conta/carteira.png' alt='' />
-            <p>não pagos</p>
-          </button>
-
-          <button onClick={Mprocessando}>
-            <img src='/assets/images/usuario/conta/caixa.png' alt='' />
-            <p>processando</p>
-          </button>
+          
+       
 
           <button onClick={Mcaminho}>
             <img src='/assets/images/usuario/conta/caminhao.png' alt='' />
@@ -288,26 +259,17 @@ export default function Conta() {
         </div>
 
         <div className='s1-2-open'>
-          {npagos === true &&
-            <>
-              <div>
-                <p>futura tabela</p>
-              </div>
-            </>
-          }
-
-          {processando === true &&
-            <>
-              <div>
-                <p>futura tabela</p>
-              </div>
-            </>
-          }
+          
           {caminho === true &&
             <>
-              <div>
-                <p>futura tabela</p>
-              </div>
+              <table>
+                <thead></thead>
+                <tbody>
+
+                  <td>oi</td>
+                  <th>teste                  </th>
+                </tbody>
+              </table>
             </>
           }
           {finalizados === true &&

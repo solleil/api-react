@@ -125,8 +125,7 @@ export default function Cabecalho() {
 
         <div className="c2-2">
           <div className="input">
-            <input className='inp' type="text" value={pesq} onChange={e => setPesq(e.target.value)} />
-            <button> <img src="/assets/images/geral/pesquisa.png" alt="" onClick={carregarProdutos} /></button>
+          <SearchBar />
           </div>
         </div>
 
@@ -204,7 +203,7 @@ export default function Cabecalho() {
 
 
 
-      <SearchBar />
+ 
 
 
 

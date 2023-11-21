@@ -1,10 +1,23 @@
-import { inserirProduto, listarTodosProduto, deletarProduto, alterarProduto, pesquisarProduto, mostrarProdutosId, inserirImagemProduto, listarProdutosInner, buscaProdutoFiltro, filtroProdutoID } from '../repository/produtoRepository.js';
+import { inserirProduto, listarTodosProduto, deletarProduto, alterarProduto, pesquisarProduto, mostrarProdutosId, inserirImagemProduto, listarProdutosInner, buscaProdutoFiltro, filtroProdutoID, buscaProduto } from '../repository/produtoRepository.js';
 import { Router } from 'express';
 
 import multer from 'multer';
 const upload = multer({ dest: 'storage/fotos_gerais_produtos' });
 
 const server = Router()
+
+
+server.get(('/produto/busca'), async (req, resp) => {
+  try {
+      const {nome} = req.query;
+      const resposta = await buscaProduto(nome);
+      console.log(nome);
+
+      resp.send(resposta)
+  } catch (err) {
+    resp.status(404).send({erro: err.message})
+  }
+}  )
 
 server.get(('/produto'), async (req, resp) => {
   try {
@@ -121,17 +134,6 @@ server.put(('/imagem/produto/:id'), upload.single('foto_produto'), async (req, r
 });
 
 
-server.get(('produto/busca'), async(req, resp) =>{
-  try {
-      const { nome } = req.query;
-      const resposta= await buscaProduto(nome);
 
-      if(resposta.length == 0){
-          resp.status(404).send([])
-      }
-  } catch (err) {
-    resp.status(404).send({erro: err.message})
-  }
-}  )
 
 export default server;

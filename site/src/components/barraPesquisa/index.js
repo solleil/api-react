@@ -18,13 +18,17 @@ const SearchBar = () => {
 
   return (
     <div>
-      <input
+
+      <div className='input-row'>
+        <input
         type="text"
         placeholder="Buscar produtos..."
         value={pesquisa}
         onChange={e => setPesquisa(e.target.value)}
-      />
-      <button onClick={clickPesquisa}>Buscar</button>
+        />
+        <button onClick={clickPesquisa}>Buscar</button>
+      </div>
+
 
       <div>
         {produto.map(produto => (

@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage';
 
-export default function CarrinhoProduto({item: { produto: {info}, quantidade}, removerItem, carregarCarrinhoSolleil}) {
+export default function CarrinhoProduto({ item: { produto: { info }, quantidade }, removerItem, carregarCarrinhoSolleil }) {
 
 
   const [result, setResult] = useState(1);
@@ -31,10 +31,10 @@ export default function CarrinhoProduto({item: { produto: {info}, quantidade}, r
     };
   };
 
-  function remover(){
+  function remover() {
     removerItem(info.id);
   }
-  
+
   function attPreco() {
     setPreco(info.preco)
     setNovopreco(info.preco)
@@ -62,7 +62,7 @@ export default function CarrinhoProduto({item: { produto: {info}, quantidade}, r
 
       <div className='img-s1'>
         <img src={MostrarImagem(info.imagem)} alt='' />
-        </div>
+      </div>
       <div className='s-1-2'>
         <div className='s-1-1-2'>
           <b> {info.nome} </b>
@@ -76,6 +76,11 @@ export default function CarrinhoProduto({item: { produto: {info}, quantidade}, r
             <button type='number' value={num2} onChange={(e) => setNum2(Number(e.target.value))} onClick={mais}> <p>+</p></button></div>
           <img className='lixo' onClick={remover} src='/assets/images/usuario/carrinho/lixo.png' alt='0' />
           <img className='lixoo' src='/assets/images/usuario/carrinho/coracao.png' alt='0' />
+        </div>
+        <div className='s-2'>
+
+          <div className='b-1'>valor total: <b>R$</b></div>
+          <a href='/pagamento/cartao' className='b-3'><b>FINALIZAR COMPRA</b></a>
         </div>
       </div>
     </div>
