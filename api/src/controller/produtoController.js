@@ -18,18 +18,8 @@ server.get(('/produto'), async (req, resp) => {
 
 server.get(('/produto/consulta'), async (req, resp) => {
   try {
-    const queryNome = req.query.nome;
-    const queryDesc = req.query.desc;
-    const queryId = req.query.id;
-    const queryCat = req.query.categoria;
-    const queryMarca = req.query.marca;
-    const queryPreco = req.query.preco;
-    const respo = await buscaProdutoFiltro(queryNome, queryDesc, queryId, queryCat, queryMarca, queryPreco);
-
-    if (respo.length == 0) {
-      throw new Error('Produto não encontrado')
-    }
-
+    const body = req.body;
+    const respo = await buscaProdutoFiltro(body);
     resp.send(respo);
   } catch (err) {
     resp.status(404).send({erro: err.message})
@@ -60,20 +50,19 @@ server.get(('/produtos/inner'), async (req, resp) => {
 
 server.get(('/produto/:id'), async (req, resp) => {
   try {
-    const params = req.params.id;
-    const resposta = await mostrarProdutosId(params)
-    if (!resposta) {
-      resp.status(404).send([]);
-    }
-    else {
-      resp.send(resposta);
-    }
-  } catch (err) {
-    resp.status(400).send({
-      erro: err.message
+    const id = Number(req.params.id);
+
+    const resposta= await mostrarProdutosId(id);
+    resp.send({
+      info: resposta
     });
+  } catch (err) {
+    resp.status(404).send({
+      erro: err.message
+    })
   }
-});
+
+})
 
 server.get(('/pesquisa/produto'), async (req, resp) => {
   try {

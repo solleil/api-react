@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage';
 
-export default function CarrinhoProduto(props, removerItem) {
+export default function CarrinhoProduto({item: { produto: {info}, quantidade}, removerItem, carregarCarrinhoSolleil}) {
 
 
   const [result, setResult] = useState(1);
@@ -13,12 +13,6 @@ export default function CarrinhoProduto(props, removerItem) {
   const [novopreco, setNovopreco] = useState(0);
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
-
-  
-
-  function remover(){
-    removerItem()
-  }
 
 
   function mais() {
@@ -36,9 +30,14 @@ export default function CarrinhoProduto(props, removerItem) {
       setNovopreco(novopreco - preco)
     };
   };
+
+  function remover(){
+    removerItem(info.id);
+  }
+  
   function attPreco() {
-    setPreco(props.item.produto.preco)
-    setNovopreco(props.item.produto.preco)
+    setPreco(info.preco)
+    setNovopreco(info.preco)
 
   }
 
@@ -62,12 +61,12 @@ export default function CarrinhoProduto(props, removerItem) {
 
 
       <div className='img-s1'>
-        <img src={MostrarImagem(props.item.produto.imagem)} alt='' />
+        <img src={MostrarImagem(info.imagem)} alt='' />
         </div>
       <div className='s-1-2'>
         <div className='s-1-1-2'>
-          <b> {props.item.produto.nome} </b>
-          <p> R$ {props.item.produto.preco} </p>
+          <b> {info.nome} </b>
+          <p> R$ {info.preco} </p>
         </div>
 
         <div className='s-1-1-3'>
@@ -76,7 +75,7 @@ export default function CarrinhoProduto(props, removerItem) {
             <b onChange={(e) => setResult(Number(e.target.value))}> {result}</b >
             <button type='number' value={num2} onChange={(e) => setNum2(Number(e.target.value))} onClick={mais}> <p>+</p></button></div>
           <img className='lixo' onClick={remover} src='/assets/images/usuario/carrinho/lixo.png' alt='0' />
-          <img src='/assets/images/usuario/carrinho/coracao.png' alt='0' />
+          <img className='lixoo' src='/assets/images/usuario/carrinho/coracao.png' alt='0' />
         </div>
       </div>
     </div>

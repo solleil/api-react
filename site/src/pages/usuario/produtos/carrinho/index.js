@@ -22,11 +22,10 @@ export default function Carrinho() {
 
         temp.push({
           produto: p,
-          qtd: produto.qtd
+          qtd: produto.quantidade
         })
       }
       setItens(temp);
-      console.log(temp);
     }
   }
 
@@ -38,9 +37,9 @@ export default function Carrinho() {
 
   function removerItem(id){
     let carrinho = Storage('carrinhosolleil');
-    carrinho = carrinho.filter(item => item.id !== id);
+    carrinho = carrinho.filter(item => item.id != id);
 
-    Storage('carrinho', carrinho);
+    Storage('carrinhosolleil', carrinho);
     CarregarCarrinhoSolleil();
   }
 
@@ -55,7 +54,7 @@ export default function Carrinho() {
 
 
         {itens.map(item =>
-          <CarrinhoProduto item={item} removerItem={removerItem}/>
+          <CarrinhoProduto item={item} removerItem={removerItem} carregarCarrinhoSolleil={CarregarCarrinhoSolleil} />
           )}
 
       </div>
@@ -63,7 +62,7 @@ export default function Carrinho() {
       <div className='s-2'>
 
         <div className='b-1'>valor total: <b>R$20,00</b></div>
-        <button className='b-3'><b>FINALIZAR COMPRA</b></button>
+        <a href='/pagamento/cartao' className='b-3'><b>FINALIZAR COMPRA</b></a>
       </div>
       <Rodape />
     </div>
