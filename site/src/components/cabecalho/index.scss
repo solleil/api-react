@@ -284,11 +284,44 @@
 
 
         .pisca-s1 {
+            animation: pisca 2.5s infinite;
             display: flex;
-            align-items: center;
-
-            gap: 5px;
+            flex-direction: row;
+            
+           
+    
+    
+    
         }
+    
+        
+    
+    
+    
+    
+    
+        .pisca h1 {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFE898;
+            font-size: 2px;
+            
+            width: 100vw;
+    
+    
+            #frete {
+                color: rgb(255, 157, 11);
+            }
+    
+        }
+
+        .pisca-s1 p{
+            margin-bottom: 15%;
+            font-size: 10px;
+        }
+    
 
 
         .c1 {
