@@ -250,7 +250,7 @@ export default function Conta() {
 
 
         <div className='s1-1'>
-          <p>seus pedidos:</p>
+          <p><b>seus pedidos:</b></p>
           <a href='coloca sempre o Href com alguma coisa, letras, sla, pls'>
             veja tudo  <img src='/assets/images/usuario/inicial/seta.png' alt='' />
           </a>
@@ -336,7 +336,7 @@ export default function Conta() {
 
         <div className='s2-1'>
           <p className='e'>dados pessoais:</p>
-          <p className='d' onClick={muda} >editar <img src='/assets/images/usuario/conta/editar.png' alt='' /></p>
+          <p className='p' onClick={muda} >editar <img src='/assets/images/usuario/conta/editar.png' alt='' /></p>
         </div>
           <div className='s2-2'>
             <p> <b>Nome:</b> {`${usuarioInfo.nome} ${usuarioInfo.sobrenome}`}</p>
@@ -492,7 +492,7 @@ export default function Conta() {
 
       <div className='s4'>
         <div className='s4-1'>
-          <p>favoritos <img alt='' src='/assets/images/usuario/conta/fav.png' /> </p>
+          <p><b>Favoritos</b> <img alt='' src='/assets/images/usuario/conta/fav.png' /> </p>
 
         </div>
 

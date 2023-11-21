@@ -13,7 +13,7 @@ export default function IniProdutos() {
       <div className='s1'>
         <img src='/assets/images/usuario/iniprodutos/s1.png' alt=''/>
         <div className='s1-1'> 
-            <p > Descubra a Elegância da Pele com Laneige!<br></br>
+            <p className='p' > Descubra a Elegância da Pele com Laneige!<br></br>
           Uma jornada de cuidados com a pele de excelência. A marca é conhecida por sua expertise em hidratação profunda e resultados visíveis. Agora, você pode encontrar seus produtos de alta qualidade em nosso site. Desfrute da hidratação profunda, melhora da textura da pele e um brilho natural que irá encantar a todos. Junte-se a nós nesta emocionante jornada para uma pele radiante e saudável com Laneige. </p>
           <button> Conheça os produtos! </button>
 

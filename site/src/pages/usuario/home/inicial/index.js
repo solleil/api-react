@@ -238,6 +238,7 @@ export default function Inicial() {
 
        
         </div>
+        
         <div className='s7'  >
         <Link to="/produtos"> <button className='s7-ver'>VER MAIS</button> </Link>
         </div>
