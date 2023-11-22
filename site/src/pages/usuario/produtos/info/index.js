@@ -106,16 +106,7 @@ export default function Info() {
           </div>
 
 
-          <div>
-            <div className='tamanhos-info'>  <h4>outros tamanhos disponíveis:</h4></div>
-            <div className='ml-1' >
-              <button className='ml'> 300ml  </button>
-              <button className='ml' > 160ml </button>
-              <button className='ml' > 60ml </button>
-            </div>
-
-          </div>
-
+          
           <div className='qtd'>
             <div className='qtd-info'>
               <button type='number' value={n1} onChange={(e) => setN1(Number(e.target.value))} onClick={menos}> <img src='/assets/images/geral/-.png' alt='a' /></button>
@@ -144,7 +135,7 @@ export default function Info() {
         <div className='opc-1'>
 
           {indic ? (<b onClick={mudarI} className='bold'>indicações <div className='bold-linhas1'></div>  </b>) : (<p onClick={mudarI} className='n-bold'>indicações </p>)}
-          {comprov ? (<b onClick={mudarC} className='bold'>comprovações<div className='bold-linhas2'></div>  </b>) : (<p onClick={mudarC} className='n-bold'>comprovações </p>)}
+          {comprov ? (<b onClick={mudarC} className='bold'>descrição<div className='bold-linhas2'></div>  </b>) : (<p onClick={mudarC} className='n-bold'>comprovações </p>)}
           {ingredientesatv ? (<b onClick={mudarIng} className='bold'>ingredientes ativos <div className='bold-linhas4'></div>  </b>) : (<p onClick={mudarIng} className='n-bold'>ingredientes ativos </p>)}
         </div>
         <div className='linhas'></div>
@@ -166,25 +157,7 @@ export default function Info() {
 
                 <div className='indica-s2'>
 
-                  <div className='indc-s1'>
-                    <img className='indica-png' src='/assets/images/usuario/info/opcoes.png' alt='' />
-                    <p className='pi'>Melhora o aspecto da pele</p>
-                  </div>
-
-                  <div className='indc-s2'>
-                    <img className='indica-png' src='/assets/images/usuario/info/opcoes.png' alt='' />
-                    <p className='pi'>Reduz a oleosidade</p>
-                  </div>
-
-                  <div className='indc-s3'>
-                    <img className='indica-png' src='/assets/images/usuario/info/opcoes.png' alt='' />
-                    <p className='pi'>Promove a maciez da pele</p>
-                  </div>
-
-                  <div className='indc-s4'>
-                    <img className='indica-png' src='/assets/images/usuario/info/opcoes.png' alt='' />
-                    <p className='pi'>Antipoluição</p>
-                  </div>
+                  <p>map das indicacoes</p>
 
 
                 </div>

@@ -60,18 +60,11 @@ export default function CabecalhoAdm() {
 
 
 
-        <div className="c2-2">
-          <div className="input">
-            <input type="text" /> <button> 
-              <img src="/assets/images/geral/pesquisa.png" alt="" /></button>
-          </div>
-        </div>
+       
 
 
         <div className="c2-3">
-          <a href='/editarproduto' className='editarAdm'> 
-
-          <img src='/assets/images/adm/cabecalho/editar.png' alt='' /></a>
+         
 
           <a href='/addproduto' className='addAdm'> 
           <img src='/assets/images/adm/cabecalho/add.png' alt='' />
@@ -94,7 +87,7 @@ export default function CabecalhoAdm() {
                 <a href='/edicao'>Editar pedido</a>
                 
                 <a href='/consultar/produto'>Consulta de produtos</a>
-x'x
+
               </div>
             </>
           }
@@ -107,7 +100,7 @@ x'x
                 <img src='/assets/images/adm/inicial_adm/exemplo.png' alt='' />
                 <p>{`${admin.nome} ${admin.sobrenome}`}</p>
                 <p>{admin.cargo}<br></br>São Paulo</p>
-                <button onClick={Sair}>Sair</button>
+                <button className='bbb' onClick={Sair}>sair</button>
               </div>
             </>
           }

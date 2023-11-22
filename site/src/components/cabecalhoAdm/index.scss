@@ -55,7 +55,7 @@
         padding: 20px 15px 30px 0px;
         gap: 25px;
         width: 15vw;
-        height: 45vh;
+     
         border-radius: 10px 10px 10px 10px;
 
         
@@ -112,6 +112,21 @@
         background-color: #fabc59b0;
         color: #FFE898;
     }    
+
+    .bbb{
+        background-color: rgba(255, 255, 255, 0.564);
+        border: 1px solid #e8b66b;
+        border-radius: 10px;
+        width: 5vw;
+        height: 4vh;
+        
+    }
+
+    .bbb:hover{
+        background-color: rgba(255, 255, 255, 0.918);
+        letter-spacing: 1px;
+        width: 6vw;
+    }
 }
 
 @media screen and (max-width: 550px) {

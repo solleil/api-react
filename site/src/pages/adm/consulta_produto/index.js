@@ -4,6 +4,7 @@ import CabecalhoAdm from '../../../components/cabecalhoAdm/index.js'
 import './index.scss';
 import { listarCategorias, listarMarcas, listarProdutosConsulta, listarProdutosFiltro, listarProdutosInner } from '../../../api/getAPI.js';
 import { deletarProduto } from '../../../api/deleteAPI.js';
+import { toast } from 'react-toastify';
 
 export default function Consulta() {
   const [ProdutoS, setProdutoS] = useState([]);
@@ -139,6 +140,26 @@ export default function Consulta() {
   }, []);
 
 
+//function Confirmar(item){
+  //const result = window.confirm('Deseja confirmar esta ação?');
+
+  //if (result) {
+    
+  //   deletar(item.id)
+ // toast.success('produto deletado');
+ // }
+ //  else {
+   
+ //   toast.error('ação cancelada')
+ // }
+
+//}
+
+
+
+
+
+
 
   return (
     <section className='index_consulta_produto'>
@@ -233,7 +254,10 @@ export default function Consulta() {
                   {item.id !== 0 &&
                     <>
                       <button className='botao' onClick={() => navPagEditar(item.id)}>Editar</button>
-                      <button className='botao' onClick={() => deletar(item.id)}>Deletar</button>
+
+
+                      {/*//onClick{Confirmar}*/}
+                      <button className='botao' >Deletar</button>
                     </>}
                 </td>
               </tr>
