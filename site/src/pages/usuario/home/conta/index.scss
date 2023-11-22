@@ -366,11 +366,7 @@
   }
 
 
-
-
-}
-
-@media (max-width: 550px) {
+  @media (max-width: 550px) {
 
     .s1-0{
         display: flex;
@@ -380,17 +376,17 @@
         }
     }
     .s1-1{
-        width: 5px;
+        
+        
 
         p{
             font-size: 18px;
         }
     }
+
+    
     .s1-2{
-        img{
-            width: 35px;
-            height: 10px;
-        }
+        
         p{
             font-size: 10px;
         }
@@ -404,20 +400,24 @@
     .s2-1{
         width: 29px;
         .e{
+            display: flex;
+            flex-direction: row;
+           
             font-size: 18px;
         }
     }
     .s2-2{
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        
 
         
         
         p{
             display: flex;
             flex-direction: column;
-            font-size: 15px;
+            font-size: 20px;
+            margin-right: 200%;
         }
     }
     .s3-2{
@@ -427,21 +427,77 @@
             font-size: 13px;
         }
     }
+
+    .s3-3 input, select{
+        border: 3px solid #fabc5988;
+        border-radius: 25px;
+        padding: 0px 10px 0px 10px;
+        height: 5vh;
+        font-family: 'Questrial', sans-serif;
+    }
+    textarea:focus, input:focus, selcet:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }
+    .rua{
+        width: 53vw;
+    }
+    .numero{
+        width: 53vw;
+    }
+    .bairro{
+        width: 53vw;
+    }
+    .cidade{
+        width: 30vh;
+    }
+    .cep{
+        width: 53vw;
+    }
+
+    select{
+        color: #6d6d6d;
+    }
+
+    .s3-3 button{
+        display: flex;
+        flex-direction: row;
+        width: 10vh;
+    }
+
+   
+    
+
+
+
     .p{
         font-size: 15px;
 
     }
+
+
     .s4-1{
         p{
             display: none;
         }
     }
+
+
     .s6-1-p{
         display: none;
         
     }
+
+
     .seta{
         display: none;
 
     }
 }
+
+
+
+
+}
+
+

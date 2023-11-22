@@ -234,17 +234,17 @@ export default function Conta() {
        
 
           <button onClick={Mcaminho}>
-            <img src='/assets/images/usuario/conta/caminhao.png' alt='' />
+            <img className='s1-img' src='/assets/images/usuario/conta/caminhao.png' alt='' />
             <p>a caminho</p>
           </button>
 
-          <button onClick={Mfinalizados}>
-            <img src='/assets/images/usuario/conta/finalizados.png' alt='' />
+          <button  onClick={Mfinalizados}>
+            <img className='s1-img' src='/assets/images/usuario/conta/finalizados.png' alt='' />
             <p>finalizados</p>
           </button>
 
-          <button onClick={Mdevolucao}>
-            <img src='/assets/images/usuario/conta/caixa2.png' alt='' />
+          <button  onClick={Mdevolucao}>
+            <img className='s1-img' src='/assets/images/usuario/conta/caixa2.png' alt='' />
             <p>devolução</p>
           </button>
 
@@ -435,9 +435,9 @@ export default function Conta() {
                 </select>
                 <input id='cod' value={cvcCartao} onChange={(e) => setCVCCartao(e.target.value)} type='text' className='o' placeholder='código de segurança'/>
 
-                <button onClick={cadastrarcartao} > <img src='/assets/images/usuario/conta/salvar.png' alt='' />  </button>
-                <button > <img src='/assets/images/usuario/conta/editar.png' alt='' />  </button>
-                <button onClick={deletarCartao} > <img src='/assets/images/usuario/conta/excluir.png' alt='' />  </button>
+                <button  className='s3-button' onClick={cadastrarcartao} > <img src='/assets/images/usuario/conta/salvar.png' alt='' />  </button>
+                <button   className='s3-button' > <img src='/assets/images/usuario/conta/editar.png' alt='' />  </button>
+                <button className='s3-button'  onClick={deletarCartao} > <img src='/assets/images/usuario/conta/excluir.png' alt='' />  </button>
               </div>  
             </>}
 

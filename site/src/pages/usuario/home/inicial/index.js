@@ -212,7 +212,7 @@ export default function Inicial() {
       <div className='s6'>
         <div className='pisca'>
           <h1>
-            <span className='pisca-s6'><p>CONHEÇA NOSSOS PRODUTOS</p></span>
+            <span className='pisca-s6'><strong>CONHEÇA NOSSOS PRODUTOS</strong></span>
           </h1>
         </div>
 

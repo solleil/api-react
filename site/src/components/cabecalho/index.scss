@@ -11,6 +11,11 @@
     }
 
 
+    .pisca p{
+        font-size: 15px;
+    }
+ 
+
 
 
 
@@ -18,8 +23,9 @@
         animation: pisca 2.5s infinite;
         display: flex;
         flex-direction: row;
-        margin-top: 15px;
-        gap: 5px;
+        margin-top: 5px;
+      
+        font-size: 5px;
 
 
 
@@ -319,7 +325,7 @@
         }
 
         .pisca-s1 p{
-            margin-bottom: 15%;
+            margin-bottom: 10%;
             font-size: 10px;
         }
     
