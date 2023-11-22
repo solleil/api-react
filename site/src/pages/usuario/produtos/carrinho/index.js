@@ -11,6 +11,21 @@ export default function Carrinho() {
   console.log(itens)
 
 
+  function calcularValorTotal() {
+    let total = 0;
+    for (let item of itens) {
+      total = total + item.produto.info.preco * item.qtd;
+    }
+
+    return total;
+  }
+
+
+  function quantidadeItens(){
+    return itens.length;
+  }
+
+
   async function CarregarCarrinhoSolleil() {
     let carrinho = storage('carrinhosolleil')
     if (carrinho) {
@@ -22,7 +37,7 @@ export default function Carrinho() {
 
         temp.push({
           produto: p,
-          qtd: produto.quantidade
+          qtd: produto.qtd
         })
       }
       setItens(temp);
@@ -35,7 +50,7 @@ export default function Carrinho() {
     CarregarCarrinhoSolleil();
   }, [])
 
-  function removerItem(id){
+  function removerItem(id) {
     let carrinho = storage('carrinhosolleil');
     carrinho = carrinho.filter(item => item.id != id);
 
@@ -55,10 +70,20 @@ export default function Carrinho() {
 
         {itens.map(item =>
           <CarrinhoProduto item={item} removerItem={removerItem} carregarCarrinhoSolleil={CarregarCarrinhoSolleil} />
-          )}
+        )}
 
       </div>
+      <div className='s-2'>
+
+        <div className='b-1'>itens: <b>{quantidadeItens()}</b></div>
+        <div className='b-1'>valor total: <b>R$ {calcularValorTotal()}</b></div>
+        <a href='/pagamento/cartao' className='b-3'><b>FINALIZAR COMPRA</b></a>
+      </div>
+
       <Rodape />
+
     </div>
+
+
   );
 }

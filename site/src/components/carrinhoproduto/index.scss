@@ -3,7 +3,7 @@
     
     border: 2px solid #E5C28C;
     width: 70vw;
-    height: 35vh;
+    height: 40vh;
     display: flex;
     flex-direction: row;
     gap: 15px;
@@ -49,8 +49,8 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: space-between;
-    width: 40vw;
+    justify-content: space-around;
+    width: 48vw;
     height: 30vh;
 }
 
@@ -65,8 +65,9 @@
     align-items: center;
     border: 2px solid #E5C28C;
     border-radius: 25px;
-    width: 10vw;
+    width: 8vw;
     height: 5vh;
+    text-align: center;
     display: flex;
     flex-direction: row;
 
@@ -81,6 +82,17 @@
             height: 1vh;
         }
     }
+}
+
+#sub{
+    border: 2px solid #E5C28C;
+    background-color: white;
+    width: 8vw;
+    height: 5vh;
+    border-radius: 25px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .qtd-valor {
@@ -103,57 +115,4 @@
     cursor: pointer;
 }
 
-.lixo:hover{
-    height: 9vh;
-    width: 4vw;
-    transition: 0.3s;
-    border-radius: 8px;
-}
 
-.lixoo:hover{
-    height: 7vh;
-    width: 4vw;
-    transition: 0.3s;
-    border-radius: 8px;
-}
-
-.s-2{
-    height: 15vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-
-.b-1{
-    border: 1px solid #CEA564;
-    height: 6vh;
-    width: 10vw;
-    border-radius: 55px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-}
-
-.b-3{
-    background-color: #CC9E56;
-    border: none;
-    height: 4vh;
-    width: 15vw;
-    border-radius: 25px;
-    color: white;
-    padding: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-}
-
-.b-3:hover {
-    transition: 0.3s;
-    font-size: 15px;
-    box-shadow: 0px 3px 5px #a0a0a0;
-    border-radius: 35px;
-}

@@ -5,9 +5,9 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage';
 
-export default function CarrinhoProduto({ item: { produto: { info }, quantidade }, removerItem, carregarCarrinhoSolleil }) {
+export default function CarrinhoProduto({ item: { produto: { info }, qtd }, removerItem, carregarCarrinhoSolleil }) {
 
-
+  const [qtdProduto, setQtdProduto] = useState(qtd);
   const [result, setResult] = useState(1);
   const [preco, setPreco] = useState(0);
   const [novopreco, setNovopreco] = useState(0);
@@ -47,6 +47,21 @@ export default function CarrinhoProduto({ item: { produto: { info }, quantidade 
   }, [])
 
 
+  function calcularSubtotal(){
+    const subtotal = qtdProduto * info.preco;
+    return subtotal;
+  }
+
+  function alterarQt(novaQtd){
+    setQtdProduto(novaQtd);
+
+    let carrinho = storage('carrinhosolleil')
+    let itemiso = carrinho.find(item => item.id == info.id);
+    itemiso.qtd = novaQtd;
+    storage('carrinhosolleil', carrinho);
+    carregarCarrinhoSolleil();
+  }
+
 
 
 
@@ -71,16 +86,19 @@ export default function CarrinhoProduto({ item: { produto: { info }, quantidade 
 
         <div className='s-1-1-3'>
           <div className='qtd-valor'><p>valor: <b>R$ {novopreco} </b></p></div>
-          <div className='qtd-info'>                 <button type='number' value={num1} onChange={(e) => setNum1(Number(e.target.value))} onClick={menos}> <p>-</p></button>
-            <b onChange={(e) => setResult(Number(e.target.value))}> {result}</b >
-            <button type='number' value={num2} onChange={(e) => setNum2(Number(e.target.value))} onClick={mais}> <p>+</p></button></div>
+          <select onChange={e => alterarQt(e.target.value)} value={qtdProduto} className='qtd-info'>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+          </select>
+          <div id='sub'>
+            Subtotal:
+            R$: {calcularSubtotal()}
+          </div>
           <img className='lixo' onClick={remover} src='/assets/images/usuario/carrinho/lixo.png' alt='0' />
           <img className='lixoo' src='/assets/images/usuario/carrinho/coracao.png' alt='0' />
-        </div>
-        <div className='s-2'>
-
-          <div className='b-1'>valor total: <b>R$</b></div>
-          <a href='/pagamento/cartao' className='b-3'><b>FINALIZAR COMPRA</b></a>
         </div>
       </div>
     </div>
