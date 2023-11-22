@@ -32,7 +32,7 @@ export default function CadastrarUsuarioPage() {
 
 
   async function listarTiposdePele() {
-    const r = await axios.get("http://129.148.42.252:5027/tipopele");
+    const r = await axios.get("/tipopele");
     setPeleSelecionado(r.data);
   };
 
