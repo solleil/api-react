@@ -9,24 +9,23 @@ export default function Rodape() {
 
                 <div className="r1">
                     <p className="h6">Ajuda & Suporte</p>
-                    <p>Central de ajuda</p>
-                    <p>Politica de entrega</p>
-                    <p>Dúvidas frequentes</p>
-                    <p>Termos de uso</p>
-                    <p>Trocas e devoluções</p>
+                    <a href='/'>Central de ajuda</a>
+                    <a href='/'>Politica de entrega</a>
+                    <a href='/'>Dúvidas frequentes</a>
+                    <a href='/'>Termos de uso</a>
+                    <a href='/'>Trocas e devoluções</a>
                 </div>
                 <div className="r1">
                     <p className="h6">Minha Conta</p>
-                    <p>Dados pessoais</p>
-                    <p>Meus endereços</p>
-                    <p>Alterar senha</p>
-                    <p>Meus pedidos</p>
-                    <p>Meus favoritos</p>
+                    <a href='/conta'>Dados pessoais</a>
+                    <a href='/conta'>Meus endereços</a>
+                    <a href='/conta'>Alterar senha</a>
+                    <a href='/conta'>Meus pedidos</a>
+                    <a href='/conta'>Meus favoritos</a>
                 </div>
                 <div className="r1">
                     <p className="h6">Institucional</p>
-                    <p>Revenda</p>
-                    <p>Parcerias</p>
+                    <a href='/'>Parcerias</a>
                 </div>
 
                 <div className="r4">
@@ -34,10 +33,10 @@ export default function Rodape() {
                     <p className="h1"> SOLLEIL</p>
                     
                     <div className="a">
-                        <a href="fadf"><img alt="" src="/assets/images/geral/insta.png" /></a>
+                        <a href="https://instagram.com/solleil.skincare?igshid=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr "><img alt="" src="/assets/images/geral/insta.png" /></a>
                         <a href="fadf"><img alt="" src="/assets/images/geral/twitter.png"/></a>
-                        <a href="fadf"><img alt="" src="/assets/images/geral/wpp.png"/></a>
-                        <a href="fadf"><img alt="" src="/assets/images/geral/youtube.png"/></a>
+                     
+                    
                     </div>
 
                 </div>

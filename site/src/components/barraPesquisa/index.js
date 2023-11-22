@@ -22,7 +22,7 @@ const SearchBar = () => {
       <div className='input-row'>
         <input
         type="text"
-        placeholder="Buscar produtos..."
+        placeholder="buscar produtos..."
         value={pesquisa}
         onChange={e => setPesquisa(e.target.value)}
         />
@@ -33,6 +33,7 @@ const SearchBar = () => {
       <div>
         {produto.map(produto => (
           <div key={produto.id}>
+            <p> teste</p>
             <h3>{produto.name}</h3>
             <p>{produto.preco}</p>
           

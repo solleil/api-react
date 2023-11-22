@@ -17,10 +17,10 @@ export default function Inicial() {
 
 
   function mensagemClick() {
-    if (mensagem === 1) {
+    if (mensagem == 1) {
       setMsg(<div className='mensagem'>Cuidar da pele requer uma rotina que envolve diversas etapas. Comece com a limpeza para remover impurezas, siga com a tonificação para equilibrar o pH da pele, hidrate para mantê-la saudável, aplique protetor solar para evitar danos causados pelo sol e considere produtos específicos para necessidades individuais, como acne ou envelhecimento. A consistência na aplicação desses passos é crucial para alcançar resultados satisfatórios a longo prazo, e uma consulta com um dermatologista pode fornecer orientações personalizadas. Cuidar da pele diariamente é uma prática importante para a saúde e a autoestima.</div>)
     }
-    else if (mensagem === 2) {
+    else if (mensagem == 2) {
       setMsg(<div className='mensagem'><b>Uso diário: </b> Aplique protetor solar com FPS adequado todos os dias, independentemente do clima.
         <br></br>
         <b>  Reaplicação:</b> Reforce a proteção a cada 2 horas, principalmente ao ar livre.
@@ -39,31 +39,31 @@ export default function Inicial() {
         <br></br>
         <b>Proteção completa:</b> Não esqueça de áreas negligenciadas, como orelhas, pescoço e mãos.</div>)
     }
-    else if (mensagem === 3) {
+    else if (mensagem == 3) {
       setMsg(<div className='mensagem'>
         Na nossa loja de skincare, estamos comprometidos com a ética e a responsabilidade, o que inclui a decisão consciente de não oferecer produtos de marcas que realizam testes em animais. Acreditamos que a beleza e cuidados com a pele não devem vir à custa do sofrimento dos animais. Escolhemos marcas que compartilham dessa filosofia e que se empenham em desenvolver produtos de alta qualidade, sem comprometer o bem-estar dos animais. Ao fazer essa escolha, não apenas estamos contribuindo para um mundo mais compassivo, mas também oferecendo aos nossos clientes a confiança de que nossos produtos atendem aos mais altos padrões éticos e de qualidade. Juntos, estamos promovendo uma indústria de skincare mais consciente e alinhada com os valores de proteção dos animais.
       </div>)
     }
-    else if (mensagem === 4) {
+    else if (mensagem == 4) {
       setMsg(<div className='mensagem'>Aceitamos devoluções dentro de um período de 7 dias após a compra, desde que o produto não tenha sido aberto ou utilizado. A devolução é valida apenas quando a embalagem está amassada, rasgada, há vazamentos do produto, erros de fabrica como embalagem vazia ou sujeira.
       </div>)
     }
-    else if (mensagem === 5) {
+    else if (mensagem == 5) {
       setMsg(<div className='mensagem'>
         A combinação de produtos de skincare de diferentes marcas pode ser eficaz para atender às necessidades individuais da pele. No entanto, é essencial estar atento à compatibilidade química dos produtos para evitar possíveis irritações ou reações adversas. Certifique-se de selecionar produtos adequados ao seu tipo de pele e preocupações específicas, mantendo uma rotina consistente para obter os melhores resultados.
       </div>)
     }
-    else if (mensagem === 6) {
+    else if (mensagem == 6) {
       setMsg(<div className='mensagem'>
         Em nosso catálogo, disponibilizamos uma ampla gama de produtos direcionados a diferentes tipos de pele. Utilize nossas ferramentas de filtragem para encontrar produtos especialmente formulados para atender às necessidades de peles secas, oleosas, sensíveis, mistas e muito mais. Isso facilitará sua busca por cuidados com a pele adaptados às características únicas da sua pele.
       </div>)
     }
-    else if (mensagem === 7) {
+    else if (mensagem == 7) {
       setMsg(<div className='mensagem'>
         Caso não tenha uma conta, no canto superior direito do nosso site, há um pequeno ícone de úsuario, clique nele que vc será automaticamente direcionado para a tela de cadastro.
       </div>)
     }
-    else if (mensagem === 8) {
+    else if (mensagem == 8) {
       setMsg(<div className='mensagem'>
         Caso já esteja logado, saia da sua conta e na página de login, clique em "Esqueci minha senha".
       </div>)
@@ -85,6 +85,9 @@ export default function Inicial() {
     setChat(!chat)
   }
 
+
+
+  
 
 
   return (
@@ -166,7 +169,9 @@ export default function Inicial() {
 
                 <div className='input'>
                   <input type='number' value={mensagem} onChange={e => Number(setMensagem(e.target.value))} placeholder='digite um número' />
-                  <button onClick={mensagemClick}> <img alt='' src='/assets/images/usuario/inicial/msg.png' /></button>
+                  <button onClick={mensagemClick} 
+                   
+                  > <img alt='' src='/assets/images/usuario/inicial/msg.png' /></button>
                 </div>
 
 
@@ -193,12 +198,12 @@ export default function Inicial() {
       <div className='s5'>
         <p>Parcerias</p>
         <div className='s5-1'>
-          <a href='c'> <img src='/assets/images/usuario/inicial/sallve.png' alt='' /> </a>
-          <img src='/assets/images/usuario/inicial/biossance.png' alt='' />
-          <img src='/assets/images/usuario/inicial/creamy.png' alt='' />
-          <img src='/assets/images/usuario/inicial/simple.png' alt='' />
-          <img src='/assets/images/usuario/inicial/cerave.png' alt='' />
-          <img src='/assets/images/usuario/inicial/laroche.png' alt='' />
+        <a href='https://www.sephora.com.br/biossance/'><img alt='a' src='/assets/images/usuario/inicial/biossance.png' /></a>
+              <a href='https://www.cerave.com.br/'><img alt='a' src='/assets/images/usuario/inicial/cerave.png' /></a>
+              <a href='https://www.creamy.com.br/'><img alt='a' src='/assets/images/usuario/inicial/creamy.png' /></a>
+              <a href='https://www.laroche-posay.com.br/'><img alt='a' src='/assets/images/usuario/inicial/laroche.png' /></a>
+              <a href='https://www.sallve.com.br/'><img alt='a' src='/assets/images/usuario/inicial/sallve.png' /></a>
+              <a href='https://simpleorganic.com.br/'><img alt='a' src='/assets/images/usuario/inicial/simple.png' /></a>
         </div>
       </div>
 
