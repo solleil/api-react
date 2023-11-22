@@ -23,16 +23,7 @@ export default function FiltrarPedido() {
             <div className='ka'>
 
                 <div className='cla'>
-                    <div className='clara'>
-                        <input type='text'></input>
-
-                        <div className='clan'>
-                            <button type="button">
-                                <img src='/assets/images/geral/pesquisa.png' alt='' />
-                                Pesquisar
-                            </button>
-                        </div>
-                    </div>
+                    Filtrar Pedidos
                 </div>
 
 
@@ -45,7 +36,12 @@ export default function FiltrarPedido() {
 
                             <label>Status do pedido</label>
                             <select className='pedid' value={stts} onChange={(e) => setStts(e.target.value)} >
-                                <option>Todos exceto arqu.</option>
+                                <option></option>
+                                <option>Processando</option>
+                                <option>Enviado</option>
+                                <option>A caminho</option>
+                                <option>Preparando</option>
+                                <option>Não pagos</option>
                             </select>
 
                         </div>
@@ -55,7 +51,19 @@ export default function FiltrarPedido() {
 
                             <label>Intervalo de data</label>
                             <select className='pedid' value={intervadata} onChange={(e) => setIntervdata(e.target.value)} >
-                                <option>Todas as datas</option>
+                                <option>Todas as Datas</option>
+                                <option>Janeiro a Fevereiro</option>
+                                <option>Fevereiro a Março</option>
+                                <option>Março a Abril</option>
+                                <option>Abril a Maio</option>
+                                <option>Maio a Junho</option>
+                                <option>Junho a Julho</option>
+                                <option>Julho a Agosto</option>
+                                <option>Agosto a Setembro</option>
+                                <option>Setembro a Outubro</option>
+                                <option>Outubro a Novembro</option>
+                                <option>Novembro a Dezembro</option>
+                                <option>Desembro a Janeiro</option>
                             </select>
 
                         </div>
@@ -65,7 +73,9 @@ export default function FiltrarPedido() {
 
                             <label>Meio de envio</label>
                             <select className='pedid' value={meiodeenvio} onChange={(e) => setMeiodeenvio(e.target.value)}>
-                                <option>Todos</option>
+                                <option>Correios</option>
+                                <option>Lalamove</option>
+                                <option>Troque Rápido</option>
                             </select>
 
                         </div>
@@ -74,9 +84,14 @@ export default function FiltrarPedido() {
                         <div className='fi-1'>
 
 
-                            <label>Canal de venda</label>
+                            <label>Entrega</label>
                             <select className='pedid' value={canaldevenda} onChange={(e) => setCanalvenda(e.target.value)}>
-                                <option>Todos </option>
+                                <option></option>
+                                <option>Aguardando...</option>
+                                <option>Aprovado</option>
+                                <option>Preparando</option>
+                                <option>A caminho...</option>
+                                <option>Entregue</option>
                             </select>
 
 
@@ -120,10 +135,10 @@ export default function FiltrarPedido() {
                             <div className='bola'></div>
                             <div>Pedido</div>
                             <div>Data</div>
-                            <div>Produtos Total</div>
-                            <div>Comprador</div>
+                            <div>Qntd Total</div>
+                            <div>Cliente</div>
                             <div>Status do pedido</div>
-                            <div>Ação recomendada</div>
+                            
 
                         </div>
 
