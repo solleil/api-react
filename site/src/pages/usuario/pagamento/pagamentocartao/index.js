@@ -3,6 +3,8 @@ import Cabecalho from '../../../../components/cabecalho'
 import { useState } from 'react';
 import storage from 'local-storage';
 import { InserirCartao } from '../../../../api/postAPi';
+import { listarEndereco } from '../../../../api/getAPI';
+import { useEffect } from 'react';
 
 export default function Escolherpagamento() {
     const [cartao, setCartao] = useState(false);
@@ -13,6 +15,12 @@ export default function Escolherpagamento() {
     const [validadeCartao, setValidadeCartao] = useState('');
     const [mesValidade, setMesValidade] = useState('')
     const [anoValidade, setanoValidade] = useState('');
+    const [enderecoS, setEnderecoS] = useState([]);
+
+
+    if (storage('usuario-logado')) {
+        var id = storage('usuario-logado').id
+      }
 
     
     async function cadastrarcartao() {
@@ -26,6 +34,11 @@ export default function Escolherpagamento() {
         }
     }
 
+    async function carregarEndereco() {
+        const respo = await listarEndereco(id);
+        setEnderecoS(respo);
+      }
+    
 
     function MudarCartao() {
         setCartao(!cartao)
@@ -36,6 +49,10 @@ export default function Escolherpagamento() {
         setCartaoDebito(!cartaoDebito)
         setCartao(false)
     }
+
+    useEffect(() => {
+        carregarEndereco()
+      }, []);
 
     return (
         <div className='s1'>
@@ -65,14 +82,16 @@ export default function Escolherpagamento() {
 
 
             <div className='s-3'>
-
+                
                 <div className='s-1-2-3'>
                     <p><strong>Entrega</strong></p>
                     <img src='/assets/images/usuario/pagamento/verificar.png' alt='' />
                 </div>
-
-                <p id='texto'>Av. Coronel Octaviano de Freitas Costa, 463 - Socorro, São Paulo - SP, CEP: 04773-000</p>
-
+                {enderecoS.map((item) =>
+            <div className='s3-2' key={item.id}>
+                <p>{item.rua}, {item.endereco} - {item.bairro}, {item.cidade}, {item.cep}</p>
+            </div>
+          )}
             </div>
 
 
