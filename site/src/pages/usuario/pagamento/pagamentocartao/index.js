@@ -79,7 +79,7 @@ export default function Escolherpagamento() {
             <div className='s-4'>
                 <p id='t-2'><strong>MÉTODO DE PAGAMENTO</strong></p>
                 <div className='s-4-3' onClick={MudarCartao}>
-                    <p >Cartão de crédito</p>
+                    <p className='credito' >Cartão de crédito</p>
                     <img src='/assets/images/usuario/pagamento/cartao-de-credito.png' alt='' />
                 </div>
                 {cartao === true &&
