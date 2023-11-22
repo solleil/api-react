@@ -107,7 +107,7 @@ x'x
                 <img src='/assets/images/adm/inicial_adm/exemplo.png' alt='' />
                 <p>{`${admin.nome} ${admin.sobrenome}`}</p>
                 <p>{admin.cargo}<br></br>São Paulo</p>
-                <button onClick={Sair}>Sair</button>
+                <button className='bbb' onClick={Sair}>sair</button>
               </div>
             </>
           }
