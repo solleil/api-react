@@ -79,7 +79,7 @@ export default function AddProduto() {
       }
     } catch (err) {
       setCarregando(false);
-      toast.error(err.message);
+      toast.error(err.response.data.erro); 
     }
   }
 
@@ -107,7 +107,7 @@ export default function AddProduto() {
     const resp = await listarIngredientes();
     setIngrS(resp);
   }
-
+ 
   async function carregarProdutosId() {
     const respo = await listarProdutosId(idParams)
     setNomeProduto(respo.nome)

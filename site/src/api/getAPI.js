@@ -30,7 +30,6 @@ export async function listarProdutosFiltro(queryIDT) {
 }
 
 export async function listarProdutosConsulta(queryFiltro) {
-    console.log(queryFiltro);
     const r = await api.get(`/produto/consulta?${queryFiltro}`);
     return r.data;
 }

@@ -27,7 +27,7 @@ export default function Escolherpagamento() {
         try {
             setValidadeCartao(`${anoValidade}/${mesValidade}`);
             const id = storage('usuario-logado').id;
-            const resposta = await InserirCartao(nomeCartao, cvcCartao, numeroCartao, validadeCartao, id);
+            await InserirCartao(nomeCartao, cvcCartao, numeroCartao, validadeCartao, id);
             alert('cartão cadastrado');
         } catch (err) {
             alert(err.message);

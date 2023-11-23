@@ -68,7 +68,7 @@
     
     .sec1_c4 > div {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
     }
     
     .sec1_c1, .sec1_c2, .sec1_c3 {
@@ -121,12 +121,9 @@
     }
 
     .sec1c4-botoes {
-        display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
         width: 100%;
-        gap: 20px;
+        gap: 25%;
     }
 
     .sec1c4-botoes > button {
