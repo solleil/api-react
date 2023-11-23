@@ -23,7 +23,7 @@ export async function listarTodosProduto() {
     return resposta;
 };
 
-export async function buscaProdutoFiltro(prdNome, prdDesc, prdId, prdIdCat, prdMarca, prdPreco) {
+export async function buscaProdutoFiltro(prdNome, prdId) {
     const comando = `
     select 
         tb_produto.id_produto as id,
@@ -46,11 +46,10 @@ export async function buscaProdutoFiltro(prdNome, prdDesc, prdId, prdIdCat, prdM
     on tb_produto.id_produto = tb_marca.id_marca
     inner join tb_categoria
     on tb_produto.id_produto = tb_categoria.id_categoria
-    where (nm_produto like ? or ds_produto like ?)
-    or (id_produto = ? or tb_produto.id_categoria = ? or tb_produto.id_marca = ?  or vl_preco <= ?)
+    where (nm_produto like ? or id_produto = ?)
     `;
-
-    const [respo] = await connection.query(comando, [`%${prdNome}%`, `%${prdDesc}%`, prdId, prdIdCat, prdMarca, prdPreco]);
+    
+    const [respo] = await connection.query(comando, [`%${prdNome}%`, prdId]);
     
     return respo;
 }

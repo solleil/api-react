@@ -6,7 +6,11 @@
     gap:18px;
     overflow: hidden;
    
-
+    *{
+        p{
+            font-size: 18px;
+        }
+    }
 
     .s1{
         display: flex;
@@ -207,11 +211,17 @@
         align-items: center;
         justify-content: flex-start;
         flex-wrap: wrap;
-        width: 10vw;
+        width: 20vw;
         height: 20vw !important;
- 
-        gap:1px
+        gap:1px;
 
+        b{
+            font-size: 18px;
+        }
+
+        p{
+            font-size: 18px;
+        }
     }
 
     .s3-lado{
@@ -222,14 +232,30 @@
         width: 80vw;
     }
 
-
     .s3-3{
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        width: 30vw;
+        width: 35vw;
         gap: 15px;
     }
+
+    .s3-6{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 40vw;
+        gap: 15px;
+    }
+
+    .s3-6 input, select{
+        border: 3px solid #fabc5988;
+        border-radius: 25px;
+        padding: 0px 10px 0px 10px;
+        height: 5vh;
+        font-family: 'Questrial', sans-serif;
+    }
+
     .s3-3 input, select{
         border: 3px solid #fabc5988;
         border-radius: 25px;
@@ -245,7 +271,7 @@
         width: 15vw;
     }
     .numero{
-        width: 12vw;
+        width: 17vw;
     }
     .bairro{
         width: 15vw;
@@ -254,7 +280,7 @@
         width: 24vh;
     }
     .cep{
-        width: 28vw;
+        width: 33vw;
     }
 
     select{
@@ -273,6 +299,21 @@
         background-color: #fabc59c9;
     }
 
+    .s3-6 button{
+        background-color: #fabc5988;
+        border: none;
+        border-radius: 30px;
+        width: 8vw;
+    }
+    .s3-6 button:hover{
+        transition: 0.5s;
+        cursor: pointer;
+        background-color: #fabc59c9;
+    }
+
+    #cod{
+        width: 14vw;
+    }
 
 
 

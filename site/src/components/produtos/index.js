@@ -63,7 +63,7 @@ export default function MolduraProdutos(props){
                     <img className="img-prod" src={carregarImagem(item.imagem)} alt=''/> 
                     <div className='s1-start'>
                         <b>{item.nome}</b>
-                        <p>{item.descricao}</p>
+                        <p className='desc'>{item.descricao}</p>
                         <b>R${item.preco}</b>
                     </div>
                 </div>

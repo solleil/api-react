@@ -109,26 +109,38 @@
 
         }
 
-        button{
-            background-color: #19B400;
-            width: 20vw;
+        a{
+            background-color: #39f31dc0;
+            width: 28vw;
             height: 5vh;
+            text-align: center;
+            text-decoration: none;
             color: #ffffff;
             border: none;
+            border-radius: 15px;
             margin-top: 20px;
-            
+            font-size: 18px;
+            cursor:pointer;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
         }
 
         .b{  
             margin-left: 25%;
             width: 10vw;
+            border-radius: 15px;
             box-shadow: 0px 2px 3px #000;
             
         }
        
         .acomps-1{
-            gap: 10px;
+            gap: 20px;
             margin-top: 5%;
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
     
         }
         #blue{
@@ -147,6 +159,7 @@
             display: flex;
             flex-direction: column;
             margin-bottom: 5%;
+            gap: 20px;
            
 
           
@@ -215,15 +228,17 @@
                           font-size: 10px;
                     }
 
-                   
+                   .acomps-1 {
+                    
+
+                     .produtoveri{
+                    height: 15vh;
+                   }
+
+                   }
 
                     
-                    .acomps-1 img{
-                        
-                        width: 15vw;
-                       
-                    }
-
+                  
                     .b{
                         width: 5vw;
                         height: 4vh;
@@ -235,21 +250,27 @@
 
 
                     .acomps-1 button{
+                        border-radius: 2px;
                         height: 5vh;
                         width: 30vw;
+                        text-align: center;
                     }
 
                     .acomps-1 h3{
+                        font-size: 9px;
+                    }
+
+                    .acomps-1 h6{
                         font-size: 10px;
                     }
 
                     .todes h1{
-                        font-size: 15px;
+                        font-size: 10px;
                     }
 
 
                     .todes p{
-                        font-size: 10px;
+                        font-size: 8px;
                     }
                  
             

@@ -79,7 +79,7 @@ export default function AddProduto() {
       }
     } catch (err) {
       setCarregando(false);
-      toast.error(err.message);
+      toast.error(err.response.data.erro); 
     }
   }
 
@@ -107,7 +107,7 @@ export default function AddProduto() {
     const resp = await listarIngredientes();
     setIngrS(resp);
   }
-
+ 
   async function carregarProdutosId() {
     const respo = await listarProdutosId(idParams)
     setNomeProduto(respo.nome)
@@ -228,9 +228,9 @@ export default function AddProduto() {
 
                 <label>Quantidade</label>
                 <div className='qtd-info'>
-                  <button className='contador' type='number' value={n1} onChange={(e) => setN1(Number(e.target.value))} onClick={menos}> <img src='/assets/images/geral/-.png' alt='a' /></button>
+                  <button className='contador' type='number' value={n1} onChange={(e) => setN1(Number(e.target.value))} onClick={menos}> <img  className='menos' src='/assets/images/geral/-.png' alt='a' /></button>
                   <p value={qtd} onChange={(e) => setResult(Number(e.target.value))}> {qtd}</p>
-                  <button className='contador' type='number' value={n2} onChange={(e) => setN2(Number(e.target.value))} onClick={mais}> <img src='/assets/images/geral/+.png' alt='' /></button>
+                  <button className='contador' type='number' value={n2} onChange={(e) => setN2(Number(e.target.value))} onClick={mais}> <img src='/assets/images/geral/+.png' alt='a' /></button>
                 </div>
 
                 <label>Necessidades</label>

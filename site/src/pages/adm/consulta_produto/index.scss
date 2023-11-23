@@ -68,7 +68,7 @@
     
     .sec1_c4 > div {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
     }
     
     .sec1_c1, .sec1_c2, .sec1_c3 {
@@ -121,12 +121,9 @@
     }
 
     .sec1c4-botoes {
-        display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
         width: 100%;
-        gap: 20px;
+        gap: 25%;
     }
 
     .sec1c4-botoes > button {
@@ -145,5 +142,28 @@
         border: none;
         outline: 2px solid #FFCE70;
     }  
+
+    .botao{
+        background-color: #FFCE70;
+        border: none;
+        border-radius: 10px;
+        padding: 5px 5px 5px 5px;
+    }
+
+    .botao:hover{
+        letter-spacing: 1px;
+        width: 5vw;
+        transition: 0.3s;
+        font-size: 16px;
+    }    
+    .botoes{
+        display: flex;
+        gap: 10px;
+        margin: 5px;
+    }
+
+    .sec_2{
+        padding: 0px 0px 0px 50px;
+    }
 
 }

@@ -73,17 +73,6 @@ export default function Info() {
     toast.success('produto adicionado ao carrinho')
   }
 
-  function mais() {
-    let x = result + 1
-    setResult(x)
-  }
-  function menos() {
-    if (result > 0) {
-      let x = result - 1
-      setResult(x)
-    }
-
-  }
 
   return (
     <div className="pag-info">
@@ -106,16 +95,9 @@ export default function Info() {
           </div>
 
 
-          
-          <div className='qtd'>
-            <div className='qtd-info'>
-              <button type='number' value={n1} onChange={(e) => setN1(Number(e.target.value))} onClick={menos}> <img src='/assets/images/geral/-.png' alt='a' /></button>
-              <p value={result} onChange={(e) => setResult(Number(e.target.value))}> {result}</p>
-              <button type='number' value={n2} onChange={(e) => setN2(Number(e.target.value))} onClick={mais}> <img src='/assets/images/geral/+.png' alt='' /></button>
-            </div>
 
+       
 
-          </div>
 
           <div className='add-info'>
             <button onClick={AdicionarCarrinho} className='ad'> adicionar a sacola</button>
@@ -168,7 +150,7 @@ export default function Info() {
             {comprov === true &&
               <>
                 <div className='comprova'>
-                  <p>{produtO.descricao}</p>
+                  <p >{produtO.descricao}</p>
                 </div>
               </>}
 
