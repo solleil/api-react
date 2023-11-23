@@ -55,7 +55,11 @@
       flex-direction: row;
       justify-content: space-around;
       gap: 10px;
-    }    
+    }   
+    
+    .prod-desc{
+      width: 50vw;
+    }
 
 
     
@@ -63,25 +67,29 @@
     .s1-start{
 
       display: flex ;
-      flex-direction: row;
-      flex-wrap: wrap;
+      
+      justify-content: flex-start;
+      align-items: flex-start;
+    margin-right: 20%;
+      
+      
       justify-content: space-around;
       
 
-      p{
-        display: flex;
-        flex-wrap: wrap !important;
-        width: 25vw;
-        height: 20vw;
-        font-size: 13px;
-     
-      }
+    
 
       b{
         font-size: 10px;
       }
     } 
-
+        .desc{
+        display: flex;
+        flex-wrap: wrap !important;
+        
+        height: 20vw;
+        font-size: 13px;
+     
+      }
   }
 
 

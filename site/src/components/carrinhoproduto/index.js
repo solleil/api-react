@@ -13,24 +13,12 @@ export default function CarrinhoProduto({ item: { produto: { info }, qtd }, remo
   const [num2, setNum2] = useState(0);
 
 
-  function mais() {
-    const x = result + 1;
-    setResult(x);
-    const p = preco * x
-    setNovopreco(p);
-
-  };
-
-  function menos() {
-    if (result > 1) {
-      const x = result - 1;
-      setResult(x);
-      setNovopreco(novopreco - preco)
-    };
-  };
 
   function remover() {
+    
     removerItem(info.id);
+
+
   }
 
   function attPreco() {
@@ -92,8 +80,8 @@ export default function CarrinhoProduto({ item: { produto: { info }, qtd }, remo
               <option>5</option>
           </select>
           <div id='sub'>
-            Subtotal:
-            R$: {calcularSubtotal()}
+            <b>Subtotal:
+            R$:</b> {calcularSubtotal()}
           </div>
           <img className='lixo' onClick={remover} src='/assets/images/usuario/carrinho/lixo.png' alt='0' />
           <img className='lixoo' src='/assets/images/usuario/carrinho/coracao.png' alt='0' />

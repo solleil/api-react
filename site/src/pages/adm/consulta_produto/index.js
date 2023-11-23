@@ -111,8 +111,11 @@ export default function Consulta() {
                 <td>
                   {item.id !== 0 &&
                     <>
+                    <div className='botoes'>
                       <button className='botao' onClick={() => navPagEditar(item.id)}>Editar</button>
                       <button className='botao' onClick={deletar}>Deletar</button>
+                    </div>
+
                     </>}
                 </td>
               </tr>

@@ -399,17 +399,17 @@ export default function Conta() {
       <div className='linha'>.</div>
 
       <div className='s3-1'>
-          <b>pagamento</b>
+          <b>dados do cartão</b>
           <p className='p' onClick={Mudar}>adicionar ou editar <img className='i' src='/assets/images/usuario/conta/editar.png' alt='' /></p>
         </div>
 
         <div className='s3-lado'>
 
             <div className='s3-2'>
-              <p><b>nome no cartão:</b>{cartao.nome}</p> 
-              <p><b>número do cartão:</b>{cartao.numero}</p> 
-              <p><b>validade:</b>{cartao.validade}</p>
-              <p><b>código de segurança:</b>{cartao.cvc}</p>
+              <p><b>nome no cartão:</b> {cartao.nome}</p> 
+              <p><b>número do cartão:</b> {cartao.numero}</p> 
+              <p><b>validade:</b> {cartao.validade}</p>
+              <p><b>código de segurança:</b> {cartao.cvc}</p>
             </div>
 
 
@@ -420,7 +420,7 @@ export default function Conta() {
 
           {mostrar === true &&
             <>
-              <div className='s3-3'>
+              <div className='s3-6'>
                 <input type='text' placeholder='nome no cartão' className='rua' value={nomeCartao} onChange={(e) => setNomeCartao(e.target.value)} />
                 <input type='text' placeholder='número do cartão' className='numero' value={numeroCartao} onChange={(e) => setNumeroCartao(e.target.value)}/>
                 <select className='bairro' value={mesValidade} onChange={(e) => setMesValidade(e.target.value)}>

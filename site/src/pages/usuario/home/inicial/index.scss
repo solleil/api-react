@@ -356,11 +356,19 @@
     height: 5vh;
     width: 10vw;
     align-items: center;
-    color: rgb(255, 255, 255);
-    background-color: #000000;
-    border-radius: 30px;
+    color: black;
+    background-color: white;
+    border: 1px solid #E5C28C;
+    border-radius: 20px;
   }
 
+  }
+
+  .s7-ver:hover{
+    width: 12vw;
+    transition: 0.3s;
+    letter-spacing: 1px;
+    font-size: 18px;
   }
  
   }
@@ -617,6 +625,10 @@ input[type=number] {
     height: 10vh;
   }
 
+  .s6-1 img{
+    height: 10vh;
+  }
+
 
 
   
@@ -639,9 +651,7 @@ input[type=number] {
     font-size: 10px;
   }
 
-  .s6-1 img{
-    height: 3vh;
-  }
+  
 
   
   .s7-ver{

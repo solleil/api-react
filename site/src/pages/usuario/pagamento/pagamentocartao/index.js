@@ -199,110 +199,13 @@ x
 
 
 
-                <div className='s-4-3' onClick={MudarCartaoDebito}>
-                    <p >Cartão de débito</p>
-                    <img src='/assets/images/usuario/pagamento/cartao-de-debito.png' alt='' />
-                </div>
-                {cartaoDebito === true &&
-                    <>
-                        <div className='cadastrarcartao'>
-
-                            <div className='cabe'>
-                                <p>cadastre seu cartão</p>
-                                <div className='linha'></div>
-                            </div>
-
-                            <div className='info-tudo'>
-                                <div className='info'>
-                                    <input type='number' placeholder='número do cartão' className='i'></input>
-
-
-                                    <div className='info-1'>
-                                        <p>validade:</p>
-
-
-                                        <div className='info-2'>
-                                            <select>
-                                                <option disabled selected>mês</option>
-                                                <option>janeiro</option>
-                                                <option>fevereiro</option>
-                                                <option>março</option>
-                                                <option>abril</option>
-                                                <option>maio</option>
-                                                <option>junho</option>
-                                                <option>julho</option>
-                                                <option>agosto</option>
-                                                <option>setembro</option>
-                                                <option>outubro</option>
-                                                <option>novembro</option>
-                                                <option>dezembro</option>
-                                            </select>
-
-                                            <select>
-                                                <option disabled selected>ano</option>
-                                                <option>2024</option>
-                                                <option>2025</option>
-                                                <option>2026</option>
-                                                <option>2027</option>
-                                                <option>2028</option>
-                                                <option>2029</option>
-                                                <option>2030</option>
-                                            </select>
-                                        </div>
-                                        <div className='infoo2-Debito'>
-
-                                            <div className='debito'>
-                                                <input className='ch' type='checkbox' />
-                                                <label className='cont'>guardar para próxima compra</label>
-                                            </div>
-                                            <div className='debito'>
-                                                <input className='ch' type='checkbox' />
-                                                <label className='gua'> definir como padrão</label>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-
-
-
-
-
-
-                                </div>
-
-
-                                <div className='info-lado'>
-                                    <input className='nome-cartao' type='text' placeholder='nome impresso no cartão'></input>
-
-                                    <p id='cod'>código de segurança:</p>
-                                    <div className='infoo'>
-                                        <input className='codigo' type='text'></input>
-                                        <input className='codigo2' type='text' placeholder='CPF do titular'></input>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <div className='botao'>
-
-                                <button>concluir cadastro</button>
-
-                            </div>
-
-
-
-
-
-
-                        </div>
-                    </>
-                }
+ 
             </div>
 
 
             <div className='k'> <div className='l-c'></div> </div>
 
+        <div className='s5-todes'>
             <div className='s-5'>
                 <div className='s-5-1'>
                     <p><strong>Valor total:</strong></p>
@@ -326,10 +229,10 @@ x
                     <p className='t-4'>R$55,00</p>
                 </div>
 
-                <button><b>FINALIZAR PAGAMENTO</b></button>
+                <a href='/aprovado'><b>FINALIZAR PAGAMENTO</b></a>
 
             </div>
-
+          </div>
 
 
         </div>
