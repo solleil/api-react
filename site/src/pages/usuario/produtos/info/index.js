@@ -135,7 +135,7 @@ export default function Info() {
         <div className='opc-1'>
 
           {indic ? (<b onClick={mudarI} className='bold'>indicações <div className='bold-linhas1'></div>  </b>) : (<p onClick={mudarI} className='n-bold'>indicações </p>)}
-          {comprov ? (<b onClick={mudarC} className='bold'>descrição<div className='bold-linhas2'></div>  </b>) : (<p onClick={mudarC} className='n-bold'>comprovações </p>)}
+          {comprov ? (<b onClick={mudarC} className='bold'>descrição<div className='bold-linhas2'></div>  </b>) : (<p onClick={mudarC} className='n-bold'>Descrição </p>)}
           {ingredientesatv ? (<b onClick={mudarIng} className='bold'>ingredientes ativos <div className='bold-linhas4'></div>  </b>) : (<p onClick={mudarIng} className='n-bold'>ingredientes ativos </p>)}
         </div>
         <div className='linhas'></div>
@@ -151,18 +151,9 @@ export default function Info() {
                 <div className='indica'>
 
                   <img className='indica-s1' src='/assets/images/usuario/info/indica.png' alt='' />
-                  <p className='tdp'>Todos os tipos de pele</p>
+                  <p className='tdp'>{produtO.indicacao}</p>
 
                 </div>
-
-                <div className='indica-s2'>
-
-                  <p>map das indicacoes</p>
-
-
-                </div>
-
-
               </>}
 
           </div>
@@ -183,20 +174,12 @@ export default function Info() {
 
           </div>
 
-
-
-    
-
-
-        
-
-
           <div>
 
             {ingredientesatv === true &&
               <>
                 <div className='ingred'>
-
+                  {produtO.ingrediente_atv === 1 && 
                   <div className='igd-s1'>
                     <div className='igd'>
                       <div className='bolinha'> <img src='/assets/images/geral/bolinha.png' alt='' /></div>
@@ -204,7 +187,8 @@ export default function Info() {
                     </div>
                     <p>um dos ingredientes mais versáteis que existem: aqui a niacinamida tem ação anti-<br />inflamatória, melhora a textura e regula a produção de sebo. ao mesmo tempo,<br /> fortalece a proteção da pele, evitando ressecamento e vermelhidão.</p>
                   </div>
-
+                  }
+                  {produtO.ingrediente_atv === 2 &&  
                   <div className='igd-s2'>
                     <div className='igd'>
                       <div className='bolinha'> <img src='/assets/images/geral/bolinha.png' alt='' /></div>
@@ -212,7 +196,8 @@ export default function Info() {
                     </div>
                     <p>derivado natural da moringa oleifera, o extrato promove a limpeza profunda da pele<br /> removendo até mesmo resíduos de poluição diária.</p>
                   </div>
-
+                  }
+                  {produtO.ingrediente_atv === 3 &&
                   <div className='igd-s3'>
                     <div className='igd'>
                       <div className='bolinha'> <img src='/assets/images/geral/bolinha.png' alt='' /></div>
@@ -220,7 +205,8 @@ export default function Info() {
                     </div>
                     <p>de origem vegetal, derivado do óleo de oliva puro, sua alta compatibilidade com a<br /> pele ajuda a restaurar a barreira de proteção e a manter a maciez.</p>
                   </div>
-
+                  }
+                  {produtO.ingrediente_atv === 4 &&
                   <div className='igd-s4'>
                     <div className='igd'>
                       <div className='bolinha'> <img src='/assets/images/geral/bolinha.png' alt='' /></div>
@@ -228,6 +214,7 @@ export default function Info() {
                     </div>
                     <p>também chamado de Pro-Vitamina B5, é conhecido pelo seu poder hidratante e<br /> suavizante, promove ação calmante e anti-inflamatória.</p>
                   </div>
+                  }
                 </div>
               </>}
           </div>

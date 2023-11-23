@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { confirmAlert } from 'react-confirm-alert'; 
 import CabecalhoAdm from '../../../components/cabecalhoAdm/index.js'
 import './index.scss';
-import { listarCategorias, listarMarcas, listarProdutosConsulta, listarProdutosFiltro, listarProdutosInner } from '../../../api/getAPI.js';
+import { listarCategorias, listarMarcas, listarProdutosConsulta, listarProdutosInner } from '../../../api/getAPI.js';
 import { deletarProduto } from '../../../api/deleteAPI.js';
-import { toast } from 'react-toastify';
 
 export default function Consulta() {
   const [ProdutoS, setProdutoS] = useState([]);
@@ -29,6 +29,9 @@ export default function Consulta() {
   };
 
   async function Filtro() {
+    if (!nomeProduto && !codigo && !Idcategoria && !idMarca && !preco) {
+      carregarProdutos()
+    };
     if (nomeProduto && codigo && Idcategoria && idMarca && preco) {
       const query = `nome=${nomeProduto}$id=${codigo}&categoria=${Idcategoria}&marca=${idMarca}&preco=${preco}`;
       const respo = await listarProdutosConsulta(query);
@@ -38,71 +41,111 @@ export default function Consulta() {
       if (nomeProduto) {
         if (desc) {
           const query = `nome=${nomeProduto}&desc=${desc}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         }
         else if (codigo) {
           const query = `nome=${nomeProduto}&id=${codigo}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         }
         else if (Idcategoria) {
           const query = `nome=${nomeProduto}&categoria=${Idcategoria}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         }
         else if (idMarca) {
           const query = `nome=${nomeProduto}&marca=${idMarca}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         }
         else if (preco) {
           const query = `nome=${nomeProduto}&preco=${preco}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         }
         else {
           const query = `nome=${nomeProduto}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         }
       }
       else if (desc) {
         if (codigo) {
           const query = `desc=${desc}&id=${codigo}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         }
         else if (Idcategoria) {
           const query = `desc=${desc}&categoria=${Idcategoria}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         }
         else if (idMarca) {
           const query = `desc=${desc}&marca=${idMarca}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         }
         else if (preco) {
           const query = `desc=${desc}&preco=${preco}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         }
         else {
           const query = `desc=${desc}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         } 
       }
       else if (codigo) {
         if (Idcategoria) {
           const query = `id=${codigo}&categoria=${Idcategoria}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         }
         else if (idMarca) {
           const query = `id=${codigo}&marca=${idMarca}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         }
         else if (preco) {
           const query = `id=${codigo}&preco=${preco}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         }
         else {
           const query = `id=${codigo}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         } 
       }
       else if (Idcategoria) {
         if (idMarca) {
           const query = `categoria=${Idcategoria}&marca=${idMarca}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         }
         else if (preco) {
           const query = `categoria=${Idcategoria}&preco=${preco}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         }
         else {
           const query = `categoria=${Idcategoria}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         } 
       }
       else if (idMarca) {
         if (preco) {
           const query = `marca=${idMarca}&preco=${preco}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo);
         }
         else {
           const query = `marca=${idMarca}`;
+          const respo = await listarProdutosConsulta(query);
+          setProdutoS(respo)
         } 
       }
     }
@@ -138,27 +181,6 @@ export default function Consulta() {
     carregarMarcas();
     carregarCategorias();
   }, []);
-
-
-//function Confirmar(item){
-  //const result = window.confirm('Deseja confirmar esta ação?');
-
-  //if (result) {
-    
-  //   deletar(item.id)
- // toast.success('produto deletado');
- // }
- //  else {
-   
- //   toast.error('ação cancelada')
- // }
-
-//}
-
-
-
-
-
 
 
   return (
@@ -224,7 +246,7 @@ export default function Consulta() {
 
           </div>
           <div className='sec1c4-botoes'>
-            <button>Procurar</button>
+            <button onClick={Filtro}>Procurar</button>
             <button onClick={limparCampos}>Limpar Filtros</button>
           </div>
         </div>
@@ -234,7 +256,7 @@ export default function Consulta() {
         <table>
           <thead>
             <tr>
-              <th>Id:</th>
+              <th>Código:</th>
               <th>Nome:</th>
               <th>Categoria:</th>
               <th>Marca:</th>
@@ -254,10 +276,7 @@ export default function Consulta() {
                   {item.id !== 0 &&
                     <>
                       <button className='botao' onClick={() => navPagEditar(item.id)}>Editar</button>
-
-
-                      {/*//onClick{Confirmar}*/}
-                      <button className='botao' >Deletar</button>
+                      <button className='botao' onClick={deletar}>Deletar</button>
                     </>}
                 </td>
               </tr>
