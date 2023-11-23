@@ -89,7 +89,6 @@
     .qtd{
        display:flex ;
        flex-direction: row;
-       
        gap: 10px;
       
      
@@ -389,12 +388,87 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
-       height: 30vh;
+       height:35vh;
+       
        
         padding: 10px;
         margin-left: 10%;
     }
 
+    .td-info {
+        display: flex;
+        flex-direction: column;
+       
+
+        .info{
+            margin-left: 10%;
+        }
+
+
+        h2{
+            font-size: 12px;
+        }
+
+
+        h3{
+            font-size: 10px;
+        }
+
+        h5{
+            font-size: 10px;
+        }
+    }
+
+    .s6 {
+
+        p{
+            font-size: 10px;
+        }
+    }
+
+    .qtd{
+        .qtd-info{
+        
+         border: 2px solid #FFE898;
+         border-radius: 25px;
+         width: 15vw;
+         height: 5vh;
+
+         button{
+            height: 10vh;
+         }
+
+         img{
+            height: 1vh;
+         }
+
+
+         }
+}
+
+
+         .opc-info{
+
+           .tdp{
+            font-size: 10px;
+           }
+         }
+
+         .add-info button{
+            
+            font-size: 10px;
+            width: 30vw;
+        }
+
+        .indica{
+            width: 30vw;
+        }
+    
+
+
+
+
+    
 
    
 }

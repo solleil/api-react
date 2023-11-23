@@ -95,6 +95,10 @@ export default function Info() {
           </div>
 
 
+
+       
+
+
           <div className='add-info'>
             <button onClick={AdicionarCarrinho} className='ad'> adicionar a sacola</button>
             <div>
@@ -146,7 +150,7 @@ export default function Info() {
             {comprov === true &&
               <>
                 <div className='comprova'>
-                  <p>{produtO.descricao}</p>
+                  <p >{produtO.descricao}</p>
                 </div>
               </>}
 

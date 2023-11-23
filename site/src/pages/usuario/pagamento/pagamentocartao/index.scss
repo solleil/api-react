@@ -631,15 +631,71 @@
     }
 
 
+
+    .s-3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-right: 15%;
+        background-color: #EEEEEE;
+        
+        gap: 0px;
+        width: 70vw;
+        height: 10vh;
+        
+    }
+
+
     .s-3 p {
         font-size: 10px;
 
         }
 
 
-        .s-4 p{
+        .s-4 { 
+            
+            #t-2{
+                font-size: 15px;
+            }
+            
+            p{
+            font-size: 13px;}
+
+         
+
+        }  
+        
+
+        
+
+         .s-4-3 {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            width: 50vw;
+            height: 5vh;
+            padding: 0px 0px 0px 5px;
+            font-size: 90px;
+
+
+            img{
+                height: 3vh;
+            }   
+        }
+        
+        .s5-todes {
+
+
+            b{
+                font-size: 10px;
+            }
+            p{
             font-size: 10px;
 
+            }
         }
     }
 }
