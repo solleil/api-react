@@ -49,9 +49,14 @@ export default function Carrinho() {
     CarregarCarrinhoSolleil();
   }, [])
 
+  
+
   function removerItem(id) {
+
+
     let carrinho = storage('carrinhosolleil');
-    carrinho = carrinho.filter(item => item.id !== id);
+    carrinho = carrinho.filter(item => item.id != id);
+
 
     storage('carrinhosolleil', carrinho);
     CarregarCarrinhoSolleil();

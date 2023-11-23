@@ -30,7 +30,7 @@
         display: flex;
         flex-direction: column;
         margin-top: 20px;
-        gap: 20px;
+        gap: 40px;
         
         h3{
             font: 15px "reno";
@@ -142,6 +142,7 @@
     .coracao-info{
         margin: 10px;
         height: 3vh;
+        cursor: pointer;
     }
 
     .coracao-info:hover{
@@ -302,7 +303,9 @@
 
 
 
-
+    .bold{
+        cursor: pointer;
+    }
       
         
     
@@ -318,6 +321,7 @@
 
 .n-bold{
     margin: 0px;
+    cursor: pointer;
 }
 .bold-linhas1{
     width: 6vw;
