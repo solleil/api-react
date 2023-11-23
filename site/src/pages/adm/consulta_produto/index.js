@@ -253,6 +253,7 @@ export default function Consulta() {
 
       </div>
       <div className='sec_2'>
+        
         <table>
           <thead>
             <tr>

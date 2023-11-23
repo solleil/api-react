@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import storage from 'local-storage';
 import LoadingBar from 'react-top-loading-bar'
-import axios from 'axios';
 import { CadastrarUsuario, logarUsuario } from '../../../../api/postAPi';
+import { listarTiposdePele } from '../../../../api/getAPI';
 
 
 export default function CadastrarUsuarioPage() {
@@ -21,8 +21,7 @@ export default function CadastrarUsuarioPage() {
 
   const [data, setData] = useState('');
 
-  const [tipoPele, setTipoPele] = useState(0);
-  const [tipoPeleSelecionado, setPeleSelecionado] = useState([]);
+  const [tiposPeleS, setTiposPeleS] = useState([]);
 
   const [carregando, setCarregando] = useState(false)
 
@@ -31,10 +30,6 @@ export default function CadastrarUsuarioPage() {
 
 
 
-  async function listarTiposdePele() {
-    const r = await axios.get("/tipopele");
-    setPeleSelecionado(r.data);
-  };
 
   async function Cadastrar() {
     setCarregando(true);
@@ -74,8 +69,13 @@ export default function CadastrarUsuarioPage() {
     };
   });
 
+  async function carregarTiposPele() {
+    const respo = await listarTiposdePele(0);
+    setTiposPeleS(respo);
+  }
+
   useEffect(() => {
-    listarTiposdePele()
+    carregarTiposPele()
   }, []);
 
   return (
@@ -169,22 +169,7 @@ export default function CadastrarUsuarioPage() {
               </input>
             </div>
 
-            <div className="dif-3">
-
-              <select
-                className='tipodepele'
-                value={tipoPele}
-                onChange={e => setTipoPele(e.target.value)}>
-
-                <option id='tipopele' value={0}>Tipo Pele</option>
-                {
-                  tipoPeleSelecionado.map(item =>
-                    <option value={item.id}> {item.nome} </option>)
-
-                }
-
-              </select>
-            </div>
+            
 
             <button onClick={Cadastrar} disabled={carregando} className="botao">Cadastrar</button>
 

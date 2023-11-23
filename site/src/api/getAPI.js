@@ -90,8 +90,11 @@ export async function buscaProduto(nome) {
     const resposta = await api.get(`/produto/busca?nome=${nome}`)
     return resposta.data
 }
-
+export async function listarPedido(){
+    const resp = await api.get('/pedidos');
+    return resp.data;
+}
 export async function listarPedidopPorID(id) {
-    const resp = await api.get(`/pedidos/${id}`)
+    const resp = await api.get(`/pedidos/${id}`);
     return resp.data;
 }
