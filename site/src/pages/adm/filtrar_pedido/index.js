@@ -1,19 +1,29 @@
-
+import { toast } from 'react-toastify';
+import { listarPedidopPorID, listarProdutos } from '../../../api/getAPI.js';
 import CabecalhoAdm from '../../../components/cabecalhoAdm';
 import './index.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 export default function FiltrarPedido() {
     const [stts, setStts] = useState('');
     const [intervadata, setIntervdata] = useState('');
-    const [meiodeenvio, setMeiodeenvio] = useState('');
-    const [canaldevenda, setCanalvenda] = useState('');
+    const [entrega, setEntrega] = useState('');
 
+    const [pedidos, setPedidos] = useState([])
+    
+ 
+    
 
+    async function filtrar() {
+        const respo = await listarPedidopPorID();
+        setPedidos(respo);
+      }
 
-
-
+    useEffect(() => {
+        listarProdutos()
+      }, []);
+    
     return (
         <div className='filtr-pedido'>
             <div className='cabe'>
@@ -35,7 +45,7 @@ export default function FiltrarPedido() {
                         <div className='fi-1'>
 
                             <label>Status do pedido</label>
-                            <select className='pedid' value={stts} onChange={(e) => setStts(e.target.value)} >
+                            <select className='pedid' value={stts} onChange={e => setStts(e.target.value)} >
                                 <option></option>
                                 <option>Processando</option>
                                 <option>Enviado</option>
@@ -50,54 +60,24 @@ export default function FiltrarPedido() {
                         <div className='fi-1'>
 
                             <label>Intervalo de data</label>
-                            <select className='pedid' value={intervadata} onChange={(e) => setIntervdata(e.target.value)} >
-                                <option>Todas as Datas</option>
-                                <option>Janeiro a Fevereiro</option>
-                                <option>Fevereiro a Março</option>
-                                <option>Março a Abril</option>
-                                <option>Abril a Maio</option>
-                                <option>Maio a Junho</option>
-                                <option>Junho a Julho</option>
-                                <option>Julho a Agosto</option>
-                                <option>Agosto a Setembro</option>
-                                <option>Setembro a Outubro</option>
-                                <option>Outubro a Novembro</option>
-                                <option>Novembro a Dezembro</option>
-                                <option>Desembro a Janeiro</option>
-                            </select>
+                            <input type='date' className='pedid' value={intervadata} onChange={e => setIntervdata(e.target.value)}></input>
 
                         </div>
 
 
-                        <div className='fi-1'>
-
-                            <label>Meio de envio</label>
-                            <select className='pedid' value={meiodeenvio} onChange={(e) => setMeiodeenvio(e.target.value)}>
-                                <option>Correios</option>
-                                <option>Lalamove</option>
-                                <option>Troque Rápido</option>
-                            </select>
-
-                        </div>
+                        
 
 
                         <div className='fi-1'>
 
 
-                            <label>Entrega</label>
-                            <select className='pedid' value={canaldevenda} onChange={(e) => setCanalvenda(e.target.value)}>
-                                <option></option>
-                                <option>Aguardando...</option>
-                                <option>Aprovado</option>
-                                <option>Preparando</option>
-                                <option>A caminho...</option>
-                                <option>Entregue</option>
-                            </select>
+                            <label>Por ID</label>
+                            <input type='text' className='pedid'></input>
 
 
                         </div>
                         <div className='fi-2'>
-                            <button >Filtrar</button>
+                            <button onClick={filtrar}>Filtrar</button>
                         </div>
                     </div>
                 </div>
@@ -138,7 +118,22 @@ export default function FiltrarPedido() {
                             <div>Qntd Total</div>
                             <div>Cliente</div>
                             <div>Status do pedido</div>
-                            
+                            <div>
+                            {   pedidos.map((item) =>
+                                   <div className='to-1'>
+                                    <p>{item.id}</p>
+                                    <p>{item.data}</p>
+                                    <p>{item.total}</p>
+                                    <p>{item.cliente}</p>
+                                    <p>{item.stts}</p>
+                                   </div>
+                                   
+                                )
+
+                                }
+                                
+
+                            </div>
 
                         </div>
 

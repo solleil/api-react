@@ -38,7 +38,10 @@ import categoriaController from './controller/categoriaController.js';
 servidor.use(categoriaController);
 
 import enderecoController from './controller/enderecoController.js';
-servidor.use(enderecoController)
+servidor.use(enderecoController);
+
+import pedidoController from './controller/pedidoController.js';
+servidor.use(pedidoController);
 
 
 

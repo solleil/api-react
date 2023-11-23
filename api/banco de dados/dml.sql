@@ -387,3 +387,16 @@ values
     from tb_produto
     where nm_produto like ?
     ;
+
+
+    SELECT
+        pd.id_pedido       as idpedido,
+        pd.dt_pedido       as data,
+        c.nm_cliente       as nome,
+        pd.bt_enviado      as enviado
+            
+            
+    FROM
+        tb_pedido pd
+    LEFT JOIN tb_pedido pp ON pd.id_pedido = pp.id_pedido
+    LEFT JOIN tb_cliente c ON pd.id_cliente = c.id_cliente;

@@ -70,7 +70,7 @@ export default function CadastrarUsuarioPage() {
 
   useEffect(() => {
     if (storage('usuario-logado')) {
-      navigate('/');
+      navigate('/login');
     };
   });
 
