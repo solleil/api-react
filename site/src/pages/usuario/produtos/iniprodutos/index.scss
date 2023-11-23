@@ -116,22 +116,52 @@ overflow: hidden;
     font-size: 18px;
   }
 
+@media (max-width: 550px){
+ .s1{
+  
+    
+
+
+    img{
+      width: 100vw;
+     height: 30vh;
+    }
+    
+}
+  .s1 .p{
+    
+     display: none;
+    
+ }
+
+  .s2-1{
+    
+
+
+    .s6-1-p {
+
+
+
+      img{
+        height: 10vh;
+        
+      }
+
+      b{
+        font-size: 10px;
+      }
+
+      p{
+        font-size: 10px;
+      }
+
+    }
+  }
+
+  }
+
+
+
 
 }
 
-//@media (max-width: 550px){
- // .s1{
-  //  width: 100px;
-  //  img{
-   //   width: 100px;
-  //    height: 10px;
-  //  }
-    
-  //}
- // .s1 .p{
-    
- //     display: none;
-    
- // }
-  
-//}

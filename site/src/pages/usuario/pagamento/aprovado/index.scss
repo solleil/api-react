@@ -215,15 +215,17 @@
                           font-size: 10px;
                     }
 
-                   
+                   .acomps-1 {
+                    
+
+                     .produtoveri{
+                    height: 15vh;
+                   }
+
+                   }
 
                     
-                    .acomps-1 img{
-                        
-                        width: 15vw;
-                       
-                    }
-
+                  
                     .b{
                         width: 5vw;
                         height: 4vh;
@@ -235,21 +237,27 @@
 
 
                     .acomps-1 button{
+                        border-radius: 2px;
                         height: 5vh;
                         width: 30vw;
+                        text-align: center;
                     }
 
                     .acomps-1 h3{
+                        font-size: 9px;
+                    }
+
+                    .acomps-1 h6{
                         font-size: 10px;
                     }
 
                     .todes h1{
-                        font-size: 15px;
+                        font-size: 10px;
                     }
 
 
                     .todes p{
-                        font-size: 10px;
+                        font-size: 8px;
                     }
                  
             

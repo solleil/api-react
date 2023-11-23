@@ -233,10 +233,7 @@ export default function Inicial() {
             <p className='s6-p'>ÁGUA MICELAR</p>
           </div>
 
-          <div className='s6-img'>
-            <Link to="/produtos"> <img className='s6-p1' src='/assets/images/usuario/inicial/pdtttts6.png' alt='' /> </Link>
-            <p className='s6-p'> HIDRATANTE FACIL</p>
-          </div>
+          
 
 
         </div>

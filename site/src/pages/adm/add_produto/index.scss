@@ -307,5 +307,39 @@
       }
 
 
+      @media (max-width: 550px){
+        .container2c2_coluna-1 > select , .container2c2_coluna-2 > select{
+    margin: 10px 0px 10px;
+    height: 21vh;
+    width: 15vw;
+    border: 1px solid #E2BC81;
+}
+      }
+
+      .container2c2_coluna-1 > select, .index_AddProduto .container2c2_coluna-2 > select {
+        margin: 10px 0px 10px;
+        height: 10vh;
+        width: 15vw;
+        border: 1px solid #E2BC81;
+    font-size: 10px;}
+
+
+      .container1_c1 {
+      
+      input {
+        margin: 10px 0px 10px 0px;
+        width: 100%;
+        border: 1px solid #E2BC81;}
+
+        label{
+            font-size: 10px;
+        }
+
+    
+    }
+
+
 
 }
+
+

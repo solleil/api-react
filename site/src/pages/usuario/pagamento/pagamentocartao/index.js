@@ -303,6 +303,7 @@ x
 
             <div className='k'> <div className='l-c'></div> </div>
 
+        <div className='s5-todes'>
             <div className='s-5'>
                 <div className='s-5-1'>
                     <p><strong>Valor total:</strong></p>
@@ -329,7 +330,7 @@ x
                 <button><b>FINALIZAR PAGAMENTO</b></button>
 
             </div>
-
+          </div>
 
 
         </div>
