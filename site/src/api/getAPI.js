@@ -19,18 +19,20 @@ export async function listarProdutosId(id) {
     return r.data;
 }
 
+export async function listarProdutosIdCarrinho(id) {
+    const r = await api.get(`/produto/carrinho/${id}`);
+    return r.data;
+}
+
 export async function listarProdutosFiltro(queryIDT) {
     const r = await api.get(`/produto/filtro?${queryIDT}`);
     return r.data;
 }
 
 export async function listarProdutosConsulta(queryFiltro) {
+    console.log(queryFiltro);
     const r = await api.get(`/produto/consulta?${queryFiltro}`);
     return r.data;
-}
-
-export async function PesquisarProduto(nome) {
-    const r = await api.get()
 }
 
 export async function listarMarcas() {
@@ -81,9 +83,7 @@ export async function listarAdminId(id) {
 
 
 export function MostrarImagem(imagem) {
-
     return `${api_url}/${imagem}`;
-
 }
 
 export async function buscaProduto(nome) {

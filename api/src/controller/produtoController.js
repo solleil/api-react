@@ -9,15 +9,15 @@ const server = Router()
 
 server.get(('/produto/busca'), async (req, resp) => {
   try {
-      const {nome} = req.query;
-      const resposta = await buscaProduto(nome);
-      console.log(nome);
+    const { nome } = req.query;
+    const resposta = await buscaProduto(nome);
+    console.log(nome);
 
-      resp.send(resposta)
+    resp.send(resposta)
   } catch (err) {
-    resp.status(404).send({erro: err.message})
+    resp.status(404).send({ erro: err.message })
   }
-}  )
+})
 
 server.get(('/produto'), async (req, resp) => {
   try {
@@ -35,7 +35,7 @@ server.get(('/produto/consulta'), async (req, resp) => {
     const respo = await buscaProdutoFiltro(body);
     resp.send(respo);
   } catch (err) {
-    resp.status(404).send({erro: err.message})
+    resp.status(404).send({ erro: err.message })
   }
 })
 
@@ -48,7 +48,7 @@ server.get(('/produto/filtro'), async (req, resp) => {
     const respo = await filtroProdutoID(queryC, queryM, queryN, queryT)
     resp.send(respo);
   } catch (err) {
-    resp.status(404).send({erro: err.message})
+    resp.status(404).send({ erro: err.message })
   }
 })
 
@@ -57,15 +57,25 @@ server.get(('/produtos/inner'), async (req, resp) => {
     const respo = await listarProdutosInner();
     resp.send(respo)
   } catch (err) {
-    resp.status(404).send({erro: err.message})
+    resp.status(404).send({ erro: err.message })
   }
 })
 
 server.get(('/produto/:id'), async (req, resp) => {
   try {
+    const params = req.params.id;
+    const respo = await mostrarProdutosId(params);
+    resp.send(respo)
+  } catch (err) {
+    resp.status(404).send({ erro: err.message });
+  }
+})
+
+server.get(('/produto/carrinho/:id'), async (req, resp) => {
+  try {
     const id = Number(req.params.id);
 
-    const resposta= await mostrarProdutosId(id);
+    const resposta = await mostrarProdutosId(id);
     resp.send({
       info: resposta
     });

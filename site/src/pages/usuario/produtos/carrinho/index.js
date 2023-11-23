@@ -3,12 +3,11 @@ import Rodape from '../../../../components/rodape';
 import Cabecalho from '../../../../components/cabecalho';
 import { useEffect, useState } from 'react';
 import storage from 'local-storage';
-import { listarProdutosId } from '../../../../api/getAPI';
+import { listarProdutosIdCarrinho } from '../../../../api/getAPI';
 import CarrinhoProduto from '../../../../components/carrinhoproduto';
 
 export default function Carrinho() {
   const [itens, setItens] = useState([]);
-  console.log(itens)
 
 
   function calcularValorTotal() {
@@ -33,7 +32,7 @@ export default function Carrinho() {
       let temp = []
 
       for (let produto of carrinho) {
-        let p = await listarProdutosId(produto.id);
+        let p = await listarProdutosIdCarrinho(produto.id);
 
         temp.push({
           produto: p,
@@ -52,7 +51,7 @@ export default function Carrinho() {
 
   function removerItem(id) {
     let carrinho = storage('carrinhosolleil');
-    carrinho = carrinho.filter(item => item.id != id);
+    carrinho = carrinho.filter(item => item.id !== id);
 
     storage('carrinhosolleil', carrinho);
     CarregarCarrinhoSolleil();

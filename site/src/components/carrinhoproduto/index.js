@@ -1,8 +1,6 @@
-import { MostrarImagem, listarProdutosId } from '../../api/getAPI';
-import { api_url } from '../../constats';
+import { MostrarImagem } from '../../api/getAPI';
 import './index.scss';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage';
 
 export default function CarrinhoProduto({ item: { produto: { info }, qtd }, removerItem, carregarCarrinhoSolleil }) {

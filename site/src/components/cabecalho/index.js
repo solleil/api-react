@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './index.scss';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage'
-import { listarProdutos, buscaProdutos, listarCategorias, listarTiposdePele, listarNecessidades, listarMarcas } from '../../api/getAPI';
+import { listarProdutos, listarCategorias, listarTiposdePele, listarNecessidades, listarMarcas } from '../../api/getAPI';
 import { useEffect } from 'react';
 import SearchBar from '../barraPesquisa';
 
