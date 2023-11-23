@@ -59,3 +59,15 @@ export async function enviarImagem(id, imagem) {
 
     return respo.status;
 }
+
+export async function editarCartao(nome, cvc, numero, validade, cliente, id) {
+    const resposta = await api.put(`/endereco/${id}`, {
+        cartao: nome,
+        cartao: cvc,
+        cartao: numero,
+        cartao: validade,
+        cartao: cliente
+    })
+
+    return resposta.data;
+}

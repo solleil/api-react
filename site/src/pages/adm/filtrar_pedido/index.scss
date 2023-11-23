@@ -1,87 +1,21 @@
 .ka{
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
     background-color: white;
     overflow: hidden;
     
     .cla{
         display: flex;
-        justify-content: center;
         align-items: center;
-        flex-direction: row;
-        
-
-    }
-    .clara{
-        display: flex;
         justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        border: 2px solid #E2BC81;
-        border-radius: 20px;
-        position: relative; 
-        width: 50vw;
-        height: 4vh;
-    }
-    .clara input{
-        width: 35vw;
-        height: 3vh;
-        border: none;
-        border-radius: 20px;
+        font-size: 30px;
+        font-family: 'Comfortaa', sans-serif;
         
+
     }
     
     
-    .clan button {
-        padding: 9px 56px;
-        border-radius: 20px;
-        line-height: 1.25;
-        background-color: white;
-        text-decoration: none;
-        gap: 10px;
-
-        color: rgb(0, 0, 0);
-        font-size: 10px;
-
-        letter-spacing: .08em;
-        text-transform: uppercase;
-        position: relative;
-        transition: background-color .6s ease;
-        overflow: hidden;
-        border: none;
-
-
-        &:after {
-            content: "";
-            position: absolute;
-            width: 0;
-            height: 0;
-            top: 50%;
-            left: 50%;
-            top: var(--mouse-y);
-            left: var(--mouse-x);
-            transform-style: flat;
-            transform: translate3d(-50%,-50%,0);
-            background: rgba(white,.1);
-            border-radius: 100%;
-            transition: width .3s ease, height .3s ease;
-        }
-        &:focus,
-        &:hover {
-            background: darken(#E2BC81,7%);
-        }
-        &:active {
-            &:after {
-                width: 300px;
-                height: 300px;
-            }
-        }
-    }
-    .clara img{
-        
-      width: 10px;
-      
     
-    }
-
+    
     .filtra{
         display: flex;
         justify-content: center;
@@ -111,7 +45,7 @@
     .pedid{
         border: 2px solid #E2BC81; 
         width: 13vw;
-        height: 5vh;
+        height: 6%;
         border-radius: 16px;
         padding: 10px;
         

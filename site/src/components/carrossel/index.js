@@ -9,10 +9,7 @@ const Carrossel = () => {
       image: '/assets/images/geral/mdl1.png',
     
     },
-    {
-      image: '/assets/images/geral/mdl2.png',
-      
-    },
+   
     {
       image: '/assets/images/geral/mdl3.png',
      

@@ -14,6 +14,7 @@ import { InserirCartao } from '../../../../api/postAPi';
 import { listarCartao } from '../../../../api/getAPI';
 import { editarUsuario } from '../../../../api/putAPI';
 import { apagarCartao, deletarUsuario } from '../../../../api/deleteAPI';
+import { editarCartao } from '../../../../api/putAPI';
 
 export default function Conta() {
   const [enderecoS, setEnderecoS] = useState([]);
@@ -83,6 +84,20 @@ export default function Conta() {
       toast.error(err.response.data.erro);
     };
   }
+
+  async function alterarCartao(){
+    setCarregando(false)
+    try {
+      setValidadeCartao(`${anoValidade}/${mesValidade}`);
+      await editarCartao(nomeCartao, cvcCartao, numeroCartao,validadeCartao,  id)
+      carregarCartao(id);
+      toast.success("Cartão editado com sucesso");
+    } catch (err) {
+      setCarregando(false);
+      toast.error(err.response.data.erro)
+    }
+  }
+
   async function alterarUsuario(){
     try {
       await editarUsuario(nome, sobrenome, telefone, email, cpf, id);
@@ -436,7 +451,7 @@ export default function Conta() {
                 <input id='cod' value={cvcCartao} onChange={(e) => setCVCCartao(e.target.value)} type='text' className='o' placeholder='código de segurança'/>
 
                 <button onClick={cadastrarcartao} > <img src='/assets/images/usuario/conta/salvar.png' alt='' />  </button>
-                <button > <img src='/assets/images/usuario/conta/editar.png' alt='' />  </button>
+                <button onClick={alterarCartao}> <img src='/assets/images/usuario/conta/editar.png' alt='' />  </button>
                 <button onClick={deletarCartao} > <img src='/assets/images/usuario/conta/excluir.png' alt='' />  </button>
               </div>  
             </>}

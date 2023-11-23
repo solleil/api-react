@@ -30,3 +30,11 @@
   font-family: 'ft1';
   margin-top: 50px;
 }
+
+@media (max-width: 550px) {
+
+  .slide-img{
+    width: 30vw;
+    height: 10vh;
+  }
+}
