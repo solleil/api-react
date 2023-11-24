@@ -23,9 +23,7 @@ export default function Conta() {
   const [mostrar, setMostrar] = useState(true);
 
 
-  const [caminho, setCaminho] = useState(false);
-  const [finalizados, setFinalizados] = useState(false);
-  const [devolucao, setDevolucao] = useState(false);
+  
   const [mudar, setMudar] = useState(false)
   const [rua, setRua] = useState('');
   const [numero, setNumero] = useState(0);
@@ -56,6 +54,12 @@ export default function Conta() {
   const [email, setEmail] = useState('')
   const [cpf, setCpf] = useState('')
   const [telefone, setTelefone] = useState('')
+
+  const [ pedidos, setPedidos] = useState(false)
+
+  function MPedidos(){
+    setPedidos(!pedidos)
+  }
 
 
   async function cadastrarEndereco() {
@@ -200,27 +204,8 @@ export default function Conta() {
 
 
 
-  function Mcaminho() {
    
-    setCaminho(!caminho)
-    setFinalizados(false)
-    setDevolucao(false)
-  }
-
-  function Mfinalizados() {
    
-    setCaminho(false)
-    setFinalizados(!finalizados)
-    setDevolucao(false)
-  }
-
-  function Mdevolucao() {
-   
-    setCaminho(false)
-    setFinalizados(false)
-    setDevolucao(!devolucao)
-  }
-
 
   function MudarP(){
     setMudarPagamento(!mudarPagamento)
@@ -238,63 +223,32 @@ export default function Conta() {
 
         <div className='s1-1'>
           <p><b>seus pedidos:</b></p>
-          <a href='coloca sempre o Href com alguma coisa, letras, sla, pls'>
+          <button onClick={MPedidos}>
             veja tudo  <img src='/assets/images/usuario/inicial/seta.png' alt='' />
-          </a>
+          </button>
         </div>
 
-        <div className='s1-2'>
-
-          
-       
-
-          <button onClick={Mcaminho}>
-            <img src='/assets/images/usuario/conta/caminhao.png' alt='' />
-            <p>a caminho</p>
-          </button>
-
-          <button onClick={Mfinalizados}>
-            <img src='/assets/images/usuario/conta/finalizados.png' alt='' />
-            <p>finalizados</p>
-          </button>
-
-          <button onClick={Mdevolucao}>
-            <img src='/assets/images/usuario/conta/caixa2.png' alt='' />
-            <p>devolução</p>
-          </button>
-
-
-
-        </div>
-
+        
         <div className='s1-2-open'>
           
-          {caminho === true &&
+          {pedidos === true &&
             <>
               <table>
-                <thead></thead>
+                <thead>
+                  <th>id do pedido</th>
+                  <th>status</th>
+                </thead>
                 <tbody>
 
-                  <td>oi</td>
+                  
                   <th>teste                  </th>
+                  <td>oi</td>
                 </tbody>
               </table>
             </>
           }
-          {finalizados === true &&
-            <>
-              <div>
-                <p>futura tabela</p>
-              </div>
-            </>
-          }
-          {devolucao === true &&
-            <>
-              <div>
-                <p>futura tabela</p>
-              </div>
-            </>
-          }
+          
+          
         </div>
 
 

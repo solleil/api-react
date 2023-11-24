@@ -229,7 +229,7 @@ x
                     <p className='t-4'>R$55,00</p>
                 </div>
 
-                <a href='/aprovado'><b>FINALIZAR PAGAMENTO</b></a>
+                <a href='/aprovado'   ><b>FINALIZAR PAGAMENTO</b></a>
 
             </div>
           </div>
