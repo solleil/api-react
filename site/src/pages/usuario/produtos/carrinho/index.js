@@ -19,6 +19,15 @@ export default function Carrinho() {
     return total;
   }
 
+  
+  async function carregarValor() {
+
+
+    const valor = [];
+    storage('valorCarrinho', valor)
+    
+  }
+
 
   function quantidadeItens(){
     return itens.length;

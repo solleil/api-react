@@ -1,3 +1,4 @@
+
 import './index.scss'
 import Cabecalho from '../../../../components/cabecalho'
 import { useState } from 'react';
@@ -5,6 +6,9 @@ import storage from 'local-storage';
 import { InserirCartao } from '../../../../api/postAPi';
 import { listarEndereco } from '../../../../api/getAPI';
 import { useEffect } from 'react';
+import { toast } from 'react-toastify';
+
+
 
 export default function Escolherpagamento() {
     const [cartao, setCartao] = useState(false);
@@ -28,11 +32,12 @@ export default function Escolherpagamento() {
             setValidadeCartao(`${anoValidade}/${mesValidade}`);
             const id = storage('usuario-logado').id;
             await InserirCartao(nomeCartao, cvcCartao, numeroCartao, validadeCartao, id);
-            alert('cartão cadastrado');
+            toast.success('cartão cadastrado');
         } catch (err) {
-            alert(err.message);
+            toast.error(err.message);
         }
     }
+
 
     async function carregarEndereco() {
         const respo = await listarEndereco(id);
@@ -229,7 +234,7 @@ x
                     <p className='t-4'>R$55,00</p>
                 </div>
 
-                <a href='/aprovado'   ><b>FINALIZAR PAGAMENTO</b></a>
+                <a href='/aprovado'><b>FINALIZAR PAGAMENTO</b></a>
 
             </div>
           </div>
