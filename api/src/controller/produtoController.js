@@ -21,7 +21,7 @@ server.get(('/produto/fav'), async (req, resp) => {
     const respo = await listarProdutosFav();
     resp.send(respo);
   } catch (err) {
-    resp.status(404).send({erro: err.message});
+    resp.status(404).send({ erro: err.message });
   }
 })
 
@@ -30,7 +30,7 @@ server.get(('/produto/consulta'), async (req, resp) => {
     const qId = req.query.nome;
     const qNm = req.query.id;
     const respo = await buscaProdutoFiltro(qId, qNm);
-    if (respo.length == 0 ) {
+    if (respo.length == 0) {
       throw new Error('produto inexistente')
     }
     resp.send(respo);
@@ -100,45 +100,6 @@ server.get(('/pesquisa/produto'), async (req, resp) => {
 server.post('/produto', async (req, resp) => {
   try {
     const body = req.body;
-    if (!body.nome) {
-      throw new Error('O Nome é obrigatório.');
-    };
-    if (!body.descricao) {
-      throw new Error('A Descrição é obrigatória.');
-    };
-    if (!body.tamanho) {
-      throw new Error('O Tamanho é obrigatório.');
-    };
-    if (!body.indicacao) {
-      throw new Error('A Indicação é obrigatória.');
-    };
-    if (!body.preco) {
-      throw new Error('Indicar um Preço é obrigatório.')
-    };
-    if (!body.disponivel) {
-      throw new Error('Dizer a Disponibilidade é obrigatório.');
-    };
-    if (!body.ingrediente) {
-      throw new Error('Pôr os Ingredientes é obrigatório.');
-    };
-    if (!body.estoque) {
-      throw new Error('A Quantidade no Estoque é obrigatório.');
-    };
-    if (!body.tipo_pele) {
-      throw new Error('Pôr o Tipo de Pele é obrigatório.');
-    };
-    if (!body.categoria) {
-      throw new Error('Pôr a Categoria é obrigatório.');
-    };
-    if (!body.ingrediente_atv) {
-      throw new Error('Pôr o ingrediente Ativo é obrigatório.');
-    };
-    if(!body.marca) {
-      throw new Error('Dizer qual a Marca é obrigatório.');
-    };
-    if (!body.necessidade) {
-      throw new Error('Pôr qual a Necessidade é obrigatório.');
-    };
     const dados = await inserirProduto(body)
     resp.status(201).send(dados)
   }
@@ -165,7 +126,7 @@ server.put(('/produto/favorito/:id'), async (req, resp) => {
     const respo = await favoritarProduto(queryf, params);
     resp.sendStatus(204);
   } catch (err) {
-    resp.status(400).send({erro: err.message});
+    resp.status(400).send({ erro: err.message });
   }
 })
 
