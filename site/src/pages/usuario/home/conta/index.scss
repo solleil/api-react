@@ -20,6 +20,110 @@
         padding: 15px; 
     }
 
+
+    .s1-0{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 90vw;
+        padding: 0px 15px 0px 15px;
+
+
+        
+        button{
+            border: 1px solid #fabc599c;
+            background-color: #fabc5921;
+             border-radius: 15px;
+             padding: 0px 8px 0px 8px ;
+        }
+        button:hover{
+            background-color: #fabc5963;
+            transition: 0.3s;
+            letter-spacing: 1px;
+        }
+    }
+    .s1-1{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        
+        width: 90vw;
+    }
+    .s1-1 button{
+        color: black;
+        text-decoration: none;
+        background-color: white;
+        border: none;
+
+        
+    }
+    .s1-1 img{
+        height: 2vh;
+    }
+    .s1-1:hover{
+        img{
+            height: 3vh;
+            transition: 0.3s;
+        }
+    }
+
+    .s1-2{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 90vw;
+        justify-content: space-evenly;
+
+        button{
+            background-color: white;
+            border: none;
+            font-family: 'Questrial', sans-serif;
+            border-radius: 5px;
+        }
+        button:hover{
+            transition: 0.3s;
+            letter-spacing: 1px;
+            box-shadow: 0px 6px 15px #a5a5a5;
+        }
+    }
+    .s1-2 img{
+        height: 8vh;
+    }
+
+    .s1-2-open{
+       display: flex;
+       flex-direction: row;
+       width: 90vw;
+       justify-content: center;
+       align-items: center;
+       
+       padding: 10px;
+       table{
+        display: flex;
+        flex-direction: column;
+        width: 75vw;
+        height: auto;
+        background-color: rgba(250, 226, 89, 0.467);
+        padding: 15px;
+
+        thead, tbody{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 70vw;
+            
+            padding: 15px;
+        }
+
+        tbody{
+            border: 2px solid #fabc59de;
+            border-radius: 25px;
+            padding: 0px 15px 0px 15px;
+        }
+       }
+    }
     .s1-0 {
         display: flex;
         flex-direction: row;
