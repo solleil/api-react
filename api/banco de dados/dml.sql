@@ -112,7 +112,14 @@ values
         'Paloma Jonson',
         'palomajonson207@gmail.com',
         'abc@123'
+    ),
+    (
+		'admin',
+        'adm.com',
+        '1234'
     );
+    
+    delete from tb_admin where id_admin = 6;
 
 select
     *
@@ -219,9 +226,7 @@ where
 select
     *
 from
-    tb_produto
-where
-    nm_produto like '%t%';
+    tb_produto;
 
 select
     id_produto as id,
@@ -285,21 +290,6 @@ set
 where
     id_endereco = 1;
 
-
-update
-    tb_cliente
-
-set
-    nm_cliente = "test",
-    ds_sobrenome = "test", 
-    ds_telefone = "test", 
-    ds_email = "test", 
-    ds_cpf = "test"
-            
-where id_cliente = 1;
-
-
-
 select
     ds_cep as cep,
     ds_rua as rua,
@@ -308,9 +298,6 @@ select
     ds_bairro as bairro
 from
     tb_endereco;
-    
-    select * from tb_endereco;
-    
 
 select
     id_cartao as id,
@@ -332,16 +319,6 @@ insert into
     )
 values
     ('teste', '000', '000-000-000', '23', 2);
-    
-    update
-    tb_cartao
-set
-    nm_cartao = "teste",
-    ds_cvc = "teste",
-    ds_numero = "teste",
-    ds_validade = "teste"
-where
-    id_cartao = 1;
 
 select
     *
@@ -356,48 +333,93 @@ select
     *
 from
     tb_carrinho;
-
-insert into
-    tb_carrinho (id_cliente, id_produto)
-values
-    (1, 2);
-
-insert into
-    tb_produto(nm_produto)
-values
-    ('teste');
-
-select
-    *
-from
-    tb_cliente;
     
-    select * from tb_cartao;
-
-insert into
-    tb_admin(ds_email, ds_senha)
-values
-    ('adm.com', 1234);
-
-
+    
     select 
-	id_produto as id,
-    nm_produto as nome,
-    vl_preco as preco
+        tb_produto.id_produto as id,
+        nm_produto as nome,
+        ds_produto as descricao,
+        ds_tamanho as tamanho,
+        tb_produto.id_categoria as categoria,
+        tb_categoria.nm_categoria as nome_categoria,
+        tb_produto.id_marca as marca,
+        tb_marca.nm_marca as nome_marca,
+        id_necessidade as necessidade,
+        id_tipo_pele as tipo_pele,
+        vl_preco as preco,
+        bt_disponivel as disponivel,
+        qtd_estoque as quantidade,
+        id_ingr_atv as ingrediente_atv,
+        ds_indicacao as indicacao
+    from tb_produto 
+    inner join tb_marca
+    inner join tb_categoria;        
+    
+select 
+        id_produto      as id,
+        nm_produto      as nome,
+        ds_produto      as descricao,
+        ds_tamanho      as tamanho,
+        id_categoria    as categoria,
+        id_marca        as marca,
+        id_necessidade  as necessidade,
+        id_tipo_pele    as tipo_pele,
+        vl_preco        as preco,
+        ds_ingrediente  as ingrediente,
+        bt_disponivel   as disponivel,
+        qtd_estoque     as quantidade,
+        id_ingr_atv     as ingrediente_atv,
+        ds_indicacao    as indicacao,
+        img_produto     as imagem
     from tb_produto
-    where nm_produto like ?
-    ;
+    where (id_categoria = 0 or id_marca = 4 or id_necessidade = 0 or id_tipo_pele = 0);
+    
+        delete from tb_produto where id_produto = 2;
+        
+        select 
+        nm_produto      as nome,
+        ds_produto      as descricao,
+        ds_tamanho      as tamanho,
+        id_categoria    as categoria,
+        id_marca        as marca,
+        id_necessidade  as necessidade,
+        id_tipo_pele    as tipo_pele,
+        vl_preco        as preco,
+        bt_disponivel   as disponivel,
+        qtd_estoque     as quantidade,
+        id_ingr_atv     as ingrediente_atv,
+        ds_indicacao    as indicacao
+    from tb_produto
+    where nm_produto like '%teste%';
+    
+     select
+        id_categoria as id,
+        nm_categoria as nome
+    from tb_categoria
+    where id_categoria = 2;
+    
+    update tb_produto 
+    set 
+		bt_favorito = false
+	where id_produto = 4;
 
 
-   SELECT
-            pd.id_pedido       as id,
-            pd.dt_pedido       as data,
-            c.id_cliente       as idnome,
-            c.nm_cliente       as nome,
-            pd.bt_enviado      as enviado
-            
-            
-        FROM
-            tb_pedido pd
-        LEFT JOIN tb_pedido pp ON pd.id_pedido = pp.id_pedido
-        LEFT JOIN tb_cliente c ON pd.id_cliente = c.id_cliente;
+select 
+        id_produto      as id,
+        nm_produto      as nome,
+        ds_produto      as descricao,
+        ds_tamanho      as tamanho,
+        id_categoria    as categoria,
+        id_marca        as marca,
+        id_necessidade  as necessidade,
+        id_tipo_pele    as tipo_pele,
+        vl_preco        as preco,
+        bt_disponivel   as disponivel,
+        qtd_estoque     as quantidade,
+        id_ingr_atv     as ingrediente_atv,
+        ds_indicacao    as indicacao,
+        img_produto     as imagem
+    from tb_produto
+    where bt_favorito = 1;
+    
+    select * from tb_pedido;

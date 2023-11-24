@@ -57,7 +57,6 @@ create table tb_pedido(
     id_endereco int,
     id_cartao int,
     qtd_parcelas int,
-    dt_pedido datetime,
     vl_total  decimal(10,2),
     qtd_produtos int,
     bt_pagamento boolean,
@@ -132,17 +131,3 @@ foreign key (id_cliente) references tb_cliente(id_cliente),
 foreign key (id_produto) references tb_produto(id_produto)
 );
 drop table tb_carrinho;
-
-
-
-update
-    tb_produto
-set
-    img_produto = 1
-where
-    id_produto = 1;
-
-
-
-
-    
