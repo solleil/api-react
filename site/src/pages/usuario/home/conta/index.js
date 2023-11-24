@@ -5,7 +5,7 @@ import Cabecalho from '../../../../components/cabecalho';
 import Rodape from '../../../../components/rodape';
 import './index.scss';
 import { InserirEndereco } from '../../../../api/postAPi';
-import { listarEndereco, listarTiposdePele, listarUsuario } from '../../../../api/getAPI';
+import { listarEndereco, listarProdutosFav, listarUsuario } from '../../../../api/getAPI';
 import { apagarEndereco } from '../../../../api/deleteAPI';
 import { editarEndereco } from '../../../../api/putAPI';
 import { toast } from 'react-toastify';
@@ -13,16 +13,14 @@ import LoadingBar from 'react-top-loading-bar';
 import { InserirCartao } from '../../../../api/postAPi';
 import { listarCartao } from '../../../../api/getAPI';
 import { editarUsuario } from '../../../../api/putAPI';
-import { apagarCartao, deletarUsuario } from '../../../../api/deleteAPI';
+import { apagarCartao } from '../../../../api/deleteAPI';
 import { editarCartao } from '../../../../api/putAPI';
 
 export default function Conta() {
   const [enderecoS, setEnderecoS] = useState([]);
-  const [tiposPeleS, setTiposPeleS] = useState([]);
+  const [produtosfaV, setProdutosfaV] = useState([]);
   const [usuarioInfo, setUsuarioInfo] = useState({})
   const [mostrar, setMostrar] = useState(true);
-
-
   const [caminho, setCaminho] = useState(false);
   const [finalizados, setFinalizados] = useState(false);
   const [devolucao, setDevolucao] = useState(false);
@@ -33,8 +31,6 @@ export default function Conta() {
   const [cidade, setCidade] = useState('');
   const [cep, setCep] = useState(0);
   const [carregando, setCarregando] = useState(false);
-
-
   const [cartao, setCartao] = useState(false);
   const [nomeCartao, setNomeCartao] = useState('');
   const [cvcCartao, setCVCCartao] = useState('');
@@ -42,20 +38,19 @@ export default function Conta() {
   const [validadeCartao, setValidadeCartao] = useState('');
   const [mesValidade, setMesValidade] = useState('')
   const [anoValidade, setanoValidade] = useState('');
+  const [mudarPagamento, setMudarPagamento] = useState(false)
+  const [nome, setNome] = useState('')
+  const [sobrenome, setSobrenome] = useState('')
+  const [email, setEmail] = useState('')
+  const [cpf, setCpf] = useState('')
+  const [telefone, setTelefone] = useState('')
 
-  const [ mudarPagamento, setMudarPagamento]= useState(false)
   const navigate = useNavigate();
 
   if (storage('usuario-logado')) {
     var id = storage('usuario-logado').id
   }
 
-
-  const [nome, setNome] = useState('')
-  const [sobrenome, setSobrenome] = useState('')
-  const [email, setEmail] = useState('')
-  const [cpf, setCpf] = useState('')
-  const [telefone, setTelefone] = useState('')
 
 
   async function cadastrarEndereco() {
@@ -85,11 +80,11 @@ export default function Conta() {
     };
   }
 
-  async function alterarCartao(){
+  async function alterarCartao() {
     setCarregando(false)
     try {
       setValidadeCartao(`${anoValidade}/${mesValidade}`);
-      await editarCartao(nomeCartao, cvcCartao, numeroCartao,validadeCartao,  id)
+      await editarCartao(nomeCartao, cvcCartao, numeroCartao, validadeCartao, id)
       carregarCartao(id);
       toast.success("Cartão editado com sucesso");
     } catch (err) {
@@ -98,7 +93,7 @@ export default function Conta() {
     }
   }
 
-  async function alterarUsuario(){
+  async function alterarUsuario() {
     try {
       await editarUsuario(nome, sobrenome, telefone, email, cpf, id);
       carregarUsuario(id);
@@ -107,7 +102,7 @@ export default function Conta() {
     } catch (err) {
       setCarregando(false);
       toast.error(err.response.data.erro);
-    }; 
+    };
   }
   async function deletarEndereco() {
     setCarregando(false)
@@ -132,18 +127,7 @@ export default function Conta() {
       toast.error(err.response.data.erro);
     };
   }
-  async function deletarDados(){
-    setCarregando(false)
-    try {
-      await deletarUsuario(id);
-      carregarUsuario(id);
-      toast.success("Alteraçao excluida")
-    } catch (err) {
-      setCarregando(false);
-      toast.error(err.response.data.erro);
-    }
 
-  }
   async function carregarEndereco() {
     const respo = await listarEndereco(id);
     setEnderecoS(respo);
@@ -151,37 +135,37 @@ export default function Conta() {
 
   async function cadastrarcartao() {
     try {
-        setValidadeCartao(`${anoValidade}/${mesValidade}`);
-        const id = storage('usuario-logado').id;
-        const resposta = await InserirCartao(nomeCartao, cvcCartao, numeroCartao, validadeCartao, id);
-        toast.success("cartão cadastrado com sucesso");
+      setValidadeCartao(`${anoValidade}/${mesValidade}`);
+      const id = storage('usuario-logado').id;
+      await InserirCartao(nomeCartao, cvcCartao, numeroCartao, validadeCartao, id);
+      carregarCartao()
+      toast.success("cartão cadastrado com sucesso");
     } catch (err) {
-        alert(err.message);
+      alert(err.message);
     }
-}
+  }
 
   async function carregarUsuario() {
     const respo = await listarUsuario(id);
     setUsuarioInfo(respo)
   }
 
-  async function carregarCartao(){
+  async function carregarCartao() {
     const respo = await listarCartao(id);
     setCartao(respo)
   }
 
-  async function carregarTiposPele() {
-    const respo = await listarTiposdePele();
-    setTiposPeleS(respo);
+  async function carregarProdutosfav() {
+    const respo = await listarProdutosFav();
+    setProdutosfaV(respo);
   }
-
 
 
   useEffect(() => {
     carregarEndereco()
-    carregarTiposPele()
     carregarUsuario()
     carregarCartao()
+    carregarProdutosfav()
   }, []);
 
   useEffect(() => {
@@ -201,28 +185,28 @@ export default function Conta() {
 
 
   function Mcaminho() {
-   
+
     setCaminho(!caminho)
     setFinalizados(false)
     setDevolucao(false)
   }
 
   function Mfinalizados() {
-   
+
     setCaminho(false)
     setFinalizados(!finalizados)
     setDevolucao(false)
   }
 
   function Mdevolucao() {
-   
+
     setCaminho(false)
     setFinalizados(false)
     setDevolucao(!devolucao)
   }
 
 
-  function MudarP(){
+  function MudarP() {
     setMudarPagamento(!mudarPagamento)
   }
 
@@ -234,19 +218,11 @@ export default function Conta() {
       <div className='s1'>
         <div className='s1-0'> <p>Olá, {usuarioInfo.nome}. </p>  </div>
 
-
-
         <div className='s1-1'>
-          <p><b>seus pedidos:</b></p>
-          <a href='coloca sempre o Href com alguma coisa, letras, sla, pls'>
-            veja tudo  <img src='/assets/images/usuario/inicial/seta.png' alt='' />
-          </a>
+          <p><b>Seus Pedidos:</b></p>
         </div>
 
         <div className='s1-2'>
-
-          
-       
 
           <button onClick={Mcaminho}>
             <img src='/assets/images/usuario/conta/caminhao.png' alt='' />
@@ -268,7 +244,7 @@ export default function Conta() {
         </div>
 
         <div className='s1-2-open'>
-          
+
           {caminho === true &&
             <>
               <table>
@@ -276,7 +252,7 @@ export default function Conta() {
                 <tbody>
 
                   <td>oi</td>
-                  <th>teste                  </th>
+                  <th>teste</th>
                 </tbody>
               </table>
             </>
@@ -306,15 +282,15 @@ export default function Conta() {
       <div className='s2'>
 
         <div className='s2-1'>
-          <p className='e'>dados pessoais:</p>
+          <p className='e'>Dados pessoais:</p>
           <p className='p' onClick={muda} >editar <img src='/assets/images/usuario/conta/editar.png' alt='' /></p>
         </div>
-          <div className='s2-2'>
-            <p> <b>Nome:</b> {`${usuarioInfo.nome} ${usuarioInfo.sobrenome}.`}</p>
-            <p> <b>Telefone:</b> {usuarioInfo.telefone}</p>
-            <p> <b>Email:</b> {usuarioInfo.email}</p>
-            <p> <b>CPF:</b> {usuarioInfo.cpf}</p>
-          </div>
+        <div className='s2-2'>
+          <p> <b>Nome:</b> {`${usuarioInfo.nome} ${usuarioInfo.sobrenome}.`}</p>
+          <p> <b>Telefone:</b> {usuarioInfo.telefone}</p>
+          <p> <b>Email:</b> {usuarioInfo.email}</p>
+          <p> <b>CPF:</b> {usuarioInfo.cpf}</p>
+        </div>
         {mudar === false &&
           <>
           </>}
@@ -326,7 +302,7 @@ export default function Conta() {
 
               <input className='dnt' type='text' placeholder='Nome' value={nome} onChange={e => setNome(e.target.value)}></input>
               <input className='dnt' type='text' placeholder='Sobrenome' value={sobrenome} onChange={e => setSobrenome(e.target.value)}></input>
-              
+
             </div>
 
             <div className='s2-5'>
@@ -337,7 +313,7 @@ export default function Conta() {
 
             <div className='s2-6'>
               <button onClick={alterarUsuario}> <img src='/assets/images/usuario/conta/editar.png' alt='' />  </button>
-              </div>
+            </div>
 
           </div>
         }
@@ -350,8 +326,8 @@ export default function Conta() {
       <div className='s3'>
 
         <div className='s3-1'>
-          <b>endereços</b>
-          <p className='p' onClick={Mudar}>adicionar ou editar <img className='i' src='/assets/images/usuario/conta/editar.png' alt='' /></p>
+          <b>Endereços</b>
+          <p className='p' onClick={Mudar}>Adicionar ou Editar <img className='i' src='/assets/images/usuario/conta/editar.png' alt='' /></p>
         </div>
 
         <div className='s3-lado'>
@@ -361,12 +337,6 @@ export default function Conta() {
               <p> <b>Cep:</b>{item.cep} </p>
             </div>
           )}
-
-
-          {mostrar === false &&
-            <>
-            </>
-          }
 
           {mostrar === true &&
             <>
@@ -394,72 +364,71 @@ export default function Conta() {
 
       </div>
 
-            
+
 
       <div className='linha'>.</div>
 
       <div className='s3-1'>
-          <b>dados do cartão</b>
-          <p className='p' onClick={Mudar}>adicionar ou editar <img className='i' src='/assets/images/usuario/conta/editar.png' alt='' /></p>
+        <b>dados do cartão</b>
+        <p className='p' onClick={Mudar}>adicionar ou editar <img className='i' src='/assets/images/usuario/conta/editar.png' alt='' /></p>
+      </div>
+
+      <div className='s3-lado'>
+
+        <div className='s3-2'>
+          <p><b>nome no cartão:</b> {cartao.nome}</p>
+          <p><b>número do cartão:</b> {cartao.numero}</p>
+          <p><b>validade:</b> {cartao.validade}</p>
+          <p><b>código de segurança:</b> {cartao.cvc}</p>
         </div>
 
-        <div className='s3-lado'>
 
-            <div className='s3-2'>
-              <p><b>nome no cartão:</b> {cartao.nome}</p> 
-              <p><b>número do cartão:</b> {cartao.numero}</p> 
-              <p><b>validade:</b> {cartao.validade}</p>
-              <p><b>código de segurança:</b> {cartao.cvc}</p>
+
+        {mostrar === false &&
+          <>
+          </>}
+
+        {mostrar === true &&
+          <>
+            <div className='s3-6'>
+              <input type='text' placeholder='nome no cartão' className='rua' value={nomeCartao} onChange={(e) => setNomeCartao(e.target.value)} />
+              <input type='text' placeholder='número do cartão' className='numero' value={numeroCartao} onChange={(e) => setNumeroCartao(e.target.value)} />
+              <select className='bairro' value={mesValidade} onChange={(e) => setMesValidade(e.target.value)}>
+                <option value={0}>mês</option>
+                <option value={1}>janeiro</option>
+                <option value={2}>fevereiro</option>
+                <option value={3}>março</option>
+                <option value={4}>abril</option>
+                <option value={5}>maio</option>
+                <option value={6}>junho</option>
+                <option value={7}>julho</option>
+                <option value={8}>agosto</option>
+                <option value={9}>setembro</option>
+                <option value={10}>outubro</option>
+                <option value={11}>novembro</option>
+                <option value={12}>dezembro</option>
+              </select>
+              <select className='cidade' value={anoValidade} onChange={(e) => setanoValidade(e.target.value)}>
+                <option value={0}>ano</option>
+                <option value={24}>2024</option>
+                <option value={25}>2025</option>
+                <option value={26}>2026</option>
+                <option value={27}>2027</option>
+                <option value={28}>2028</option>
+                <option value={29}>2029</option>
+                <option value={30}>2030</option>
+              </select>
+              <input id='cod' value={cvcCartao} onChange={(e) => setCVCCartao(e.target.value)} type='text' className='o' placeholder='código de segurança' />
+
+              <button onClick={cadastrarcartao} > <img src='/assets/images/usuario/conta/salvar.png' alt='' />  </button>
+              <button onClick={alterarCartao}> <img src='/assets/images/usuario/conta/editar.png' alt='' />  </button>
+              <button onClick={deletarCartao} > <img src='/assets/images/usuario/conta/excluir.png' alt='' />  </button>
             </div>
+          </>}
 
 
-
-          {mostrar === false &&
-            <>
-            </>}
-
-          {mostrar === true &&
-            <>
-              <div className='s3-6'>
-                <input type='text' placeholder='nome no cartão' className='rua' value={nomeCartao} onChange={(e) => setNomeCartao(e.target.value)} />
-                <input type='text' placeholder='número do cartão' className='numero' value={numeroCartao} onChange={(e) => setNumeroCartao(e.target.value)}/>
-                <select className='bairro' value={mesValidade} onChange={(e) => setMesValidade(e.target.value)}>
-                                                <option value={0}>mês</option>
-                                                <option value={1}>janeiro</option>
-                                                <option value={2}>fevereiro</option>
-                                                <option value={3}>março</option>
-                                                <option value={4}>abril</option>
-                                                <option value={5}>maio</option>
-                                                <option value={6}>junho</option>
-                                                <option value={7}>julho</option>
-                                                <option value={8}>agosto</option>
-                                                <option value={9}>setembro</option>
-                                                <option value={10}>outubro</option>
-                                                <option value={11}>novembro</option>
-                                                <option value={12}>dezembro</option>
-                </select>
-                <select className='cidade' value={anoValidade} onChange={(e) => setanoValidade(e.target.value)}>
-                                                <option value={0}>ano</option>
-                                                <option value={24}>2024</option>
-                                                <option value={25}>2025</option>
-                                                <option value={26}>2026</option>
-                                                <option value={27}>2027</option>
-                                                <option value={28}>2028</option>
-                                                <option value={29}>2029</option>
-                                                <option value={30}>2030</option>
-                </select>
-                <input id='cod' value={cvcCartao} onChange={(e) => setCVCCartao(e.target.value)} type='text' className='o' placeholder='código de segurança'/>
-
-                <button onClick={cadastrarcartao} > <img src='/assets/images/usuario/conta/salvar.png' alt='' />  </button>
-                <button onClick={alterarCartao}> <img src='/assets/images/usuario/conta/editar.png' alt='' />  </button>
-                <button onClick={deletarCartao} > <img src='/assets/images/usuario/conta/excluir.png' alt='' />  </button>
-              </div>  
-            </>}
-
-
-        </div>
-
-        <div className='linha'>.</div>
+      </div>
+      <div className='linha'>.</div>
 
       <div className='s4'>
         <div className='s4-1'>
@@ -468,45 +437,18 @@ export default function Conta() {
         </div>
 
         <div className='s4-2'>
-
-          <div className='s6-1-p'>
-
-            <img src='/assets/images/usuario/iniprodutos/s2-2.png' alt='' />
-            <p>  WATER SLEEPING MASK </p>  <p>
-              <b> R$28,90 </b> ou 3x R$10,28 </p>
-          </div>
-          <div className='s6-1-p'>
-
-            <img src='/assets/images/usuario/iniprodutos/s2-1.png' alt='' />
-            <p>  LIMPADOR ANTIACNE </p>  <p>
-              <b> R$54,90 </b> ou 5x R$10,28 </p>
-          </div>
-          <div className='s6-1-p'>
-
-            <img src='/assets/images/usuario/iniprodutos/s2-2.png' alt='' />
-            <p>  WATER SLEEPING MASK </p>  <p>
-              <b> R$28,90 </b> ou 3x R$10,28 </p>
-          </div>
-          <div className='s6-1-p'>
-
-            <img src='/assets/images/usuario/iniprodutos/s2-1.png' alt='' />
-            <p>  LIMPADOR ANTIACNE </p>  <p>
-              <b> R$54,90 </b> ou 5x R$10,28 </p>
-          </div>
-
-          <img src='/assets/images/usuario/conta/seta.png' alt='' className='seta' />
-
+          {produtosfaV.map((item) =>
+            <div className='s6-1-p'>
+              <img src='/assets/images/usuario/iniprodutos/s2-2.png' alt='' />
+              <p>{item.nome}</p> <p>{item.preco}</p>
+            </div>
+          )}
         </div>
+
 
       </div>
 
-
-
-
-
-
       <Rodape />
-
 
     </div>
   );

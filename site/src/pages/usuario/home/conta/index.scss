@@ -1,25 +1,26 @@
-.pag-conta{
+.pag-conta {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap:18px;
+    gap: 18px;
     overflow: hidden;
-   
-    *{
-        p{
+
+    * {
+        p {
             font-size: 18px;
         }
     }
 
-    .s1{
+    .s1 {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        padding: 15px; 
+        padding: 15px;
     }
-    .s1-0{
+
+    .s1-0 {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -28,86 +29,93 @@
         padding: 0px 15px 0px 15px;
 
 
-        
-        button{
+
+        button {
             border: 1px solid #fabc599c;
             background-color: #fabc5921;
-             border-radius: 15px;
-             padding: 0px 8px 0px 8px ;
+            border-radius: 15px;
+            padding: 0px 8px 0px 8px;
         }
-        button:hover{
+
+        button:hover {
             background-color: #fabc5963;
             transition: 0.3s;
             letter-spacing: 1px;
         }
     }
-    .s1-1{
+
+    .s1-1 {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        
+
         width: 90vw;
     }
-    .s1-1 a{
+
+    .s1-1 a {
         color: black;
         text-decoration: none;
     }
-    .s1-1 img{
+
+    .s1-1 img {
         height: 2vh;
     }
 
-    .s1-2{
+    .s1-2 {
         display: flex;
         flex-direction: row;
         align-items: center;
         width: 90vw;
         justify-content: space-evenly;
 
-        button{
+        button {
             background-color: white;
             border: none;
             font-family: 'Questrial', sans-serif;
             border-radius: 5px;
         }
-        button:hover{
+
+        button:hover {
             transition: 0.3s;
             letter-spacing: 1px;
             box-shadow: 0px 6px 15px #a5a5a5;
         }
     }
-    .s1-2 img{
+
+    .s1-2 img {
         height: 8vh;
     }
-   
 
 
 
 
-    .linha{
+
+    .linha {
         background-color: #fabc59a4;
         color: #fabc59a4;
         height: 5px;
         width: 90vw;
-    
+
     }
 
 
-.conta{
-    background-color: #fabc5988;
-    border-radius: 100%;
-}
+    .conta {
+        background-color: #fabc5988;
+        border-radius: 100%;
+    }
 
 
 
-    .s2{
+    .s2 {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 100%;
     }
-    .s2-1{
+
+    .s2-1 {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -115,22 +123,26 @@
         width: 80vw;
         font-size: 18px;
 
-        .e{
-         font-weight: bold;
+        .e {
+            font-weight: bold;
         }
-        .p{
+
+        .p {
             cursor: pointer;
         }
-        .p:hover{
+
+        .p:hover {
             transition: 0.3s;
             font-size: 20px;
             letter-spacing: 1px;
         }
     }
-    .s2-1 img{
+
+    .s2-1 img {
         height: 2vh;
     }
-    .s2-2{
+
+    .s2-2 {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -138,9 +150,9 @@
         gap: 120px;
         font-size: 19px;
     }
-    
 
-    .s2-3{
+
+    .s2-3 {
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
@@ -149,7 +161,7 @@
         gap: 10px;
 
 
-            input{
+        input {
             border: 3px solid #fabc5988;
             border-radius: 25px;
             padding: 0px 10px 0px 10px;
@@ -157,27 +169,31 @@
             font-family: 'Questrial', sans-serif;
         }
     }
-    .dnt{
+
+    .dnt {
         margin: 4px;
     }
-    .s2-3 button{
+
+    .s2-3 button {
         background-color: #fabc5988;
         border: none;
         border-radius: 30px;
         width: 8vw;
         height: 6vh;
-        
-        
-        img{
+
+
+        img {
             width: 2vw;
         }
     }
-    .s2-6{
+
+    .s2-6 {
         display: flex;
         flex-direction: row;
         gap: 10px;
     }
-    .s2-6 button:hover{
+
+    .s2-6 button:hover {
         transition: 0.5s;
         cursor: pointer;
         background-color: #fabc59c9;
@@ -186,14 +202,15 @@
 
 
 
-    .s3{
+    .s3 {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
         width: 80vw;
     }
-    .s3-1{
+
+    .s3-1 {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -201,11 +218,12 @@
         width: 80vw;
         font-size: 18px;
     }
-    .s3-1 img{
+
+    .s3-1 img {
         height: 2vh;
     }
 
-    .s3-2{
+    .s3-2 {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -213,18 +231,18 @@
         flex-wrap: wrap;
         width: 20vw;
         height: 20vw !important;
-        gap:1px;
+        gap: 1px;
 
-        b{
+        b {
             font-size: 18px;
         }
 
-        p{
+        p {
             font-size: 18px;
         }
     }
 
-    .s3-lado{
+    .s3-lado {
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -232,7 +250,7 @@
         width: 80vw;
     }
 
-    .s3-3{
+    .s3-3 {
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
@@ -240,7 +258,7 @@
         gap: 15px;
     }
 
-    .s3-6{
+    .s3-6 {
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
@@ -248,7 +266,8 @@
         gap: 15px;
     }
 
-    .s3-6 input, select{
+    .s3-6 input,
+    select {
         border: 3px solid #fabc5988;
         border-radius: 25px;
         padding: 0px 10px 0px 10px;
@@ -256,62 +275,73 @@
         font-family: 'Questrial', sans-serif;
     }
 
-    .s3-3 input, select{
+    .s3-3 input,
+    select {
         border: 3px solid #fabc5988;
         border-radius: 25px;
         padding: 0px 10px 0px 10px;
         height: 5vh;
         font-family: 'Questrial', sans-serif;
     }
-    textarea:focus, input:focus, selcet:focus {
+
+    textarea:focus,
+    input:focus,
+    select:focus {
         box-shadow: 0 0 0 0;
         outline: 0;
     }
-    .rua{
+
+    .rua {
         width: 15vw;
     }
-    .numero{
+
+    .numero {
         width: 17vw;
     }
-    .bairro{
+
+    .bairro {
         width: 15vw;
     }
-    .cidade{
+
+    .cidade {
         width: 24vh;
     }
-    .cep{
+
+    .cep {
         width: 33vw;
     }
 
-    select{
+    select {
         color: #6d6d6d;
     }
 
-    .s3-3 button{
+    .s3-3 button {
         background-color: #fabc5988;
         border: none;
         border-radius: 30px;
         width: 8vw;
     }
-    .s3-3 button:hover{
+
+    .s3-3 button:hover {
         transition: 0.5s;
         cursor: pointer;
         background-color: #fabc59c9;
     }
 
-    .s3-6 button{
+    .s3-6 button {
         background-color: #fabc5988;
         border: none;
         border-radius: 30px;
         width: 8vw;
     }
-    .s3-6 button:hover{
+
+    .s3-6 button:hover {
         transition: 0.5s;
         cursor: pointer;
         background-color: #fabc59c9;
     }
 
-    #cod{
+    #cod {
         width: 14vw;
     }
 
@@ -319,61 +349,68 @@
 
 
 
-    .s4{
+    .s4 {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
         width: 80vw;
     }
-    .s4-1{
+
+    .s4-1 {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 15px;
         width: 80vw;
     }
-    .s4-1 img{
+
+    .s4-1 img {
         height: 2vh;
     }
 
-    .s4-2{
-        width: 80vw;
+    .s4-2 {
         display: flex;
         flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 15px;
+        width: 80vw;
     }
-    .seta{
+
+    .seta {
         height: 5vh;
     }
-    .seta:hover{
+
+    .seta:hover {
         cursor: pointer;
         transition: 0.5s;
         height: 6vh;
     }
 
 
-    
-    .p{
+
+    .p {
         cursor: pointer;
     }
 
-    .p:hover{
+    .p:hover {
         transition: 0.3s;
         font-size: 20px;
         letter-spacing: 1px;
     }
 
-    .i:hover{
+    .i:hover {
         transition: 0.3s;
         height: 3vh;
     }
 
-    .c{
+    .c {
         width: 15vw;
     }
 
-    .o{
+    .o {
         width: 12vw;
     }
 
@@ -381,164 +418,179 @@
 
 
 
-    
-  .s6-1-p{
-    border: 4px solid #fabc59ab;
-    border-radius: 15px;
-    padding: 8px;
-  }
-  .s6-1-p:hover{
-    cursor: pointer;
-    transition: 0.3s;
-    padding: 9px;
-  }
-  .s6-1-p img{
-    height: 10vh !important;
-  }
-  .s6-1-p img:hover{
-    height: 11vh;
-    transition: 0.3s;
-  }
-  .s6-1-p p{
-    font-size: 14px;
-  }
-  .s6-1-p b{
-    font-size: 18px;
-  }
 
-
-  @media (max-width: 550px) {
-
-    .s1-0{
-        display: flex;
-        height: 100px;
-        p{
-            font-size: 25px;
-        }
-    }
-    .s1-1{
-        
-        
-
-        p{
-            font-size: 18px;
-        }
+    .s6-1-p {
+        border: 4px solid #fabc59ab;
+        border-radius: 15px;
+        padding: 8px;
+        min-width: 195px;
+        min-height: 173px;
     }
 
-    
-    .s1-2{
-        
-        p{
-            font-size: 10px;
-        }
+    .s6-1-p:hover {
+        cursor: pointer;
+    }
+
+    .s6-1-p img {
+        height: 10vh !important;
+    }
+
+    .s6-1-p img:hover {
+        height: 11vh;
+        transition: 0.3s;
+    }
+
+    .s6-1-p p {
+        font-size: 14px;
+    }
+
+    .s6-1-p b {
+        font-size: 18px;
     }
 
 
+    @media (max-width: 550px) {
 
-    .s2{
-        width: 10px;
-    }
-    .s2-1{
-        width: 29px;
-        .e{
+        .s1-0 {
             display: flex;
-            flex-direction: row;
-           
-            font-size: 18px;
-        }
-    }
-    .s2-2{
-        display: flex;
-        flex-direction: column;
-        
+            height: 100px;
 
-        
-        
-        p{
+            p {
+                font-size: 25px;
+            }
+        }
+
+        .s1-1 {
+
+
+
+            p {
+                font-size: 18px;
+            }
+        }
+
+
+        .s1-2 {
+
+            p {
+                font-size: 10px;
+            }
+        }
+
+
+
+        .s2 {
+            width: 10px;
+        }
+
+        .s2-1 {
+            width: 29px;
+
+            .e {
+                display: flex;
+                flex-direction: row;
+
+                font-size: 18px;
+            }
+        }
+
+        .s2-2 {
             display: flex;
             flex-direction: column;
-            font-size: 20px;
-            margin-right: 200%;
+
+
+
+
+            p {
+                display: flex;
+                flex-direction: column;
+                font-size: 20px;
+                margin-right: 200%;
+            }
         }
-    }
-    .s3-2{
-        display: flex;
-        height: 300px;
-        p{
-            font-size: 13px;
+
+        .s3-2 {
+            display: flex;
+            height: 300px;
+
+            p {
+                font-size: 13px;
+            }
         }
-    }
 
-    .s3-3 input, select{
-        border: 3px solid #fabc5988;
-        border-radius: 25px;
-        padding: 0px 10px 0px 10px;
-        height: 5vh;
-        font-family: 'Questrial', sans-serif;
-    }
-    textarea:focus, input:focus, selcet:focus {
-        box-shadow: 0 0 0 0;
-        outline: 0;
-    }
-    .rua{
-        width: 53vw;
-    }
-    .numero{
-        width: 53vw;
-    }
-    .bairro{
-        width: 53vw;
-    }
-    .cidade{
-        width: 30vh;
-    }
-    .cep{
-        width: 53vw;
-    }
+        .s3-3 input,
+        select {
+            border: 3px solid #fabc5988;
+            border-radius: 25px;
+            padding: 0px 10px 0px 10px;
+            height: 5vh;
+            font-family: 'Questrial', sans-serif;
+        }
 
-    select{
-        color: #6d6d6d;
-    }
+        textarea:focus,
+        input:focus,
+        selcet:focus {
+            box-shadow: 0 0 0 0;
+            outline: 0;
+        }
 
-    .s3-3 button{
-        display: flex;
-        flex-direction: row;
-        width: 10vh;
-    }
+        .rua {
+            width: 53vw;
+        }
 
-   
-    
+        .numero {
+            width: 53vw;
+        }
 
+        .bairro {
+            width: 53vw;
+        }
 
+        .cidade {
+            width: 30vh;
+        }
 
-    .p{
-        font-size: 15px;
+        .cep {
+            width: 53vw;
+        }
 
-    }
+        select {
+            color: #6d6d6d;
+        }
+
+        .s3-3 button {
+            display: flex;
+            flex-direction: row;
+            width: 10vh;
+        }
 
 
-    .s4-1{
-        p{
+
+
+
+
+        .p {
+            font-size: 15px;
+
+        }
+
+
+        .s4-1 {
+            p {
+                display: none;
+            }
+        }
+
+
+        .s6-1-p {
             display: none;
+
+        }
+
+
+        .seta {
+            display: none;
+
         }
     }
-
-
-    .s6-1-p{
-        display: none;
-        
-    }
-
-
-    .seta{
-        display: none;
-
-    }
 }
-
-
-
-
-}
-
-

@@ -23,63 +23,44 @@ export async function listarTodosProduto() {
     return resposta;
 };
 
+export async function listarProdutosFav() {
+    const comando = `
+    select 
+        id_produto      as id,
+        nm_produto      as nome,
+        ds_produto      as descricao,
+        ds_tamanho      as tamanho,
+        id_categoria    as categoria,
+        id_marca        as marca,
+        id_necessidade  as necessidade,
+        id_tipo_pele    as tipo_pele,
+        vl_preco        as preco,
+        bt_disponivel   as disponivel,
+        qtd_estoque     as quantidade,
+        id_ingr_atv     as ingrediente_atv,
+        ds_indicacao    as indicacao,
+        img_produto     as imagem
+    from tb_produto
+    where bt_favorito = 1
+    `;
+
+    const [respo] = await connection.query(comando);
+    return respo;
+}
+
 export async function buscaProdutoFiltro(prdNome, prdId) {
     const comando = `
     select 
-        tb_produto.id_produto as id,
+        id_produto as id,
         nm_produto as nome,
-        ds_produto as descricao,
-        ds_tamanho as tamanho,
-        tb_produto.id_categoria as categoria,
-        tb_categoria.nm_categoria as nome_categoria,
-        tb_produto.id_marca as marca,
-        tb_marca.nm_marca as nome_marca,
-        id_necessidade as necessidade,
-        id_tipo_pele as tipo_pele,
         vl_preco as preco,
-        bt_disponivel as disponivel,
-        qtd_estoque as quantidade,
-        id_ingr_atv as ingrediente_atv,
-        ds_indicacao as indicacao
+        bt_disponivel as disponivel
     from tb_produto 
-    inner join tb_marca
-    on tb_produto.id_produto = tb_marca.id_marca
-    inner join tb_categoria
-    on tb_produto.id_produto = tb_categoria.id_categoria
     where (nm_produto like ? or id_produto = ?)
     `;
     
     const [respo] = await connection.query(comando, [`%${prdNome}%`, prdId]);
     
-    return respo;
-}
-
-export async function listarProdutosInner() {
-    const comando = `
-    select 
-        tb_produto.id_produto as id,
-        nm_produto as nome,
-        ds_produto as descricao,
-        ds_tamanho as tamanho,
-        tb_produto.id_categoria as categoria,
-        tb_categoria.nm_categoria as nome_categoria,
-        tb_produto.id_marca as marca,
-        tb_marca.nm_marca as nome_marca,
-        id_necessidade as necessidade,
-        id_tipo_pele as tipo_pele,
-        vl_preco as preco,
-        bt_disponivel as disponivel,
-        qtd_estoque as quantidade,
-        id_ingr_atv as ingrediente_atv,
-        ds_indicacao as indicacao
-    from tb_produto 
-    inner join tb_marca
-    on tb_produto.id_produto = tb_marca.id_marca
-    inner join tb_categoria
-    on tb_produto.id_produto = tb_categoria.id_categoria
-    `;
-
-    const [respo] = await connection.query(comando)
     return respo;
 }
 
@@ -134,9 +115,9 @@ export async function filtroProdutoID(idc, idm, idn, idtt) {
 
 }
 
-export async function pesquisarProduto(produto) {
+export async function pesquisarProduto(nome) {
     const comando = `
-    select 
+    select
         nm_produto      as nome,
         ds_produto      as descricao,
         ds_tamanho      as tamanho,
@@ -153,7 +134,7 @@ export async function pesquisarProduto(produto) {
     where nm_produto like ?
     `;
 
-    const [respo] = await connection.query(comando, [`%${produto.nome}%`]);
+    const [respo] = await connection.query(comando, [`%${nome}%`]);
     return respo
 }
 
@@ -248,6 +229,18 @@ export async function alterarProduto(produto) {
     return result;
 }
 
+export async function favoritarProduto(fav, id) {
+    const comando = `
+    update tb_produto 
+    set 
+		bt_favorito = ?
+	where id_produto = ?
+    `;
+
+    const [respo] = await connection.query(comando, [fav, id]);
+    return respo
+}
+
 export async function deletarProduto(id) {
     const comando = `
     delete from tb_produto where id_produto = ?
@@ -267,20 +260,4 @@ export async function inserirImagemProduto(imagem, id) {
     
     const [respo] = await connection.query(comando, [imagem, id])
     return respo
-}
-
-
-export async function buscaProduto(nome) {
-
-    const comando = `
-    select 
-        id_produto as id,
-        nm_produto as nome,
-        vl_preco as preco
-    from tb_produto
-    where nm_produto like ?
-    `;
-    
-    const [respo] = await connection.query(comando, [`%${nome}%`]);
-    return respo;
 }

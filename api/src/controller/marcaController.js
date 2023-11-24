@@ -1,4 +1,4 @@
-import { listarMarcas, inserirMarcas } from '../repository/marcaRepository.js';
+import { listarMarcas, inserirMarcas, listarMarcaId } from '../repository/marcaRepository.js';
 import { Router } from 'express';
 
 const server = Router()
@@ -10,6 +10,16 @@ server.get(('/marca'), async (req, resp) => {
   }
   catch (err) {
     resp.status(404).send({ erro: err.message });
+  }
+})
+
+server.get(('/marca/:id'), async (req, resp) => {
+  try {
+    const params = req.params.id;
+    const respo = await listarMarcaId(params);
+    resp.send(respo)
+  } catch (err) {
+    resp.status(404).send({erro: err.message});
   }
 })
 

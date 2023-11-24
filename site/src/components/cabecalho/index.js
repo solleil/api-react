@@ -2,9 +2,8 @@ import { useState } from 'react';
 import './index.scss';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage'
-import { listarProdutos, listarCategorias, listarTiposdePele, listarNecessidades, listarMarcas } from '../../api/getAPI';
+import { listarCategorias, listarTiposdePele, listarNecessidades, listarMarcas } from '../../api/getAPI';
 import { useEffect } from 'react';
-import SearchBar from '../barraPesquisa';
 
 export default function Cabecalho() {
   const [menu, setMenu] = useState(false);
@@ -12,12 +11,10 @@ export default function Cabecalho() {
   const [tipoPele, setTipoPele] = useState(false);
   const [necessidades, setNecessidades] = useState(false);
   const [marcas, setMarcas] = useState(false);
-  const [produtos, setProdutos] = useState([]);
   const [categoriaS, setCategoriaS] = useState([]);
   const [tipopeleS, setTipopeleS] = useState([]);
   const [necesS, setNecesS] = useState([]);
   const [marcaS, setMarcaS] = useState([]);
-  const [pesq, setPesq] = useState('');
 
   const navigate = useNavigate();
 
@@ -43,10 +40,6 @@ export default function Cabecalho() {
     navigate('/')
   }
 
-  async function carregarProdutos() {
-    const resp = await listarProdutos();
-    setProdutos(resp)
-  }
 
   async function carregarCategorias() {
     const respo = await listarCategorias();
@@ -86,7 +79,6 @@ export default function Cabecalho() {
 
 
   useEffect(() => {
-    carregarProdutos();
     carregarCategorias();
     carregarTiposPele();
     carregarNecess();
@@ -120,14 +112,6 @@ export default function Cabecalho() {
       <div className="c2">
         <div className="c2-1">
           <button id='menos' onClick={Mudar} className='funcaomudar'> <img src="/assets/images/geral/menu.png" alt="" />  </button></div>
-
-
-
-        <div className="c2-2">
-          <div className="input">
-          <SearchBar />
-          </div>
-        </div>
 
 
         <div className="c2-3"> <button onClick={LogOut}> <img src="/assets/images/usuario/cabecalho/sair.png" alt="" /></button>

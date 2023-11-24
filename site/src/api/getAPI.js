@@ -9,9 +9,9 @@ export async function listarProdutos() {
     return r.data;
 }
 
-export async function listarProdutosInner() {
-    const r = await api.get('/produtos/inner');
-    return r.data
+export async function listarProdutosFav() {
+    const r = await api.get('/produto/fav');
+    return r.data;
 }
 
 export async function listarProdutosId(id) {
@@ -39,6 +39,12 @@ export async function listarMarcas() {
     return r.data;
 }
 
+export async function listarMarcaId(id) {
+    const r = await api.get(`/marca/${id}`);
+    return r.data;
+}
+
+
 export async function listarNecessidades() {
     const r = await api.get('/necessidades');
     return r.data;
@@ -56,6 +62,11 @@ export async function listarIngredientes() {
 
 export async function listarCategorias() {
     const r = await api.get('/categoria');
+    return r.data;
+}
+
+export async function listarCategoriasId(id) {
+    const r = await api.get(`/categoria/${id}`);
     return r.data;
 }
 
@@ -83,11 +94,6 @@ export async function listarAdminId(id) {
 
 export function MostrarImagem(imagem) {
     return `${api_url}/${imagem}`;
-}
-
-export async function buscaProduto(nome) {
-    const resposta = await api.get(`/produto/busca?nome=${nome}`)
-    return resposta.data
 }
 
 export async function listarPedidopPorID(id) {

@@ -27,6 +27,7 @@ export async function editarEndereco(rua, numero, bairro, cidade, cep, id) {
 
     return resposta.data;
 }
+
 export async function editarProduto(nomeProduto, ingrediente, descri, precoProduto, tipopele, estoque, tamanho, qtd, idMarca, necess, ingre_atv, indica, categoria, id) {
     const resposta = await api.put(`/alterar/produto`, {
         nome: nomeProduto,
@@ -46,7 +47,12 @@ export async function editarProduto(nomeProduto, ingrediente, descri, precoProdu
     });
 
     return resposta.data;
-};
+}
+
+export async function favoritarProduto(id, fav) {
+    const resposta = await api.put(`/produto/favorito/${id}?fav=${fav}`);
+    return resposta.status;
+}
 
 export async function enviarImagem(id, imagem) {
     const formData = new FormData();

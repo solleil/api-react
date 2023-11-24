@@ -74,7 +74,7 @@ export default function Escolherpagamento() {
 
 
                 <div className='p'>
-                    <p id='lo'>Login</p>
+                    <p id='lo'>Carrinho</p>
                     <p id='en'>Entrega</p>
                     <p id='pag'><strong>Pagamento</strong></p>
                 </div>

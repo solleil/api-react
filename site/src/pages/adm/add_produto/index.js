@@ -67,6 +67,9 @@ export default function AddProduto() {
     setCarregando(true)
     try {
      if (!idParams) {
+      if (!imagem) {
+        throw new Error('Escolha uma Imagem para o Produto')
+      }
       const respo = await AdicionarProduto(nomeProduto, ingrediente, descri, precoProduto, tipopele, estoque, tamanho, qtd, idMarca, necess, ingre_atv, indica, categoria);
       await enviarImagem(respo.insertId, imagem);
       toast.success("Produto cadastrado");
@@ -79,7 +82,12 @@ export default function AddProduto() {
       }
     } catch (err) {
       setCarregando(false);
-      toast.error(err.response.data.erro); 
+      if (err.response) {
+        toast.error(err.response.data.erro); 
+      }
+      else {
+        toast.error(err.message);
+      }
     }
   }
 

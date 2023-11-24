@@ -1,23 +1,10 @@
-import { inserirProduto, listarTodosProduto, deletarProduto, alterarProduto, pesquisarProduto, mostrarProdutosId, inserirImagemProduto, listarProdutosInner, buscaProdutoFiltro, filtroProdutoID, buscaProduto } from '../repository/produtoRepository.js';
+import { inserirProduto, listarTodosProduto, deletarProduto, alterarProduto, pesquisarProduto, mostrarProdutosId, inserirImagemProduto, buscaProdutoFiltro, filtroProdutoID, favoritarProduto, listarProdutosFav } from '../repository/produtoRepository.js';
 import { Router } from 'express';
 
 import multer from 'multer';
 const upload = multer({ dest: 'storage/fotos_gerais_produtos' });
 
 const server = Router()
-
-
-server.get(('/produto/busca'), async (req, resp) => {
-  try {
-    const { nome } = req.query;
-    const resposta = await buscaProduto(nome);
-    console.log(nome);
-
-    resp.send(resposta)
-  } catch (err) {
-    resp.status(404).send({ erro: err.message })
-  }
-})
 
 server.get(('/produto'), async (req, resp) => {
   try {
@@ -26,6 +13,15 @@ server.get(('/produto'), async (req, resp) => {
   }
   catch (err) {
     resp.status(404).send({ erro: err.message });
+  }
+})
+
+server.get(('/produto/fav'), async (req, resp) => {
+  try {
+    const respo = await listarProdutosFav();
+    resp.send(respo);
+  } catch (err) {
+    resp.status(404).send({erro: err.message});
   }
 })
 
@@ -159,6 +155,17 @@ server.put('/alterar/produto', async (req, resp) => {
   }
   catch (err) {
     resp.status(400).send({ erro: err.message });
+  }
+})
+
+server.put(('/produto/favorito/:id'), async (req, resp) => {
+  try {
+    const queryf = req.query.fav;
+    const params = req.params.id;
+    const respo = await favoritarProduto(queryf, params);
+    resp.sendStatus(204);
+  } catch (err) {
+    resp.status(400).send({erro: err.message});
   }
 })
 

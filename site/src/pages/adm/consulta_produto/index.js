@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import { confirmAlert } from 'react-confirm-alert'; 
+import { confirmAlert } from 'react-confirm-alert'; 
+import { toast } from 'react-toastify';
 import CabecalhoAdm from '../../../components/cabecalhoAdm/index.js'
 import './index.scss';
-import { listarProdutosConsulta, listarProdutosInner } from '../../../api/getAPI.js';
+import { listarProdutos, listarProdutosConsulta } from '../../../api/getAPI.js';
 import { deletarProduto } from '../../../api/deleteAPI.js';
 
 export default function Consulta() {
@@ -19,23 +20,31 @@ export default function Consulta() {
   };
 
   async function filtrar() {
-    if (codigo && nomeProduto) {
-      const qry = `nome=${nomeProduto}&id=${codigo}`;
-      const respo = await listarProdutosConsulta(qry);
-      setProdutoS(respo);
-    }
-    else {
-      if (codigo) {
-        const qry = `id=${codigo}`;
+    try {
+      if (codigo && nomeProduto) {
+        const qry = `nome=${nomeProduto}&id=${codigo}`;
         const respo = await listarProdutosConsulta(qry);
         setProdutoS(respo);
       }
       else {
-        const qry = `nome=${nomeProduto}`;
-        const respo = await listarProdutosConsulta(qry);
-        setProdutoS(respo);
+        if (codigo) {
+          const qry = `id=${codigo}`;
+          const respo = await listarProdutosConsulta(qry);
+          setProdutoS(respo);
+        }
+        else if (nomeProduto) {
+          const qry = `nome=${nomeProduto}`;
+          const respo = await listarProdutosConsulta(qry);
+          setProdutoS(respo);
+        }
+        else {
+          carregarProdutos();
+        }
       }
+    } catch (err) {
+      toast.error(err.response.data.erro)
     }
+    
   }
 
   function navPagEditar(id) {
@@ -43,15 +52,33 @@ export default function Consulta() {
   }
 
   async function deletar(id) {
-    await deletarProduto(id);
-    carregarProdutos()
+    confirmAlert({
+      title: 'Remover Produto.',
+      message: 'Deseja mesmo remover esse Produto?',
+      buttons: [
+        {
+          label: 'Sim.',
+          onClick: async () => {
+            await deletarProduto(id);
+            if (codigo || nomeProduto) {
+              filtrar()
+            }
+            else {
+              carregarProdutos()
+            }
+          }
+        },
+        {
+          label: 'Não.'
+        }
+      ]
+    })
   }
 
   async function carregarProdutos() {
-    const resp = await listarProdutosInner();
+    const resp = await listarProdutos();
     setProdutoS(resp);
   };
-
 
   useEffect(() => {
     carregarProdutos();
@@ -94,9 +121,8 @@ export default function Consulta() {
             <tr>
               <th>Código:</th>
               <th>Nome:</th>
-              <th>Categoria:</th>
-              <th>Marca:</th>
               <th>Preço:</th>
+              <th>Disponibilidade</th>
               <th></th>
             </tr>
           </thead>
@@ -105,15 +131,14 @@ export default function Consulta() {
               <tr key={item.id}>
                 <td>{item.id}</td>
                 <td>{item.nome}</td>
-                <td>{item.nome_categoria}</td>
-                <td>{item.nome_marca}</td>
                 <td>R${item.preco}</td>
+                <td>{item.disponivel ? 'Disponível' : 'Não Disponível' }</td>
                 <td>
                   {item.id !== 0 &&
                     <>
                     <div className='botoes'>
                       <button className='botao' onClick={() => navPagEditar(item.id)}>Editar</button>
-                      <button className='botao' onClick={deletar}>Deletar</button>
+                      <button className='botao' onClick={() => deletar(item.id, item.nome)}>Deletar</button>
                     </div>
 
                     </>}
