@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage'
@@ -23,7 +24,9 @@ export default function Conta() {
   const [mostrar, setMostrar] = useState(true);
 
 
-  
+  const [caminho, setCaminho] = useState(false);
+  const [finalizados, setFinalizados] = useState(false);
+  const [devolucao, setDevolucao] = useState(false);
   const [mudar, setMudar] = useState(false)
   const [rua, setRua] = useState('');
   const [numero, setNumero] = useState(0);
@@ -55,12 +58,6 @@ export default function Conta() {
   const [cpf, setCpf] = useState('')
   const [telefone, setTelefone] = useState('')
 
-  const [ pedidos, setPedidos] = useState(false)
-
-  function MPedidos(){
-    setPedidos(!pedidos)
-  }
-
 
   async function cadastrarEndereco() {
     setCarregando(true)
@@ -89,18 +86,19 @@ export default function Conta() {
     };
   }
 
-  async function alterarCartao(){
+  async function alterarCartao() {
     setCarregando(false)
     try {
-      setValidadeCartao(`${anoValidade}/${mesValidade}`);
-      await editarCartao(nomeCartao, cvcCartao, numeroCartao,validadeCartao,  id)
-      carregarCartao(id);
-      toast.success("Cartão editado com sucesso");
+        setValidadeCartao(`${anoValidade}/${mesValidade}`);
+        const id = storage('usuario-logado').id;
+        await editarCartao(nomeCartao, cvcCartao, numeroCartao, validadeCartao, id);
+        carregarCartao(id)
+        toast.success('cartão editado com sucesso');
     } catch (err) {
-      setCarregando(false);
-      toast.error(err.response.data.erro)
+      setCarregando(false)
+        toast.error(err.message);
     }
-  }
+}
 
   async function alterarUsuario(){
     try {
@@ -204,8 +202,27 @@ export default function Conta() {
 
 
 
+  function Mcaminho() {
    
+    setCaminho(!caminho)
+    setFinalizados(false)
+    setDevolucao(false)
+  }
+
+  function Mfinalizados() {
    
+    setCaminho(false)
+    setFinalizados(!finalizados)
+    setDevolucao(false)
+  }
+
+  function Mdevolucao() {
+   
+    setCaminho(false)
+    setFinalizados(false)
+    setDevolucao(!devolucao)
+  }
+
 
   function MudarP(){
     setMudarPagamento(!mudarPagamento)
@@ -223,32 +240,63 @@ export default function Conta() {
 
         <div className='s1-1'>
           <p><b>seus pedidos:</b></p>
-          <button onClick={MPedidos}>
+          <a href='coloca sempre o Href com alguma coisa, letras, sla, pls'>
             veja tudo  <img src='/assets/images/usuario/inicial/seta.png' alt='' />
-          </button>
+          </a>
         </div>
 
-        
+        <div className='s1-2'>
+
+          
+       
+
+          <button onClick={Mcaminho}>
+            <img src='/assets/images/usuario/conta/caminhao.png' alt='' />
+            <p>a caminho</p>
+          </button>
+
+          <button onClick={Mfinalizados}>
+            <img src='/assets/images/usuario/conta/finalizados.png' alt='' />
+            <p>finalizados</p>
+          </button>
+
+          <button onClick={Mdevolucao}>
+            <img src='/assets/images/usuario/conta/caixa2.png' alt='' />
+            <p>devolução</p>
+          </button>
+
+
+
+        </div>
+
         <div className='s1-2-open'>
           
-          {pedidos === true &&
+          {caminho === true &&
             <>
               <table>
-                <thead>
-                  <th>id do pedido</th>
-                  <th>status</th>
-                </thead>
+                <thead></thead>
                 <tbody>
 
-                  
-                  <th>teste                  </th>
                   <td>oi</td>
+                  <th>teste                  </th>
                 </tbody>
               </table>
             </>
           }
-          
-          
+          {finalizados === true &&
+            <>
+              <div>
+                <p>futura tabela</p>
+              </div>
+            </>
+          }
+          {devolucao === true &&
+            <>
+              <div>
+                <p>futura tabela</p>
+              </div>
+            </>
+          }
         </div>
 
 
