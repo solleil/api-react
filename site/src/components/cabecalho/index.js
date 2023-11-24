@@ -91,7 +91,8 @@ export default function Cabecalho() {
     <div className="cabecalho">
       <div className="pisca">
         <h1>
-          <span className="pisca-s1"><p id='frete'>FRETE GRÁTIS</p> <p>ACIMA DE R$120</p></span>
+          <span className="pisca-s1"><p id='frete'>FRETE GRÁTIS</p>
+           <h6>ACIMA DE R$120</h6></span>
         </h1>
       </div>
       <div className="c1">

@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage'
@@ -84,14 +85,14 @@ export default function Conta() {
     setCarregando(false)
     try {
       setValidadeCartao(`${anoValidade}/${mesValidade}`);
-      await editarCartao(nomeCartao, cvcCartao, numeroCartao, validadeCartao, id)
+      await editarCartao(nomeCartao, cvcCartao, numeroCartao,validadeCartao,  id)
       carregarCartao(id);
       toast.success("Cartão editado com sucesso");
     } catch (err) {
-      setCarregando(false);
-      toast.error(err.response.data.erro)
+      setCarregando(false)
+        toast.error(err.message);
     }
-  }
+}
 
   async function alterarUsuario() {
     try {
@@ -375,12 +376,12 @@ export default function Conta() {
 
       <div className='s3-lado'>
 
-        <div className='s3-2'>
-          <p><b>nome no cartão:</b> {cartao.nome}</p>
-          <p><b>número do cartão:</b> {cartao.numero}</p>
-          <p><b>validade:</b> {cartao.validade}</p>
-          <p><b>código de segurança:</b> {cartao.cvc}</p>
-        </div>
+            <div className='s3-2'>
+              <p><b>nome no cartão:</b> {cartao.nome}</p> 
+              <p><b>número do cartão:</b> {cartao.numero}</p> 
+              <p><b>validade:</b> {cartao.validade}</p>
+              <p><b>código de segurança:</b> {cartao.cvc}</p>
+            </div>
 
 
 

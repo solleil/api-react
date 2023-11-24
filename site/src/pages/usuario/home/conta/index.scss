@@ -17,7 +17,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        padding: 15px;
+        padding: 15px; 
     }
 
     .s1-0 {
@@ -52,14 +52,23 @@
 
         width: 90vw;
     }
-
-    .s1-1 a {
+    .s1-1 a{
         color: black;
         text-decoration: none;
+        background-color: white;
+        border: none;
+
+        
     }
 
     .s1-1 img {
         height: 2vh;
+    }
+    .s1-1:hover{
+        img{
+            height: 3vh;
+            transition: 0.3s;
+        }
     }
 
     .s1-2 {
@@ -86,7 +95,7 @@
     .s1-2 img {
         height: 8vh;
     }
-
+   
 
 
 
@@ -479,80 +488,66 @@
 
 
 
-        .s2 {
-            width: 10px;
+    .s2{
+        width: 10px;
+    }
+    .s2-1{
+        width: 29px;
+        .e{
+            display: flex;
+            flex-direction: row;
+           
+            font-size: 18px;
         }
+    }
+    .s2-2{
+        display: flex;
+        flex-direction: column;
+        
 
-        .s2-1 {
-            width: 29px;
-
-            .e {
-                display: flex;
-                flex-direction: row;
-
-                font-size: 18px;
-            }
-        }
-
-        .s2-2 {
+        
+        
+        p{
             display: flex;
             flex-direction: column;
-
-
-
-
-            p {
-                display: flex;
-                flex-direction: column;
-                font-size: 20px;
-                margin-right: 200%;
-            }
+            font-size: 20px;
+            margin-right: 200%;
         }
-
-        .s3-2 {
-            display: flex;
-            height: 300px;
-
-            p {
-                font-size: 13px;
-            }
+    }
+    .s3-2{
+        display: flex;
+        height: 300px;
+        p{
+            font-size: 13px;
         }
+    }
 
-        .s3-3 input,
-        select {
-            border: 3px solid #fabc5988;
-            border-radius: 25px;
-            padding: 0px 10px 0px 10px;
-            height: 5vh;
-            font-family: 'Questrial', sans-serif;
-        }
-
-        textarea:focus,
-        input:focus,
-        selcet:focus {
-            box-shadow: 0 0 0 0;
-            outline: 0;
-        }
-
-        .rua {
-            width: 53vw;
-        }
-
-        .numero {
-            width: 53vw;
-        }
-
-        .bairro {
-            width: 53vw;
-        }
-
-        .cidade {
-            width: 30vh;
-        }
-
-        .cep {
-            width: 53vw;
-        }
+    .s3-3 input, select{
+        border: 3px solid #fabc5988;
+        border-radius: 25px;
+        padding: 0px 10px 0px 10px;
+        height: 5vh;
+        font-family: 'Questrial', sans-serif;
+    }
+    textarea:focus, input:focus, selcet:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }
+    .rua{
+        width: 53vw;
+    }
+    .numero{
+        width: 53vw;
+    }
+    .bairro{
+        width: 53vw;
+    }
+    .cidade{
+        width: 30vh;
+    }
+    .cep{
+        width: 53vw;
+    }
 
         select {
             color: #6d6d6d;

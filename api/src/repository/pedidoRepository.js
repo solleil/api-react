@@ -3,8 +3,9 @@
  export async function listarPedido(){
      const comando=`
      SELECT
-            pd.id_pedido       as idpedido,
+            pd.id_pedido       as id,
             pd.dt_pedido       as data,
+            c.id_cliente       as idnome,
             c.nm_cliente       as nome,
             pd.bt_enviado      as enviado
             
@@ -22,8 +23,10 @@
  export async function listarPedidopPorID(id) {
     const comando = `
     SELECT
-            pd.id_pedido       as idpedido,
+    
+            pd.id_pedido       as id,
             pd.dt_pedido       as data,
+            c.id_cliente       as idnome,
             c.nm_cliente       as nome,
             pd.bt_enviado      as enviado
             
