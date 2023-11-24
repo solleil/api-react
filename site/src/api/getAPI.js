@@ -14,6 +14,11 @@ export async function listarProdutosFav() {
     return r.data;
 }
 
+export async function listarPedido2() {
+    const r = await api.get('/pedido');
+    return r.data;
+}
+
 export async function listarProdutosId(id) {
     const r = await api.get(`/produto/${id}`);
     return r.data;

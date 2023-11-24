@@ -19,15 +19,14 @@ export default function Carrinho() {
     return total;
   }
 
-  
-  async function carregarValor() {
-
-
-    const valor = [];
-    storage('valorCarrinho', valor)
-    
+  function pagamento() {
+    const pagamento = [];
+    pagamento.push({
+      total: calcularValorTotal(),
+      quantidade: itens.length
+    })
+    storage('pagamento', pagamento);
   }
-
 
   function quantidadeItens(){
     return itens.length;
@@ -82,7 +81,7 @@ export default function Carrinho() {
 
 
         {itens.map(item =>
-          <CarrinhoProduto item={item} removerItem={removerItem} carregarCarrinhoSolleil={CarregarCarrinhoSolleil} />
+          <CarrinhoProduto key={item.id} item={item} removerItem={removerItem} carregarCarrinhoSolleil={CarregarCarrinhoSolleil} />
         )}
 
       </div>
@@ -90,7 +89,7 @@ export default function Carrinho() {
 
         <div className='b-1'>itens: <b>{quantidadeItens()}</b></div>
         <div className='b-1'>valor total: <b>R$ {calcularValorTotal()}</b></div>
-        <a href='/pagamento/cartao' className='b-3'><b>FINALIZAR COMPRA</b></a>
+        <a href='/pagamento/cartao' onClick={pagamento} className='b-3'><b>FINALIZAR COMPRA</b></a>
       </div>
 
       <Rodape />

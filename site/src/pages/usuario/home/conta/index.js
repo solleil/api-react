@@ -6,7 +6,7 @@ import Cabecalho from '../../../../components/cabecalho';
 import Rodape from '../../../../components/rodape';
 import './index.scss';
 import { InserirEndereco } from '../../../../api/postAPi';
-import { listarEndereco, listarProdutosFav, listarUsuario } from '../../../../api/getAPI';
+import { MostrarImagem, listarEndereco, listarProdutosFav, listarUsuario } from '../../../../api/getAPI';
 import { apagarEndereco } from '../../../../api/deleteAPI';
 import { editarEndereco } from '../../../../api/putAPI';
 import { toast } from 'react-toastify';
@@ -16,6 +16,7 @@ import { listarCartao } from '../../../../api/getAPI';
 import { editarUsuario } from '../../../../api/putAPI';
 import { apagarCartao } from '../../../../api/deleteAPI';
 import { editarCartao } from '../../../../api/putAPI';
+import { api_url } from '../../../../constats';
 
 export default function Conta() {
   const [enderecoS, setEnderecoS] = useState([]);
@@ -161,6 +162,9 @@ export default function Conta() {
     setProdutosfaV(respo);
   }
 
+  function carregarImagem(imagem) {
+    return `${api_url}/${imagem}`;
+  }
 
   useEffect(() => {
     carregarEndereco()
@@ -440,7 +444,7 @@ export default function Conta() {
         <div className='s4-2'>
           {produtosfaV.map((item) =>
             <div className='s6-1-p'>
-              <img src='/assets/images/usuario/iniprodutos/s2-2.png' alt='' />
+              <img src={MostrarImagem(item.imagem)} alt='' />
               <p>{item.nome}</p> <p>{item.preco}</p>
             </div>
           )}

@@ -21,6 +21,7 @@ export async function listarEndereco() {
 export async function listarDadosEndereco(id) {
     const comando = `
     select
+        id_endereco     as id,
         ds_cep          as cep,
         ds_rua          as rua,
         nr_endereco     as endereco,

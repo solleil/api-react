@@ -17,6 +17,19 @@ export async function CadastrarUsuario(nome, sobrenome, telefone, email, cpf, da
     });
 
     return resposta.data;
+};
+
+export async function conectarPedido(cliente, endereco, cartao, total, parcelas, quantidade) {
+    const resposta = await api.post('/pedido', {
+        cliente: cliente,
+        endereco: endereco,
+        cartao: cartao,
+        total: total,
+        parcelas: parcelas,
+        quantidade: quantidade
+    })
+
+    return resposta.status
 }
 
 export async function AdicionarProduto(nomeProduto, ingrediente, descri, precoProduto, tipopele, estoque, tamanho, qtd, idMarca, necess, ingre_atv, indica, categoria) {

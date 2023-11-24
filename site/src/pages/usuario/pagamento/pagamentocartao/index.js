@@ -1,32 +1,73 @@
 
 import './index.scss'
 import Cabecalho from '../../../../components/cabecalho'
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import storage from 'local-storage';
-import { InserirCartao } from '../../../../api/postAPi';
-import { listarEndereco } from '../../../../api/getAPI';
+import { InserirCartao, conectarPedido } from '../../../../api/postAPi';
+import { listarCartao, listarEndereco } from '../../../../api/getAPI';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
+import LoadingBar from 'react-top-loading-bar'
+import { useNavigate } from 'react-router-dom';
 
 
 
 export default function Escolherpagamento() {
     const [cartao, setCartao] = useState(false);
-    const [cartaoDebito, setCartaoDebito] = useState(false);
     const [nomeCartao, setNomeCartao] = useState('');
     const [cvcCartao, setCVCCartao] = useState('');
     const [numeroCartao, setNumeroCartao] = useState('');
     const [validadeCartao, setValidadeCartao] = useState('');
     const [mesValidade, setMesValidade] = useState('')
     const [anoValidade, setanoValidade] = useState('');
+    const [valorTL, setValorTL] = useState(0);
+    const [pgFrete, setPgFrete] = useState(0);
+    const [parcelas, setParcelas] = useState(0);
+    const [quantidade, setQTd] = useState(0);
+    const [cartaoID, setCartaoID] = useState({});
     const [enderecoS, setEnderecoS] = useState([]);
+
+    const navigate = useNavigate();
+    const ref = useRef();
 
 
     if (storage('usuario-logado')) {
         var id = storage('usuario-logado').id
-      }
+    }
 
-    
+    function pagamento() {
+        if (storage('pagamento')) {
+            const [valorTotal] = storage('pagamento');
+            setValorTL(valorTotal.total);
+            setQTd(valorTotal.quantidade);
+            if (valorTotal < 120) {
+                setPgFrete(valorTotal.total + 15);
+            }
+            else {
+               setPgFrete(valorTotal.total)
+            }
+        }
+    }
+
+    async function pedido() {
+        ref.current.continuousStart();
+        await conectarPedido(id, enderecoS.id, cartaoID.id, valorTL, parcelas, quantidade );
+        setTimeout(() => {
+            navigate('/aprovado')
+        }, 6000)
+    }
+
+    async function carregarCartao() {
+        const respo = await listarCartao(id);
+        if (respo) {
+            setNomeCartao(respo.nome)
+            setCVCCartao(respo.cvc)
+            setNumeroCartao(respo.numero)
+        }
+        setCartaoID(respo);
+    }
+
+
     async function cadastrarcartao() {
         try {
             setValidadeCartao(`${anoValidade}/${mesValidade}`);
@@ -42,27 +83,25 @@ export default function Escolherpagamento() {
     async function carregarEndereco() {
         const respo = await listarEndereco(id);
         setEnderecoS(respo);
-      }
-    
+    }
+
 
     function MudarCartao() {
         setCartao(!cartao)
-        setCartaoDebito(false)
-    }
-
-    function MudarCartaoDebito() {
-        setCartaoDebito(!cartaoDebito)
-        setCartao(false)
     }
 
     useEffect(() => {
-        carregarEndereco()
-      }, []);
+        if (storage('pagamento')) {
+            pagamento();
+        };
+        carregarCartao();
+        carregarEndereco();
+    }, []);
 
     return (
         <div className='s1'>
             <Cabecalho />
-
+            <LoadingBar ref={ref} />
             <div className='s-2'>
 
                 <div className='s2-1'>
@@ -87,16 +126,16 @@ export default function Escolherpagamento() {
 
 
             <div className='s-3'>
-                
+
                 <div className='s-1-2-3'>
                     <p><strong>Entrega</strong></p>
                     <img src='/assets/images/usuario/pagamento/verificar.png' alt='' />
                 </div>
                 {enderecoS.map((item) =>
-            <div className='s3-2' key={item.id}>
-                <p>{item.rua}, {item.endereco} - {item.bairro}, {item.cidade}, {item.cep}</p>
-            </div>
-          )}
+                    <div className='s3-2' key={item.id}>
+                        <p>{item.rua}, {item.endereco} - {item.bairro}, {item.cidade}, {item.cep}</p>
+                    </div>
+                )}
             </div>
 
 
@@ -156,22 +195,15 @@ export default function Escolherpagamento() {
                                     <p id='texto'>parcelamento:</p>
                                     <div className='info-3'>
 
-                                        <select id='s-p'>
-                                            <option disabled selected>escolha a quantidade</option>
-                                            <option>02</option>
-                                            <option>03</option>
-                                            <option>04</option>
-                                            <option>05</option>
+                                        <select id='s-p' value={parcelas} onChange={(e) =>  setParcelas(Number(e.target.value))}>
+                                            <option value={0}>escolha a quantidade</option>
+                                            <option value={2}>02</option>
+                                            <option value={3}>03</option>
+                                            <option value={4}>04</option>
+                                            <option value={5}>05</option>
                                         </select>
                                     </div>
-
-
-
-
-
-
                                 </div>
-
 
                                 <div className='info-lado'>
                                     <input className='nome-cartao' type='text' placeholder='nome impresso no cartão' onChange={(e) => setNomeCartao(e.target.value)}></input>
@@ -197,47 +229,55 @@ export default function Escolherpagamento() {
                                 <button onClick={cadastrarcartao}>concluir cadastro</button>
 
                             </div>
-x
+
                         </div>
                     </>
                 }
 
 
 
- 
+
             </div>
 
 
             <div className='k'> <div className='l-c'></div> </div>
 
-        <div className='s5-todes'>
-            <div className='s-5'>
-                <div className='s-5-1'>
-                    <p><strong>Valor total:</strong></p>
-                    <p className='t-4'>R$50,00</p>
+            <div className='s5-todes'>
+                <div className='s-5'>
+                    <div className='s-5-1'>
+                        <p><strong>Valor total:</strong></p>
+                        <p className='t-4'>R${valorTL}</p>
+                    </div>
+                    {valorTL < 120 &&
+                        <div className='s-5-1'>
+                            <b>Taxa de envio:</b>
+                            <p className='t-4'>R$5,00</p>
+                        </div>
+                    }
+                    {valorTL > 120 &&
+                        <div className='s-5-1'>
+                            <b>Taxa de envio:</b>
+                            <p className='t-4'>R$0,00</p>
+                        </div>
+                    }
+                    <div className='s-5-1'>
+                        <b>Subtotal:</b>
+                        <p className='t-4'>R${pgFrete}</p>
+                    </div>
                 </div>
-                <div className='s-5-1'>
-                    <b>Taxa de envio:</b>
-                    <p className='t-4'>R$5,00</p>
-                </div>
-                <div className='s-5-1'>
-                    <b>Subtotal:</b>
-                    <p className='t-4'>R$55,00</p>
+
+                <div className='k'> <div className='l-c'></div> </div>
+
+                <div className='r-1'>
+                    <div className='s-5-1'>
+                        <p><strong>Valor total:</strong></p>
+                        <p className='t-4'>R${pgFrete}</p>
+                    </div>
+
+                    <p id='final' onClick={pedido}><b>FINALIZAR PAGAMENTO</b></p>
+
                 </div>
             </div>
-
-            <div className='k'> <div className='l-c'></div> </div>
-
-            <div className='r-1'>
-                <div className='s-5-1'>
-                    <p><strong>Valor total:</strong></p>
-                    <p className='t-4'>R$55,00</p>
-                </div>
-
-                <a href='/aprovado'><b>FINALIZAR PAGAMENTO</b></a>
-
-            </div>
-          </div>
 
 
         </div>

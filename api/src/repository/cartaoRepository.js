@@ -20,6 +20,7 @@ export async function listarCartao() {
 export async function listarCartaoid(id) {
     const comando = `
     select
+        id_cartao       as id,
         nm_cartao       as nome,
         ds_cvc          as cvc,
         ds_numero       as numero,

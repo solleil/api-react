@@ -1,8 +1,22 @@
 
 
+import { useEffect, useState } from 'react'
 import './index.scss'
+import { listarPedido2 } from '../../../../api/getAPI';
 
 export default function Pagaprovado() {
+  const [id, setId] = useState(0)
+  const [vt, setVt] = useState(0);
+
+  async function carregarPedido() {
+    const [respo] = await listarPedido2();
+    setId(respo.id);
+    setVt(respo.total);
+  }
+
+  useEffect(() => {
+    carregarPedido()
+  }, [])
 
   return (
     <div className='pg-aprovado'>
@@ -32,12 +46,12 @@ export default function Pagaprovado() {
 
             <div className='acp-1'>
               <p>PEDIDO: </p>
-              <p id='blue'>#16718</p>
+              <p id='blue'>#{id}</p>
             </div>
 
             <div className='acp-2'>
               <p>Valor Total:</p>
-              <p id='negri'>R$50,00</p>
+              <p id='negri'>R${vt}</p>
             </div>
 
             <a href='/'><h3>Voltar para Página inicial</h3></a>
