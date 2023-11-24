@@ -27,7 +27,7 @@ const Carrossel = () => {
   return (
     <div className="sobre">
       <div className="s0">
-        <div id="meuCarrossel" className="carousel slide" data-ride="carousel">
+        <div id="meuCarrossel" className="carousel-slide" data-ride="carousel">
           <ol className="carousel-indicators">
             {slides.map((_, index) => (
               <li

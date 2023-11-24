@@ -23,9 +23,12 @@
         animation: pisca 2.5s infinite;
         display: flex;
         flex-direction: row;
-        margin-top: 5px;
-      
         font-size: 5px;
+
+        h6{
+            margin-top:6%;
+            font-size: 15px;
+        }
 
 
 
@@ -63,6 +66,7 @@
 
         #frete {
             color: rgb(255, 157, 11);
+            
         }
 
     }
@@ -113,6 +117,7 @@
     .c1-1>img {
         margin-bottom: 15px;
         height: 8vh;
+        
     }
 
     .c-linha {
@@ -296,7 +301,11 @@
             flex-direction: row;
             
            
-    
+            h6{
+                
+                font-size: 9px;
+                margin-top: 10%;
+            }
     
     
         }
@@ -319,6 +328,7 @@
     
     
             #frete {
+                
                 color: rgb(255, 157, 11);
             }
     
