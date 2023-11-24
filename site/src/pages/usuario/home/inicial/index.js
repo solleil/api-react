@@ -146,7 +146,7 @@ export default function Inicial() {
         {chat === true &&
           <>
             <div className='s1-chat'>
-              <div className='chat-img'><img src='/assets/images/usuario/inicial/nuvemsol.png' alt='' /></div>
+              <div className='chat-img'><img src='/assets/images/usuario/inicial/nuvemsol.png' alt='' className='chat-img' /></div>
 
 
               <div className='chat'>

@@ -360,10 +360,10 @@ export default function Conta() {
         <div className='s3-lado'>
 
             <div className='s3-2'>
-              <p><b>nome no cartão:</b> {cartao.nome}</p> 
-              <p><b>número do cartão:</b> {cartao.numero}</p> 
-              <p><b>validade:</b> {cartao.validade}</p>
-              <p><b>código de segurança:</b> {cartao.cvc}</p>
+              <p><b className='b-cartao'>nome no cartão:</b> {cartao.nome}</p> 
+              <p><b className='b-cartao'>número do cartão:</b> {cartao.numero}</p> 
+              <p><b className='b-cartao'>validade:</b> {cartao.validade}</p>
+              <p><b className='b-cartao'>código de segurança:</b> {cartao.cvc}</p>
             </div>
 
 

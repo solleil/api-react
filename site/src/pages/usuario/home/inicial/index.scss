@@ -536,6 +536,7 @@ input[type=number] {
 
 
 
+
 @media (max-width: 550px) {
 
 
@@ -608,11 +609,34 @@ input[type=number] {
     gap: 2px;
   }
   .m-1 p{
-    font-size: 10px;
+    font-size: 6px;
   }
 
   .m-1 h3{
-    font-size: 12px;
+    font-size: 10px;
+  }
+
+  .chat-img{
+    height: 1px !important;
+  }
+
+  .chat{
+    padding: 1px;
+    width: 80vw;
+  }
+
+  .fixed p, .mensagem{
+    font-size: 5px;
+    width: 56vw !important;
+  }
+ 
+  .input{
+    width: auto;
+    font-size: 8px;
+
+    img{
+      height: 1vh;
+    }
   }
 
 
